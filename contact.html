@@ -2,92 +2,199 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Reconnect Contact</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reconnect Request a Phone</title>
 <link rel="stylesheet" href="site.css">
 <script src="site.js" defer></script>
 </head>
 <body>
-
-<div>
-
-
-
-<div style="width:100%;background:#f4f4f2">
-
-<div class="demo-bar"><div><b>Clickable prototype</b><span>Required: <a href="index.html">Home</a> · <a href="services.html">Services</a>
-<a href="pricing.html">Pricing</a> · <a href="about.html">About Us</a> · <a href="contact.html">Contact Us</a></span><span>Supporting: <a href="pricing.html">Pricing</a> · <a href="how-it-works.html">What to Expect</a> · <a href="security.html">Security</a> · <a href="agreement.html">Loaner Agreement</a></span><span>Nothing is sent or saved.</span></div></div>
-<!-- HEADER -->
-<div style="border-bottom:1.5px solid #c9c9c4;background:#fff">
+<div class="util"><div><span>Lost your phone? Call or text <strong>[PHONE]</strong></span><span>Pickup 24/7 from a secure locker · <a href="contact.html">Request a phone</a></span></div></div>
+<header style="border-bottom:1.5px solid #c9c9c4;background:#fff">
 <div style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
 <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph" style="width:40px;height:40px"><span style="padding:0;background:none">&#9679;</span></span><span style="font-size:22px;font-weight:700">Reconnect</span></a>
-<div class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px">
-<a href="index.html">Home</a>
-<a href="how-it-works.html">How it works</a>
-<a href="services.html">Services</a>
-<a href="pricing.html">Pricing</a>
-<a href="security.html">Security</a>
-<a href="about.html">About Us</a>
-<a href="contact.html" style="border-bottom:3px solid #1c1c1c;font-weight:600">Contact Us</a>
+<nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
+<a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a href="guides.html">Setup guides</a><a href="about.html">About Us</a>
+<a href="contact.html" class="btn" style="min-height:44px;padding:0 20px" aria-current="page">Request a phone</a>
+</nav>
 </div>
+</header>
+<main>
+
+<section style="max-width:1120px;margin:0 auto;padding:48px 24px 16px;display:flex;flex-direction:column;gap:12px">
+<span class="tag">Request a phone</span>
+<h1 style="margin:0;font-size:42px;line-height:1.15">Tell us what happened. We'll call you back.</h1>
+<p style="margin:0;font-size:18px;line-height:1.5;color:#3d3d3a;max-width:700px">This takes a couple of minutes. We'll call you within <strong>[X] minutes</strong> to confirm we can activate your phone. A borrowed phone is fine. Prefer to talk now? Call or text <strong>[PHONE]</strong>.</p>
+<div class="callout" style="font-size:14px;color:#3d3d3a;max-width:700px">Demo: nothing is sent, saved, or charged on this page.</div>
+</section>
+
+<section style="max-width:1120px;margin:0 auto;padding:16px 24px 64px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+
+<form id="request-form" novalidate style="flex:2 1 560px;min-width:0;display:flex;flex-direction:column;gap:20px">
+
+<!-- 1 -->
+<fieldset class="panel">
+<legend>1. How to reach you</legend>
+<div class="field"><label for="name">Your name</label><input id="name" type="text" autocomplete="name" placeholder="Full name"></div>
+<div class="field"><label for="phone-num">Phone number we can reach you at</label><input id="phone-num" type="tel" autocomplete="tel" inputmode="tel" placeholder="Any phone is fine, even a borrowed one"></div>
+<div class="field"><label for="email">Email (so we can send your agreement and locker code)</label><input id="email" type="email" autocomplete="email" placeholder="name@example.com"></div>
+<div class="field"><label for="when">When can we call you?</label>
+<select id="when"><option>As soon as possible</option><option>In about 30 minutes</option><option>In about an hour</option><option>Later today</option><option>Tomorrow morning</option></select></div>
+</fieldset>
+
+<!-- 2 -->
+<fieldset class="panel">
+<legend>2. About your phone</legend>
+<div class="field"><span class="q">Is it a personal or business phone?</span>
+<div class="choice-row"><label class="choice"><input type="radio" name="use" value="personal" checked><span>Personal</span></label><label class="choice"><input type="radio" name="use" value="business"><span>Business</span></label></div></div>
+<div class="field"><span class="q">What kind of phone was it?</span>
+<div class="choice-row"><label class="choice"><input type="radio" name="ptype" value="iphone" checked><span>iPhone</span></label><label class="choice"><input type="radio" name="ptype" value="android"><span>Android</span></label><label class="choice"><input type="radio" name="ptype" value="other"><span>Other</span></label></div></div>
+<div class="field"><label for="model">Model, if you know it</label><input id="model" type="text" placeholder="For example, iPhone 15 or Galaxy S23"></div>
+<div class="field"><label for="carrier">Who is your carrier?</label>
+<select id="carrier"><option value="">Choose one</option><option value="att">AT&amp;T</option><option value="verizon">Verizon</option><option value="tmobile">T-Mobile</option><option value="other">Other or prepaid</option><option value="unsure">Not sure</option></select></div>
+<div class="field"><span class="q">What happened to it?</span>
+<div class="choice-row"><label class="choice"><input type="radio" name="what" value="lost" checked><span>Lost</span></label><label class="choice"><input type="radio" name="what" value="stolen"><span>Stolen</span></label><label class="choice"><input type="radio" name="what" value="broken"><span>Broken</span></label><label class="choice"><input type="radio" name="what" value="water"><span>Water damage</span></label><label class="choice"><input type="radio" name="what" value="other"><span>Something else</span></label></div></div>
+<div class="field"><span class="q">Whose account is the number on?</span>
+<div class="choice-row"><label class="choice"><input type="radio" name="acct" value="mine" checked><span>My own account</span></label><label class="choice"><input type="radio" name="acct" value="family"><span>A family plan</span></label><label class="choice"><input type="radio" name="acct" value="work"><span>My employer's</span></label><label class="choice"><input type="radio" name="acct" value="unsure"><span>Not sure</span></label></div></div>
+<div class="field"><span class="q">Do you know your carrier account PIN or can you sign in to your carrier account?</span>
+<div class="choice-row"><label class="choice"><input type="radio" name="pin" value="yes" checked><span>Yes</span></label><label class="choice"><input type="radio" name="pin" value="no"><span>No</span></label><label class="choice"><input type="radio" name="pin" value="unsure"><span>Not sure</span></label></div></div>
+<div class="field"><span class="q">Can you get into your email?</span>
+<div class="choice-row"><label class="choice"><input type="radio" name="mail" value="yes" checked><span>Yes</span></label><label class="choice"><input type="radio" name="mail" value="no"><span>No</span></label></div></div>
+<p id="check-msg" role="status" aria-live="polite" style="margin:0;padding:12px 14px;border:1.5px solid #8a8a86;background:#fff;line-height:1.5;color:#3d3d3a" hidden></p>
+</fieldset>
+
+<!-- 3 -->
+<fieldset class="panel">
+<legend>3. Where you are and how long</legend>
+<div class="field"><label for="stay">Where are you staying?</label><input id="stay" type="text" placeholder="Hotel, condo or rental name and area"></div>
+<div class="field"><span class="q">How would you like to get the phone?</span>
+<div class="choice-row"><label class="choice"><input type="radio" name="pick" value="locker" checked><span>Secure locker (24/7)</span></label><label class="choice"><input type="radio" name="pick" value="desk"><span>My hotel's front desk</span></label><label class="choice"><input type="radio" name="pick" value="unsure"><span>Not sure yet</span></label></div></div>
+<div class="field" style="max-width:300px"><label for="days">How many days do you need it?</label><input id="days" type="number" min="1" max="60" value="3" inputmode="numeric"></div>
+<div class="field"><label for="msg">Anything else we should know?</label><textarea id="msg" placeholder="When you fly out, anything urgent"></textarea></div>
+<div id="partner" class="field"><label class="inline"><input type="checkbox" id="is-partner"><span>I'm a front desk, concierge or property manager and want to ask about the partner program.</span></label></div>
+</fieldset>
+
+<!-- 4 -->
+<fieldset class="panel" aria-describedby="est-note">
+<legend>4. Your estimate</legend>
+<div role="status" aria-live="polite" style="border:1.5px solid #8a8a86;background:#fff;padding:20px;display:flex;flex-direction:column;gap:10px">
+<div class="row"><span>Daily rate (<span id="d-days">3</span> <span id="d-word">days</span> × $50)</span><strong id="d-rate">$150</strong></div>
+<div class="row"><span>Setup fee</span><strong>$150</strong></div>
+<div class="row total"><span>Your total</span><strong id="d-total">$300</strong></div>
+<div class="row sub"><span>Plus a refundable credit-card hold, equal to the phone's replacement price</span><span>$600–$800</span></div>
 </div>
+<p id="est-note" style="margin:0;color:#5c5c58;font-size:14px">The hold is released when you return the phone as you got it. Credit card required for the hold. <a href="services.html">How pricing works</a></p>
+</fieldset>
+
+<!-- 5 -->
+<fieldset class="panel">
+<legend>5. Agreement and deposit</legend>
+<p style="margin:0;line-height:1.55;color:#3d3d3a">We can't send your locker code until the agreement is signed and the hold is placed.</p>
+<div class="field"><label class="inline"><input type="checkbox" id="ack"><span>I have read and agree to the <a href="agreement.html" target="_blank" rel="noopener">loaner agreement</a>, including the charges and the refundable hold.</span></label></div>
+<div class="field"><label for="sig">Type your full name to sign</label><input id="sig" type="text" placeholder="Full name" autocomplete="name"></div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+<button type="button" id="hold-btn" class="btn btn2">Place refundable hold (demo)</button>
+<span id="hold-status" role="status" aria-live="polite" style="color:#3d3d3a"></span>
+</div>
+<p style="margin:0;color:#5c5c58;font-size:14px">In the live version, a secure payment page (like Stripe) opens here. Never type a card number into this demo page.</p>
+</fieldset>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<ul id="ready-list" style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;color:#3d3d3a">
+<li data-k="contact"><span class="tick">○</span> Your name and a phone number</li>
+<li data-k="ack"><span class="tick">○</span> Agreement signed</li>
+<li data-k="hold"><span class="tick">○</span> Refundable hold placed</li>
+</ul>
+<div><button type="submit" id="send-btn" class="btn" disabled>Request my phone</button></div>
 </div>
 
-<!-- TITLE -->
-<div style="max-width:1120px;margin:0 auto;padding:56px 24px 16px;display:flex;flex-direction:column;gap:12px">
-<span class="tag">Contact Us</span>
-<h1 style="margin:0;font-size:42px;line-height:1.15">Need a phone today? Tell us where you're staying.</h1>
-<p style="margin:0;font-size:18px;line-height:1.5;color:#3d3d3a;max-width:680px">Fill this out, or call or text [PHONE]. A borrowed phone works fine.</p>
-</div>
-
-<!-- FORM + SIDEBAR -->
-<div style="max-width:1120px;margin:0 auto;padding:24px 24px 64px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
-
-<form id="request-form" style="flex:1 1 520px;min-width:0;background:#fff;border:1.5px solid #c9c9c4;padding:28px;display:flex;flex-direction:column;gap:18px">
-<div class="field"><label for="name">Your name</label><input id="name" type="text" placeholder="Full name"></div>
-<div class="field"><label for="reach">Best way to reach you</label><input id="reach" type="text" placeholder="Phone or email (a borrowed phone is fine)"></div>
-<div class="field"><label for="where">Where are you staying?</label><input id="where" type="text" placeholder="Hotel, condo or rental name and area"></div>
-<div class="field"><label for="issue">What happened?</label>
-<select id="issue"><option>Phone lost</option><option>Phone broken</option><option>Water damage</option><option>Stolen</option><option>Phone in repair</option><option>Other</option><option value="partner">Partner inquiry (front desk or property manager)</option></select></div>
-<div class="field"><label for="msg">Anything else we should know?</label><textarea id="msg" placeholder="Carrier, phone model, when you fly out"></textarea></div>
-<div><button type="submit" class="btn">Request a phone</button></div>
-<span style="font-size:15px;font-weight:600">We never ask for your passwords. <a href="security.html" style="font-weight:400">How we protect your data</a></span>
-<div id="form-confirm" hidden role="status" style="border:2px solid #1c1c1c;padding:16px;display:flex;flex-direction:column;gap:6px"><strong>Request received, <span data-name></span>.</strong><span style="color:#3d3d3a">This is a demo, so nothing was sent or saved. In the live service you would hear back from us soon.</span></div>
+<div id="form-confirm" hidden role="status" style="border:2px solid #1c1c1c;background:#fff;padding:20px;display:flex;flex-direction:column;gap:8px"><strong>Got it, <span data-name></span>.</strong><span style="color:#3d3d3a;line-height:1.5">We'll call you at <span data-phone></span> within [X] minutes to confirm your phone, then text your locker code. This is a demo, so nothing was actually sent.</span></div>
 </form>
 
-<div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:20px">
-<div style="background:#fff;border:1.5px solid #c9c9c4;padding:24px;display:flex;flex-direction:column;gap:10px">
-<h2 style="margin:0;font-size:20px">Reach us directly</h2>
-<div>Phone / text: [PHONE]</div>
-<div>Email: [EMAIL]</div>
-<div>Hours: [HOURS]</div>
-</div>
-<div style="background:#fff;border:1.5px solid #c9c9c4;padding:24px;display:flex;flex-direction:column;gap:12px">
-<h2 style="margin:0;font-size:20px">Where we deliver</h2>
-<div class="ph" style="height:180px"><span>MAP: West and South Maui service area</span></div>
-<span style="font-size:14px;color:#5c5c58">[Kāʻanapali to Wailea. Exact area to confirm]</span>
-</div>
-<div style="border:2px dashed #8a8a86;padding:24px;display:flex;flex-direction:column;gap:10px">
-<h2 style="margin:0;font-size:20px">Front desk or property manager?</h2>
-<p style="margin:0;line-height:1.5;color:#3d3d3a">Ask about our partner program and referral cards.</p>
-<div><button type="button" id="partner-inquiry" class="btn btn2">Partner inquiry</button></div>
-</div>
-</div>
+<aside style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:20px">
+<div class="card"><h2 style="margin:0;font-size:20px">What happens next</h2>
+<ol style="margin:0;padding-left:20px;line-height:1.8;color:#3d3d3a"><li>We call you back to confirm we can activate your phone.</li><li>You sign and place the hold.</li><li>We text your locker code.</li><li>You pick up the phone and follow your <a href="guides.html">setup guide</a>.</li></ol></div>
+<div class="card"><h2 style="margin:0;font-size:20px">Reach us directly</h2><div>Call or text: [PHONE]</div><div>Email: [EMAIL]</div><div>Hours: [HOURS]</div></div>
+<!-- SWAP: <img src="img/map.png" alt="..."> -->
+<div class="card"><h2 style="margin:0;font-size:20px">Where we serve</h2><div class="ph" style="height:160px"><span>MAP: pickup lockers and service area</span></div><span style="font-size:14px;color:#5c5c58">[Kāʻanapali to Wailea first. Exact lockers to confirm]</span></div>
+</aside>
+</section>
 
-</div>
-
-<!-- FOOTER -->
-<div style="background:#1c1c1c;color:#e4e4e0">
+</main>
+<footer style="background:#1c1c1c;color:#e4e4e0">
 <div style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
-<div style="display:flex;flex-direction:column;gap:6px"><strong style="font-size:20px;color:#fff">Reconnect</strong><span style="font-size:14px">Same-day phones for visitors on Maui</span><span style="font-size:14px">getreconnect.com</span></div>
-<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a href="how-it-works.html" style="color:#e4e4e0">How it works</a><a href="services.html" style="color:#e4e4e0">Services</a><a href="pricing.html" style="color:#e4e4e0">Pricing</a><a href="security.html" style="color:#e4e4e0">Security</a><a href="about.html" style="color:#e4e4e0">About Us</a><a href="contact.html" style="color:#e4e4e0">Contact Us</a><a href="agreement.html" style="color:#e4e4e0">Loaner agreement</a></div>
+<div style="display:flex;flex-direction:column;gap:6px"><strong style="font-size:20px;color:#fff">Reconnect</strong><span style="font-size:14px">Same-day phone rentals for travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a href="services.html" style="color:#e4e4e0">Services &amp; Pricing</a><a href="guides.html" style="color:#e4e4e0">Setup guides</a><a href="about.html" style="color:#e4e4e0">About Us</a><a href="contact.html" style="color:#e4e4e0">Request a phone</a><a href="agreement.html" style="color:#e4e4e0">Loaner agreement</a></div>
 <div style="font-size:14px">[Phone] · [Email] · [Social links]</div>
 </div>
-</div>
+</footer>
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s);};
+  var form=$('#request-form'), holdPlaced=false;
+  function val(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:'';}
 
-</div>
-</div>
+  // estimate
+  function calc(){
+    var d=Math.max(1,Math.min(60,parseInt($('#days').value,10)||1));
+    $('#d-days').textContent=d;
+    $('#d-word').textContent=d===1?'day':'days';
+    $('#d-rate').textContent='$'+(d*50);
+    $('#d-total').textContent='$'+(d*50+150);
+  }
 
+  // preliminary activation check: friendly, no promises
+  function check(){
+    var c=$('#carrier').value, m=$('#check-msg'), msgs=[];
+    if(val('acct')==='work') msgs.push("A work-managed number may need your employer's approval. No problem, we'll sort that out on our call.");
+    if(val('acct')==='family'||val('acct')==='unsure') msgs.push("If the account belongs to someone else, they'll need to be reachable for the carrier to verify. We'll go over it on the call.");
+    if(c==='other'||c==='unsure') msgs.push("We'll check your carrier on our call before you pay anything.");
+    if(val('pin')!=='yes') msgs.push("No worries if you don't have your PIN. We'll walk you through what your carrier can do instead.");
+    if(val('mail')==='no') msgs.push("Many carriers send an activation code by email, so we'll look at other options with you.");
+    if(msgs.length){m.hidden=false;m.textContent=msgs.join(' ');}else{m.hidden=true;m.textContent='';}
+  }
 
+  // readiness
+  function ready(){
+    var okContact=$('#name').value.trim()&&$('#phone-num').value.trim();
+    var okAck=$('#ack').checked&&$('#sig').value.trim();
+    var map={contact:!!okContact,ack:!!okAck,hold:holdPlaced};
+    document.querySelectorAll('#ready-list li').forEach(function(li){
+      var on=map[li.getAttribute('data-k')];
+      li.querySelector('.tick').textContent=on?'\u2713':'\u25CB';
+      li.style.color=on?'#1c1c1c':'#3d3d3a';
+      li.style.fontWeight=on?'600':'400';
+    });
+    $('#send-btn').disabled=!(map.contact&&map.ack&&map.hold);
+  }
+  $('#hold-btn').addEventListener('click',function(){
+    if(!($('#ack').checked&&$('#sig').value.trim())){
+      $('#hold-status').textContent='Please sign the agreement first.';
+      return;
+    }
+    holdPlaced=true;
+    $('#hold-status').textContent='Demo: hold placed. Nothing was charged.';
+    $('#hold-btn').disabled=true;
+    ready();
+  });
+  form.addEventListener('input',function(e){
+    if(e.target.id==='days') calc();
+    if(e.target.id==='ack'||e.target.id==='sig'){ if(holdPlaced){holdPlaced=false;$('#hold-btn').disabled=false;$('#hold-status').textContent='';} }
+    check();ready();
+  });
+  form.addEventListener('change',function(){check();ready();});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if($('#send-btn').disabled) return;
+    var b=$('#form-confirm');
+    b.querySelector('[data-name]').textContent=$('#name').value.trim()||'there';
+    b.querySelector('[data-phone]').textContent=$('#phone-num').value.trim();
+    b.hidden=false;
+    b.scrollIntoView({block:'nearest'});
+  });
+  // partner link from home page
+  if(location.hash==='#partner'){ var p=$('#is-partner'); if(p){p.checked=true; p.scrollIntoView({block:'center'}); p.focus();} }
+  calc();check();ready();
+})();
+</script>
 </body>
 </html>

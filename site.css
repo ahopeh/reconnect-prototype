@@ -36,3 +36,30 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ready-row label{font-weight:400;color:#3d3d3a}
 .ready-row input:checked+label{text-decoration:line-through;color:var(--mute)}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+/* ---- additions ---- */
+.util{background:var(--ink);color:#e4e4e0;font-size:14px;line-height:1.5}
+.util div{max-width:1120px;margin:0 auto;padding:8px 24px;display:flex;flex-wrap:wrap;gap:4px 18px;justify-content:space-between}
+.util a{color:#fff}
+.choice-row{display:flex;flex-wrap:wrap;gap:10px}
+.choice{position:relative;display:inline-flex}
+.choice input{position:absolute;inset:0;width:100%;height:100%;min-height:0;margin:0;opacity:0;cursor:pointer}
+.choice span{display:inline-flex;align-items:center;min-height:48px;padding:0 18px;border:1.5px solid #8a8a86;background:var(--surface);font-weight:600;font-size:16px}
+.choice input:checked+span{background:var(--ink);color:#fff;border-color:var(--ink)}
+.choice input:focus-visible+span{outline:3px solid var(--ink);outline-offset:2px}
+.steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1.5px solid var(--line);padding:16px 20px;line-height:1.55;color:#3d3d3a}
+.steps li::before{content:counter(s);flex:none;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--ink);font-weight:700;color:var(--ink)}
+.callout{border:2px dashed #8a8a86;padding:16px 20px;background:transparent}
+.panel{background:var(--surface);border:1.5px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:16px;margin:0;min-width:0}
+.panel legend{font-weight:700;font-size:20px;padding:0 8px;margin-left:-8px}
+.q{font-weight:600;font-size:15px}
+.row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.row.total{border-top:1.5px solid var(--line);padding-top:10px;font-size:20px}
+.row.sub{color:var(--mute);font-size:14px}
+label.inline{display:flex;gap:12px;align-items:flex-start;font-weight:400;line-height:1.5}
+label.inline input{width:24px;height:24px;min-height:0;flex:none;margin:0}
+.panel .field{flex:0 0 auto}
+.tick{display:inline-block;width:1.2em}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+main:focus{outline:none}
