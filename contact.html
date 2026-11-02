@@ -1,200 +1,358 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reconnect Request a Phone</title>
-<link rel="stylesheet" href="site.css">
-<script src="site.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reconnect Request a Phone</title>
+  <link rel="stylesheet" href="site.css">
+  <script src="site.js" defer></script>
 </head>
+
 <body>
-<div class="util"><div><span>Lost your phone? Call or text <strong>[PHONE]</strong></span><span>Pickup 24/7 from a secure locker · <a href="contact.html">Request a phone</a></span></div></div>
-<header style="border-bottom:1.5px solid #c9c9c4;background:#fff">
-<div style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
-<a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph" style="width:40px;height:40px"><span style="padding:0;background:none">&#9679;</span></span><span style="font-size:22px;font-weight:700">Reconnect</span></a>
-<nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
-<a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a href="guides.html">Setup guides</a><a href="about.html">About Us</a>
-<a href="contact.html" class="btn" style="min-height:44px;padding:0 20px" aria-current="page">Request a phone</a>
-</nav>
-</div>
-</header>
-<main>
+  <div class="util">
+    <div><span>Lost your phone? Call or text <strong>[PHONE]</strong></span><span>Pickup 24/7 from a secure locker · <a
+          href="contact.html">Request a phone</a></span></div>
+  </div>
+  <header style="border-bottom:1.5px solid #c9c9c4;background:#fff">
+    <div
+      style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+      <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph"
+          style="width:40px;height:40px"><span style="padding:0;background:none">&#9679;</span></span><span
+          style="font-size:22px;font-weight:700">Reconnect</span></a>
+      <nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
+        <a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a href="guides.html">Setup
+          guides</a><a href="about.html">About Us</a>
+        <a href="contact.html" class="btn" style="min-height:44px;padding:0 20px" aria-current="page">Request a
+          phone</a>
+      </nav>
+    </div>
+  </header>
+  <main>
 
-<section style="max-width:1120px;margin:0 auto;padding:48px 24px 16px;display:flex;flex-direction:column;gap:12px">
-<span class="tag">Request a phone</span>
-<h1 style="margin:0;font-size:42px;line-height:1.15">Tell us what happened. We'll call you back.</h1>
-<p style="margin:0;font-size:18px;line-height:1.5;color:#3d3d3a;max-width:700px">This takes a couple of minutes. We'll call you within <strong>[X] minutes</strong> to confirm we can activate your phone. A borrowed phone is fine. Prefer to talk now? Call or text <strong>[PHONE]</strong>.</p>
-<div class="callout" style="font-size:14px;color:#3d3d3a;max-width:700px">Demo: nothing is sent, saved, or charged on this page.</div>
-</section>
+    <section style="max-width:1120px;margin:0 auto;padding:48px 24px 16px;display:flex;flex-direction:column;gap:12px">
+      <span class="tag">Request a phone</span>
+      <h1 style="margin:0;font-size:42px;line-height:1.15">Tell us what happened. We'll call you back.</h1>
+      <p style="margin:0;font-size:18px;line-height:1.5;color:#3d3d3a;max-width:700px">This takes a couple of minutes.
+        Answer a few questions and we'll show your fastest option. If everything looks good, you can get your locker
+        code right away, any hour. If we need to talk first, we call during business hours. A borrowed phone is fine.
+      </p>
+      <div class="callout" style="font-size:14px;color:#3d3d3a;max-width:700px">Demo: nothing is sent, saved, or charged
+        on this page.</div>
+    </section>
 
-<section style="max-width:1120px;margin:0 auto;padding:16px 24px 64px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+    <section
+      style="max-width:1120px;margin:0 auto;padding:16px 24px 64px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
 
-<form id="request-form" novalidate style="flex:2 1 560px;min-width:0;display:flex;flex-direction:column;gap:20px">
+      <form id="request-form" novalidate style="flex:2 1 560px;min-width:0;display:flex;flex-direction:column;gap:20px">
 
-<!-- 1 -->
-<fieldset class="panel">
-<legend>1. How to reach you</legend>
-<div class="field"><label for="name">Your name</label><input id="name" type="text" autocomplete="name" placeholder="Full name"></div>
-<div class="field"><label for="phone-num">Phone number we can reach you at</label><input id="phone-num" type="tel" autocomplete="tel" inputmode="tel" placeholder="Any phone is fine, even a borrowed one"></div>
-<div class="field"><label for="email">Email (so we can send your agreement and locker code)</label><input id="email" type="email" autocomplete="email" placeholder="name@example.com"></div>
-<div class="field"><label for="when">When can we call you?</label>
-<select id="when"><option>As soon as possible</option><option>In about 30 minutes</option><option>In about an hour</option><option>Later today</option><option>Tomorrow morning</option></select></div>
-</fieldset>
+        <!-- 1 -->
+        <fieldset class="panel">
+          <legend>1. How to reach you</legend>
+          <div class="field"><label for="name">Your name</label><input id="name" type="text" autocomplete="name"
+              placeholder="Full name"></div>
+          <div class="field"><label for="phone-num">Phone number we can reach you at</label><input id="phone-num"
+              type="tel" autocomplete="tel" inputmode="tel" placeholder="Any phone is fine, even a borrowed one"></div>
+          <div class="field"><label for="email">Email (so we can send your agreement and locker code)</label><input
+              id="email" type="email" autocomplete="email" placeholder="name@example.com"></div>
+          <div class="field"><label for="when">If we call, when is best? (business hours: [hours])</label>
+            <select id="when">
+              <option>As soon as possible</option>
+              <option>In about 30 minutes</option>
+              <option>In about an hour</option>
+              <option>Later today</option>
+              <option>Tomorrow morning</option>
+            </select>
+          </div>
+        </fieldset>
 
-<!-- 2 -->
-<fieldset class="panel">
-<legend>2. About your phone</legend>
-<div class="field"><span class="q">Is it a personal or business phone?</span>
-<div class="choice-row"><label class="choice"><input type="radio" name="use" value="personal" checked><span>Personal</span></label><label class="choice"><input type="radio" name="use" value="business"><span>Business</span></label></div></div>
-<div class="field"><span class="q">What kind of phone was it?</span>
-<div class="choice-row"><label class="choice"><input type="radio" name="ptype" value="iphone" checked><span>iPhone</span></label><label class="choice"><input type="radio" name="ptype" value="android"><span>Android</span></label><label class="choice"><input type="radio" name="ptype" value="other"><span>Other</span></label></div></div>
-<div class="field"><label for="model">Model, if you know it</label><input id="model" type="text" placeholder="For example, iPhone 15 or Galaxy S23"></div>
-<div class="field"><label for="carrier">Who is your carrier?</label>
-<select id="carrier"><option value="">Choose one</option><option value="att">AT&amp;T</option><option value="verizon">Verizon</option><option value="tmobile">T-Mobile</option><option value="other">Other or prepaid</option><option value="unsure">Not sure</option></select></div>
-<div class="field"><span class="q">What happened to it?</span>
-<div class="choice-row"><label class="choice"><input type="radio" name="what" value="lost" checked><span>Lost</span></label><label class="choice"><input type="radio" name="what" value="stolen"><span>Stolen</span></label><label class="choice"><input type="radio" name="what" value="broken"><span>Broken</span></label><label class="choice"><input type="radio" name="what" value="water"><span>Water damage</span></label><label class="choice"><input type="radio" name="what" value="other"><span>Something else</span></label></div></div>
-<div class="field"><span class="q">Whose account is the number on?</span>
-<div class="choice-row"><label class="choice"><input type="radio" name="acct" value="mine" checked><span>My own account</span></label><label class="choice"><input type="radio" name="acct" value="family"><span>A family plan</span></label><label class="choice"><input type="radio" name="acct" value="work"><span>My employer's</span></label><label class="choice"><input type="radio" name="acct" value="unsure"><span>Not sure</span></label></div></div>
-<div class="field"><span class="q">Do you know your carrier account PIN or can you sign in to your carrier account?</span>
-<div class="choice-row"><label class="choice"><input type="radio" name="pin" value="yes" checked><span>Yes</span></label><label class="choice"><input type="radio" name="pin" value="no"><span>No</span></label><label class="choice"><input type="radio" name="pin" value="unsure"><span>Not sure</span></label></div></div>
-<div class="field"><span class="q">Can you get into your email?</span>
-<div class="choice-row"><label class="choice"><input type="radio" name="mail" value="yes" checked><span>Yes</span></label><label class="choice"><input type="radio" name="mail" value="no"><span>No</span></label></div></div>
-<p id="check-msg" role="status" aria-live="polite" style="margin:0;padding:12px 14px;border:1.5px solid #8a8a86;background:#fff;line-height:1.5;color:#3d3d3a" hidden></p>
-</fieldset>
+        <!-- 2 -->
+        <fieldset class="panel">
+          <legend>2. About your phone</legend>
+          <div class="field"><span class="q">Is it a personal or business phone?</span>
+            <div class="choice-row"><label class="choice"><input type="radio" name="use" value="personal"
+                  checked><span>Personal</span></label><label class="choice"><input type="radio" name="use"
+                  value="business"><span>Business</span></label></div>
+          </div>
+          <div class="field"><span class="q">What kind of phone was it?</span>
+            <div class="choice-row"><label class="choice"><input type="radio" name="ptype" value="iphone"
+                  checked><span>iPhone</span></label><label class="choice"><input type="radio" name="ptype"
+                  value="android"><span>Android</span></label><label class="choice"><input type="radio" name="ptype"
+                  value="other"><span>Other</span></label></div>
+          </div>
+          <div class="field"><label for="model">Model, if you know it</label><input id="model" type="text"
+              placeholder="For example, iPhone 15 or Galaxy S23"></div>
+          <div class="field"><label for="carrier">Who is your carrier?</label>
+            <select id="carrier">
+              <option value="">Choose one</option>
+              <option value="att">AT&amp;T</option>
+              <option value="verizon">Verizon</option>
+              <option value="tmobile">T-Mobile</option>
+              <option value="other">Other or prepaid</option>
+              <option value="unsure">Not sure</option>
+            </select>
+          </div>
+          <div class="field"><span class="q">What happened to it?</span>
+            <div class="choice-row"><label class="choice"><input type="radio" name="what" value="lost"
+                  checked><span>Lost</span></label><label class="choice"><input type="radio" name="what"
+                  value="stolen"><span>Stolen</span></label><label class="choice"><input type="radio" name="what"
+                  value="broken"><span>Broken</span></label><label class="choice"><input type="radio" name="what"
+                  value="water"><span>Water damage</span></label><label class="choice"><input type="radio" name="what"
+                  value="other"><span>Something else</span></label></div>
+          </div>
+          <div class="field"><span class="q">Whose account is the number on?</span>
+            <div class="choice-row"><label class="choice"><input type="radio" name="acct" value="mine" checked><span>My
+                  own account</span></label><label class="choice"><input type="radio" name="acct" value="family"><span>A
+                  family plan</span></label><label class="choice"><input type="radio" name="acct" value="work"><span>My
+                  employer's</span></label><label class="choice"><input type="radio" name="acct"
+                  value="unsure"><span>Not sure</span></label></div>
+          </div>
+          <div class="field"><span class="q">Do you know your carrier account PIN or can you sign in to your carrier
+              account?</span>
+            <div class="choice-row"><label class="choice"><input type="radio" name="pin" value="yes"
+                  checked><span>Yes</span></label><label class="choice"><input type="radio" name="pin"
+                  value="no"><span>No</span></label><label class="choice"><input type="radio" name="pin"
+                  value="unsure"><span>Not sure</span></label></div>
+          </div>
+          <div class="field"><span class="q">Can you get into your email?</span>
+            <div class="choice-row"><label class="choice"><input type="radio" name="mail" value="yes"
+                  checked><span>Yes</span></label><label class="choice"><input type="radio" name="mail"
+                  value="no"><span>No</span></label></div>
+          </div>
 
-<!-- 3 -->
-<fieldset class="panel">
-<legend>3. Where you are and how long</legend>
-<div class="field"><label for="stay">Where are you staying?</label><input id="stay" type="text" placeholder="Hotel, condo or rental name and area"></div>
-<div class="field"><span class="q">How would you like to get the phone?</span>
-<div class="choice-row"><label class="choice"><input type="radio" name="pick" value="locker" checked><span>Secure locker (24/7)</span></label><label class="choice"><input type="radio" name="pick" value="desk"><span>My hotel's front desk</span></label><label class="choice"><input type="radio" name="pick" value="unsure"><span>Not sure yet</span></label></div></div>
-<div class="field" style="max-width:300px"><label for="days">How many days do you need it?</label><input id="days" type="number" min="1" max="60" value="3" inputmode="numeric"></div>
-<div class="field"><label for="msg">Anything else we should know?</label><textarea id="msg" placeholder="When you fly out, anything urgent"></textarea></div>
-<div id="partner" class="field"><label class="inline"><input type="checkbox" id="is-partner"><span>I'm a front desk, concierge or property manager and want to ask about the partner program.</span></label></div>
-</fieldset>
+        </fieldset>
 
-<!-- 4 -->
-<fieldset class="panel" aria-describedby="est-note">
-<legend>4. Your estimate</legend>
-<div role="status" aria-live="polite" style="border:1.5px solid #8a8a86;background:#fff;padding:20px;display:flex;flex-direction:column;gap:10px">
-<div class="row"><span>Daily rate (<span id="d-days">3</span> <span id="d-word">days</span> × $50)</span><strong id="d-rate">$150</strong></div>
-<div class="row"><span>Setup fee</span><strong>$150</strong></div>
-<div class="row total"><span>Your total</span><strong id="d-total">$300</strong></div>
-<div class="row sub"><span>Plus a refundable credit-card hold, equal to the phone's replacement price</span><span>$600–$800</span></div>
-</div>
-<p id="est-note" style="margin:0;color:#5c5c58;font-size:14px">The hold is released when you return the phone as you got it. Credit card required for the hold. <a href="services.html">How pricing works</a></p>
-</fieldset>
+        <!-- 3 -->
+        <fieldset class="panel">
+          <legend>3. Where you are and how long</legend>
+          <div class="field"><label for="stay">Where are you staying?</label><input id="stay" type="text"
+              placeholder="Hotel, condo or rental name and area"></div>
+          <div class="field"><span class="q">How would you like to get the phone?</span>
+            <div class="choice-row"><label class="choice"><input type="radio" name="pick" value="locker"
+                  checked><span>Secure locker (24/7)</span></label><label class="choice"><input type="radio" name="pick"
+                  value="desk"><span>My hotel's front desk</span></label><label class="choice"><input type="radio"
+                  name="pick" value="unsure"><span>Not sure yet</span></label></div>
+          </div>
+          <div class="field" style="max-width:300px"><label for="days">How many days do you need it?</label><input
+              id="days" type="number" min="1" max="60" value="3" inputmode="numeric"></div>
+          <div class="field"><label for="msg">Anything else we should know?</label><textarea id="msg"
+              placeholder="When you fly out, anything urgent"></textarea></div>
+          <div id="partner" class="field"><label class="inline"><input type="checkbox" id="is-partner"><span>I'm a front
+                desk, concierge or property manager and want to ask about the partner program.</span></label></div>
+        </fieldset>
 
-<!-- 5 -->
-<fieldset class="panel">
-<legend>5. Agreement and deposit</legend>
-<p style="margin:0;line-height:1.55;color:#3d3d3a">We can't send your locker code until the agreement is signed and the hold is placed.</p>
-<div class="field"><label class="inline"><input type="checkbox" id="ack"><span>I have read and agree to the <a href="agreement.html" target="_blank" rel="noopener">loaner agreement</a>, including the charges and the refundable hold.</span></label></div>
-<div class="field"><label for="sig">Type your full name to sign</label><input id="sig" type="text" placeholder="Full name" autocomplete="name"></div>
-<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
-<button type="button" id="hold-btn" class="btn btn2">Place refundable hold (demo)</button>
-<span id="hold-status" role="status" aria-live="polite" style="color:#3d3d3a"></span>
-</div>
-<p style="margin:0;color:#5c5c58;font-size:14px">In the live version, a secure payment page (like Stripe) opens here. Never type a card number into this demo page.</p>
-</fieldset>
+        <!-- 4 -->
+        <fieldset class="panel" aria-describedby="est-note">
+          <legend>4. Your estimate</legend>
+          <div role="status" aria-live="polite"
+            style="border:1.5px solid #8a8a86;background:#fff;padding:20px;display:flex;flex-direction:column;gap:10px">
+            <div class="row"><span>Daily rate (<span id="d-days">3</span> <span id="d-word">days</span> ×
+                $50)</span><strong id="d-rate">$150</strong></div>
+            <div class="row"><span>Setup fee</span><strong>$150</strong></div>
+            <div class="row total"><span>Your total</span><strong id="d-total">$300</strong></div>
+            <div class="row sub"><span>Plus a refundable credit-card hold, equal to the phone's replacement
+                price</span><span>$600–$800</span></div>
+          </div>
+          <p id="est-note" style="margin:0;color:#5c5c58;font-size:14px">The hold is released when you return the phone
+            as you got it. Credit card required for the hold. <a href="services.html">How pricing works</a></p>
+        </fieldset>
 
-<div style="display:flex;flex-direction:column;gap:10px">
-<ul id="ready-list" style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;color:#3d3d3a">
-<li data-k="contact"><span class="tick">○</span> Your name and a phone number</li>
-<li data-k="ack"><span class="tick">○</span> Agreement signed</li>
-<li data-k="hold"><span class="tick">○</span> Refundable hold placed</li>
-</ul>
-<div><button type="submit" id="send-btn" class="btn" disabled>Request my phone</button></div>
-</div>
+        <!-- PATH -->
+        <div id="path-banner" class="panel" role="status" aria-live="polite" style="gap:10px">
+          <strong id="path-title" style="font-size:18px"></strong>
+          <span id="path-body" style="line-height:1.55;color:#3d3d3a"></span>
+          <label class="inline"><input type="checkbox" id="prefer-call"><span>I'd rather talk to someone
+              first.</span></label>
+        </div>
 
-<div id="form-confirm" hidden role="status" style="border:2px solid #1c1c1c;background:#fff;padding:20px;display:flex;flex-direction:column;gap:8px"><strong>Got it, <span data-name></span>.</strong><span style="color:#3d3d3a;line-height:1.5">We'll call you at <span data-phone></span> within [X] minutes to confirm your phone, then text your locker code. This is a demo, so nothing was actually sent.</span></div>
-</form>
+        <!-- 5 -->
+        <fieldset class="panel" id="pay-panel" hidden>
+          <legend>5. Verify, sign, and place your hold</legend>
+          <p style="margin:0;line-height:1.55;color:#3d3d3a">We open your locker once these three things are done.</p>
+          <div class="field"><label for="vcode">Verify your phone number</label>
+            <div style="display:flex;flex-wrap:wrap;gap:10px"><input id="vcode" type="text" inputmode="numeric"
+                autocomplete="one-time-code" placeholder="6-digit code" style="flex:1 1 160px;width:auto"><button
+                type="button" id="send-code" class="btn btn2">Text me a code (demo)</button></div>
+            <span id="v-status" role="status" aria-live="polite" style="color:#3d3d3a;font-size:14px"></span>
+          </div>
+          <div class="field"><label class="inline"><input type="checkbox" id="ack"><span>I have read and agree to the <a
+                  href="agreement.html" target="_blank" rel="noopener">loaner agreement</a>, including the charges and
+                the refundable hold.</span></label></div>
+          <div class="field"><label for="sig">Type your full name to sign</label><input id="sig" type="text"
+              placeholder="Full name" autocomplete="name"></div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+            <button type="button" id="hold-btn" class="btn btn2">Place refundable hold (demo)</button>
+            <span id="hold-status" role="status" aria-live="polite" style="color:#3d3d3a"></span>
+          </div>
+          <p style="margin:0;color:#5c5c58;font-size:14px">A credit card is required, and the name on the card must
+            match the name you sign with. In the live version, a secure payment page (like Stripe) opens here. Never
+            type a card number into this demo page.</p>
+        </fieldset>
 
-<aside style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:20px">
-<div class="card"><h2 style="margin:0;font-size:20px">What happens next</h2>
-<ol style="margin:0;padding-left:20px;line-height:1.8;color:#3d3d3a"><li>We call you back to confirm we can activate your phone.</li><li>You sign and place the hold.</li><li>We text your locker code.</li><li>You pick up the phone and follow your <a href="guides.html">setup guide</a>.</li></ol></div>
-<div class="card"><h2 style="margin:0;font-size:20px">Reach us directly</h2><div>Call or text: [PHONE]</div><div>Email: [EMAIL]</div><div>Hours: [HOURS]</div></div>
-<!-- SWAP: <img src="img/map.png" alt="..."> -->
-<div class="card"><h2 style="margin:0;font-size:20px">Where we serve</h2><div class="ph" style="height:160px"><span>MAP: pickup lockers and service area</span></div><span style="font-size:14px;color:#5c5c58">[Kāʻanapali to Wailea first. Exact lockers to confirm]</span></div>
-</aside>
-</section>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <ul id="ready-list"
+            style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;color:#3d3d3a">
+            <li data-k="contact"><span class="tick">○</span> Your name and a phone number</li>
+            <li data-k="verify"><span class="tick">○</span> Phone number verified</li>
+            <li data-k="ack"><span class="tick">○</span> Agreement signed</li>
+            <li data-k="hold"><span class="tick">○</span> Refundable hold placed</li>
+          </ul>
+          <div><button type="submit" id="send-btn" class="btn" disabled>Request a call</button></div>
+        </div>
 
-</main>
-<footer style="background:#1c1c1c;color:#e4e4e0">
-<div style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
-<div style="display:flex;flex-direction:column;gap:6px"><strong style="font-size:20px;color:#fff">Reconnect</strong><span style="font-size:14px">Same-day phone rentals for travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
-<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a href="services.html" style="color:#e4e4e0">Services &amp; Pricing</a><a href="guides.html" style="color:#e4e4e0">Setup guides</a><a href="about.html" style="color:#e4e4e0">About Us</a><a href="contact.html" style="color:#e4e4e0">Request a phone</a><a href="agreement.html" style="color:#e4e4e0">Loaner agreement</a></div>
-<div style="font-size:14px">[Phone] · [Email] · [Social links]</div>
-</div>
-</footer>
-<script>
-(function(){
-  var $=function(s){return document.querySelector(s);};
-  var form=$('#request-form'), holdPlaced=false;
-  function val(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:'';}
+        <div id="form-confirm" hidden role="status"
+          style="border:2px solid #1c1c1c;background:#fff;padding:20px;display:flex;flex-direction:column;gap:8px">
+          <div id="confirm-green" hidden style="display:flex;flex-direction:column;gap:8px"><strong>You're set, <span
+                data-name></span>.</strong><span style="color:#3d3d3a;line-height:1.5">Your locker code is
+              <strong>4821</strong> at [locker location]. When you pick up the phone, take a quick photo of it. Then
+              follow your <a href="guides.html">setup guide</a>. We'll text you tonight to ask how it went, and call the
+              next business day if we don't hear back. (Demo: nothing was sent or charged.)</span></div>
+          <div id="confirm-call" hidden style="display:flex;flex-direction:column;gap:8px"><strong>Thanks, <span
+                data-name></span>.</strong><span style="color:#3d3d3a;line-height:1.5">We'll call you at <span
+                data-phone></span> within [X] minutes during business hours ([hours]). Outside business hours, we'll
+              call the next business day. (Demo: nothing was sent.)</span></div>
+        </div>
+      </form>
 
-  // estimate
-  function calc(){
-    var d=Math.max(1,Math.min(60,parseInt($('#days').value,10)||1));
-    $('#d-days').textContent=d;
-    $('#d-word').textContent=d===1?'day':'days';
-    $('#d-rate').textContent='$'+(d*50);
-    $('#d-total').textContent='$'+(d*50+150);
-  }
+      <aside style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:20px">
+        <div class="card">
+          <h2 style="margin:0;font-size:20px">What happens next</h2>
+          <ol style="margin:0;padding-left:20px;line-height:1.8;color:#3d3d3a">
+            <li>Answer a few questions.</li>
+            <li>If it looks good, verify, sign and place the hold. Your locker code comes right away, any hour.
+              Otherwise we call you first, during business hours.</li>
+            <li>Pick up the phone, take a photo of it, and follow your <a href="guides.html">setup guide</a>.</li>
+            <li>We check in the next business day.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h2 style="margin:0;font-size:20px">Reach us directly</h2>
+          <div>Call or text: [PHONE]</div>
+          <div>Email: [EMAIL]</div>
+          <div>Hours: [HOURS]</div>
+        </div>
+        <!-- SWAP: <img src="img/map.png" alt="..."> -->
+        <div class="card">
+          <h2 style="margin:0;font-size:20px">Where we serve</h2>
+          <div class="ph" style="height:160px"><span>MAP: pickup lockers and service area</span></div><span
+            style="font-size:14px;color:#5c5c58">[Kāʻanapali to Wailea first. Exact lockers to confirm]</span>
+        </div>
+      </aside>
+    </section>
 
-  // preliminary activation check: friendly, no promises
-  function check(){
-    var c=$('#carrier').value, m=$('#check-msg'), msgs=[];
-    if(val('acct')==='work') msgs.push("A work-managed number may need your employer's approval. No problem, we'll sort that out on our call.");
-    if(val('acct')==='family'||val('acct')==='unsure') msgs.push("If the account belongs to someone else, they'll need to be reachable for the carrier to verify. We'll go over it on the call.");
-    if(c==='other'||c==='unsure') msgs.push("We'll check your carrier on our call before you pay anything.");
-    if(val('pin')!=='yes') msgs.push("No worries if you don't have your PIN. We'll walk you through what your carrier can do instead.");
-    if(val('mail')==='no') msgs.push("Many carriers send an activation code by email, so we'll look at other options with you.");
-    if(msgs.length){m.hidden=false;m.textContent=msgs.join(' ');}else{m.hidden=true;m.textContent='';}
-  }
+  </main>
+  <footer style="background:#1c1c1c;color:#e4e4e0">
+    <div
+      style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
+      <div style="display:flex;flex-direction:column;gap:6px"><strong
+          style="font-size:20px;color:#fff">Reconnect</strong><span style="font-size:14px">Same-day phone rentals for
+          travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a href="services.html"
+          style="color:#e4e4e0">Services &amp; Pricing</a><a href="guides.html" style="color:#e4e4e0">Setup guides</a><a
+          href="about.html" style="color:#e4e4e0">About Us</a><a href="contact.html" style="color:#e4e4e0">Request a
+          phone</a><a href="agreement.html" style="color:#e4e4e0">Loaner agreement</a></div>
+      <div style="font-size:14px">[Phone] · [Email] · [Social links]</div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var $ = function (s) { return document.querySelector(s); };
+      var form = $('#request-form'), holdPlaced = false, verified = false, mode = 'pending';
+      function val(n) { var e = document.querySelector('input[name="' + n + '"]:checked'); return e ? e.value : ''; }
 
-  // readiness
-  function ready(){
-    var okContact=$('#name').value.trim()&&$('#phone-num').value.trim();
-    var okAck=$('#ack').checked&&$('#sig').value.trim();
-    var map={contact:!!okContact,ack:!!okAck,hold:holdPlaced};
-    document.querySelectorAll('#ready-list li').forEach(function(li){
-      var on=map[li.getAttribute('data-k')];
-      li.querySelector('.tick').textContent=on?'\u2713':'\u25CB';
-      li.style.color=on?'#1c1c1c':'#3d3d3a';
-      li.style.fontWeight=on?'600':'400';
-    });
-    $('#send-btn').disabled=!(map.contact&&map.ack&&map.hold);
-  }
-  $('#hold-btn').addEventListener('click',function(){
-    if(!($('#ack').checked&&$('#sig').value.trim())){
-      $('#hold-status').textContent='Please sign the agreement first.';
-      return;
-    }
-    holdPlaced=true;
-    $('#hold-status').textContent='Demo: hold placed. Nothing was charged.';
-    $('#hold-btn').disabled=true;
-    ready();
-  });
-  form.addEventListener('input',function(e){
-    if(e.target.id==='days') calc();
-    if(e.target.id==='ack'||e.target.id==='sig'){ if(holdPlaced){holdPlaced=false;$('#hold-btn').disabled=false;$('#hold-status').textContent='';} }
-    check();ready();
-  });
-  form.addEventListener('change',function(){check();ready();});
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    if($('#send-btn').disabled) return;
-    var b=$('#form-confirm');
-    b.querySelector('[data-name]').textContent=$('#name').value.trim()||'there';
-    b.querySelector('[data-phone]').textContent=$('#phone-num').value.trim();
-    b.hidden=false;
-    b.scrollIntoView({block:'nearest'});
-  });
-  // partner link from home page
-  if(location.hash==='#partner'){ var p=$('#is-partner'); if(p){p.checked=true; p.scrollIntoView({block:'center'}); p.focus();} }
-  calc();check();ready();
-})();
-</script>
+      function calc() {
+        var d = Math.max(1, Math.min(60, parseInt($('#days').value, 10) || 1));
+        $('#d-days').textContent = d;
+        $('#d-word').textContent = d === 1 ? 'day' : 'days';
+        $('#d-rate').textContent = '$' + (d * 50);
+        $('#d-total').textContent = '$' + (d * 50 + 150);
+      }
+
+      // decide: green = skip the wait, call = we talk first
+      function decide() {
+        var c = $('#carrier').value, why = [];
+        if (!c) { mode = 'pending'; return why; }
+        if ($('#prefer-call').checked) why.push("You asked to talk first.");
+        if ($('#is-partner').checked) why.push("We'll reach out about the partner program.");
+        if (c === 'other' || c === 'unsure') why.push("We'll check your carrier first.");
+        if (val('acct') === 'work') why.push("A work-managed number may need your employer's approval.");
+        else if (val('acct') !== 'mine') why.push("If the account belongs to someone else, they'll need to be reachable for the carrier to verify.");
+        if (val('pin') !== 'yes') why.push("No worries if you don't have your PIN. We'll walk you through your options.");
+        if (val('mail') !== 'yes') why.push("Many carriers send activation codes by email, so we'll look at other options with you.");
+        if (val('ptype') === 'other') why.push("We'll confirm the right setup for your phone type.");
+        if (val('pick') === 'desk') why.push("Front-desk pickup needs a quick check with your hotel.");
+        if (val('pick') === 'unsure') why.push("We'll help you choose a pickup option.");
+        mode = why.length ? 'call' : 'green';
+        return why;
+      }
+
+      function render() {
+        var why = decide(), t = $('#path-title'), b = $('#path-body');
+        if (mode === 'pending') {
+          t.textContent = 'Answer a few questions and we\'ll show your fastest option.';
+          b.textContent = 'Pick your carrier above to continue.';
+        } else if (mode === 'green') {
+          t.textContent = 'Good news: you can skip the wait.';
+          b.textContent = 'Based on your answers, you can verify, sign and place a refundable hold now. Your locker code comes right away, any hour. We\'ll check in the next business day to make sure everything went well.';
+        } else {
+          t.textContent = 'Let\'s talk first.';
+          b.textContent = why.join(' ') + ' We\'ll call you within [X] minutes during business hours ([hours]). Outside business hours, we\'ll call the next business day.';
+        }
+        $('#pay-panel').hidden = (mode !== 'green');
+        $('#send-btn').textContent = (mode === 'green') ? 'Get my locker code' : 'Request a call';
+        // ready list
+        var okContact = !!($('#name').value.trim() && $('#phone-num').value.trim());
+        var okAck = !!($('#ack').checked && $('#sig').value.trim());
+        var st = { contact: okContact, verify: verified, ack: okAck, hold: holdPlaced };
+        document.querySelectorAll('#ready-list li').forEach(function (li) {
+          var k = li.getAttribute('data-k');
+          li.hidden = (k !== 'contact' && mode !== 'green');
+          var on = st[k];
+          li.querySelector('.tick').textContent = on ? '\u2713' : '\u25CB';
+          li.style.color = on ? '#1c1c1c' : '#3d3d3a';
+          li.style.fontWeight = on ? '600' : '400';
+        });
+        var ok = okContact && (mode !== 'green' || (verified && okAck && holdPlaced));
+        $('#send-btn').disabled = !ok;
+      }
+
+      $('#send-code').addEventListener('click', function () {
+        if (!$('#phone-num').value.trim()) { $('#v-status').textContent = 'Add your phone number above first.'; return; }
+        $('#v-status').textContent = 'Demo: your code is 123456.';
+      });
+      $('#vcode').addEventListener('input', function () {
+        var ok = $('#vcode').value.trim() === '123456';
+        if (ok && !verified) { $('#v-status').textContent = 'Verified.'; }
+        verified = ok; render();
+      });
+      $('#hold-btn').addEventListener('click', function () {
+        if (!verified) { $('#hold-status').textContent = 'Please verify your phone number first.'; return; }
+        if (!($('#ack').checked && $('#sig').value.trim())) { $('#hold-status').textContent = 'Please sign the agreement first.'; return; }
+        holdPlaced = true;
+        $('#hold-status').textContent = 'Demo: hold placed. Nothing was charged.';
+        $('#hold-btn').disabled = true;
+        render();
+      });
+      form.addEventListener('input', function (e) {
+        if (e.target.id === 'days') calc();
+        if ((e.target.id === 'ack' || e.target.id === 'sig') && holdPlaced) { holdPlaced = false; $('#hold-btn').disabled = false; $('#hold-status').textContent = ''; }
+        render();
+      });
+      form.addEventListener('change', render);
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if ($('#send-btn').disabled) return;
+        var b = $('#form-confirm'), g = mode === 'green';
+        b.querySelectorAll('[data-name]').forEach(function (x) { x.textContent = $('#name').value.trim() || 'there'; });
+        b.querySelectorAll('[data-phone]').forEach(function (x) { x.textContent = $('#phone-num').value.trim(); });
+        $('#confirm-green').hidden = !g; $('#confirm-call').hidden = g;
+        b.hidden = false;
+        b.scrollIntoView({ block: 'nearest' });
+      });
+      if (location.hash === '#partner') { var pc = $('#is-partner'); if (pc) { pc.checked = true; pc.scrollIntoView({ block: 'center' }); pc.focus(); } }
+      calc(); render();
+    })();
+  </script>
 </body>
+
 </html>
