@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reconnect Contact</title>
+<link rel="stylesheet" href="site.css">
+<script src="site.js" defer></script>
+</head>
+<body>
+
+<div>
+
+
+
+<div style="width:100%;background:#f4f4f2">
+
+<div class="demo-bar"><div><b>Clickable prototype</b><span>Required: <a href="index.html">Home</a> · <a href="services.html">Services</a>
+<a href="pricing.html">Pricing</a> · <a href="about.html">About Us</a> · <a href="contact.html">Contact Us</a></span><span>Supporting: <a href="pricing.html">Pricing</a> · <a href="how-it-works.html">What to Expect</a> · <a href="security.html">Security</a> · <a href="agreement.html">Loaner Agreement</a></span><span>Nothing is sent or saved.</span></div></div>
+<!-- HEADER -->
+<div style="border-bottom:1.5px solid #c9c9c4;background:#fff">
+<div style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+<a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph" style="width:40px;height:40px"><span style="padding:0;background:none">&#9679;</span></span><span style="font-size:22px;font-weight:700">Reconnect</span></a>
+<div class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px">
+<a href="index.html">Home</a>
+<a href="how-it-works.html">How it works</a>
+<a href="services.html">Services</a>
+<a href="pricing.html">Pricing</a>
+<a href="security.html">Security</a>
+<a href="about.html">About Us</a>
+<a href="contact.html" style="border-bottom:3px solid #1c1c1c;font-weight:600">Contact Us</a>
+</div>
+</div>
+</div>
+
+<!-- TITLE -->
+<div style="max-width:1120px;margin:0 auto;padding:56px 24px 16px;display:flex;flex-direction:column;gap:12px">
+<span class="tag">Contact Us</span>
+<h1 style="margin:0;font-size:42px;line-height:1.15">Need a phone today? Tell us where you're staying.</h1>
+<p style="margin:0;font-size:18px;line-height:1.5;color:#3d3d3a;max-width:680px">Fill this out, or call or text [PHONE]. A borrowed phone works fine.</p>
+</div>
+
+<!-- FORM + SIDEBAR -->
+<div style="max-width:1120px;margin:0 auto;padding:24px 24px 64px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+
+<form id="request-form" style="flex:1 1 520px;min-width:0;background:#fff;border:1.5px solid #c9c9c4;padding:28px;display:flex;flex-direction:column;gap:18px">
+<div class="field"><label for="name">Your name</label><input id="name" type="text" placeholder="Full name"></div>
+<div class="field"><label for="reach">Best way to reach you</label><input id="reach" type="text" placeholder="Phone or email (a borrowed phone is fine)"></div>
+<div class="field"><label for="where">Where are you staying?</label><input id="where" type="text" placeholder="Hotel, condo or rental name and area"></div>
+<div class="field"><label for="issue">What happened?</label>
+<select id="issue"><option>Phone lost</option><option>Phone broken</option><option>Water damage</option><option>Stolen</option><option>Phone in repair</option><option>Other</option><option value="partner">Partner inquiry (front desk or property manager)</option></select></div>
+<div class="field"><label for="msg">Anything else we should know?</label><textarea id="msg" placeholder="Carrier, phone model, when you fly out"></textarea></div>
+<div><button type="submit" class="btn">Request a phone</button></div>
+<span style="font-size:15px;font-weight:600">We never ask for your passwords. <a href="security.html" style="font-weight:400">How we protect your data</a></span>
+<div id="form-confirm" hidden role="status" style="border:2px solid #1c1c1c;padding:16px;display:flex;flex-direction:column;gap:6px"><strong>Request received, <span data-name></span>.</strong><span style="color:#3d3d3a">This is a demo, so nothing was sent or saved. In the live service you would hear back from us soon.</span></div>
+</form>
+
+<div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:20px">
+<div style="background:#fff;border:1.5px solid #c9c9c4;padding:24px;display:flex;flex-direction:column;gap:10px">
+<h2 style="margin:0;font-size:20px">Reach us directly</h2>
+<div>Phone / text: [PHONE]</div>
+<div>Email: [EMAIL]</div>
+<div>Hours: [HOURS]</div>
+</div>
+<div style="background:#fff;border:1.5px solid #c9c9c4;padding:24px;display:flex;flex-direction:column;gap:12px">
+<h2 style="margin:0;font-size:20px">Where we deliver</h2>
+<div class="ph" style="height:180px"><span>MAP: West and South Maui service area</span></div>
+<span style="font-size:14px;color:#5c5c58">[Kāʻanapali to Wailea. Exact area to confirm]</span>
+</div>
+<div style="border:2px dashed #8a8a86;padding:24px;display:flex;flex-direction:column;gap:10px">
+<h2 style="margin:0;font-size:20px">Front desk or property manager?</h2>
+<p style="margin:0;line-height:1.5;color:#3d3d3a">Ask about our partner program and referral cards.</p>
+<div><button type="button" id="partner-inquiry" class="btn btn2">Partner inquiry</button></div>
+</div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#1c1c1c;color:#e4e4e0">
+<div style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:6px"><strong style="font-size:20px;color:#fff">Reconnect</strong><span style="font-size:14px">Same-day phones for visitors on Maui</span><span style="font-size:14px">getreconnect.com</span></div>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a href="how-it-works.html" style="color:#e4e4e0">How it works</a><a href="services.html" style="color:#e4e4e0">Services</a><a href="pricing.html" style="color:#e4e4e0">Pricing</a><a href="security.html" style="color:#e4e4e0">Security</a><a href="about.html" style="color:#e4e4e0">About Us</a><a href="contact.html" style="color:#e4e4e0">Contact Us</a><a href="agreement.html" style="color:#e4e4e0">Loaner agreement</a></div>
+<div style="font-size:14px">[Phone] · [Email] · [Social links]</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+</body>
+</html>
