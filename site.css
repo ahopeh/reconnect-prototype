@@ -14,6 +14,8 @@
     --accent-ink: #0b1519;
     --hi: #f2f8f7;
     --foot: #0a1316;
+    --pink: #e8998d;
+    --pink-bg: #2a1f22;
     color-scheme: dark
 }
 
@@ -504,4 +506,64 @@ h1 {
 
 .leaflet-container {
     border-radius: 20px
+}
+
+.notice {
+    border-left: 5px solid var(--pink);
+    border-color: var(--line2);
+    border-left-color: var(--pink)
+}
+
+.notice strong {
+    color: var(--pink)
+}
+
+.steps li::before {
+    border-color: var(--pink);
+    color: var(--pink)
+}
+
+.pill {
+    border-color: var(--pink)
+}
+
+.who {
+    border-color: var(--pink);
+    color: var(--pink)
+}
+
+.btn2:hover {
+    border-color: var(--pink);
+    color: var(--pink)
+}
+
+a:hover {
+    color: var(--pink)
+}
+
+.btn:hover {
+    background: var(--pink);
+    color: var(--accent-ink)
+}
+
+footer a:hover {
+    color: var(--pink) !important
+}
+
+.row.total span:last-child {
+    color: var(--pink)
+}
+
+.card h3 {
+    position: relative
+}
+
+.card>.ph+h3::after {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 3px;
+    background: var(--pink);
+    margin-top: 8px;
+    border-radius: 2px
 }
