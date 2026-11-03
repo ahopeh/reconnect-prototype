@@ -14,8 +14,8 @@
     --accent-ink: #0b1519;
     --hi: #f2f8f7;
     --foot: #0a1316;
-    --pink: #e8998d;
-    --pink-bg: #2a1f22;
+    --pink: #ef8fb4;
+    --pink-bg: #2a1f26;
     color-scheme: dark
 }
 
@@ -556,6 +556,40 @@ footer a:hover {
 
 .card h3 {
     position: relative
+}
+
+main h1::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 4px;
+    background: var(--pink);
+    border-radius: 2px;
+    margin-top: 14px
+}
+
+main li::marker {
+    color: var(--pink)
+}
+
+.lbl {
+    color: var(--pink) !important
+}
+
+.card {
+    border-top: 3px solid var(--pink)
+}
+
+.panel legend {
+    color: var(--pink)
+}
+
+.sec h3 {
+    color: var(--pink)
+}
+
+#loc-list button {
+    border-left: 4px solid var(--pink) !important
 }
 
 .card>.ph+h3::after {

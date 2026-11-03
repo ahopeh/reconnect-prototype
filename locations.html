@@ -45,12 +45,6 @@
         </section>
         <!-- MAP -->
         <section id="map-section" style="max-width:1120px;margin:0 auto;padding:0 24px 64px">
-            <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px">
-
-                <p style="margin:0;line-height:1.55;color:var(--soft);max-width:700px">Lockers and partner front desks
-                    near where visitors land and stay. Prototype only: these are example sites, not confirmed partners.
-                </p>
-            </div>
             <form id="find"
                 style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;border:1.5px solid var(--accent);background:var(--surface);padding:18px 20px"
                 onsubmit="return false">
@@ -69,7 +63,7 @@
                     aria-label="Map of example Reconnect locker and partner locations on Maui"></div>
                 <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:10px">
                     <div style="display:flex;gap:16px;font-size:14px;color:var(--soft)"><span><span
-                                style="display:inline-block;width:12px;height:12px;background:var(--foot);margin-right:6px"></span>Locker
+                                style="display:inline-block;width:12px;height:12px;background:var(--accent);margin-right:6px"></span>Locker
                             (24/7)</span><span><span
                                 style="display:inline-block;width:12px;height:12px;border:2px solid var(--pink);border-radius:50%;background:var(--surface);margin-right:6px"></span>Partner
                             front desk</span></div>
@@ -134,8 +128,8 @@
                 marks = [];
                 LOCS.forEach(function (x, i) {
                     var html = x.t === "locker"
-                        ? "<div style=\"width:18px;height:18px;background:var(--foot);border:2px solid #fff;box-shadow:0 0 0 1.5px var(--ink)\"></div>"
-                        : "<div style=\"width:18px;height:18px;background:var(--surface);border:3px solid var(--pink);border-radius:50%\"></div>";
+                        ? "<div style=\"width:18px;height:18px;background:#6bb5bd;border:2px solid #fff;box-shadow:0 0 0 2px #0b1519\"></div>"
+                        : "<div style=\"width:18px;height:18px;background:#fff;border:3px solid var(--pink);border-radius:50%\"></div>";
                     var m = L.marker(x.c, { icon: L.divIcon({ html: html, className: "", iconSize: [18, 18], iconAnchor: [9, 9] }), title: x.n, keyboard: true }).addTo(map);
                     m.bindPopup("<strong>" + x.n + "</strong><br>" + (x.t === "locker" ? "Locker, 24/7" : "Partner front desk") + "<br>" + x.d);
                     marks.push(m);
