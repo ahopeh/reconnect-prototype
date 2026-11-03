@@ -1,277 +1,309 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reconnect Setup Guides</title>
-<link rel="stylesheet" href="site.css">
-<script src="site.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reconnect Setup Guides</title>
+  <link rel="stylesheet" href="site.css">
+  <script src="site.js" defer></script>
 </head>
+
 <body>
-<div class="util"><div><span>Lost your phone? Call or text <strong>[PHONE]</strong></span><span>Pickup 24/7 from a secure locker · <a href="contact.html">Request a phone</a></span></div></div>
-<header style="border-bottom:1.5px solid #c9c9c4;background:#fff">
-<div style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
-<a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph" style="width:40px;height:40px"><span style="padding:0;background:none">&#9679;</span></span><span style="font-size:22px;font-weight:700">Reconnect</span></a>
-<nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
-<a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a href="guides.html" style="border-bottom:3px solid #1c1c1c;font-weight:600" aria-current="page">Setup guides</a><a href="about.html">About Us</a>
-<a href="contact.html" class="btn" style="min-height:44px;padding:0 20px">Request a phone</a>
-</nav>
-</div>
-</header>
-<main>
+  <div class="util">
+    <div><span>Lost your phone? Call or text <strong>[PHONE]</strong></span><span>Pickup 24/7 from a secure locker · <a
+          href="contact.html">Request a phone</a></span></div>
+  </div>
+  <header style="border-bottom:1.5px solid #c9c9c4;background:#fff">
+    <div
+      style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+      <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph"
+          style="width:40px;height:40px"><span style="padding:0;background:none">&#9679;</span></span><span
+          style="font-size:22px;font-weight:700">Reconnect</span></a>
+      <nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
+        <a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a
+          href="locations.html">Locations</a><a href="guides.html"
+          style="border-bottom:3px solid #1c1c1c;font-weight:600" aria-current="page">Setup guides</a><a
+          href="about.html">About Us</a>
+        <a href="contact.html" class="btn" style="min-height:44px;padding:0 20px">Request a phone</a>
+      </nav>
+    </div>
+  </header>
+  <main>
 
-<section style="max-width:1120px;margin:0 auto;padding:48px 24px 16px;display:flex;flex-direction:column;gap:12px">
-<span class="tag">Setup guides</span>
-<h1 style="margin:0;font-size:42px;line-height:1.15">Step-by-step help for your phone and carrier</h1>
-<p style="margin:0;font-size:18px;line-height:1.5;color:#3d3d3a;max-width:720px">Pick your phone and your carrier. We'll show only the steps that apply to you.</p>
-<div class="callout" style="font-size:14px;color:#3d3d3a;line-height:1.5;max-width:720px">Draft guides, built from each carrier's and Apple's own help pages (linked at the bottom). We confirm every step with each carrier before launch.</div>
-</section>
+    <section style="max-width:1120px;margin:0 auto;padding:48px 24px 16px;display:flex;flex-direction:column;gap:12px">
+      <span class="tag">Setup guides</span>
+      <h1 style="margin:0;font-size:42px;line-height:1.15">Step-by-step help for your phone and carrier</h1>
+      <p style="margin:0;font-size:18px;line-height:1.5;color:#3d3d3a;max-width:720px">Pick your phone and your carrier.
+        We'll show only the steps that apply to you.</p>
+      <div class="callout" style="font-size:14px;color:#3d3d3a;line-height:1.5;max-width:720px">Draft guides, built from
+        each carrier's and Apple's own help pages (linked at the bottom). We confirm every step with each carrier before
+        launch.</div>
+    </section>
 
-<section style="max-width:1120px;margin:0 auto;padding:16px 24px 8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px">
-<fieldset style="border:0;padding:0;margin:0;min-width:0;display:flex;flex-direction:column;gap:10px">
-<legend style="font-weight:700;font-size:16px;padding:0 0 10px">1. Your phone type</legend>
-<div class="choice-row" id="phone-row">
-<label class="choice"><input type="radio" name="phone" value="iphone" checked><span>iPhone</span></label>
-<label class="choice"><input type="radio" name="phone" value="android"><span>Android</span></label>
-<label class="choice"><input type="radio" name="phone" value="other"><span>Other / not sure</span></label>
-</div>
-</fieldset>
-<fieldset style="border:0;padding:0;margin:0;min-width:0;display:flex;flex-direction:column;gap:10px">
-<legend style="font-weight:700;font-size:16px;padding:0 0 10px">2. Your carrier</legend>
-<div class="choice-row" id="carrier-row">
-<label class="choice"><input type="radio" name="carrier" value="att" checked><span>AT&amp;T</span></label>
-<label class="choice"><input type="radio" name="carrier" value="verizon"><span>Verizon</span></label>
-<label class="choice"><input type="radio" name="carrier" value="tmobile"><span>T-Mobile</span></label>
-<label class="choice"><input type="radio" name="carrier" value="other"><span>Other / prepaid</span></label>
-</div>
-</fieldset>
-</section>
+    <section
+      style="max-width:1120px;margin:0 auto;padding:16px 24px 8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px">
+      <fieldset style="border:0;padding:0;margin:0;min-width:0;display:flex;flex-direction:column;gap:10px">
+        <legend style="font-weight:700;font-size:16px;padding:0 0 10px">1. Your phone type</legend>
+        <div class="choice-row" id="phone-row">
+          <label class="choice"><input type="radio" name="phone" value="iphone" checked><span>iPhone</span></label>
+          <label class="choice"><input type="radio" name="phone" value="android"><span>Android</span></label>
+          <label class="choice"><input type="radio" name="phone" value="other"><span>Other / not sure</span></label>
+        </div>
+      </fieldset>
+      <fieldset style="border:0;padding:0;margin:0;min-width:0;display:flex;flex-direction:column;gap:10px">
+        <legend style="font-weight:700;font-size:16px;padding:0 0 10px">2. Your carrier</legend>
+        <div class="choice-row" id="carrier-row">
+          <label class="choice"><input type="radio" name="carrier" value="att" checked><span>AT&amp;T</span></label>
+          <label class="choice"><input type="radio" name="carrier" value="verizon"><span>Verizon</span></label>
+          <label class="choice"><input type="radio" name="carrier" value="tmobile"><span>T-Mobile</span></label>
+          <label class="choice"><input type="radio" name="carrier" value="other"><span>Other / prepaid</span></label>
+        </div>
+      </fieldset>
+    </section>
 
-<section style="max-width:1120px;margin:0 auto;padding:16px 24px 8px;display:flex;flex-direction:column;gap:10px">
-<span style="font-weight:700;font-size:16px">3. What do you need?</span>
-<div class="choice-row" id="stage-row" role="radiogroup" aria-label="What do you need">
-<label class="choice"><input type="radio" name="stage" value="activate" checked><span>Get my number working</span></label>
-<label class="choice"><input type="radio" name="stage" value="restore"><span>Restore my accounts</span></label>
-<label class="choice"><input type="radio" name="stage" value="return"><span>Return the phone</span></label>
-</div>
-</section>
+    <section style="max-width:1120px;margin:0 auto;padding:16px 24px 8px;display:flex;flex-direction:column;gap:10px">
+      <span style="font-weight:700;font-size:16px">3. What do you need?</span>
+      <div class="choice-row" id="stage-row" role="radiogroup" aria-label="What do you need">
+        <label class="choice"><input type="radio" name="stage" value="activate" checked><span>Get my number
+            working</span></label>
+        <label class="choice"><input type="radio" name="stage" value="restore"><span>Restore my accounts</span></label>
+        <label class="choice"><input type="radio" name="stage" value="return"><span>Return the phone</span></label>
+      </div>
+    </section>
 
-<section style="max-width:1120px;margin:0 auto;padding:24px 24px 24px;display:flex;flex-direction:column;gap:20px" aria-live="polite">
-<div style="display:flex;flex-direction:column;gap:6px"><h2 id="g-title" style="margin:0;font-size:28px"></h2><span id="g-sub" style="color:#5c5c58"></span></div>
-<div id="g-ready" class="card" style="gap:8px"></div>
-<ol id="g-steps" class="steps"></ol>
-<div id="g-note" class="callout" style="line-height:1.55;color:#3d3d3a"></div>
-</section>
+    <section style="max-width:1120px;margin:0 auto;padding:24px 24px 24px;display:flex;flex-direction:column;gap:20px"
+      aria-live="polite">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h2 id="g-title" style="margin:0;font-size:28px"></h2><span id="g-sub" style="color:#5c5c58"></span>
+      </div>
+      <div id="g-ready" class="card" style="gap:8px"></div>
+      <ol id="g-steps" class="steps"></ol>
+      <div id="g-note" class="callout" style="line-height:1.55;color:#3d3d3a"></div>
+    </section>
 
-<section style="max-width:1120px;margin:0 auto;padding:8px 24px 24px;display:flex;flex-direction:column;gap:12px">
-<div style="background:#fff;border:1.5px solid #c9c9c4;padding:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
-<div style="flex:1 1 360px"><strong>Stuck? Want a person?</strong><div style="color:#3d3d3a;line-height:1.5;margin-top:4px">Call or text [PHONE], or choose a video library, Zoom call, or in-person visit on the <a href="services.html">Services &amp; Pricing</a> page.</div></div>
-<a href="contact.html" class="btn">Request a phone</a>
-</div>
-</section>
+    <section style="max-width:1120px;margin:0 auto;padding:8px 24px 24px;display:flex;flex-direction:column;gap:12px">
+      <div
+        style="background:#fff;border:1.5px solid #c9c9c4;padding:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+        <div style="flex:1 1 360px"><strong>Stuck? Want a person?</strong>
+          <div style="color:#3d3d3a;line-height:1.5;margin-top:4px">Call or text [PHONE], or choose a video library,
+            Zoom call, or in-person visit on the <a href="services.html">Services &amp; Pricing</a> page.</div>
+        </div>
+        <a href="contact.html" class="btn">Request a phone</a>
+      </div>
+    </section>
 
-<section style="max-width:1120px;margin:0 auto;padding:8px 24px 56px;display:flex;flex-direction:column;gap:8px">
-<span class="tag">Sources</span>
-<ul style="margin:0;padding-left:20px;line-height:1.8;color:#3d3d3a;font-size:15px">
-<li><a href="https://www.att.com/support/article/wireless/KM1455633/">AT&amp;T: Get a replacement SIM</a></li>
-<li><a href="https://www.verizon.com/support/my-verizon-app-esim-faqs/">Verizon: Move your line to an eSIM device</a></li>
-<li><a href="https://www.t-mobile.com/support/devices/sim-esim">T-Mobile: SIM card &amp; eSIM</a></li>
-<li><a href="https://support.apple.com/en-asia/HT212780">Apple: Set up eSIM on iPhone</a></li>
-</ul>
-</section>
+    <section style="max-width:1120px;margin:0 auto;padding:8px 24px 56px;display:flex;flex-direction:column;gap:8px">
+      <span class="tag">Sources</span>
+      <ul style="margin:0;padding-left:20px;line-height:1.8;color:#3d3d3a;font-size:15px">
+        <li><a href="https://www.att.com/support/article/wireless/KM1455633/">AT&amp;T: Get a replacement SIM</a></li>
+        <li><a href="https://www.verizon.com/support/my-verizon-app-esim-faqs/">Verizon: Move your line to an eSIM
+            device</a></li>
+        <li><a href="https://www.t-mobile.com/support/devices/sim-esim">T-Mobile: SIM card &amp; eSIM</a></li>
+        <li><a href="https://support.apple.com/en-asia/HT212780">Apple: Set up eSIM on iPhone</a></li>
+      </ul>
+    </section>
 
-</main>
-<footer style="background:#1c1c1c;color:#e4e4e0">
-<div style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
-<div style="display:flex;flex-direction:column;gap:6px"><strong style="font-size:20px;color:#fff">Reconnect</strong><span style="font-size:14px">Same-day phone rentals for travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
-<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a href="services.html" style="color:#e4e4e0">Services &amp; Pricing</a><a href="guides.html" style="color:#e4e4e0">Setup guides</a><a href="about.html" style="color:#e4e4e0">About Us</a><a href="contact.html" style="color:#e4e4e0">Request a phone</a><a href="agreement.html" style="color:#e4e4e0">Loaner agreement</a></div>
-<div style="font-size:14px">[Phone] · [Email] · [Social links]</div>
-</div>
-</footer>
-<script>
-(function () {
-  var CARRIERS = {
-    att: {
-      name: "AT&T",
-      contact: "800-331-0500",
-      ready: [
-        "Your AT&T account sign-in (or the account owner on hand). Only the account owner or an authorized user can activate a new SIM.",
-        "The IMEI and eSIM ID (EID) of your Reconnect phone, printed on the card in the locker. [to confirm]",
-        "Access to your email, in case AT&T sends a QR code there."
-      ],
-      get: [
-        "Go to att.com and sign in to your wireless account.",
-        "Choose the line with your number, then pick Device options and Manage your SIM.",
-        "Choose Get a new eSIM, then Get started, and follow the prompts. This option only shows if your line already used an eSIM.",
-        "If you don't see it, call AT&T at 800-331-0500 from a borrowed phone. Say: \"I need to move my number to a new device.\" Give them the IMEI and EID, and ask for a QR code by email."
-      ]
-    },
-    verizon: {
-      name: "Verizon",
-      contact: "800-922-0204",
-      ready: [
-        "Your My Verizon sign-in. You need to be the Account Owner or an Account Manager.",
-        "A way to verify it's you. If your account has one line, Verizon may want your old phone. With more than one line, another phone on the account can do it.",
-        "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker. [to confirm]"
-      ],
-      get: [
-        "Connect your Reconnect phone to Wi-Fi.",
-        "Download the My Verizon app and sign in.",
-        "Open the Mobile tab, select your line, scroll down, and choose \"Change or replace device on this line\" or \"Activate or get SIM.\"",
-        "Follow the prompts to move your number to the new eSIM. There's no fee for this.",
-        "If it won't work because your old phone is lost, call Verizon at 800-922-0204 from a borrowed phone and ask for an eSIM QR code."
-      ]
-    },
-    tmobile: {
-      name: "T-Mobile",
-      contact: "611 from a T-Mobile phone, or the T-Mobile help page",
-      ready: [
-        "Your T-Mobile account sign-in.",
-        "SIM Protection turned off first. If it's on, you'll get an error.",
-        "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker. [to confirm]"
-      ],
-      get: [
-        "Turn off SIM Protection in your T-Mobile account.",
-        "Open the T-Life app while connected to the T-Mobile network or Wi-Fi.",
-        "Go to the Account tab, select your line, then choose SIM transfer or activation and tap Get Started.",
-        "Enter the IMEI of your Reconnect phone, choose eSIM, and enter the EID when asked.",
-        "Review the change and tap Activate. If you get a text message, reply to confirm.",
-        "Connect the Reconnect phone to Wi-Fi and scan the QR code that appears. If you can't get one, contact T-Mobile and ask them to email you a QR code."
-      ]
-    },
-    other: {
-      name: "your carrier",
-      contact: "your carrier's customer service",
-      ready: [
-        "Your account number or the phone number, and your account PIN or passcode if you have one.",
-        "Photo ID. Some carriers ask for it.",
-        "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker. [to confirm]",
-        "Access to your email, so the carrier can send you a QR code."
-      ],
-      get: [
-        "From a borrowed phone, call your carrier's customer service or visit its website or app.",
-        "Say: \"I lost my phone and need to move my number to a new device with an eSIM.\"",
-        "Give them the IMEI and EID of your Reconnect phone.",
-        "Ask for an eSIM QR code by email, or for the carrier to activate it on the phone for you.",
-        "Prepaid or smaller carrier? Not every one supports eSIM. Tell us on your call and we'll check it before you pick up the phone."
-      ]
-    }
-  };
+  </main>
+  <footer style="background:#1c1c1c;color:#e4e4e0">
+    <div
+      style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
+      <div style="display:flex;flex-direction:column;gap:6px"><strong
+          style="font-size:20px;color:#fff">Reconnect</strong><span style="font-size:14px">Same-day phone rentals for
+          travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a href="services.html"
+          style="color:#e4e4e0">Services &amp; Pricing</a><a href="locations.html" style="color:#e4e4e0">Locations</a><a
+          href="guides.html" style="color:#e4e4e0">Setup guides</a><a href="about.html" style="color:#e4e4e0">About
+          Us</a><a href="contact.html" style="color:#e4e4e0">Request a phone</a><a href="agreement.html"
+          style="color:#e4e4e0">Loaner agreement</a></div>
+      <div style="font-size:14px">[Phone] · [Email] · [Social links]</div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var CARRIERS = {
+        att: {
+          name: "AT&T",
+          contact: "800-331-0500",
+          ready: [
+            "Your AT&T account sign-in (or the account owner on hand). Only the account owner or an authorized user can activate a new SIM.",
+            "The IMEI and eSIM ID (EID) of your Reconnect phone, printed on the card in the locker. [to confirm]",
+            "Access to your email, in case AT&T sends a QR code there."
+          ],
+          get: [
+            "Go to att.com and sign in to your wireless account.",
+            "Choose the line with your number, then pick Device options and Manage your SIM.",
+            "Choose Get a new eSIM, then Get started, and follow the prompts. This option only shows if your line already used an eSIM.",
+            "If you don't see it, call AT&T at 800-331-0500 from a borrowed phone. Say: \"I need to move my number to a new device.\" Give them the IMEI and EID, and ask for a QR code by email."
+          ]
+        },
+        verizon: {
+          name: "Verizon",
+          contact: "800-922-0204",
+          ready: [
+            "Your My Verizon sign-in. You need to be the Account Owner or an Account Manager.",
+            "A way to verify it's you. If your account has one line, Verizon may want your old phone. With more than one line, another phone on the account can do it.",
+            "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker. [to confirm]"
+          ],
+          get: [
+            "Connect your Reconnect phone to Wi-Fi.",
+            "Download the My Verizon app and sign in.",
+            "Open the Mobile tab, select your line, scroll down, and choose \"Change or replace device on this line\" or \"Activate or get SIM.\"",
+            "Follow the prompts to move your number to the new eSIM. There's no fee for this.",
+            "If it won't work because your old phone is lost, call Verizon at 800-922-0204 from a borrowed phone and ask for an eSIM QR code."
+          ]
+        },
+        tmobile: {
+          name: "T-Mobile",
+          contact: "611 from a T-Mobile phone, or the T-Mobile help page",
+          ready: [
+            "Your T-Mobile account sign-in.",
+            "SIM Protection turned off first. If it's on, you'll get an error.",
+            "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker. [to confirm]"
+          ],
+          get: [
+            "Turn off SIM Protection in your T-Mobile account.",
+            "Open the T-Life app while connected to the T-Mobile network or Wi-Fi.",
+            "Go to the Account tab, select your line, then choose SIM transfer or activation and tap Get Started.",
+            "Enter the IMEI of your Reconnect phone, choose eSIM, and enter the EID when asked.",
+            "Review the change and tap Activate. If you get a text message, reply to confirm.",
+            "Connect the Reconnect phone to Wi-Fi and scan the QR code that appears. If you can't get one, contact T-Mobile and ask them to email you a QR code."
+          ]
+        },
+        other: {
+          name: "your carrier",
+          contact: "your carrier's customer service",
+          ready: [
+            "Your account number or the phone number, and your account PIN or passcode if you have one.",
+            "Photo ID. Some carriers ask for it.",
+            "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker. [to confirm]",
+            "Access to your email, so the carrier can send you a QR code."
+          ],
+          get: [
+            "From a borrowed phone, call your carrier's customer service or visit its website or app.",
+            "Say: \"I lost my phone and need to move my number to a new device with an eSIM.\"",
+            "Give them the IMEI and EID of your Reconnect phone.",
+            "Ask for an eSIM QR code by email, or for the carrier to activate it on the phone for you.",
+            "Prepaid or smaller carrier? Not every one supports eSIM. Tell us on your call and we'll check it before you pick up the phone."
+          ]
+        }
+      };
 
-  var DEVICE_INSTALL = {
-    iphone: [
-      "On the Reconnect iPhone, open Settings, then Cellular, then Add eSIM (or Set Up Cellular).",
-      "Tap Use QR Code, and scan the code your carrier gave you. If it came by email, you can also touch and hold the code and choose Add eSIM.",
-      "Tap Continue, then Add Cellular Plan, and enter a confirmation code if asked.",
-      "Make a test call and send a test text to check that it works."
-    ],
-    android: [
-      "On the Reconnect Android phone, open Settings, then Network & internet, then SIMs (on Samsung: Connections, then SIM manager).",
-      "Tap Add SIM or Add eSIM, then choose to scan a QR code, and scan the code your carrier gave you.",
-      "Follow the prompts and turn the new line on.",
-      "Make a test call and send a test text to check that it works."
-    ],
-    other: [
-      "Open Settings on the Reconnect phone and look for SIMs, Cellular, or Mobile Data, then Add eSIM.",
-      "Scan the QR code your carrier gave you and follow the prompts.",
-      "Make a test call and send a test text to check that it works."
-    ]
-  };
+      var DEVICE_INSTALL = {
+        iphone: [
+          "On the Reconnect iPhone, open Settings, then Cellular, then Add eSIM (or Set Up Cellular).",
+          "Tap Use QR Code, and scan the code your carrier gave you. If it came by email, you can also touch and hold the code and choose Add eSIM.",
+          "Tap Continue, then Add Cellular Plan, and enter a confirmation code if asked.",
+          "Make a test call and send a test text to check that it works."
+        ],
+        android: [
+          "On the Reconnect Android phone, open Settings, then Network & internet, then SIMs (on Samsung: Connections, then SIM manager).",
+          "Tap Add SIM or Add eSIM, then choose to scan a QR code, and scan the code your carrier gave you.",
+          "Follow the prompts and turn the new line on.",
+          "Make a test call and send a test text to check that it works."
+        ],
+        other: [
+          "Open Settings on the Reconnect phone and look for SIMs, Cellular, or Mobile Data, then Add eSIM.",
+          "Scan the QR code your carrier gave you and follow the prompts.",
+          "Make a test call and send a test text to check that it works."
+        ]
+      };
 
-  var RESTORE_ACCOUNT = {
-    iphone: [
-      "With the phone at the first setup screen, choose Restore from iCloud Backup, and sign in with your Apple Account. Your verification code goes to your number, which is now working on this phone.",
-      "If your backup is old or missing, sign in to your Apple Account in Settings and turn on iCloud Photos, Contacts, and Messages to get those back.",
-      "Install the apps you need from the App Store, and sign in to each one."
-    ],
-    android: [
-      "At the first setup screen, choose to copy apps and data, pick the most recent cloud backup, and sign in with your Google account. Your verification code goes to your number, which is now working on this phone.",
-      "Open Google Photos to get your photos back, and the Play Store to reinstall the apps you need.",
-      "Sign in to each app. You type your own passwords."
-    ],
-    other: [
-      "Sign in to your phone maker's account or your Google account when asked, and restore your most recent backup if one exists.",
-      "Reinstall the apps you need and sign in to each one. Tell us your phone model on the call and we'll point you to the right menu."
-    ]
-  };
+      var RESTORE_ACCOUNT = {
+        iphone: [
+          "With the phone at the first setup screen, choose Restore from iCloud Backup, and sign in with your Apple Account. Your verification code goes to your number, which is now working on this phone.",
+          "If your backup is old or missing, sign in to your Apple Account in Settings and turn on iCloud Photos, Contacts, and Messages to get those back.",
+          "Install the apps you need from the App Store, and sign in to each one."
+        ],
+        android: [
+          "At the first setup screen, choose to copy apps and data, pick the most recent cloud backup, and sign in with your Google account. Your verification code goes to your number, which is now working on this phone.",
+          "Open Google Photos to get your photos back, and the Play Store to reinstall the apps you need.",
+          "Sign in to each app. You type your own passwords."
+        ],
+        other: [
+          "Sign in to your phone maker's account or your Google account when asked, and restore your most recent backup if one exists.",
+          "Reinstall the apps you need and sign in to each one. Tell us your phone model on the call and we'll point you to the right menu."
+        ]
+      };
 
-  var COMMON_RESTORE = [
-    "Text login codes now come to the Reconnect phone, because your number is on it.",
-    "Authenticator app? If you had cloud backup turned on, sign in to the app and your codes come back. If not, use the backup codes you saved, or on each site choose \"try another way\" to get a code by text or email.",
-    "Boarding passes and tickets: open your airline or ticket app, or search your email, and add them to Wallet again.",
-    "Payments: you can add a card to Apple Pay or Google Wallet if you need to, and your bank may ask you to verify it. Remove it before you return the phone."
-  ];
+      var COMMON_RESTORE = [
+        "Text login codes now come to the Reconnect phone, because your number is on it.",
+        "Authenticator app? If you had cloud backup turned on, sign in to the app and your codes come back. If not, use the backup codes you saved, or on each site choose \"try another way\" to get a code by text or email.",
+        "Boarding passes and tickets: open your airline or ticket app, or search your email, and add them to Wallet again.",
+        "Payments: you can add a card to Apple Pay or Google Wallet if you need to, and your bank may ask you to verify it. Remove it before you return the phone."
+      ];
 
-  var RETURN_SIGNOUT = {
-    iphone: [
-      "Remove any cards from Wallet, and sign out of apps like email, banking, and airline apps.",
-      "Go to Settings, tap your name, scroll down, and tap Sign Out. Enter your Apple Account password to turn off Find My. This is important: a phone still tied to your account comes back locked.",
-      "Go to Settings, Cellular, tap your plan, and choose Delete eSIM."
-    ],
-    android: [
-      "Remove any cards from Google Wallet, and sign out of apps like email, banking, and airline apps.",
-      "Go to Settings, Passwords & accounts (or Accounts), and remove each account, including your Google account. This turns off the lock that ties the phone to you.",
-      "Go to Settings, Network & internet, SIMs, select your line, and delete the eSIM."
-    ],
-    other: [
-      "Remove any cards from your wallet app, and sign out of apps like email, banking, and airline apps.",
-      "Remove every account from Settings, including your Google or maker account, so the phone isn't tied to you.",
-      "Delete the eSIM from the SIM or Cellular settings."
-    ]
-  };
+      var RETURN_SIGNOUT = {
+        iphone: [
+          "Remove any cards from Wallet, and sign out of apps like email, banking, and airline apps.",
+          "Go to Settings, tap your name, scroll down, and tap Sign Out. Enter your Apple Account password to turn off Find My. This is important: a phone still tied to your account comes back locked.",
+          "Go to Settings, Cellular, tap your plan, and choose Delete eSIM."
+        ],
+        android: [
+          "Remove any cards from Google Wallet, and sign out of apps like email, banking, and airline apps.",
+          "Go to Settings, Passwords & accounts (or Accounts), and remove each account, including your Google account. This turns off the lock that ties the phone to you.",
+          "Go to Settings, Network & internet, SIMs, select your line, and delete the eSIM."
+        ],
+        other: [
+          "Remove any cards from your wallet app, and sign out of apps like email, banking, and airline apps.",
+          "Remove every account from Settings, including your Google or maker account, so the phone isn't tied to you.",
+          "Delete the eSIM from the SIM or Cellular settings."
+        ]
+      };
 
-  var PHONE_NAME = { iphone: "iPhone", android: "Android phone", other: "phone" };
+      var PHONE_NAME = { iphone: "iPhone", android: "Android phone", other: "phone" };
 
-  function val(name) {
-    var el = document.querySelector('input[name="' + name + '"]:checked');
-    return el ? el.value : "";
-  }
-  function li(items) {
-    return items.map(function (t) { return "<li>" + t + "</li>"; }).join("");
-  }
-  function render() {
-    var phone = val("phone"), carrier = val("carrier"), stage = val("stage");
-    var c = CARRIERS[carrier];
-    var title = document.getElementById("g-title");
-    var sub = document.getElementById("g-sub");
-    var ready = document.getElementById("g-ready");
-    var steps = document.getElementById("g-steps");
-    var note = document.getElementById("g-note");
-    var list = [], readyHtml = "", noteText = "";
+      function val(name) {
+        var el = document.querySelector('input[name="' + name + '"]:checked');
+        return el ? el.value : "";
+      }
+      function li(items) {
+        return items.map(function (t) { return "<li>" + t + "</li>"; }).join("");
+      }
+      function render() {
+        var phone = val("phone"), carrier = val("carrier"), stage = val("stage");
+        var c = CARRIERS[carrier];
+        var title = document.getElementById("g-title");
+        var sub = document.getElementById("g-sub");
+        var ready = document.getElementById("g-ready");
+        var steps = document.getElementById("g-steps");
+        var note = document.getElementById("g-note");
+        var list = [], readyHtml = "", noteText = "";
 
-    sub.textContent = PHONE_NAME[phone].charAt(0).toUpperCase() + PHONE_NAME[phone].slice(1) + " · " + (carrier === "other" ? "Other / prepaid carrier" : c.name);
+        sub.textContent = PHONE_NAME[phone].charAt(0).toUpperCase() + PHONE_NAME[phone].slice(1) + " · " + (carrier === "other" ? "Other / prepaid carrier" : c.name);
 
-    if (stage === "activate") {
-      title.textContent = "Get your number working on the Reconnect phone";
-      readyHtml = "<h3 style=\"margin:0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:#3d3d3a\">" + li(c.ready) + "</ul>";
-      list = c.get.concat(DEVICE_INSTALL[phone]);
-      noteText = "<strong>Heads up:</strong> we never contact your carrier for you and never see your account. If " + c.name + " asks for something that's not listed here, tell us on your call and we'll help you work it out.";
-    } else if (stage === "restore") {
-      title.textContent = "Restore your accounts, codes, and apps";
-      readyHtml = "<h3 style=\"margin:0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:#3d3d3a\"><li>Your " + (phone === "android" ? "Google account" : phone === "iphone" ? "Apple Account" : "phone maker or Google account") + " sign-in and password.</li><li>Your backup codes for any authenticator apps, if you saved them.</li><li>Your number working on the phone. Do the number guide first.</li></ul>";
-      list = RESTORE_ACCOUNT[phone].concat(COMMON_RESTORE);
-      noteText = "<strong>You type your own passwords.</strong> We never ask for them, and we never see your photos, messages, or accounts.";
-    } else {
-      title.textContent = "Return the phone";
-      readyHtml = "<h3 style=\"margin:0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:#3d3d3a\"><li>Your own phone, or a new one, ready to take your number back.</li><li>Your " + c.name + " sign-in, to move your number off the Reconnect phone.</li><li>The charger and cable that came with the phone.</li></ul>";
-      var back = ["Move your number back to your own phone. Use the same " + (carrier === "other" ? "carrier" : c.name) + " steps from the number guide, this time for your own phone. Do this first, so you don't lose service."];
-      list = back.concat(RETURN_SIGNOUT[phone], [
-        "You don't need to erase the phone. We do that, and we verify it.",
-        "Put the phone, charger, and cable in any partner locker or return it at a partner location. [Return steps and locations to confirm]",
-        "You'll get a text when we've checked it in. Your refundable hold is released after that. [Release timing to confirm]"
-      ]);
-      noteText = "<strong>Why sign-out matters:</strong> a phone still tied to your account comes back locked, and a locked phone can be charged at its full replacement price. Take two minutes to sign out and you're done.";
-    }
-    ready.innerHTML = readyHtml;
-    steps.innerHTML = list.map(function (t) { return "<li><span>" + t + "</span></li>"; }).join("");
-    note.innerHTML = noteText;
-  }
-  document.addEventListener("change", function (e) {
-    if (e.target && e.target.matches('input[name="phone"],input[name="carrier"],input[name="stage"]')) render();
-  });
-  render();
-})();
+        if (stage === "activate") {
+          title.textContent = "Get your number working on the Reconnect phone";
+          readyHtml = "<p style=\"margin:0;line-height:1.55;color:#3d3d3a\"><strong>Your phone already works.</strong> It comes with a temporary eSIM, so you can call, text and use data right now while you move your number. The temporary line has its own number. Your own calls and texts, including login codes, come to this phone once your number moves. [Temporary service details to confirm]</p><h3 style=\"margin:8px 0 0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:#3d3d3a\">" + li(c.ready) + "</ul>";
+          list = c.get.concat(DEVICE_INSTALL[phone]);
+          noteText = "<strong>Heads up:</strong> we never contact your carrier for you and never see your account. If " + c.name + " asks for something that's not listed here, tell us on your call and we'll help you work it out.";
+        } else if (stage === "restore") {
+          title.textContent = "Restore your accounts, codes, and apps";
+          readyHtml = "<h3 style=\"margin:0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:#3d3d3a\"><li>Your " + (phone === "android" ? "Google account" : phone === "iphone" ? "Apple Account" : "phone maker or Google account") + " sign-in and password.</li><li>Your backup codes for any authenticator apps, if you saved them.</li><li>Your number working on the phone. Do the number guide first.</li></ul>";
+          list = RESTORE_ACCOUNT[phone].concat(COMMON_RESTORE);
+          noteText = "<strong>You type your own passwords.</strong> We never ask for them, and we never see your photos, messages, or accounts.";
+        } else {
+          title.textContent = "Return the phone";
+          readyHtml = "<h3 style=\"margin:0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:#3d3d3a\"><li>Your own phone, or a new one, ready to take your number back.</li><li>Your " + c.name + " sign-in, to move your number off the Reconnect phone.</li><li>The charger and cable that came with the phone.</li></ul>";
+          var back = ["Move your number back to your own phone. Use the same " + (carrier === "other" ? "carrier" : c.name) + " steps from the number guide, this time for your own phone. Do this first, so you don't lose service."];
+          list = back.concat(RETURN_SIGNOUT[phone], [
+            "You don't need to erase the phone. We do that, and we verify it.",
+            "Put the phone, charger, and cable in any partner locker or return it at a partner location. [Return steps and locations to confirm]",
+            "You'll get a text when we've checked it in. Your refundable hold is released after that. [Release timing to confirm]"
+          ]);
+          noteText = "<strong>Why sign-out matters:</strong> a phone still tied to your account comes back locked, and a locked phone can be charged at its full replacement price. Take two minutes to sign out and you're done.";
+        }
+        ready.innerHTML = readyHtml;
+        steps.innerHTML = list.map(function (t) { return "<li><span>" + t + "</span></li>"; }).join("");
+        note.innerHTML = noteText;
+      }
+      document.addEventListener("change", function (e) {
+        if (e.target && e.target.matches('input[name="phone"],input[name="carrier"],input[name="stage"]')) render();
+      });
+      render();
+    })();
 
-</script>
+  </script>
 </body>
+
 </html>

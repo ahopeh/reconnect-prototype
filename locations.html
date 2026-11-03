@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reconnect Locations</title>
+    <link rel="stylesheet" href="site.css">
+    <script src="site.js" defer></script>
+</head>
+
+<body>
+    <div class="util">
+        <div><span>Lost your phone? Call or text <strong>[PHONE]</strong></span><span>Pickup 24/7 from a secure locker ·
+                <a href="contact.html">Request a phone</a></span></div>
+    </div>
+    <header style="border-bottom:1.5px solid #c9c9c4;background:#fff">
+        <div
+            style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+            <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph"
+                    style="width:40px;height:40px"><span style="padding:0;background:none">&#9679;</span></span><span
+                    style="font-size:22px;font-weight:700">Reconnect</span></a>
+            <nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
+                <a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a href="locations.html"
+                    style="border-bottom:3px solid #1c1c1c;font-weight:600" aria-current="page">Locations</a><a
+                    href="guides.html">Setup guides</a><a href="about.html">About Us</a>
+                <a href="contact.html" class="btn" style="min-height:44px;padding:0 20px">Request a phone</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+
+        <section
+            style="max-width:1120px;margin:0 auto;padding:56px 24px 24px;display:flex;flex-direction:column;gap:12px">
+            <span class="tag">Locations</span>
+            <h1 style="margin:0;font-size:38px;line-height:1.15">Pick up and return around the island</h1>
+            <p style="margin:0;font-size:18px;line-height:1.55;color:#3d3d3a;max-width:700px">Lockers are open 24/7.
+                Partner front desks keep their own hours. You can return your phone to any location. Prototype only:
+                these are example sites, not confirmed partners.</p>
+        </section>
+        <!-- MAP -->
+        <section id="map-section" style="max-width:1120px;margin:0 auto;padding:0 24px 64px">
+            <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px">
+
+                <p style="margin:0;line-height:1.55;color:#3d3d3a;max-width:700px">Lockers and partner front desks near
+                    where visitors land and stay. Prototype only: these are example sites, not confirmed partners.</p>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:stretch">
+                <div id="map" style="flex:2 1 460px;min-width:0;height:460px;border:1.5px solid #c9c9c4" role="img"
+                    aria-label="Map of example Reconnect locker and partner locations on Maui"></div>
+                <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:10px">
+                    <div style="display:flex;gap:16px;font-size:14px;color:#3d3d3a"><span><span
+                                style="display:inline-block;width:12px;height:12px;background:#1c1c1c;margin-right:6px"></span>Locker
+                            (24/7)</span><span><span
+                                style="display:inline-block;width:12px;height:12px;border:2px solid #1c1c1c;border-radius:50%;background:#fff;margin-right:6px"></span>Partner
+                            front desk</span></div>
+                    <ul id="loc-list"
+                        style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px"></ul>
+                </div>
+            </div>
+        </section>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+        <script>
+            (function () {
+                var LOCS = [
+                    { n: "Maui Mall, Kahului", t: "locker", d: "Central Maui shopping center, minutes from the airport.", c: [20.8873, -156.4690] },
+                    { n: "Whalers Village, Kāʻanapali", t: "locker", d: "Open-air shopping center on West Maui's resort coast.", c: [20.9264, -156.6944] },
+                    { n: "The Shops at Wailea", t: "locker", d: "South Maui resort shopping center.", c: [20.6905, -156.4400] },
+                    { n: "Maui Seaside Hotel, Kahului", t: "partner", d: "Front desk. Close to the airport.", c: [20.8935, -156.4685] },
+                    { n: "Maui Coast Hotel, Kīhei", t: "partner", d: "Front desk. South Maui.", c: [20.7490, -156.4460] },
+                    { n: "Paia Inn, Pāʻia", t: "partner", d: "Front desk. North Shore.", c: [20.9036, -156.3697] },
+                    { n: "Lahaina Shores Beach Resort, Lahaina", t: "partner", d: "Front desk, south end of Front Street.", c: [20.8670, -156.6735] }
+                ];
+                var list = document.getElementById("loc-list");
+                if (typeof L === "undefined") {
+                    LOCS.forEach(function (x) { var li = document.createElement("li"); li.innerHTML = "<strong>" + x.n + "</strong> (" + (x.t === "locker" ? "Locker" : "Partner") + ")<br><span style=\"color:#3d3d3a\">" + x.d + "</span>"; list.appendChild(li); });
+                    document.getElementById("map").style.display = "none"; return;
+                }
+                var map = L.map("map", { scrollWheelZoom: false }).setView([20.82, -156.5], 10);
+                L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 17, attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
+                var marks = [];
+                LOCS.forEach(function (x, i) {
+                    var html = x.t === "locker"
+                        ? "<div style=\"width:18px;height:18px;background:#1c1c1c;border:2px solid #fff;box-shadow:0 0 0 1.5px #1c1c1c\"></div>"
+                        : "<div style=\"width:18px;height:18px;background:#fff;border:3px solid #1c1c1c;border-radius:50%\"></div>";
+                    var m = L.marker(x.c, { icon: L.divIcon({ html: html, className: "", iconSize: [18, 18], iconAnchor: [9, 9] }), title: x.n, keyboard: true }).addTo(map);
+                    m.bindPopup("<strong>" + x.n + "</strong><br>" + (x.t === "locker" ? "Locker, 24/7" : "Partner front desk") + "<br>" + x.d);
+                    marks.push(m);
+                    var li = document.createElement("li");
+                    li.innerHTML = "<button type=\"button\" style=\"all:unset;cursor:pointer;display:block;width:100%;box-sizing:border-box;border:1.5px solid #c9c9c4;background:#fff;padding:10px 12px;line-height:1.4\"><strong>" + x.n + "</strong> <span style=\"color:#5c5c58\">(" + (x.t === "locker" ? "Locker" : "Partner") + ")</span><br><span style=\"color:#3d3d3a;font-size:14px\">" + x.d + "</span></button>";
+                    li.firstChild.addEventListener("click", function () { map.flyTo(x.c, 13); m.openPopup(); });
+                    list.appendChild(li);
+                });
+                map.fitBounds(L.latLngBounds(LOCS.map(function (x) { return x.c; })).pad(0.15));
+            })();
+        </script>
+
+
+        <section style="max-width:1120px;margin:0 auto;padding:0 24px 64px"><a href="contact.html" class="btn">Request a
+                phone</a></section>
+
+    </main>
+    <footer style="background:#1c1c1c;color:#e4e4e0">
+        <div
+            style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
+            <div style="display:flex;flex-direction:column;gap:6px"><strong
+                    style="font-size:20px;color:#fff">Reconnect</strong><span style="font-size:14px">Same-day phone
+                    rentals for travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a
+                    href="services.html" style="color:#e4e4e0">Services &amp; Pricing</a><a href="locations.html"
+                    style="color:#e4e4e0">Locations</a><a href="guides.html" style="color:#e4e4e0">Setup guides</a><a
+                    href="about.html" style="color:#e4e4e0">About Us</a><a href="contact.html"
+                    style="color:#e4e4e0">Request a phone</a><a href="agreement.html" style="color:#e4e4e0">Loaner
+                    agreement</a></div>
+            <div style="font-size:14px">[Phone] · [Email] · [Social links]</div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
