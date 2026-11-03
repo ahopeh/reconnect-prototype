@@ -7,6 +7,11 @@
     <title>Reconnect Loaner Agreement</title>
     <link rel="stylesheet" href="site.css">
     <script src="site.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -14,7 +19,7 @@
         <div><span>Lost your phone? Call or text <strong>[PHONE]</strong></span><span>Pickup 24/7 from a secure locker ·
                 <a href="contact.html">Request a phone</a></span></div>
     </div>
-    <header style="border-bottom:1.5px solid #c9c9c4;background:#fff">
+    <header style="border-bottom:1.5px solid var(--line);background:var(--surface)">
         <div
             style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
             <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph"
@@ -33,7 +38,7 @@
         <div style="max-width:1000px;margin:0 auto;padding:48px 24px 16px;display:flex;flex-direction:column;gap:12px">
             <span class="tag">Supporting page · Loaner agreement</span>
             <h1 style="margin:0;font-size:38px;line-height:1.15">Reconnect Loaner Phone Agreement</h1>
-            <p style="margin:0;font-size:18px;line-height:1.55;color:#3d3d3a">Please read this before you borrow a
+            <p style="margin:0;font-size:18px;line-height:1.55;color:var(--soft)">Please read this before you borrow a
                 phone. We wrote it to be plain and fair, with no surprises. [Draft: have a Hawaiʻi attorney review
                 before customers sign.]</p>
         </div>
@@ -41,9 +46,9 @@
         <!-- SHORT VERSION -->
         <div style="max-width:1000px;margin:0 auto;padding:8px 24px">
             <div
-                style="background:#fff;border:2px solid #1c1c1c;padding:24px;display:flex;flex-direction:column;gap:10px">
+                style="background:var(--surface);border:2px solid var(--accent);padding:24px;display:flex;flex-direction:column;gap:10px">
                 <span class="tag">The short version</span>
-                <ul style="margin:0;padding-left:20px;line-height:1.7;color:#3d3d3a">
+                <ul style="margin:0;padding-left:20px;line-height:1.7;color:var(--soft)">
                     <li>You borrow a phone from us for the dates on your Rental Summary.</li>
                     <li>You pay a daily rate and a one-time setup fee. We also place a refundable hold on your credit
                         card, equal to the phone's replacement price.</li>
@@ -74,11 +79,11 @@
             }
 
             .toc a {
-                color: #1c1c1c
+                color: var(--ink)
             }
         </style>
         <div class="toc" style="max-width:1000px;margin:0 auto;padding:8px 24px">
-            <div style="background:#fff;border:1.5px solid #c9c9c4;padding:20px 24px">
+            <div style="background:var(--surface);border:1.5px solid var(--line);padding:20px 24px">
                 <h2 style="margin:0 0 6px;font-size:20px">Jump to a section</h2>
                 <ul>
                     <li><a href="#s1">1. The loaner phone and who owns it</a></li>
@@ -103,7 +108,7 @@
         <!-- DEVICE DETAILS -->
         <div style="max-width:1000px;margin:0 auto;padding:16px 24px 8px">
             <div
-                style="background:#fff;border:1.5px solid #c9c9c4;padding:24px;display:flex;flex-direction:column;gap:14px">
+                style="background:var(--surface);border:1.5px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:14px">
                 <h2 style="margin:0;font-size:20px">Rental Summary</h2>
                 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Make and model</span>
@@ -145,132 +150,133 @@
 
         <!-- TERMS -->
         <div style="max-width:1000px;margin:0 auto;padding:8px 24px 24px">
-            <div style="background:#fff;border:1.5px solid #c9c9c4;padding:8px 28px 20px">
+            <div style="background:var(--surface);border:1.5px solid var(--line);padding:8px 28px 20px">
                 <div class="sec" id="s1">
                     <h3>1. The loaner phone and who owns it</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a">Reconnect [legal business name to be confirmed]
-                        (&ldquo;Reconnect,&rdquo; &ldquo;we&rdquo;) is lending you the phone and accessories listed on
-                        your Rental Summary above (the &ldquo;Loaner Phone&rdquo;). You are the person named in the
-                        Rental Summary (&ldquo;you&rdquo;).</p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a">We own the Loaner Phone the whole time. Borrowing
-                        it doesn't transfer ownership, and you may not sell, lend, rent, or pledge it. It may be new or
-                        refurbished. Its serial number and IMEI are on your Rental Summary.</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)">Reconnect [legal business name to be
+                        confirmed] (&ldquo;Reconnect,&rdquo; &ldquo;we&rdquo;) is lending you the phone and accessories
+                        listed on your Rental Summary above (the &ldquo;Loaner Phone&rdquo;). You are the person named
+                        in the Rental Summary (&ldquo;you&rdquo;).</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)">We own the Loaner Phone the whole time.
+                        Borrowing it doesn't transfer ownership, and you may not sell, lend, rent, or pledge it. It may
+                        be new or refurbished. Its serial number and IMEI are on your Rental Summary.</p>
                 </div>
                 <div class="sec" id="s2">
                     <h3>2. Rental period and returning the phone</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>2.1 Return date.</strong> Please return
-                        the Loaner Phone and everything that came with it by the Return By date on your Rental Summary.
-                    </p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>2.2 How to return it.</strong> You can
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>2.1 Return date.</strong> Please
+                        return the Loaner Phone and everything that came with it by the Return By date on your Rental
+                        Summary.</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>2.2 How to return it.</strong> You can
                         return it to any partner locker or location, or schedule a pickup. [Return locations to confirm]
                         A return counts once we confirm we have it.</p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>2.3 Extending.</strong> Need more time?
-                        Contact us before the Return By date. If we can say yes, the new date becomes your Return By
-                        date and these terms still apply. Days beyond the Return By date are billed at the daily rate.
-                    </p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>2.4 If it isn't returned.</strong> If we
-                        haven't heard from you and the phone hasn't come back [3] days after the Return By date, we'll
-                        treat it as not returned and Section 6.2 applies. We'd much rather talk first, so please call
-                        us.</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>2.3 Extending.</strong> Need more
+                        time? Contact us before the Return By date. If we can say yes, the new date becomes your Return
+                        By date and these terms still apply. Days beyond the Return By date are billed at the daily
+                        rate.</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>2.4 If it isn't returned.</strong> If
+                        we haven't heard from you and the phone hasn't come back [3] days after the Return By date,
+                        we'll treat it as not returned and Section 6.2 applies. We'd much rather talk first, so please
+                        call us.</p>
                 </div>
                 <div class="sec" id="s3">
                     <h3>3. Fees and payment</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>3.1 What you pay.</strong> The daily rate
-                        for each day you keep the phone, a one-time setup fee, and any optional support you choose
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>3.1 What you pay.</strong> The daily
+                        rate for each day you keep the phone, a one-time setup fee, and any optional support you choose
                         (Section 11). Your Rental Summary and our <a href="services.html">Services &amp; Pricing
                             page</a> list the amounts. [Billing schedule and how partial days are counted to confirm]
                     </p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>3.2 Card on file.</strong> You authorize
-                        us to charge your card on file for the fees above, any late days, and any charges described in
-                        Section 6. We'll send a receipt by email.</p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>3.3 Missed payments.</strong> If a payment
-                        doesn't go through, we'll let you know and ask you to update your card. We may apply your
-                        deposit to the unpaid amount (Section 4).</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>3.2 Card on file.</strong> You
+                        authorize us to charge your card on file for the fees above, any late days, and any charges
+                        described in Section 6. We'll send a receipt by email.</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>3.3 Missed payments.</strong> If a
+                        payment doesn't go through, we'll let you know and ask you to update your card. We may apply
+                        your deposit to the unpaid amount (Section 4).</p>
                 </div>
                 <div class="sec" id="s4">
                     <h3>4. Refundable hold</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>4.1 What it is.</strong> We place a
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>4.1 What it is.</strong> We place a
                         refundable deposit hold on your card for the amount on your Rental Summary. It depends on the
                         phone model. It works like a rental car deposit: it protects against damage while the phone is
                         with you, a missed payment, and similar costs that insurance would normally cover.</p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>4.2 Getting it back.</strong> If the phone
-                        comes back as we gave it to you and you're paid up, we'll release the hold within [X] business
-                        days of inspecting it. Your bank may take extra time to show it. If we use part of the deposit,
-                        we'll tell you what for and release the rest.</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>4.2 Getting it back.</strong> If the
+                        phone comes back as we gave it to you and you're paid up, we'll release the hold within [X]
+                        business days of inspecting it. Your bank may take extra time to show it. If we use part of the
+                        deposit, we'll tell you what for and release the rest.</p>
                 </div>
                 <div class="sec" id="s5">
                     <h3>5. Taking care of the phone</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>5.1 Care.</strong> You're responsible for
-                        the Loaner Phone from the moment we hand it over until we confirm it's back. Please take
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>5.1 Care.</strong> You're responsible
+                        for the Loaner Phone from the moment we hand it over until we confirm it's back. Please take
                         reasonable care of it: protect it from drops, water, sand, and heat, and don't leave it
                         unattended or in a parked car.</p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>5.2 Lost or stolen.</strong> If it's lost,
-                        stolen, or damaged, tell us right away at [PHONE]. The sooner we know, the more we can help. We
-                        may lock the phone, mark it as lost, or locate it using device-management tools. [Location use
-                        limited to lost, stolen, or unreturned phones, to confirm] If you find it again, let us know.
-                    </p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>5.3 No repairs.</strong> Please don't try
-                        to repair the phone or have anyone else repair it. Contact us instead.</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>5.2 Lost or stolen.</strong> If it's
+                        lost, stolen, or damaged, tell us right away at [PHONE]. The sooner we know, the more we can
+                        help. We may lock the phone, mark it as lost, or locate it using device-management tools.
+                        [Location use limited to lost, stolen, or unreturned phones, to confirm] If you find it again,
+                        let us know.</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>5.3 No repairs.</strong> Please don't
+                        try to repair the phone or have anyone else repair it. Contact us instead.</p>
                 </div>
                 <div class="sec" id="s6">
                     <h3>6. Condition on return and replacement charge</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>6.1 Return it as you got it.</strong>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>6.1 Return it as you got it.</strong>
                         Please return the Loaner Phone and its accessories in the same condition we handed them over,
                         apart from normal wear from ordinary use. We inspect each phone when it comes back.</p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>6.2 Full replacement charge.</strong>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>6.2 Full replacement charge.</strong>
                         We'll charge your card on file the full Replacement Price on your Rental Summary if: (a) the
                         phone isn't returned; (b) it comes back locked because it was reported lost or stolen; or (c) it
                         comes back too damaged to use. We apply your deposit first.</p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>6.3 Repairable damage.</strong> If it
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>6.3 Repairable damage.</strong> If it
                         comes back damaged but still repairable, we'll charge the reasonable cost to fix it, up to the
                         Replacement Price. Missing accessories are charged at their listed price. We'll send you our
                         inspection notes and photos.</p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>6.4 If you disagree.</strong> Contact us
-                        within [14] days of a charge. We'll go over the inspection notes with you and correct any
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>6.4 If you disagree.</strong> Contact
+                        us within [14] days of a charge. We'll go over the inspection notes with you and correct any
                         mistake.</p>
                 </div>
                 <div class="sec" id="s7">
                     <h3>7. Who can use it, and how</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a">Only you may use the Loaner Phone. Please use it
-                        lawfully and keep it in Hawaiʻi unless we agree otherwise. [Travel limits to confirm] Don't
+                    <p style="margin:0;line-height:1.6;color:var(--soft)">Only you may use the Loaner Phone. Please use
+                        it lawfully and keep it in Hawaiʻi unless we agree otherwise. [Travel limits to confirm] Don't
                         jailbreak or root it, remove device-management settings, alter the hardware, or remove serial or
                         IMEI labels.</p>
                 </div>
                 <div class="sec" id="s8">
                     <h3>8. Your phone number and carrier</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a">Your carrier controls your phone number and your
-                        service. If you move your number to the Loaner Phone, you do that with your carrier, who will
-                        verify you. We never contact your carrier for you and never see your carrier account. Any
+                    <p style="margin:0;line-height:1.6;color:var(--soft)">Your carrier controls your phone number and
+                        your service. If you move your number to the Loaner Phone, you do that with your carrier, who
+                        will verify you. We never contact your carrier for you and never see your carrier account. Any
                         carrier fees are yours. Every Loaner Phone comes with a temporary eSIM so it works as soon as
                         you pick it up. The temporary line has its own number, and your own number takes over once your
                         carrier moves it. [Temporary service details and any usage limits to confirm]</p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a">Before you return the phone, please move your
+                    <p style="margin:0;line-height:1.6;color:var(--soft)">Before you return the phone, please move your
                         number back to your own phone or to a new one. We remove any SIM or eSIM from the Loaner Phone
                         at return.</p>
                 </div>
                 <div class="sec" id="s9">
                     <h3>9. Your accounts and data</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>9.1 Your passwords stay yours.</strong>
-                        You sign in to your own accounts. We never ask for your passwords and we don't copy or back up
-                        your photos, messages, or accounts.</p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>9.2 Before you return the phone.</strong>
-                        Sign out of all accounts and remove any account locks (for example, Activation Lock on iPhone or
-                        Factory Reset Protection on Android). Back up anything you want to keep first. After you return
-                        it, we erase and verify the phone. If it still can't be erased because it's tied to your
-                        account, we'll ask you to remove it. If that isn't done within [3] days, it counts as returned
-                        locked under Section 6.2(b).</p>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a"><strong>9.3 Data left behind.</strong> We aren't
-                        responsible for personal data left on the phone or erased from it.</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>9.1 Your passwords stay
+                            yours.</strong> You sign in to your own accounts. We never ask for your passwords and we
+                        don't copy or back up your photos, messages, or accounts.</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>9.2 Before you return the
+                            phone.</strong> Sign out of all accounts and remove any account locks (for example,
+                        Activation Lock on iPhone or Factory Reset Protection on Android). Back up anything you want to
+                        keep first. After you return it, we erase and verify the phone. If it still can't be erased
+                        because it's tied to your account, we'll ask you to remove it. If that isn't done within [3]
+                        days, it counts as returned locked under Section 6.2(b).</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>9.3 Data left behind.</strong> We
+                        aren't responsible for personal data left on the phone or erased from it.</p>
                 </div>
                 <div class="sec" id="s10">
                     <h3>10. Software</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a">Software on the Loaner Phone is licensed to that
-                        device only. Please install apps only from the official app store, with valid licenses. Don't
-                        copy, reverse engineer, disassemble, or decompile any software, equipment, or components.</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)">Software on the Loaner Phone is licensed to
+                        that device only. Please install apps only from the official app store, with valid licenses.
+                        Don't copy, reverse engineer, disassemble, or decompile any software, equipment, or components.
+                    </p>
                 </div>
                 <div class="sec" id="s11">
                     <h3>11. Support services</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a">Your setup and the step-by-step activation and
+                    <p style="margin:0;line-height:1.6;color:var(--soft)">Your setup and the step-by-step activation and
                         return guides for your phone and carrier are included. Optional extra help is available at the
                         rates on our <a href="services.html">Services &amp; Pricing page</a>: a pre-recorded video
                         library (a small fee), a video call billed per 30 minutes, or an in-person visit, which costs
@@ -278,27 +284,27 @@
                 </div>
                 <div class="sec" id="s12">
                     <h3>12. Privacy</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a">We collect your name, contact details, where
+                    <p style="margin:0;line-height:1.6;color:var(--soft)">We collect your name, contact details, where
                         you're staying, and payment details so we can deliver the phone, support you, and process
                         charges. We don't sell your information. [Full privacy policy to be written]</p>
                 </div>
                 <div class="sec" id="s13">
                     <h3>13. Limits on our responsibility</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a">Reconnect isn't an emergency service. Please don't
-                        rely on the Loaner Phone as your only way to reach emergency help, and service depends on your
-                        carrier and local coverage. To the extent the law allows, we aren't liable for indirect or
+                    <p style="margin:0;line-height:1.6;color:var(--soft)">Reconnect isn't an emergency service. Please
+                        don't rely on the Loaner Phone as your only way to reach emergency help, and service depends on
+                        your carrier and local coverage. To the extent the law allows, we aren't liable for indirect or
                         consequential losses, or for loss of data, arising from this agreement or your use of the Loaner
                         Phone. Nothing here limits any right you have under law that can't be limited.</p>
                 </div>
                 <div class="sec" id="s14">
                     <h3>14. Ending early</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a">We may ask you to return the Loaner Phone sooner
-                        than planned if it's being misused or there's a safety or legal concern. If so, we'll tell you
-                        why and give you a reasonable time to return it, usually [24 hours].</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)">We may ask you to return the Loaner Phone
+                        sooner than planned if it's being misused or there's a safety or legal concern. If so, we'll
+                        tell you why and give you a reasonable time to return it, usually [24 hours].</p>
                 </div>
                 <div class="sec" id="s15">
                     <h3>15. General terms</h3>
-                    <p style="margin:0;line-height:1.6;color:#3d3d3a">This agreement and your Rental Summary are our
+                    <p style="margin:0;line-height:1.6;color:var(--soft)">This agreement and your Rental Summary are our
                         whole agreement. Changes must be in writing and agreed by both of us. If any part isn't
                         enforceable, the rest still applies. Electronic signatures and records are valid. Hawaiʻi law
                         governs this agreement, and any dispute will be handled in the courts of Maui County, Hawaiʻi.
@@ -310,7 +316,7 @@
         <!-- SIGNATURE -->
         <div style="max-width:1000px;margin:0 auto;padding:0 24px 56px">
             <div
-                style="background:#fff;border:1.5px solid #c9c9c4;padding:28px;display:flex;flex-direction:column;gap:18px">
+                style="background:var(--surface);border:1.5px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:18px">
                 <h2 id="sign" style="margin:0;font-size:20px;scroll-margin-top:90px">Acknowledgment and signature</h2>
                 <div style="display:flex;gap:12px;align-items:center"><input type="checkbox" id="ack"
                         style="width:24px;height:24px;min-height:0;flex:none;margin:0"><label for="ack"
@@ -328,26 +334,26 @@
                         disabled>Sign and continue</button><a href="contact.html" class="btn btn2">Back to your
                         request</a></div>
                 <div id="sign-confirm" hidden role="status"
-                    style="border:2px solid #1c1c1c;padding:16px;display:flex;flex-direction:column;gap:6px">
-                    <strong>Signed by <span data-name></span>.</strong><span style="color:#3d3d3a">This is a demo, so
-                        nothing was signed or saved. In the live service, the next step is the handoff and your carrier
-                        call.</span></div>
+                    style="border:2px solid var(--accent);padding:16px;display:flex;flex-direction:column;gap:6px">
+                    <strong>Signed by <span data-name></span>.</strong><span style="color:var(--soft)">This is a demo,
+                        so nothing was signed or saved. In the live service, the next step is the handoff and your
+                        carrier call.</span></div>
             </div>
         </div>
 
 
     </main>
-    <footer style="background:#1c1c1c;color:#e4e4e0">
+    <footer style="background:var(--foot);color:#c9d6d8">
         <div
             style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
             <div style="display:flex;flex-direction:column;gap:6px"><strong
-                    style="font-size:20px;color:#fff">Reconnect</strong><span style="font-size:14px">Same-day phone
+                    style="font-size:20px;color:var(--hi)">Reconnect</strong><span style="font-size:14px">Same-day phone
                     rentals for travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
             <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a
-                    href="services.html" style="color:#e4e4e0">Services &amp; Pricing</a><a href="locations.html"
-                    style="color:#e4e4e0">Locations</a><a href="guides.html" style="color:#e4e4e0">Setup guides</a><a
-                    href="about.html" style="color:#e4e4e0">About Us</a><a href="contact.html"
-                    style="color:#e4e4e0">Request a phone</a><a href="agreement.html" style="color:#e4e4e0">Loaner
+                    href="services.html" style="color:#c9d6d8">Services &amp; Pricing</a><a href="locations.html"
+                    style="color:#c9d6d8">Locations</a><a href="guides.html" style="color:#c9d6d8">Setup guides</a><a
+                    href="about.html" style="color:#c9d6d8">About Us</a><a href="contact.html"
+                    style="color:#c9d6d8">Request a phone</a><a href="agreement.html" style="color:#c9d6d8">Loaner
                     agreement</a></div>
             <div style="font-size:14px">[Phone] · [Email] · [Social links]</div>
         </div>

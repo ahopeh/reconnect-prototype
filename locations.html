@@ -7,6 +7,11 @@
     <title>Reconnect Locations</title>
     <link rel="stylesheet" href="site.css">
     <script src="site.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -14,7 +19,7 @@
         <div><span>Lost your phone? Call or text <strong>[PHONE]</strong></span><span>Pickup 24/7 from a secure locker ·
                 <a href="contact.html">Request a phone</a></span></div>
     </div>
-    <header style="border-bottom:1.5px solid #c9c9c4;background:#fff">
+    <header style="border-bottom:1.5px solid var(--line);background:var(--surface)">
         <div
             style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
             <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph"
@@ -22,7 +27,7 @@
                     style="font-size:22px;font-weight:700">Reconnect</span></a>
             <nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
                 <a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a href="locations.html"
-                    style="border-bottom:3px solid #1c1c1c;font-weight:600" aria-current="page">Locations</a><a
+                    style="border-bottom:3px solid var(--accent);font-weight:600" aria-current="page">Locations</a><a
                     href="guides.html">Setup guides</a><a href="about.html">About Us</a>
                 <a href="contact.html" class="btn" style="min-height:44px;padding:0 20px">Request a phone</a>
             </nav>
@@ -34,7 +39,7 @@
             style="max-width:1120px;margin:0 auto;padding:56px 24px 24px;display:flex;flex-direction:column;gap:12px">
             <span class="tag">Locations</span>
             <h1 style="margin:0;font-size:38px;line-height:1.15">Pick up and return around the island</h1>
-            <p style="margin:0;font-size:18px;line-height:1.55;color:#3d3d3a;max-width:700px">Lockers are open 24/7.
+            <p style="margin:0;font-size:18px;line-height:1.55;color:var(--soft);max-width:700px">Lockers are open 24/7.
                 Partner front desks keep their own hours. You can return your phone to any location. Prototype only:
                 these are example sites, not confirmed partners.</p>
         </section>
@@ -42,11 +47,12 @@
         <section id="map-section" style="max-width:1120px;margin:0 auto;padding:0 24px 64px">
             <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px">
 
-                <p style="margin:0;line-height:1.55;color:#3d3d3a;max-width:700px">Lockers and partner front desks near
-                    where visitors land and stay. Prototype only: these are example sites, not confirmed partners.</p>
+                <p style="margin:0;line-height:1.55;color:var(--soft);max-width:700px">Lockers and partner front desks
+                    near where visitors land and stay. Prototype only: these are example sites, not confirmed partners.
+                </p>
             </div>
             <form id="find"
-                style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;border:1.5px solid #1c1c1c;background:#fff;padding:18px 20px"
+                style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;border:1.5px solid var(--accent);background:var(--surface);padding:18px 20px"
                 onsubmit="return false">
                 <label for="where" style="font-weight:600">Find the closest pickup spot</label>
                 <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:stretch">
@@ -56,16 +62,16 @@
                     <button type="button" id="here-btn" class="btn btn2" style="min-height:44px">Use my
                         location</button>
                 </div>
-                <div id="find-result" aria-live="polite" style="line-height:1.5;color:#3d3d3a"></div>
+                <div id="find-result" aria-live="polite" style="line-height:1.5;color:var(--soft)"></div>
             </form>
             <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:stretch">
-                <div id="map" style="flex:2 1 460px;min-width:0;height:460px;border:1.5px solid #c9c9c4" role="img"
+                <div id="map" style="flex:2 1 460px;min-width:0;height:460px;border:1.5px solid var(--line)" role="img"
                     aria-label="Map of example Reconnect locker and partner locations on Maui"></div>
                 <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:10px">
-                    <div style="display:flex;gap:16px;font-size:14px;color:#3d3d3a"><span><span
-                                style="display:inline-block;width:12px;height:12px;background:#1c1c1c;margin-right:6px"></span>Locker
+                    <div style="display:flex;gap:16px;font-size:14px;color:var(--soft)"><span><span
+                                style="display:inline-block;width:12px;height:12px;background:var(--foot);margin-right:6px"></span>Locker
                             (24/7)</span><span><span
-                                style="display:inline-block;width:12px;height:12px;border:2px solid #1c1c1c;border-radius:50%;background:#fff;margin-right:6px"></span>Partner
+                                style="display:inline-block;width:12px;height:12px;border:2px solid var(--accent);border-radius:50%;background:var(--surface);margin-right:6px"></span>Partner
                             front desk</span></div>
                     <ul id="loc-list"
                         style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px"></ul>
@@ -120,7 +126,7 @@
                 });
                 var list = document.getElementById("loc-list");
                 if (typeof L === "undefined") {
-                    LOCS.forEach(function (x) { var li = document.createElement("li"); li.innerHTML = "<strong>" + x.n + "</strong> (" + (x.t === "locker" ? "Locker" : "Partner") + ")<br><span style=\"color:#3d3d3a\">" + x.d + "</span>"; list.appendChild(li); });
+                    LOCS.forEach(function (x) { var li = document.createElement("li"); li.innerHTML = "<strong>" + x.n + "</strong> (" + (x.t === "locker" ? "Locker" : "Partner") + ")<br><span style=\"color:var(--soft)\">" + x.d + "</span>"; list.appendChild(li); });
                     document.getElementById("map").style.display = "none"; return;
                 }
                 map = L.map("map", { scrollWheelZoom: false }).setView([20.82, -156.5], 10);
@@ -128,13 +134,13 @@
                 marks = [];
                 LOCS.forEach(function (x, i) {
                     var html = x.t === "locker"
-                        ? "<div style=\"width:18px;height:18px;background:#1c1c1c;border:2px solid #fff;box-shadow:0 0 0 1.5px #1c1c1c\"></div>"
-                        : "<div style=\"width:18px;height:18px;background:#fff;border:3px solid #1c1c1c;border-radius:50%\"></div>";
+                        ? "<div style=\"width:18px;height:18px;background:var(--foot);border:2px solid #fff;box-shadow:0 0 0 1.5px var(--ink)\"></div>"
+                        : "<div style=\"width:18px;height:18px;background:var(--surface);border:3px solid var(--accent);border-radius:50%\"></div>";
                     var m = L.marker(x.c, { icon: L.divIcon({ html: html, className: "", iconSize: [18, 18], iconAnchor: [9, 9] }), title: x.n, keyboard: true }).addTo(map);
                     m.bindPopup("<strong>" + x.n + "</strong><br>" + (x.t === "locker" ? "Locker, 24/7" : "Partner front desk") + "<br>" + x.d);
                     marks.push(m);
                     var li = document.createElement("li");
-                    li.innerHTML = "<button type=\"button\" style=\"all:unset;cursor:pointer;display:block;width:100%;box-sizing:border-box;border:1.5px solid #c9c9c4;background:#fff;padding:10px 12px;line-height:1.4\"><strong>" + x.n + "</strong> <span style=\"color:#5c5c58\">(" + (x.t === "locker" ? "Locker" : "Partner") + ")</span><br><span style=\"color:#3d3d3a;font-size:14px\">" + x.d + "</span></button>";
+                    li.innerHTML = "<button type=\"button\" style=\"all:unset;cursor:pointer;display:block;width:100%;box-sizing:border-box;border:1.5px solid var(--line);background:var(--surface);padding:10px 12px;line-height:1.4\"><strong>" + x.n + "</strong> <span style=\"color:var(--mute)\">(" + (x.t === "locker" ? "Locker" : "Partner") + ")</span><br><span style=\"color:var(--soft);font-size:14px\">" + x.d + "</span></button>";
                     li.firstChild.addEventListener("click", function () { map.flyTo(x.c, 13); m.openPopup(); });
                     list.appendChild(li);
                 });
@@ -147,17 +153,17 @@
                 phone</a></section>
 
     </main>
-    <footer style="background:#1c1c1c;color:#e4e4e0">
+    <footer style="background:var(--foot);color:#c9d6d8">
         <div
             style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
             <div style="display:flex;flex-direction:column;gap:6px"><strong
-                    style="font-size:20px;color:#fff">Reconnect</strong><span style="font-size:14px">Same-day phone
+                    style="font-size:20px;color:var(--hi)">Reconnect</strong><span style="font-size:14px">Same-day phone
                     rentals for travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
             <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a
-                    href="services.html" style="color:#e4e4e0">Services &amp; Pricing</a><a href="locations.html"
-                    style="color:#e4e4e0">Locations</a><a href="guides.html" style="color:#e4e4e0">Setup guides</a><a
-                    href="about.html" style="color:#e4e4e0">About Us</a><a href="contact.html"
-                    style="color:#e4e4e0">Request a phone</a><a href="agreement.html" style="color:#e4e4e0">Loaner
+                    href="services.html" style="color:#c9d6d8">Services &amp; Pricing</a><a href="locations.html"
+                    style="color:#c9d6d8">Locations</a><a href="guides.html" style="color:#c9d6d8">Setup guides</a><a
+                    href="about.html" style="color:#c9d6d8">About Us</a><a href="contact.html"
+                    style="color:#c9d6d8">Request a phone</a><a href="agreement.html" style="color:#c9d6d8">Loaner
                     agreement</a></div>
             <div style="font-size:14px">[Phone] · [Email] · [Social links]</div>
         </div>

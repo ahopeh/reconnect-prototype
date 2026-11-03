@@ -1,14 +1,20 @@
 /* Reconnect clickable prototype. One deliberate look: grayscale wireframe, single theme. */
 :root {
-    --ground: #f4f4f2;
-    --ink: #1c1c1c;
-    --mute: #5c5c58;
-    --line: #c9c9c4;
-    --surface: #ffffff;
-    --ph: #e4e4e0;
-    --ph-line: #b5b5b0;
-    --bar: #d4d4d0;
-    color-scheme: light
+    --ground: #0f1b1f;
+    --ink: #e8f0ef;
+    --soft: #a9b9bb;
+    --mute: #8fa1a4;
+    --line: #2b3e45;
+    --line2: #3d555d;
+    --surface: #16262c;
+    --ph: #1b2f36;
+    --ph-line: #33494f;
+    --bar: #2b3e45;
+    --accent: #6bb5bd;
+    --accent-ink: #0b1519;
+    --hi: #f2f8f7;
+    --foot: #0a1316;
+    color-scheme: dark
 }
 
 *,
@@ -19,7 +25,8 @@
 
 body {
     margin: 0;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
     color: var(--ink);
     background: var(--ground)
 }
@@ -37,12 +44,13 @@ img {
 }
 
 .ph {
+    border-radius: 16px;
     background: linear-gradient(to top right, transparent calc(50% - 1px), var(--ph-line) 50%, transparent calc(50% + 1px)), linear-gradient(to bottom right, transparent calc(50% - 1px), var(--ph-line) 50%, transparent calc(50% + 1px)), var(--ph);
     border: 1.5px solid var(--ph-line);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #4a4a46;
+    color: var(--soft);
     font-size: 14px;
     text-align: center
 }
@@ -58,8 +66,9 @@ img {
     justify-content: center;
     min-height: 48px;
     padding: 0 26px;
-    background: var(--ink);
-    color: #fff;
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-radius: 999px;
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
@@ -71,7 +80,7 @@ img {
 .btn2 {
     background: transparent;
     color: var(--ink);
-    border: 2px solid var(--ink)
+    border: 2px solid var(--line2)
 }
 
 .btn:disabled {
@@ -86,6 +95,7 @@ img {
 }
 
 .tag {
+    color: var(--accent) !important;
     font-family: ui-monospace, Menlo, Consolas, monospace;
     font-size: 12px;
     letter-spacing: .06em;
@@ -104,11 +114,13 @@ img {
 }
 
 .who.dark {
-    background: var(--ink);
-    color: #fff
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-color: var(--accent)
 }
 
 .card {
+    border-radius: 20px;
     background: var(--surface);
     border: 1.5px solid var(--line);
     padding: 28px;
@@ -122,10 +134,11 @@ img {
     margin: 0;
     padding-left: 20px;
     line-height: 1.75;
-    color: #3d3d3a
+    color: var(--soft)
 }
 
 .pill {
+    border-radius: 999px;
     border: 1.5px solid var(--ink);
     padding: 10px 14px;
     font-weight: 600;
@@ -161,7 +174,8 @@ img {
 }
 
 .box {
-    border: 1.5px solid #8a8a86;
+    border-radius: 12px;
+    border: 1.5px solid var(--line2);
     height: 44px;
     background: var(--surface);
     padding: 0 12px;
@@ -179,11 +193,12 @@ label {
 input,
 select,
 textarea {
+    border-radius: 12px;
     font: inherit;
     width: 100%;
     min-height: 48px;
     padding: 10px 12px;
-    border: 1.5px solid #8a8a86;
+    border: 1.5px solid var(--line2);
     background: var(--surface);
     color: var(--ink)
 }
@@ -211,8 +226,8 @@ textarea:focus-visible {
 }
 
 .demo-bar {
-    background: var(--ink);
-    color: #e4e4e0;
+    background: var(--foot);
+    color: #c9d6d8;
     font-size: 13px;
     line-height: 1.5
 }
@@ -228,7 +243,7 @@ textarea:focus-visible {
 }
 
 .demo-bar a {
-    color: #fff
+    color: var(--hi)
 }
 
 .demo-bar b {
@@ -236,7 +251,7 @@ textarea:focus-visible {
     font-size: 11px;
     letter-spacing: .06em;
     text-transform: uppercase;
-    color: #b5b5b0;
+    color: var(--mute);
     font-weight: 400
 }
 
@@ -258,7 +273,7 @@ textarea:focus-visible {
 
 .ready-row label {
     font-weight: 400;
-    color: #3d3d3a
+    color: var(--soft)
 }
 
 .ready-row input:checked+label {
@@ -274,8 +289,8 @@ textarea:focus-visible {
 
 /* ---- additions ---- */
 .util {
-    background: var(--ink);
-    color: #e4e4e0;
+    background: var(--foot);
+    color: #c9d6d8;
     font-size: 14px;
     line-height: 1.5
 }
@@ -291,7 +306,7 @@ textarea:focus-visible {
 }
 
 .util a {
-    color: #fff
+    color: var(--hi)
 }
 
 .choice-row {
@@ -317,20 +332,21 @@ textarea:focus-visible {
 }
 
 .choice span {
+    border-radius: 999px;
     display: inline-flex;
     align-items: center;
     min-height: 48px;
     padding: 0 18px;
-    border: 1.5px solid #8a8a86;
+    border: 1.5px solid var(--line2);
     background: var(--surface);
     font-weight: 600;
     font-size: 16px
 }
 
 .choice input:checked+span {
-    background: var(--ink);
-    color: #fff;
-    border-color: var(--ink)
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-color: var(--accent)
 }
 
 .choice input:focus-visible+span {
@@ -349,6 +365,7 @@ textarea:focus-visible {
 }
 
 .steps li {
+    border-radius: 16px;
     counter-increment: s;
     display: flex;
     gap: 16px;
@@ -357,10 +374,11 @@ textarea:focus-visible {
     border: 1.5px solid var(--line);
     padding: 16px 20px;
     line-height: 1.55;
-    color: #3d3d3a
+    color: var(--soft)
 }
 
 .steps li::before {
+    border-radius: 50%;
     content: counter(s);
     flex: none;
     width: 32px;
@@ -374,12 +392,14 @@ textarea:focus-visible {
 }
 
 .callout {
-    border: 2px dashed #8a8a86;
+    border-radius: 16px;
+    border: 2px dashed var(--line2);
     padding: 16px 20px;
     background: transparent
 }
 
 .panel {
+    border-radius: 20px;
     background: var(--surface);
     border: 1.5px solid var(--line);
     padding: 24px;
@@ -441,11 +461,12 @@ label.inline input {
 }
 
 .notice {
-    border: 1.5px solid #1c1c1c;
-    background: #fff;
+    border: 1.5px solid var(--accent);
+    background: var(--surface);
+    border-radius: 14px;
     padding: 12px 14px;
     line-height: 1.5;
-    color: #3d3d3a;
+    color: var(--soft);
     font-size: 15px
 }
 
@@ -461,4 +482,26 @@ label.inline input {
 
 main:focus {
     outline: none
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 800;
+    letter-spacing: -.01em
+}
+
+h1 {
+    letter-spacing: -.02em
+}
+
+.nav a[aria-current=page]:not(.btn) {
+    background: var(--surface);
+    border-radius: 999px;
+    padding: 12px 16px;
+    border-bottom: 0 !important
+}
+
+.leaflet-container {
+    border-radius: 20px
 }

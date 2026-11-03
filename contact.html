@@ -7,6 +7,11 @@
   <title>Reconnect Request a Phone</title>
   <link rel="stylesheet" href="site.css">
   <script src="site.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -14,7 +19,7 @@
     <div><span>Lost your phone? Call or text <strong>[PHONE]</strong></span><span>Pickup 24/7 from a secure locker · <a
           href="contact.html">Request a phone</a></span></div>
   </div>
-  <header style="border-bottom:1.5px solid #c9c9c4;background:#fff">
+  <header style="border-bottom:1.5px solid var(--line);background:var(--surface)">
     <div
       style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
       <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph"
@@ -33,12 +38,12 @@
     <section style="max-width:1120px;margin:0 auto;padding:48px 24px 16px;display:flex;flex-direction:column;gap:12px">
       <span class="tag">Request a phone</span>
       <h1 style="margin:0;font-size:42px;line-height:1.15">Tell us what happened. We'll call you back.</h1>
-      <p style="margin:0;font-size:18px;line-height:1.5;color:#3d3d3a;max-width:700px">This takes a couple of minutes.
-        Answer a few questions and we'll show your fastest option. If everything looks good, you can get your locker
-        code right away, any hour. If we need to talk first, we call during business hours. A borrowed phone is fine.
-      </p>
-      <div class="callout" style="font-size:14px;color:#3d3d3a;max-width:700px">Demo: nothing is sent, saved, or charged
-        on this page.</div>
+      <p style="margin:0;font-size:18px;line-height:1.5;color:var(--soft);max-width:700px">This takes a couple of
+        minutes. Answer a few questions and we'll show your fastest option. If everything looks good, you can get your
+        locker code right away, any hour. If we need to talk first, we call during business hours. A borrowed phone is
+        fine.</p>
+      <div class="callout" style="font-size:14px;color:var(--soft);max-width:700px">Demo: nothing is sent, saved, or
+        charged on this page.</div>
     </section>
 
     <section
@@ -153,7 +158,7 @@
         <fieldset class="panel" aria-describedby="est-note">
           <legend>4. Your estimate</legend>
           <div role="status" aria-live="polite"
-            style="border:1.5px solid #8a8a86;background:#fff;padding:20px;display:flex;flex-direction:column;gap:10px">
+            style="border:1.5px solid var(--line2);background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:10px">
             <div class="row"><span>Daily rate (<span id="d-days">3</span> <span id="d-word">days</span> ×
                 $50)</span><strong id="d-rate">$150</strong></div>
             <div class="row"><span>Setup fee</span><strong>$150</strong></div>
@@ -161,14 +166,14 @@
             <div class="row sub"><span>Plus a refundable credit-card hold, equal to the phone's replacement
                 price</span><span>$600–$800</span></div>
           </div>
-          <p id="est-note" style="margin:0;color:#5c5c58;font-size:14px">The hold is released when you return the phone
-            as you got it. Credit card required for the hold. <a href="services.html">How pricing works</a></p>
+          <p id="est-note" style="margin:0;color:var(--mute);font-size:14px">The hold is released when you return the
+            phone as you got it. Credit card required for the hold. <a href="services.html">How pricing works</a></p>
         </fieldset>
 
         <!-- PATH -->
         <div id="path-banner" class="panel" role="status" aria-live="polite" style="gap:10px">
           <strong id="path-title" style="font-size:18px"></strong>
-          <span id="path-body" style="line-height:1.55;color:#3d3d3a"></span>
+          <span id="path-body" style="line-height:1.55;color:var(--soft)"></span>
           <label class="inline"><input type="checkbox" id="prefer-call"><span>I'd rather talk to someone
               first.</span></label>
         </div>
@@ -176,12 +181,13 @@
         <!-- 5 -->
         <fieldset class="panel" id="pay-panel" hidden>
           <legend>5. Verify, sign, and place your hold</legend>
-          <p style="margin:0;line-height:1.55;color:#3d3d3a">We open your locker once these three things are done.</p>
+          <p style="margin:0;line-height:1.55;color:var(--soft)">We open your locker once these three things are done.
+          </p>
           <div class="field"><label for="vcode">Verify your phone number</label>
             <div style="display:flex;flex-wrap:wrap;gap:10px"><input id="vcode" type="text" inputmode="numeric"
                 autocomplete="one-time-code" placeholder="6-digit code" style="flex:1 1 160px;width:auto"><button
                 type="button" id="send-code" class="btn btn2">Text me a code (demo)</button></div>
-            <span id="v-status" role="status" aria-live="polite" style="color:#3d3d3a;font-size:14px"></span>
+            <span id="v-status" role="status" aria-live="polite" style="color:var(--soft);font-size:14px"></span>
           </div>
           <div class="field"><label class="inline"><input type="checkbox" id="ack"><span>I have read and agree to the <a
                   href="agreement.html" target="_blank" rel="noopener">loaner agreement</a>, including the charges and
@@ -190,16 +196,16 @@
               placeholder="Full name" autocomplete="name"></div>
           <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
             <button type="button" id="hold-btn" class="btn btn2">Place refundable hold (demo)</button>
-            <span id="hold-status" role="status" aria-live="polite" style="color:#3d3d3a"></span>
+            <span id="hold-status" role="status" aria-live="polite" style="color:var(--soft)"></span>
           </div>
-          <p style="margin:0;color:#5c5c58;font-size:14px">A credit card is required, and the name on the card must
+          <p style="margin:0;color:var(--mute);font-size:14px">A credit card is required, and the name on the card must
             match the name you sign with. In the live version, a secure payment page (like Stripe) opens here. Never
             type a card number into this demo page.</p>
         </fieldset>
 
         <div style="display:flex;flex-direction:column;gap:10px">
           <ul id="ready-list"
-            style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;color:#3d3d3a">
+            style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;color:var(--soft)">
             <li data-k="contact"><span class="tick">○</span> Your name and a phone number</li>
             <li data-k="verify"><span class="tick">○</span> Phone number verified</li>
             <li data-k="ack"><span class="tick">○</span> Agreement signed</li>
@@ -209,15 +215,15 @@
         </div>
 
         <div id="form-confirm" hidden role="status"
-          style="border:2px solid #1c1c1c;background:#fff;padding:20px;display:flex;flex-direction:column;gap:8px">
+          style="border:2px solid var(--accent);background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:8px">
           <div id="confirm-green" hidden style="display:flex;flex-direction:column;gap:8px"><strong>You're set, <span
-                data-name></span>.</strong><span style="color:#3d3d3a;line-height:1.5">Your locker code is
+                data-name></span>.</strong><span style="color:var(--soft);line-height:1.5">Your locker code is
               <strong>4821</strong> at [locker location]. When you pick up the phone, take a quick photo of it. It works
               right away on a temporary eSIM. Then follow your <a href="guides.html">setup guide</a>. We'll text you
               tonight to ask how it went, and call the next business day if we don't hear back. (Demo: nothing was sent
               or charged.)</span></div>
           <div id="confirm-call" hidden style="display:flex;flex-direction:column;gap:8px"><strong>Thanks, <span
-                data-name></span>.</strong><span style="color:#3d3d3a;line-height:1.5">We'll call you at <span
+                data-name></span>.</strong><span style="color:var(--soft);line-height:1.5">We'll call you at <span
                 data-phone></span> within [X] minutes during business hours ([hours]). Outside business hours, we'll
               call the next business day. (Demo: nothing was sent.)</span></div>
         </div>
@@ -226,7 +232,7 @@
       <aside style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:20px">
         <div class="card">
           <h2 style="margin:0;font-size:20px">What happens next</h2>
-          <ol style="margin:0;padding-left:20px;line-height:1.8;color:#3d3d3a">
+          <ol style="margin:0;padding-left:20px;line-height:1.8;color:var(--soft)">
             <li>Answer a few questions.</li>
             <li>If it looks good, verify, sign and place the hold. Your locker code comes right away, any hour.
               Otherwise we call you first, during business hours.</li>
@@ -242,25 +248,25 @@
         </div>
         <!-- SWAP: <img src="img/map.png" alt="..."> -->
         <div class="card">
-          <h2 style="margin:0;font-size:20px">Where we serve</h2>
-          <div class="ph" style="height:160px"><span>MAP: pickup lockers and service area</span></div><span
-            style="font-size:14px;color:#5c5c58">[Kāʻanapali to Wailea first. Exact lockers to confirm]</span>
+          <h2 style="margin:0;font-size:20px">Where we serve</h2><span style="color:var(--soft);line-height:1.5">Lockers
+            and partner front desks across Maui, from Lahaina to Wailea.</span><a href="locations.html" class="btn btn2"
+            style="min-height:44px">See the map</a>
         </div>
       </aside>
     </section>
 
   </main>
-  <footer style="background:#1c1c1c;color:#e4e4e0">
+  <footer style="background:var(--foot);color:#c9d6d8">
     <div
       style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
       <div style="display:flex;flex-direction:column;gap:6px"><strong
-          style="font-size:20px;color:#fff">Reconnect</strong><span style="font-size:14px">Same-day phone rentals for
-          travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
+          style="font-size:20px;color:var(--hi)">Reconnect</strong><span style="font-size:14px">Same-day phone rentals
+          for travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
       <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a href="services.html"
-          style="color:#e4e4e0">Services &amp; Pricing</a><a href="locations.html" style="color:#e4e4e0">Locations</a><a
-          href="guides.html" style="color:#e4e4e0">Setup guides</a><a href="about.html" style="color:#e4e4e0">About
-          Us</a><a href="contact.html" style="color:#e4e4e0">Request a phone</a><a href="agreement.html"
-          style="color:#e4e4e0">Loaner agreement</a></div>
+          style="color:#c9d6d8">Services &amp; Pricing</a><a href="locations.html" style="color:#c9d6d8">Locations</a><a
+          href="guides.html" style="color:#c9d6d8">Setup guides</a><a href="about.html" style="color:#c9d6d8">About
+          Us</a><a href="contact.html" style="color:#c9d6d8">Request a phone</a><a href="agreement.html"
+          style="color:#c9d6d8">Loaner agreement</a></div>
       <div style="font-size:14px">[Phone] · [Email] · [Social links]</div>
     </div>
   </footer>
@@ -359,7 +365,7 @@
           li.hidden = (k !== 'contact' && mode !== 'green');
           var on = st[k];
           li.querySelector('.tick').textContent = on ? '\u2713' : '\u25CB';
-          li.style.color = on ? '#1c1c1c' : '#3d3d3a';
+          li.style.color = on ? 'var(--ink)' : 'var(--soft)';
           li.style.fontWeight = on ? '600' : '400';
         });
         var ok = okContact && (mode !== 'green' || (verified && okAck && holdPlaced));

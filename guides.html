@@ -7,6 +7,11 @@
   <title>Reconnect Setup Guides</title>
   <link rel="stylesheet" href="site.css">
   <script src="site.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -14,7 +19,7 @@
     <div><span>Lost your phone? Call or text <strong>[PHONE]</strong></span><span>Pickup 24/7 from a secure locker · <a
           href="contact.html">Request a phone</a></span></div>
   </div>
-  <header style="border-bottom:1.5px solid #c9c9c4;background:#fff">
+  <header style="border-bottom:1.5px solid var(--line);background:var(--surface)">
     <div
       style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
       <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph"
@@ -23,7 +28,7 @@
       <nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
         <a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a
           href="locations.html">Locations</a><a href="guides.html"
-          style="border-bottom:3px solid #1c1c1c;font-weight:600" aria-current="page">Setup guides</a><a
+          style="border-bottom:3px solid var(--accent);font-weight:600" aria-current="page">Setup guides</a><a
           href="about.html">About Us</a>
         <a href="contact.html" class="btn" style="min-height:44px;padding:0 20px">Request a phone</a>
       </nav>
@@ -34,11 +39,11 @@
     <section style="max-width:1120px;margin:0 auto;padding:48px 24px 16px;display:flex;flex-direction:column;gap:12px">
       <span class="tag">Setup guides</span>
       <h1 style="margin:0;font-size:42px;line-height:1.15">Step-by-step help for your phone and carrier</h1>
-      <p style="margin:0;font-size:18px;line-height:1.5;color:#3d3d3a;max-width:720px">Pick your phone and your carrier.
-        We'll show only the steps that apply to you.</p>
-      <div class="callout" style="font-size:14px;color:#3d3d3a;line-height:1.5;max-width:720px">Draft guides, built from
-        each carrier's and Apple's own help pages (linked at the bottom). We confirm every step with each carrier before
-        launch.</div>
+      <p style="margin:0;font-size:18px;line-height:1.5;color:var(--soft);max-width:720px">Pick your phone and your
+        carrier. We'll show only the steps that apply to you.</p>
+      <div class="callout" style="font-size:14px;color:var(--soft);line-height:1.5;max-width:720px">Draft guides, built
+        from each carrier's and Apple's own help pages (linked at the bottom). We confirm every step with each carrier
+        before launch.</div>
     </section>
 
     <section
@@ -75,18 +80,18 @@
     <section style="max-width:1120px;margin:0 auto;padding:24px 24px 24px;display:flex;flex-direction:column;gap:20px"
       aria-live="polite">
       <div style="display:flex;flex-direction:column;gap:6px">
-        <h2 id="g-title" style="margin:0;font-size:28px"></h2><span id="g-sub" style="color:#5c5c58"></span>
+        <h2 id="g-title" style="margin:0;font-size:28px"></h2><span id="g-sub" style="color:var(--mute)"></span>
       </div>
       <div id="g-ready" class="card" style="gap:8px"></div>
       <ol id="g-steps" class="steps"></ol>
-      <div id="g-note" class="callout" style="line-height:1.55;color:#3d3d3a"></div>
+      <div id="g-note" class="callout" style="line-height:1.55;color:var(--soft)"></div>
     </section>
 
     <section style="max-width:1120px;margin:0 auto;padding:8px 24px 24px;display:flex;flex-direction:column;gap:12px">
       <div
-        style="background:#fff;border:1.5px solid #c9c9c4;padding:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+        style="background:var(--surface);border:1.5px solid var(--line);padding:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
         <div style="flex:1 1 360px"><strong>Stuck? Want a person?</strong>
-          <div style="color:#3d3d3a;line-height:1.5;margin-top:4px">Call or text [PHONE], or choose a video library,
+          <div style="color:var(--soft);line-height:1.5;margin-top:4px">Call or text [PHONE], or choose a video library,
             Zoom call, or in-person visit on the <a href="services.html">Services &amp; Pricing</a> page.</div>
         </div>
         <a href="contact.html" class="btn">Request a phone</a>
@@ -95,7 +100,7 @@
 
     <section style="max-width:1120px;margin:0 auto;padding:8px 24px 56px;display:flex;flex-direction:column;gap:8px">
       <span class="tag">Sources</span>
-      <ul style="margin:0;padding-left:20px;line-height:1.8;color:#3d3d3a;font-size:15px">
+      <ul style="margin:0;padding-left:20px;line-height:1.8;color:var(--soft);font-size:15px">
         <li><a href="https://www.att.com/support/article/wireless/KM1455633/">AT&amp;T: Get a replacement SIM</a></li>
         <li><a href="https://www.verizon.com/support/my-verizon-app-esim-faqs/">Verizon: Move your line to an eSIM
             device</a></li>
@@ -105,17 +110,17 @@
     </section>
 
   </main>
-  <footer style="background:#1c1c1c;color:#e4e4e0">
+  <footer style="background:var(--foot);color:#c9d6d8">
     <div
       style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
       <div style="display:flex;flex-direction:column;gap:6px"><strong
-          style="font-size:20px;color:#fff">Reconnect</strong><span style="font-size:14px">Same-day phone rentals for
-          travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
+          style="font-size:20px;color:var(--hi)">Reconnect</strong><span style="font-size:14px">Same-day phone rentals
+          for travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
       <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a href="services.html"
-          style="color:#e4e4e0">Services &amp; Pricing</a><a href="locations.html" style="color:#e4e4e0">Locations</a><a
-          href="guides.html" style="color:#e4e4e0">Setup guides</a><a href="about.html" style="color:#e4e4e0">About
-          Us</a><a href="contact.html" style="color:#e4e4e0">Request a phone</a><a href="agreement.html"
-          style="color:#e4e4e0">Loaner agreement</a></div>
+          style="color:#c9d6d8">Services &amp; Pricing</a><a href="locations.html" style="color:#c9d6d8">Locations</a><a
+          href="guides.html" style="color:#c9d6d8">Setup guides</a><a href="about.html" style="color:#c9d6d8">About
+          Us</a><a href="contact.html" style="color:#c9d6d8">Request a phone</a><a href="agreement.html"
+          style="color:#c9d6d8">Loaner agreement</a></div>
       <div style="font-size:14px">[Phone] · [Email] · [Social links]</div>
     </div>
   </footer>
@@ -274,17 +279,17 @@
 
         if (stage === "activate") {
           title.textContent = "Get your number working on the Reconnect phone";
-          readyHtml = "<p style=\"margin:0;line-height:1.55;color:#3d3d3a\"><strong>Your phone already works.</strong> It comes with a temporary eSIM, so you can call, text and use data right now while you move your number. The temporary line has its own number. Your own calls and texts, including login codes, come to this phone once your number moves. [Temporary service details to confirm]</p><h3 style=\"margin:8px 0 0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:#3d3d3a\">" + li(c.ready) + "</ul>";
+          readyHtml = "<p style=\"margin:0;line-height:1.55;color:var(--soft)\"><strong>Your phone already works.</strong> It comes with a temporary eSIM, so you can call, text and use data right now while you move your number. The temporary line has its own number. Your own calls and texts, including login codes, come to this phone once your number moves. [Temporary service details to confirm]</p><h3 style=\"margin:8px 0 0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:var(--soft)\">" + li(c.ready) + "</ul>";
           list = c.get.concat(DEVICE_INSTALL[phone]);
           noteText = "<strong>Heads up:</strong> we never contact your carrier for you and never see your account. If " + c.name + " asks for something that's not listed here, tell us on your call and we'll help you work it out.";
         } else if (stage === "restore") {
           title.textContent = "Restore your accounts, codes, and apps";
-          readyHtml = "<h3 style=\"margin:0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:#3d3d3a\"><li>Your " + (phone === "android" ? "Google account" : phone === "iphone" ? "Apple Account" : "phone maker or Google account") + " sign-in and password.</li><li>Your backup codes for any authenticator apps, if you saved them.</li><li>Your number working on the phone. Do the number guide first.</li></ul>";
+          readyHtml = "<h3 style=\"margin:0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:var(--soft)\"><li>Your " + (phone === "android" ? "Google account" : phone === "iphone" ? "Apple Account" : "phone maker or Google account") + " sign-in and password.</li><li>Your backup codes for any authenticator apps, if you saved them.</li><li>Your number working on the phone. Do the number guide first.</li></ul>";
           list = RESTORE_ACCOUNT[phone].concat(COMMON_RESTORE);
           noteText = "<strong>You type your own passwords.</strong> We never ask for them, and we never see your photos, messages, or accounts.";
         } else {
           title.textContent = "Return the phone";
-          readyHtml = "<h3 style=\"margin:0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:#3d3d3a\"><li>Your own phone, or a new one, ready to take your number back.</li><li>Your " + c.name + " sign-in, to move your number off the Reconnect phone.</li><li>The charger and cable that came with the phone.</li></ul>";
+          readyHtml = "<h3 style=\"margin:0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:var(--soft)\"><li>Your own phone, or a new one, ready to take your number back.</li><li>Your " + c.name + " sign-in, to move your number off the Reconnect phone.</li><li>The charger and cable that came with the phone.</li></ul>";
           var back = ["Move your number back to your own phone. Use the same " + (carrier === "other" ? "carrier" : c.name) + " steps from the number guide, this time for your own phone. Do this first, so you don't lose service."];
           list = back.concat(RETURN_SIGNOUT[phone], [
             "You don't need to erase the phone. We do that, and we verify it.",

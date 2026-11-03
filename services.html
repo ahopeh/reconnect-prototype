@@ -7,6 +7,11 @@
     <title>Reconnect Services and Pricing</title>
     <link rel="stylesheet" href="site.css">
     <script src="site.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -14,7 +19,7 @@
         <div><span>Lost your phone? Call or text <strong>[PHONE]</strong></span><span>Pickup 24/7 from a secure locker ·
                 <a href="contact.html">Request a phone</a></span></div>
     </div>
-    <header style="border-bottom:1.5px solid #c9c9c4;background:#fff">
+    <header style="border-bottom:1.5px solid var(--line);background:var(--surface)">
         <div
             style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
             <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph"
@@ -22,7 +27,7 @@
                     style="font-size:22px;font-weight:700">Reconnect</span></a>
             <nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
                 <a href="index.html">Home</a><a href="services.html"
-                    style="border-bottom:3px solid #1c1c1c;font-weight:600" aria-current="page">Services &amp;
+                    style="border-bottom:3px solid var(--accent);font-weight:600" aria-current="page">Services &amp;
                     Pricing</a><a href="locations.html">Locations</a><a href="guides.html">Setup guides</a><a
                     href="about.html">About Us</a>
                 <a href="contact.html" class="btn" style="min-height:44px;padding:0 20px">Request a phone</a>
@@ -35,8 +40,8 @@
             style="max-width:1120px;margin:0 auto;padding:48px 24px 16px;display:flex;flex-direction:column;gap:12px">
             <span class="tag">Services &amp; pricing</span>
             <h1 style="margin:0;font-size:42px;line-height:1.15">Simple pricing, shown before you commit</h1>
-            <p style="margin:0;font-size:18px;line-height:1.5;color:#3d3d3a;max-width:700px">Your exact total appears at
-                the end of the <a href="contact.html">request form</a>.</p>
+            <p style="margin:0;font-size:18px;line-height:1.5;color:var(--soft);max-width:700px">Your exact total
+                appears at the end of the <a href="contact.html">request form</a>.</p>
         </section>
 
         <!-- PRICE CARDS -->
@@ -45,49 +50,50 @@
             <div class="card"><span class="lbl">Daily rate</span>
                 <div style="font-size:40px;font-weight:700;line-height:1.1">$50<span
                         style="font-size:18px;font-weight:400"> / day</span></div>
-                <p style="margin:0;line-height:1.5;color:#3d3d3a">A working phone for every day you keep it.</p>
+                <p style="margin:0;line-height:1.5;color:var(--soft)">A working phone for every day you keep it.</p>
             </div>
             <div class="card"><span class="lbl">Setup fee</span>
                 <div style="font-size:40px;font-weight:700;line-height:1.1">$150<span
                         style="font-size:18px;font-weight:400"> one time</span></div>
-                <p style="margin:0;line-height:1.5;color:#3d3d3a">Preparing your phone, activating your number, and
+                <p style="margin:0;line-height:1.5;color:var(--soft)">Preparing your phone, activating your number, and
                     guiding you through it.</p>
             </div>
             <div class="card"><span class="lbl">Refundable hold</span>
                 <div style="font-size:40px;font-weight:700;line-height:1.1">$600–$800</div>
-                <p style="margin:0;line-height:1.5;color:#3d3d3a">Equal to the phone's replacement price, set by model.
-                    Placed on a <strong>credit card</strong> and released when you return the phone.</p>
+                <p style="margin:0;line-height:1.5;color:var(--soft)">Equal to the phone's replacement price, set by
+                    model. Placed on a <strong>credit card</strong> and released when you return the phone.</p>
             </div>
         </section>
         <section style="max-width:1120px;margin:0 auto;padding:0 24px 40px">
-            <p style="margin:0;color:#3d3d3a;line-height:1.55">Example: a 3-day rental is 3 × $50 + $150 setup =
+            <p style="margin:0;color:var(--soft);line-height:1.55">Example: a 3-day rental is 3 × $50 + $150 setup =
                 <strong>$300</strong>, plus the refundable hold.</p>
         </section>
 
         <!-- WHAT YOU GET -->
-        <section style="background:#fff;border-top:1.5px solid #c9c9c4;border-bottom:1.5px solid #c9c9c4">
+        <section
+            style="background:var(--surface);border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line)">
             <div style="max-width:1120px;margin:0 auto;padding:48px 24px;display:flex;flex-direction:column;gap:24px">
                 <div style="display:flex;flex-direction:column;gap:8px"><span class="tag">Included</span>
                     <h2 style="margin:0;font-size:28px">What you get</h2>
                 </div>
                 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
-                    <div style="border:1.5px solid #c9c9c4;padding:20px;display:flex;flex-direction:column;gap:6px">
-                        <strong>24/7 locker pickup</strong><span style="color:#3d3d3a;line-height:1.5">A text with your
-                            code. No store hours.</span></div>
-                    <div style="border:1.5px solid #c9c9c4;padding:20px;display:flex;flex-direction:column;gap:6px">
-                        <strong>Step-by-step guides</strong><span style="color:#3d3d3a;line-height:1.5">Activation,
+                    <div style="border:1.5px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:6px">
+                        <strong>24/7 locker pickup</strong><span style="color:var(--soft);line-height:1.5">A text with
+                            your code. No store hours.</span></div>
+                    <div style="border:1.5px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:6px">
+                        <strong>Step-by-step guides</strong><span style="color:var(--soft);line-height:1.5">Activation,
                             restore and return, matched to your phone and carrier. <a href="guides.html">See
                                 them</a></span></div>
-                    <div style="border:1.5px solid #c9c9c4;padding:20px;display:flex;flex-direction:column;gap:6px">
-                        <strong>Connected right away</strong><span style="color:#3d3d3a;line-height:1.5">Every phone
+                    <div style="border:1.5px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:6px">
+                        <strong>Connected right away</strong><span style="color:var(--soft);line-height:1.5">Every phone
                             comes with a temporary eSIM, so you can call, text and use data while your own number is
                             restored.</span></div>
-                    <div style="border:1.5px solid #c9c9c4;padding:20px;display:flex;flex-direction:column;gap:6px">
-                        <strong>Return anywhere</strong><span style="color:#3d3d3a;line-height:1.5">Any partner locker
-                            or location.</span></div>
-                    <div style="border:1.5px solid #c9c9c4;padding:20px;display:flex;flex-direction:column;gap:6px">
-                        <strong>Data protection</strong><span style="color:#3d3d3a;line-height:1.5">Every phone is wiped
-                            and verified. You type your own passwords.</span></div>
+                    <div style="border:1.5px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:6px">
+                        <strong>Return anywhere</strong><span style="color:var(--soft);line-height:1.5">Any partner
+                            locker or location.</span></div>
+                    <div style="border:1.5px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:6px">
+                        <strong>Data protection</strong><span style="color:var(--soft);line-height:1.5">Every phone is
+                            wiped and verified. You type your own passwords.</span></div>
                 </div>
             </div>
         </section>
@@ -96,23 +102,23 @@
         <section style="max-width:1120px;margin:0 auto;padding:48px 24px;display:flex;flex-direction:column;gap:24px">
             <div style="display:flex;flex-direction:column;gap:8px"><span class="tag">Optional extra help</span>
                 <h2 style="margin:0;font-size:28px">Want someone to walk you through it?</h2>
-                <p style="margin:0;color:#3d3d3a;line-height:1.5;max-width:680px">The guides are included. If you'd
+                <p style="margin:0;color:var(--soft);line-height:1.5;max-width:680px">The guides are included. If you'd
                     rather have a person, pick a level. Each costs more than the last.</p>
             </div>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:24px">
                 <div class="card"><span class="lbl">Level 1</span>
                     <h3 style="margin:0;font-size:20px">Video library</h3>
-                    <p style="margin:0;line-height:1.5;color:#3d3d3a">Pre-recorded walk-throughs you can watch any time.
-                    </p><strong>$[10] per trip</strong>
+                    <p style="margin:0;line-height:1.5;color:var(--soft)">Pre-recorded walk-throughs you can watch any
+                        time.</p><strong>$[10] per trip</strong>
                 </div>
                 <div class="card"><span class="lbl">Level 2</span>
                     <h3 style="margin:0;font-size:20px">Video call</h3>
-                    <p style="margin:0;line-height:1.5;color:#3d3d3a">A live Zoom call with our team, in 30-minute
+                    <p style="margin:0;line-height:1.5;color:var(--soft)">A live Zoom call with our team, in 30-minute
                         blocks.</p><strong>$[40] per 30 minutes</strong>
                 </div>
                 <div class="card"><span class="lbl">Level 3</span>
                     <h3 style="margin:0;font-size:20px">In person</h3>
-                    <p style="margin:0;line-height:1.5;color:#3d3d3a">We meet you and set it up together. Our
+                    <p style="margin:0;line-height:1.5;color:var(--soft)">We meet you and set it up together. Our
                         highest-touch option.</p><strong>$[120] per visit</strong>
                 </div>
             </div>
@@ -120,52 +126,54 @@
 
         <!-- GOOD TO KNOW -->
         <section style="max-width:1120px;margin:0 auto;padding:0 24px 48px">
-            <div style="border:1.5px solid #8a8a86;background:#fff;padding:28px;display:flex;flex-wrap:wrap;gap:32px">
+            <div
+                style="border:1.5px solid var(--line2);background:var(--surface);padding:28px;display:flex;flex-wrap:wrap;gap:32px">
                 <div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:10px">
                     <span class="tag">Good to know</span>
                     <h2 style="margin:0;font-size:24px">How the hold and card on file work</h2>
-                    <p style="margin:0;line-height:1.55;color:#3d3d3a">Think of it like a rental car. Bring the phone
-                        back the way you got it, and your hold is released. We keep a credit card on file. The hold
-                        equals the phone's replacement price because that's what it would cost us to replace it quickly.
-                    </p>
+                    <p style="margin:0;line-height:1.55;color:var(--soft)">Think of it like a rental car. Bring the
+                        phone back the way you got it, and your hold is released. We keep a credit card on file. The
+                        hold equals the phone's replacement price because that's what it would cost us to replace it
+                        quickly.</p>
                 </div>
                 <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:10px">
                     <h3 style="margin:0;font-size:18px">We charge the full price of the phone if:</h3>
-                    <ul style="margin:0;padding-left:20px;line-height:1.7;color:#3d3d3a">
+                    <ul style="margin:0;padding-left:20px;line-height:1.7;color:var(--soft)">
                         <li>the phone isn't returned</li>
                         <li>it comes back locked because it was reported lost or stolen</li>
                         <li>it comes back too damaged to use</li>
                     </ul>
-                    <p style="margin:0;line-height:1.55;color:#3d3d3a">If anything goes wrong, call us right away. The
-                        sooner we know, the more we can help. Full terms are in the <a href="agreement.html">loaner
+                    <p style="margin:0;line-height:1.55;color:var(--soft)">If anything goes wrong, call us right away.
+                        The sooner we know, the more we can help. Full terms are in the <a href="agreement.html">loaner
                             agreement</a>.</p>
                 </div>
             </div>
         </section>
 
-        <section style="background:#fff;border-top:1.5px solid #c9c9c4;border-bottom:1.5px solid #c9c9c4">
+        <section
+            style="background:var(--surface);border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line)">
             <div
                 style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
                 <div style="flex:1 1 400px;display:flex;flex-direction:column;gap:8px">
                     <h2 style="margin:0;font-size:26px">Ready for a working phone?</h2>
-                    <p style="margin:0;color:#3d3d3a;line-height:1.5">Request one now and we'll call you back.</p>
+                    <p style="margin:0;color:var(--soft);line-height:1.5">Request one now and we'll call you back.</p>
                 </div>
                 <a href="contact.html" class="btn">Request a phone</a>
             </div>
         </section>
 
     </main>
-    <footer style="background:#1c1c1c;color:#e4e4e0">
+    <footer style="background:var(--foot);color:#c9d6d8">
         <div
             style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
             <div style="display:flex;flex-direction:column;gap:6px"><strong
-                    style="font-size:20px;color:#fff">Reconnect</strong><span style="font-size:14px">Same-day phone
+                    style="font-size:20px;color:var(--hi)">Reconnect</strong><span style="font-size:14px">Same-day phone
                     rentals for travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
             <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a
-                    href="services.html" style="color:#e4e4e0">Services &amp; Pricing</a><a href="locations.html"
-                    style="color:#e4e4e0">Locations</a><a href="guides.html" style="color:#e4e4e0">Setup guides</a><a
-                    href="about.html" style="color:#e4e4e0">About Us</a><a href="contact.html"
-                    style="color:#e4e4e0">Request a phone</a><a href="agreement.html" style="color:#e4e4e0">Loaner
+                    href="services.html" style="color:#c9d6d8">Services &amp; Pricing</a><a href="locations.html"
+                    style="color:#c9d6d8">Locations</a><a href="guides.html" style="color:#c9d6d8">Setup guides</a><a
+                    href="about.html" style="color:#c9d6d8">About Us</a><a href="contact.html"
+                    style="color:#c9d6d8">Request a phone</a><a href="agreement.html" style="color:#c9d6d8">Loaner
                     agreement</a></div>
             <div style="font-size:14px">[Phone] · [Email] · [Social links]</div>
         </div>
