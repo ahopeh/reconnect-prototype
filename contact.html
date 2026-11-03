@@ -73,12 +73,14 @@
             <div class="choice-row"><label class="choice"><input type="radio" name="use" value="personal"
                   checked><span>Personal</span></label><label class="choice"><input type="radio" name="use"
                   value="business"><span>Business</span></label></div>
+            <div class="notice" id="n-use" hidden></div>
           </div>
           <div class="field"><span class="q">What kind of phone was it?</span>
             <div class="choice-row"><label class="choice"><input type="radio" name="ptype" value="iphone"
                   checked><span>iPhone</span></label><label class="choice"><input type="radio" name="ptype"
                   value="android"><span>Android</span></label><label class="choice"><input type="radio" name="ptype"
                   value="other"><span>Other</span></label></div>
+            <div class="notice" id="n-ptype" hidden></div>
           </div>
           <div class="field"><label for="model">Model, if you know it</label><input id="model" type="text"
               placeholder="For example, iPhone 15 or Galaxy S23"></div>
@@ -91,6 +93,7 @@
               <option value="other">Other or prepaid</option>
               <option value="unsure">Not sure</option>
             </select>
+            <div class="notice" id="n-carrier" hidden></div>
           </div>
           <div class="field"><span class="q">What happened to it?</span>
             <div class="choice-row"><label class="choice"><input type="radio" name="what" value="lost"
@@ -99,6 +102,7 @@
                   value="broken"><span>Broken</span></label><label class="choice"><input type="radio" name="what"
                   value="water"><span>Water damage</span></label><label class="choice"><input type="radio" name="what"
                   value="other"><span>Something else</span></label></div>
+            <div class="notice" id="n-what" hidden></div>
           </div>
           <div class="field"><span class="q">Whose account is the number on?</span>
             <div class="choice-row"><label class="choice"><input type="radio" name="acct" value="mine" checked><span>My
@@ -106,6 +110,7 @@
                   family plan</span></label><label class="choice"><input type="radio" name="acct" value="work"><span>My
                   employer's</span></label><label class="choice"><input type="radio" name="acct"
                   value="unsure"><span>Not sure</span></label></div>
+            <div class="notice" id="n-acct" hidden></div>
           </div>
           <div class="field"><span class="q">Do you know your carrier account PIN or can you sign in to your carrier
               account?</span>
@@ -113,11 +118,13 @@
                   checked><span>Yes</span></label><label class="choice"><input type="radio" name="pin"
                   value="no"><span>No</span></label><label class="choice"><input type="radio" name="pin"
                   value="unsure"><span>Not sure</span></label></div>
+            <div class="notice" id="n-pin" hidden></div>
           </div>
           <div class="field"><span class="q">Can you get into your email?</span>
             <div class="choice-row"><label class="choice"><input type="radio" name="mail" value="yes"
                   checked><span>Yes</span></label><label class="choice"><input type="radio" name="mail"
                   value="no"><span>No</span></label></div>
+            <div class="notice" id="n-mail" hidden></div>
           </div>
 
         </fieldset>
@@ -132,6 +139,7 @@
                   checked><span>Secure locker (24/7)</span></label><label class="choice"><input type="radio" name="pick"
                   value="desk"><span>My hotel's front desk</span></label><label class="choice"><input type="radio"
                   name="pick" value="unsure"><span>Not sure yet</span></label></div>
+            <div class="notice" id="n-pick" hidden></div>
           </div>
           <div class="field" style="max-width:300px"><label for="days">How many days do you need it?</label><input
               id="days" type="number" min="1" max="60" value="3" inputmode="numeric"></div>
@@ -204,9 +212,10 @@
           style="border:2px solid #1c1c1c;background:#fff;padding:20px;display:flex;flex-direction:column;gap:8px">
           <div id="confirm-green" hidden style="display:flex;flex-direction:column;gap:8px"><strong>You're set, <span
                 data-name></span>.</strong><span style="color:#3d3d3a;line-height:1.5">Your locker code is
-              <strong>4821</strong> at [locker location]. When you pick up the phone, take a quick photo of it. Then
-              follow your <a href="guides.html">setup guide</a>. We'll text you tonight to ask how it went, and call the
-              next business day if we don't hear back. (Demo: nothing was sent or charged.)</span></div>
+              <strong>4821</strong> at [locker location]. When you pick up the phone, take a quick photo of it. It works
+              right away on a temporary eSIM. Then follow your <a href="guides.html">setup guide</a>. We'll text you
+              tonight to ask how it went, and call the next business day if we don't hear back. (Demo: nothing was sent
+              or charged.)</span></div>
           <div id="confirm-call" hidden style="display:flex;flex-direction:column;gap:8px"><strong>Thanks, <span
                 data-name></span>.</strong><span style="color:#3d3d3a;line-height:1.5">We'll call you at <span
                 data-phone></span> within [X] minutes during business hours ([hours]). Outside business hours, we'll
@@ -268,6 +277,45 @@
         $('#d-total').textContent = '$' + (d * 50 + 150);
       }
 
+      var NOTES = {
+        use: { business: "If your employer provides or manages this phone, they may need to approve moving the number, and someone from your company's IT may need to be involved. If it's your own business account, you're all set." },
+        carrier: {
+          att: "AT&T only lets the account owner or an authorized user activate a new SIM or eSIM. Make sure that's you, or have that person nearby.",
+          verizon: "Verizon requires the Account Owner or an Account Manager. If your account has just one line, Verizon may ask to verify you using your old phone. If that's lost, we'll go over other options, like calling Verizon.",
+          tmobile: "T-Mobile has a security setting called SIM Protection that blocks moving your number. It has to be off first, and only the primary account holder can turn it off. If you can't sign in, T-Mobile offers an ID photo check for some accounts.",
+          other: "Smaller and prepaid carriers don't always support eSIM, which our phones use. We'll check your carrier before you pay anything.",
+          unsure: "No problem. Your carrier's name is on a recent bill or text, or we can help you find it on the call. We'll confirm before you pay anything."
+        },
+        what: {
+          stolen: "If your phone was stolen, report it to your carrier and the police. Your carrier may have suspended your line, and it may need to be restored before your number can move.",
+          broken: "If your old phone still turns on, even a little, tell us. Moving your number straight from it can be faster.",
+          water: "If your old phone still turns on, tell us. Moving your number straight from it can be faster. Please don't charge a wet phone."
+        },
+        acct: {
+          family: "On a family plan, only the account holder (or an authorized user) can move a number. If that's someone else, have them nearby when we call, or when you contact your carrier.",
+          work: "If your employer owns the account, they usually need to approve moving the number, and someone from your company's IT may need to be on the call. We'll help you work out who to ask.",
+          unsure: "Check a recent bill or your carrier's app for the account holder's name. Only the account holder or an authorized user can move a number."
+        },
+        pin: {
+          no: "Carriers usually ask for your account PIN or passcode. If you don't have it, they can often reset it or use another check, like a photo ID, but some send a code to your old phone, which you don't have. We'll go over your options.",
+          unsure: "Carriers usually ask for your account PIN or passcode. If you're not sure, they can often reset it or use another check, like a photo ID, but some send a code to your old phone, which you don't have. We'll go over your options."
+        },
+        mail: { no: "Carriers often email the eSIM QR code, so we'll find another way to get it to you." },
+        ptype: { other: "No problem. Tell us the model so we can give you the right steps." },
+        pick: {
+          desk: "Front-desk pickup depends on your hotel taking part. We'll confirm with them first.",
+          unsure: "Lockers are open 24/7 and are the fastest option."
+        }
+      };
+      function showNotes() {
+        var pairs = [["use", val("use")], ["carrier", $("#carrier").value], ["what", val("what")], ["acct", val("acct")], ["pin", val("pin")], ["mail", val("mail")], ["ptype", val("ptype")], ["pick", val("pick")]];
+        pairs.forEach(function (p) {
+          var el = $("#n-" + p[0]), txt = (NOTES[p[0]] || {})[p[1]] || "";
+          if (txt) { el.hidden = false; el.innerHTML = "<strong>Heads up:</strong> " + txt; }
+          else { el.hidden = true; el.textContent = ""; }
+        });
+      }
+
       // decide: green = skip the wait, call = we talk first
       function decide() {
         var c = $('#carrier').value, why = [];
@@ -287,6 +335,7 @@
       }
 
       function render() {
+        showNotes();
         var why = decide(), t = $('#path-title'), b = $('#path-body');
         if (mode === 'pending') {
           t.textContent = 'Answer a few questions and we\'ll show your fastest option.';
