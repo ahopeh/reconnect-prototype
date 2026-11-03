@@ -28,7 +28,7 @@
             <nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
                 <a href="index.html">Home</a><a href="services.html"
                     style="border-bottom:3px solid var(--accent);font-weight:600" aria-current="page">Services &amp;
-                    Pricing</a><a href="locations.html">Locations</a><a href="guides.html">Setup guides</a><a
+                    Pricing</a><a href="security.html">Security</a><a href="guides.html">Setup guides</a><a
                     href="about.html">About Us</a>
                 <a href="contact.html" class="btn" style="min-height:44px;padding:0 20px">Request a phone</a>
             </nav>
@@ -97,6 +97,115 @@
                 </div>
             </div>
         </section>
+
+        <!-- WHERE TO PICK UP -->
+        <section id="locations"
+            style="max-width:1120px;margin:0 auto;padding:56px 24px 24px;display:flex;flex-direction:column;gap:12px">
+            <span class="tag">Where to pick up and return</span>
+            <h2 style="margin:0;font-size:30px">Lockers and partner front desks around Maui</h2>
+            <p style="margin:0;font-size:17px;line-height:1.55;color:var(--soft);max-width:720px">Lockers are open 24/7.
+                Partner front desks keep their own hours. You can return your phone to any location. Prototype only:
+                these are example sites, not confirmed partners.</p>
+        </section>
+        <!-- MAP -->
+        <section id="map-section" style="max-width:1120px;margin:0 auto;padding:0 24px 64px">
+            <form id="find"
+                style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;border:1.5px solid var(--accent);background:var(--surface);padding:18px 20px"
+                onsubmit="return false">
+                <label for="where" style="font-weight:600">Find the closest pickup spot</label>
+                <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:stretch">
+                    <input id="where" type="text" autocomplete="off"
+                        placeholder="Where are you staying? Hotel, address, or town" style="flex:1 1 280px;min-width:0">
+                    <button type="submit" id="find-btn" class="btn" style="min-height:44px">Find nearest</button>
+                    <button type="button" id="here-btn" class="btn btn2" style="min-height:44px">Use my
+                        location</button>
+                </div>
+                <div id="find-result" aria-live="polite" style="line-height:1.5;color:var(--soft)"></div>
+            </form>
+            <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:stretch">
+                <div id="map" style="flex:2 1 460px;min-width:0;height:460px;border:1.5px solid var(--line)" role="img"
+                    aria-label="Map of example Reconnect locker and partner locations on Maui"></div>
+                <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:10px">
+                    <div style="display:flex;gap:16px;font-size:14px;color:var(--soft)"><span><span
+                                style="display:inline-block;width:12px;height:12px;background:var(--accent);margin-right:6px"></span>Locker
+                            (24/7)</span><span><span
+                                style="display:inline-block;width:12px;height:12px;border:2px solid var(--pink);border-radius:50%;background:#0b1519;margin-right:6px"></span>Partner
+                            front desk</span></div>
+                    <ul id="loc-list"
+                        style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px"></ul>
+                </div>
+            </div>
+        </section>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+        <script>
+            (function () {
+                var LOCS = [
+                    { n: "Maui Mall, Kahului", t: "locker", d: "Central Maui shopping center, minutes from the airport.", c: [20.8873, -156.4690] },
+                    { n: "Whalers Village, Kāʻanapali", t: "locker", d: "Open-air shopping center on West Maui's resort coast.", c: [20.9264, -156.6944] },
+                    { n: "The Shops at Wailea", t: "locker", d: "South Maui resort shopping center.", c: [20.6905, -156.4400] },
+                    { n: "Maui Seaside Hotel, Kahului", t: "partner", d: "Front desk. Close to the airport.", c: [20.8935, -156.4685] },
+                    { n: "Maui Coast Hotel, Kīhei", t: "partner", d: "Front desk. South Maui.", c: [20.7490, -156.4460] },
+                    { n: "Paia Inn, Pāʻia", t: "partner", d: "Front desk. North Shore.", c: [20.9036, -156.3697] },
+                    { n: "Lahaina Shores Beach Resort, Lahaina", t: "partner", d: "Front desk, south end of Front Street.", c: [20.8670, -156.6735] }
+                ];
+                var map, marks;
+                function miles(a, b) { var R = 3958.8, r = Math.PI / 180, dLa = (b[0] - a[0]) * r, dLo = (b[1] - a[1]) * r; var h = Math.sin(dLa / 2) * Math.sin(dLa / 2) + Math.cos(a[0] * r) * Math.cos(b[0] * r) * Math.sin(dLo / 2) * Math.sin(dLo / 2); return 2 * R * Math.asin(Math.sqrt(h)); }
+                function showNearest(pt, label) {
+                    var out = document.getElementById('find-result');
+                    var ranked = LOCS.map(function (x, i) { return { x: x, i: i, d: miles(pt, x.c) }; }).sort(function (a, b) { return a.d - b.d; });
+                    var best = ranked[0], lockerFirst = ranked.filter(function (r) { return r.x.t === 'locker'; })[0];
+                    out.textContent = '';
+                    var strong = document.createElement('strong'); strong.textContent = best.x.n;
+                    out.appendChild(document.createTextNode('Closest to ' + label + ': ')); out.appendChild(strong);
+                    out.appendChild(document.createTextNode(' (' + (best.x.t === 'locker' ? 'locker, open 24/7' : 'partner front desk') + '), about ' + best.d.toFixed(1) + ' miles away in a straight line.'));
+                    if (best.x.t !== 'locker') {
+                        out.appendChild(document.createElement('br'));
+                        out.appendChild(document.createTextNode('Nearest 24/7 locker: ' + lockerFirst.x.n + ', about ' + lockerFirst.d.toFixed(1) + ' miles.'));
+                    }
+                    if (map && marks) { map.flyTo(best.x.c, 12); marks[best.i].openPopup(); }
+                    document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                document.getElementById('find').addEventListener('submit', function () {
+                    var q = document.getElementById('where').value.trim(), out = document.getElementById('find-result');
+                    if (!q) { out.textContent = 'Type a hotel, address, or town on Maui.'; return; }
+                    out.textContent = 'Looking...';
+                    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&bounded=1&viewbox=-156.75,21.06,-156.28,20.54&q=' + encodeURIComponent(/maui|hawai/i.test(q) ? q : q + ', Maui, Hawaii');
+                    fetch(url, { headers: { 'Accept': 'application/json' } }).then(function (r) { return r.json(); }).then(function (j) {
+                        if (!j.length) { out.textContent = 'We could not find that on Maui. Try a hotel name, a street and town, or just the town.'; return; }
+                        showNearest([parseFloat(j[0].lat), parseFloat(j[0].lon)], q);
+                    }).catch(function () { out.textContent = 'The search is not available right now. The list below shows every location.'; });
+                });
+                document.getElementById('here-btn').addEventListener('click', function () {
+                    var out = document.getElementById('find-result');
+                    if (!navigator.geolocation) { out.textContent = 'Your browser cannot share its location. Type where you are staying instead.'; return; }
+                    out.textContent = 'Finding you...';
+                    navigator.geolocation.getCurrentPosition(function (p) { showNearest([p.coords.latitude, p.coords.longitude], 'you'); }, function () { out.textContent = 'We could not get your location. Type where you are staying instead.'; }, { timeout: 10000 });
+                });
+                var list = document.getElementById("loc-list");
+                if (typeof L === "undefined") {
+                    LOCS.forEach(function (x) { var li = document.createElement("li"); li.innerHTML = "<strong>" + x.n + "</strong> (" + (x.t === "locker" ? "Locker" : "Partner") + ")<br><span style=\"color:var(--soft)\">" + x.d + "</span>"; list.appendChild(li); });
+                    document.getElementById("map").style.display = "none"; return;
+                }
+                map = L.map("map", { scrollWheelZoom: false }).setView([20.82, -156.5], 10);
+                L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 17, attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
+                marks = [];
+                LOCS.forEach(function (x, i) {
+                    var html = x.t === "locker"
+                        ? "<div style=\"width:18px;height:18px;background:#6bb5bd;border:2px solid #fff;box-shadow:0 0 0 2px #0b1519\"></div>"
+                        : "<div style=\"width:18px;height:18px;background:#0b1519;border:3px solid var(--pink);border-radius:50%\"></div>";
+                    var m = L.marker(x.c, { icon: L.divIcon({ html: html, className: "", iconSize: [18, 18], iconAnchor: [9, 9] }), title: x.n, keyboard: true }).addTo(map);
+                    m.bindPopup("<strong>" + x.n + "</strong><br>" + (x.t === "locker" ? "Locker, 24/7" : "Partner front desk") + "<br>" + x.d);
+                    marks.push(m);
+                    var li = document.createElement("li");
+                    li.innerHTML = "<button type=\"button\" style=\"all:unset;cursor:pointer;display:block;width:100%;box-sizing:border-box;border:1.5px solid var(--line);background:var(--surface);padding:10px 12px;line-height:1.4\"><strong>" + x.n + "</strong> <span style=\"color:var(--mute)\">(" + (x.t === "locker" ? "Locker" : "Partner") + ")</span><br><span style=\"color:var(--soft);font-size:14px\">" + x.d + "</span></button>";
+                    li.firstChild.addEventListener("click", function () { map.flyTo(x.c, 13); m.openPopup(); });
+                    list.appendChild(li);
+                });
+                map.fitBounds(L.latLngBounds(LOCS.map(function (x) { return x.c; })).pad(0.15));
+            })();
+        </script>
+
 
         <!-- OPTIONAL HELP -->
         <section style="max-width:1120px;margin:0 auto;padding:48px 24px;display:flex;flex-direction:column;gap:24px">
@@ -170,8 +279,8 @@
                     style="font-size:20px;color:var(--hi)">Reconnect</strong><span style="font-size:14px">Same-day phone
                     rentals for travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
             <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a
-                    href="services.html" style="color:#c9d6d8">Services &amp; Pricing</a><a href="locations.html"
-                    style="color:#c9d6d8">Locations</a><a href="guides.html" style="color:#c9d6d8">Setup guides</a><a
+                    href="services.html" style="color:#c9d6d8">Services &amp; Pricing</a><a href="security.html"
+                    style="color:#c9d6d8">Security</a><a href="guides.html" style="color:#c9d6d8">Setup guides</a><a
                     href="about.html" style="color:#c9d6d8">About Us</a><a href="contact.html"
                     style="color:#c9d6d8">Request a phone</a><a href="agreement.html" style="color:#c9d6d8">Loaner
                     agreement</a></div>

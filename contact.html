@@ -27,7 +27,7 @@
           style="font-size:22px;font-weight:700">Reconnect</span></a>
       <nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
         <a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a
-          href="locations.html">Locations</a><a href="guides.html">Setup guides</a><a href="about.html">About Us</a>
+          href="security.html">Security</a><a href="guides.html">Setup guides</a><a href="about.html">About Us</a>
         <a href="contact.html" class="btn" style="min-height:44px;padding:0 20px" aria-current="page">Request a
           phone</a>
       </nav>
@@ -58,8 +58,11 @@
               placeholder="Full name"></div>
           <div class="field"><label for="phone-num">Phone number we can reach you at</label><input id="phone-num"
               type="tel" autocomplete="tel" inputmode="tel" placeholder="Any phone is fine, even a borrowed one"></div>
-          <div class="field"><label for="email">Email (so we can send your agreement and locker code)</label><input
-              id="email" type="email" autocomplete="email" placeholder="name@example.com"></div>
+          <div class="field"><label for="email">Email (we send copies of everything you fill out or sign
+              here)</label><input id="email" type="email" autocomplete="email" placeholder="name@example.com"
+              aria-describedby="email-note"><span id="email-note"
+              style="font-size:14px;color:var(--mute);line-height:1.5">Your request, signed agreement, receipt and
+              locker code are all emailed to this address. Please check the spelling.</span></div>
           <div class="field"><label for="when">If we call, when is best? (business hours: [hours])</label>
             <select id="when">
               <option>As soon as possible</option>
@@ -151,7 +154,9 @@
           <div class="field"><label for="msg">Anything else we should know?</label><textarea id="msg"
               placeholder="When you fly out, anything urgent"></textarea></div>
           <div id="partner" class="field"><label class="inline"><input type="checkbox" id="is-partner"><span>I'm a front
-                desk, concierge or property manager and want to ask about the partner program.</span></label></div>
+                desk, concierge or property manager and want to ask about the partner program.</span></label><span
+              style="font-size:14px;color:var(--mute);line-height:1.5">We reply at the email you listed above, and send
+              you a copy of what you submit.</span></div>
         </fieldset>
 
         <!-- 4 -->
@@ -198,9 +203,10 @@
             <button type="button" id="hold-btn" class="btn btn2">Place refundable hold (demo)</button>
             <span id="hold-status" role="status" aria-live="polite" style="color:var(--soft)"></span>
           </div>
-          <p style="margin:0;color:var(--mute);font-size:14px">A credit card is required, and the name on the card must
-            match the name you sign with. In the live version, a secure payment page (like Stripe) opens here. Never
-            type a card number into this demo page.</p>
+          <p style="margin:0;color:var(--mute);font-size:14px">A signed copy of your agreement and your hold receipt are
+            emailed to the address you listed above. A credit card is required, and the name on the card must match the
+            name you sign with. In the live version, a secure payment page (like Stripe) opens here. Never type a card
+            number into this demo page.</p>
         </fieldset>
 
         <div style="display:flex;flex-direction:column;gap:10px">
@@ -212,6 +218,8 @@
             <li data-k="hold"><span class="tick">○</span> Refundable hold placed</li>
           </ul>
           <div><button type="submit" id="send-btn" class="btn" disabled>Request a call</button></div>
+          <p style="margin:0;color:var(--mute);font-size:14px">When you submit, we email a copy of your request and
+            anything you signed to <strong data-email-live>the email you listed</strong>.</p>
         </div>
 
         <div id="form-confirm" hidden role="status"
@@ -220,12 +228,14 @@
                 data-name></span>.</strong><span style="color:var(--soft);line-height:1.5">Your locker code is
               <strong>4821</strong> at [locker location]. When you pick up the phone, take a quick photo of it. It works
               right away on a temporary eSIM. Then follow your <a href="guides.html">setup guide</a>. We'll text you
-              tonight to ask how it went, and call the next business day if we don't hear back. (Demo: nothing was sent
+              tonight to ask how it went, and call the next business day if we don't hear back. A copy of your signed
+              agreement, receipt and locker code goes to <strong data-email>your email</strong>. (Demo: nothing was sent
               or charged.)</span></div>
           <div id="confirm-call" hidden style="display:flex;flex-direction:column;gap:8px"><strong>Thanks, <span
                 data-name></span>.</strong><span style="color:var(--soft);line-height:1.5">We'll call you at <span
                 data-phone></span> within [X] minutes during business hours ([hours]). Outside business hours, we'll
-              call the next business day. (Demo: nothing was sent.)</span></div>
+              call the next business day. A copy of your request goes to <strong data-email>your email</strong>. (Demo:
+              nothing was sent.)</span></div>
         </div>
       </form>
 
@@ -249,8 +259,8 @@
         <!-- SWAP: <img src="img/map.png" alt="..."> -->
         <div class="card">
           <h2 style="margin:0;font-size:20px">Where we serve</h2><span style="color:var(--soft);line-height:1.5">Lockers
-            and partner front desks across Maui, from Lahaina to Wailea.</span><a href="locations.html" class="btn btn2"
-            style="min-height:44px">See the map</a>
+            and partner front desks across Maui, from Lahaina to Wailea.</span><a href="services.html#locations"
+            class="btn btn2" style="min-height:44px">See the map</a>
         </div>
       </aside>
     </section>
@@ -263,7 +273,7 @@
           style="font-size:20px;color:var(--hi)">Reconnect</strong><span style="font-size:14px">Same-day phone rentals
           for travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
       <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a href="services.html"
-          style="color:#c9d6d8">Services &amp; Pricing</a><a href="locations.html" style="color:#c9d6d8">Locations</a><a
+          style="color:#c9d6d8">Services &amp; Pricing</a><a href="security.html" style="color:#c9d6d8">Security</a><a
           href="guides.html" style="color:#c9d6d8">Setup guides</a><a href="about.html" style="color:#c9d6d8">About
           Us</a><a href="contact.html" style="color:#c9d6d8">Request a phone</a><a href="agreement.html"
           style="color:#c9d6d8">Loaner agreement</a></div>
@@ -343,6 +353,7 @@
 
       function render() {
         showNotes();
+        var em = ($('#email').value || '').trim(); document.querySelectorAll('[data-email-live]').forEach(function (x) { x.textContent = em || 'the email you listed'; });
         var why = decide(), t = $('#path-title'), b = $('#path-body');
         if (mode === 'pending') {
           t.textContent = 'Answer a few questions and we\'ll show your fastest option.';
@@ -401,6 +412,7 @@
         var b = $('#form-confirm'), g = mode === 'green';
         b.querySelectorAll('[data-name]').forEach(function (x) { x.textContent = $('#name').value.trim() || 'there'; });
         b.querySelectorAll('[data-phone]').forEach(function (x) { x.textContent = $('#phone-num').value.trim(); });
+        b.querySelectorAll('[data-email]').forEach(function (x) { x.textContent = $('#email').value.trim() || 'your email'; });
         $('#confirm-green').hidden = !g; $('#confirm-call').hidden = g;
         b.hidden = false;
         b.scrollIntoView({ block: 'nearest' });
