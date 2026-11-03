@@ -45,6 +45,19 @@
                 <p style="margin:0;line-height:1.55;color:#3d3d3a;max-width:700px">Lockers and partner front desks near
                     where visitors land and stay. Prototype only: these are example sites, not confirmed partners.</p>
             </div>
+            <form id="find"
+                style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;border:1.5px solid #1c1c1c;background:#fff;padding:18px 20px"
+                onsubmit="return false">
+                <label for="where" style="font-weight:600">Find the closest pickup spot</label>
+                <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:stretch">
+                    <input id="where" type="text" autocomplete="off"
+                        placeholder="Where are you staying? Hotel, address, or town" style="flex:1 1 280px;min-width:0">
+                    <button type="submit" id="find-btn" class="btn" style="min-height:44px">Find nearest</button>
+                    <button type="button" id="here-btn" class="btn btn2" style="min-height:44px">Use my
+                        location</button>
+                </div>
+                <div id="find-result" aria-live="polite" style="line-height:1.5;color:#3d3d3a"></div>
+            </form>
             <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:stretch">
                 <div id="map" style="flex:2 1 460px;min-width:0;height:460px;border:1.5px solid #c9c9c4" role="img"
                     aria-label="Map of example Reconnect locker and partner locations on Maui"></div>
@@ -72,14 +85,47 @@
                     { n: "Paia Inn, Pāʻia", t: "partner", d: "Front desk. North Shore.", c: [20.9036, -156.3697] },
                     { n: "Lahaina Shores Beach Resort, Lahaina", t: "partner", d: "Front desk, south end of Front Street.", c: [20.8670, -156.6735] }
                 ];
+                var map, marks;
+                function miles(a, b) { var R = 3958.8, r = Math.PI / 180, dLa = (b[0] - a[0]) * r, dLo = (b[1] - a[1]) * r; var h = Math.sin(dLa / 2) * Math.sin(dLa / 2) + Math.cos(a[0] * r) * Math.cos(b[0] * r) * Math.sin(dLo / 2) * Math.sin(dLo / 2); return 2 * R * Math.asin(Math.sqrt(h)); }
+                function showNearest(pt, label) {
+                    var out = document.getElementById('find-result');
+                    var ranked = LOCS.map(function (x, i) { return { x: x, i: i, d: miles(pt, x.c) }; }).sort(function (a, b) { return a.d - b.d; });
+                    var best = ranked[0], lockerFirst = ranked.filter(function (r) { return r.x.t === 'locker'; })[0];
+                    out.textContent = '';
+                    var strong = document.createElement('strong'); strong.textContent = best.x.n;
+                    out.appendChild(document.createTextNode('Closest to ' + label + ': ')); out.appendChild(strong);
+                    out.appendChild(document.createTextNode(' (' + (best.x.t === 'locker' ? 'locker, open 24/7' : 'partner front desk') + '), about ' + best.d.toFixed(1) + ' miles away in a straight line.'));
+                    if (best.x.t !== 'locker') {
+                        out.appendChild(document.createElement('br'));
+                        out.appendChild(document.createTextNode('Nearest 24/7 locker: ' + lockerFirst.x.n + ', about ' + lockerFirst.d.toFixed(1) + ' miles.'));
+                    }
+                    if (map && marks) { map.flyTo(best.x.c, 12); marks[best.i].openPopup(); }
+                    document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                document.getElementById('find').addEventListener('submit', function () {
+                    var q = document.getElementById('where').value.trim(), out = document.getElementById('find-result');
+                    if (!q) { out.textContent = 'Type a hotel, address, or town on Maui.'; return; }
+                    out.textContent = 'Looking...';
+                    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&bounded=1&viewbox=-156.75,21.06,-156.28,20.54&q=' + encodeURIComponent(/maui|hawai/i.test(q) ? q : q + ', Maui, Hawaii');
+                    fetch(url, { headers: { 'Accept': 'application/json' } }).then(function (r) { return r.json(); }).then(function (j) {
+                        if (!j.length) { out.textContent = 'We could not find that on Maui. Try a hotel name, a street and town, or just the town.'; return; }
+                        showNearest([parseFloat(j[0].lat), parseFloat(j[0].lon)], q);
+                    }).catch(function () { out.textContent = 'The search is not available right now. The list below shows every location.'; });
+                });
+                document.getElementById('here-btn').addEventListener('click', function () {
+                    var out = document.getElementById('find-result');
+                    if (!navigator.geolocation) { out.textContent = 'Your browser cannot share its location. Type where you are staying instead.'; return; }
+                    out.textContent = 'Finding you...';
+                    navigator.geolocation.getCurrentPosition(function (p) { showNearest([p.coords.latitude, p.coords.longitude], 'you'); }, function () { out.textContent = 'We could not get your location. Type where you are staying instead.'; }, { timeout: 10000 });
+                });
                 var list = document.getElementById("loc-list");
                 if (typeof L === "undefined") {
                     LOCS.forEach(function (x) { var li = document.createElement("li"); li.innerHTML = "<strong>" + x.n + "</strong> (" + (x.t === "locker" ? "Locker" : "Partner") + ")<br><span style=\"color:#3d3d3a\">" + x.d + "</span>"; list.appendChild(li); });
                     document.getElementById("map").style.display = "none"; return;
                 }
-                var map = L.map("map", { scrollWheelZoom: false }).setView([20.82, -156.5], 10);
+                map = L.map("map", { scrollWheelZoom: false }).setView([20.82, -156.5], 10);
                 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 17, attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
-                var marks = [];
+                marks = [];
                 LOCS.forEach(function (x, i) {
                     var html = x.t === "locker"
                         ? "<div style=\"width:18px;height:18px;background:#1c1c1c;border:2px solid #fff;box-shadow:0 0 0 1.5px #1c1c1c\"></div>"
