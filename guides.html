@@ -16,8 +16,7 @@
 
 <body>
   <div class="util">
-    <div><span>Lost your phone? Call or text <strong>[PHONE]</strong></span><span>Pickup 24/7 from a secure locker · <a
-          href="contact.html">Request a phone</a></span></div>
+    <div><span>Lost your phone? Call or text <strong>(808) 555-0142</strong></span></div>
   </div>
   <header style="border-bottom:1.5px solid var(--line);background:var(--surface)">
     <div
@@ -41,9 +40,8 @@
       <h1 style="margin:0;font-size:42px;line-height:1.15">Step-by-step help for your phone and carrier</h1>
       <p style="margin:0;font-size:18px;line-height:1.5;color:var(--soft);max-width:720px">Pick your phone and your
         carrier. We'll show only the steps that apply to you.</p>
-      <div class="callout" style="font-size:14px;color:var(--soft);line-height:1.5;max-width:720px">Draft guides, built
-        from each carrier's and Apple's own help pages (linked at the bottom). We confirm every step with each carrier
-        before launch.</div>
+      <div class="callout" style="font-size:14px;color:var(--soft);line-height:1.5;max-width:720px">Built from each
+        carrier's and Apple's own help pages (linked at the bottom).</div>
     </section>
 
     <section
@@ -91,8 +89,8 @@
       <div
         style="background:var(--surface);border:1.5px solid var(--line);padding:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
         <div style="flex:1 1 360px"><strong>Stuck? Want a person?</strong>
-          <div style="color:var(--soft);line-height:1.5;margin-top:4px">Call or text [PHONE], or choose a video library,
-            Zoom call, or in-person visit on the <a href="services.html">Services &amp; Pricing</a> page.</div>
+          <div style="color:var(--soft);line-height:1.5;margin-top:4px">Call or text (808) 555-0142, or choose a video
+            library, Zoom call, or in-person visit on the <a href="services.html">Services &amp; Pricing</a> page.</div>
         </div>
         <a href="contact.html" class="btn">Request a phone</a>
       </div>
@@ -115,13 +113,14 @@
       style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
       <div style="display:flex;flex-direction:column;gap:6px"><strong
           style="font-size:20px;color:var(--hi)">Reconnect</strong><span style="font-size:14px">Same-day phone rentals
-          for travelers in Hawaiʻi</span><span style="font-size:14px">[Website address]</span></div>
+          for travelers in Hawaiʻi</span><span style="font-size:14px">reconnectmaui.com</span></div>
       <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a href="services.html"
           style="color:#c9d6d8">Services &amp; Pricing</a><a href="security.html" style="color:#c9d6d8">Security</a><a
-          href="guides.html" style="color:#c9d6d8">Setup guides</a><a href="about.html" style="color:#c9d6d8">About
-          Us</a><a href="contact.html" style="color:#c9d6d8">Request a phone</a><a href="agreement.html"
-          style="color:#c9d6d8">Loaner agreement</a></div>
-      <div style="font-size:14px">[Phone] · [Email] · [Social links]</div>
+          href="partners.html" style="color:#c9d6d8">For partners</a><a href="guides.html" style="color:#c9d6d8">Setup
+          guides</a><a href="about.html" style="color:#c9d6d8">About Us</a><a href="contact.html"
+          style="color:#c9d6d8">Request a phone</a><a href="agreement.html" style="color:#c9d6d8">Loaner agreement</a>
+      </div>
+      <div style="font-size:14px">(808) 555-0142 · hello@reconnectmaui.com · Instagram @reconnectmaui</div>
     </div>
   </footer>
   <script>
@@ -132,7 +131,7 @@
           contact: "800-331-0500",
           ready: [
             "Your AT&T account sign-in (or the account owner on hand). Only the account owner or an authorized user can activate a new SIM.",
-            "The IMEI and eSIM ID (EID) of your Reconnect phone, printed on the card in the locker. [to confirm]",
+            "The IMEI and eSIM ID (EID) of your Reconnect phone, printed on the card in the locker.",
             "Access to your email, in case AT&T sends a QR code there."
           ],
           get: [
@@ -148,7 +147,7 @@
           ready: [
             "Your My Verizon sign-in. You need to be the Account Owner or an Account Manager.",
             "A way to verify it's you. If your account has one line, Verizon may want your old phone. With more than one line, another phone on the account can do it.",
-            "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker. [to confirm]"
+            "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker."
           ],
           get: [
             "Connect your Reconnect phone to Wi-Fi.",
@@ -164,7 +163,7 @@
           ready: [
             "Your T-Mobile account sign-in.",
             "SIM Protection turned off first. If it's on, you'll get an error.",
-            "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker. [to confirm]"
+            "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker."
           ],
           get: [
             "Turn off SIM Protection in your T-Mobile account.",
@@ -181,7 +180,7 @@
           ready: [
             "Your account number or the phone number, and your account PIN or passcode if you have one.",
             "Photo ID. Some carriers ask for it.",
-            "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker. [to confirm]",
+            "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker.",
             "Access to your email, so the carrier can send you a QR code."
           ],
           get: [
@@ -279,7 +278,7 @@
 
         if (stage === "activate") {
           title.textContent = "Get your number working on the Reconnect phone";
-          readyHtml = "<p style=\"margin:0;line-height:1.55;color:var(--soft)\"><strong>Your phone already works.</strong> It comes with a temporary eSIM, so you can call, text and use data right now while you move your number. The temporary line has its own number. Your own calls and texts, including login codes, come to this phone once your number moves. [Temporary service details to confirm]</p><h3 style=\"margin:8px 0 0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:var(--soft)\">" + li(c.ready) + "</ul>";
+          readyHtml = "<p style=\"margin:0;line-height:1.55;color:var(--soft)\"><strong>Your phone already works.</strong> It comes with a temporary eSIM, so you can call, text and use data right now while you move your number. The temporary line has its own number. Your own calls and texts, including login codes, come to this phone once your number moves. It includes calls, texts and data for the length of your rental.</p><h3 style=\"margin:8px 0 0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:var(--soft)\">" + li(c.ready) + "</ul>";
           list = c.get.concat(DEVICE_INSTALL[phone]);
           noteText = "<strong>Heads up:</strong> we never contact your carrier for you and never see your account. If " + c.name + " asks for something that's not listed here, tell us on your call and we'll help you work it out.";
         } else if (stage === "restore") {
@@ -293,8 +292,8 @@
           var back = ["Move your number back to your own phone. Use the same " + (carrier === "other" ? "carrier" : c.name) + " steps from the number guide, this time for your own phone. Do this first, so you don't lose service."];
           list = back.concat(RETURN_SIGNOUT[phone], [
             "You don't need to erase the phone. We do that, and we verify it.",
-            "Put the phone, charger, and cable in any partner locker or return it at a partner location. [Return steps and locations to confirm]",
-            "You'll get a text when we've checked it in. Your refundable hold is released after that. [Release timing to confirm]"
+            "Put the phone, charger, and cable in any partner locker or return it at a partner location.",
+            "You'll get a text when we've checked it in. Your refundable hold is released within 3 business days of check-in."
           ]);
           noteText = "<strong>Why sign-out matters:</strong> a phone still tied to your account comes back locked, and a locked phone can be charged at its full replacement price. Take two minutes to sign out and you're done.";
         }

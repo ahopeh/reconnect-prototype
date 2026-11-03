@@ -601,3 +601,7 @@ main li::marker {
     margin-top: 8px;
     border-radius: 2px
 }
+
+[data-img] {
+    display: none !important
+}
