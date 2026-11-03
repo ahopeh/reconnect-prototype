@@ -39,8 +39,8 @@
       <h1 style="margin:0;font-size:42px;line-height:1.15">Tell us what happened. We'll call you back.</h1>
       <p style="margin:0;font-size:18px;line-height:1.5;color:var(--soft);max-width:700px">This takes a couple of
         minutes. Answer a few questions and we'll show your fastest option. If everything looks good, you can get your
-        locker code right away, any hour. If we need to talk first, we call during business hours. A borrowed phone is
-        fine.</p>
+        locker code right away, any hour. If we need to talk first, we call during business hours. Traveling alone with
+        no second phone? That's fine. Nothing here needs another person or another phone.</p>
       <div class="callout" style="font-size:14px;color:var(--soft);max-width:700px">Demo: nothing is sent, saved, or
         charged on this page.</div>
     </section>
@@ -55,14 +55,14 @@
           <legend>1. How to reach you</legend>
           <div class="field"><label for="name">Your name</label><input id="name" type="text" autocomplete="name"
               placeholder="Full name"></div>
-          <div class="field"><label for="phone-num">Phone number we can reach you at</label><input id="phone-num"
-              type="tel" autocomplete="tel" inputmode="tel" placeholder="Any phone is fine, even a borrowed one"></div>
           <div class="field"><label for="email">Email (we send copies of everything you fill out or sign
               here)</label><input id="email" type="email" autocomplete="email" placeholder="name@example.com"
               aria-describedby="email-note"><span id="email-note"
               style="font-size:14px;color:var(--mute);line-height:1.5">Your request, signed agreement, receipt and
               locker code are all emailed to this address. Please check the spelling.</span></div>
-          <div class="field"><label for="when">If we call, when is best? (business hours: 8 AM to 8 PM, Monday to
+          <div class="field"><label for="phone-num">Phone number (optional)</label><input id="phone-num" type="tel"
+              autocomplete="tel" inputmode="tel" placeholder="Any phone is fine, even a borrowed one"></div>
+          <div class="field"><label for="when">If we reach out, when is best? (business hours: 8 AM to 8 PM, Monday to
               Saturday)</label>
             <select id="when">
               <option>As soon as possible</option>
@@ -140,8 +140,13 @@
         <!-- 3 -->
         <fieldset class="panel">
           <legend>3. Where you are and how long</legend>
-          <div class="field"><label for="stay">Where are you staying?</label><input id="stay" type="text"
-              placeholder="Hotel, condo or rental name and area"></div>
+          <div class="field"><label for="stay">Where are you staying?</label><select id="stay">
+              <option value="">A different hotel, condo or rental</option>
+              <option>Maui Seaside Hotel</option>
+              <option>Maui Coast Hotel</option>
+              <option>Paia Inn</option>
+              <option>Lahaina Shores Beach Resort</option>
+            </select></div>
           <div class="field"><span class="q">How would you like to get the phone?</span>
             <div class="choice-row"><label class="choice"><input type="radio" name="pick" value="locker"
                   checked><span>Secure locker (24/7)</span></label><label class="choice"><input type="radio" name="pick"
@@ -182,12 +187,15 @@
         <!-- 5 -->
         <fieldset class="panel" id="pay-panel" hidden>
           <legend>5. Verify, sign, and place your hold</legend>
-          <p style="margin:0;line-height:1.55;color:var(--soft)">We open your locker once these three things are done.
-          </p>
-          <div class="field"><label for="vcode">Verify your phone number</label>
+          <p style="margin:0;line-height:1.55;color:var(--soft)">Three quick things. Nothing here needs a second phone
+            or another person.</p>
+          <div class="field"><span class="q">Verify it is you</span>
+            <div class="choice-row"><label class="choice"><input type="radio" name="vm" value="email"
+                  checked><span>Email me a code</span></label><label class="choice"><input type="radio" name="vm"
+                  value="text"><span>Text my phone</span></label></div>
             <div style="display:flex;flex-wrap:wrap;gap:10px"><input id="vcode" type="text" inputmode="numeric"
                 autocomplete="one-time-code" placeholder="6-digit code" style="flex:1 1 160px;width:auto"><button
-                type="button" id="send-code" class="btn btn2">Text me a code (demo)</button></div>
+                type="button" id="send-code" class="btn btn2">Send me a code (demo)</button></div>
             <span id="v-status" role="status" aria-live="polite" style="color:var(--soft);font-size:14px"></span>
           </div>
           <div class="field"><label class="inline"><input type="checkbox" id="ack"><span>I have read and agree to the <a
@@ -200,16 +208,17 @@
             <span id="hold-status" role="status" aria-live="polite" style="color:var(--soft)"></span>
           </div>
           <p style="margin:0;color:var(--mute);font-size:14px">A signed copy of your agreement and your hold receipt are
-            emailed to the address you listed above. A credit card is required, and the name on the card must match the
-            name you sign with. In the live version, a secure payment page (like Stripe) opens here. Never type a card
-            number into this demo page.</p>
+            emailed to the address you listed above. At pickup, you show a photo ID that matches the name you sign: it
+            is scanned at the locker, or shown at your hotel's front desk. A credit card is required, and the name on
+            the card must match the name you sign with. In the live version, a secure payment page (like Stripe) opens
+            here. Never type a card number into this demo page.</p>
         </fieldset>
 
         <div style="display:flex;flex-direction:column;gap:10px">
           <ul id="ready-list"
             style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;color:var(--soft)">
-            <li data-k="contact"><span class="tick">○</span> Your name and a phone number</li>
-            <li data-k="verify"><span class="tick">○</span> Phone number verified</li>
+            <li data-k="contact"><span class="tick">○</span> Your name and email</li>
+            <li data-k="verify"><span class="tick">○</span> You are verified</li>
             <li data-k="ack"><span class="tick">○</span> Agreement signed</li>
             <li data-k="hold"><span class="tick">○</span> Refundable hold placed</li>
           </ul>
@@ -221,17 +230,18 @@
         <div id="form-confirm" hidden role="status"
           style="border:2px solid var(--accent);background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:8px">
           <div id="confirm-green" hidden style="display:flex;flex-direction:column;gap:8px"><strong>You're set, <span
-                data-name></span>.</strong><span style="color:var(--soft);line-height:1.5">Your locker code is
-              <strong>4821</strong> at Maui Mall, Kahului, Locker 12. When you pick up the phone, take a quick photo of
-              it. It works right away on a temporary eSIM. Then follow your <a href="guides.html">setup guide</a>. We'll
-              text you tonight to ask how it went, and call the next business day if we don't hear back. A copy of your
-              signed agreement, receipt and locker code goes to <strong data-email>your email</strong>. (Demo: nothing
-              was sent or charged.)</span></div>
+                data-name></span>.</strong><span style="color:var(--soft);line-height:1.5">Your pickup code is
+              <strong>4821</strong> at <span data-where></span>. It is also on its way to <strong data-email>your
+                email</strong>, so screenshot it or write it down. <span data-id></span> The phone already works on a
+              temporary eSIM, and the locker photographs the handoff, so you don't need another phone or another person.
+              Then follow your <a href="guides.html">setup guide</a>, or call us from the loaner at (808) 555-0142.
+              We'll message the loaner and email you tonight to see how it went, and reach out the next business day if
+              we don't hear back. (Demo: nothing was sent or charged.)</span></div>
           <div id="confirm-call" hidden style="display:flex;flex-direction:column;gap:8px"><strong>Thanks, <span
-                data-name></span>.</strong><span style="color:var(--soft);line-height:1.5">We'll call you at <span
+                data-name></span>.</strong><span style="color:var(--soft);line-height:1.5">We'll reach out to <span
                 data-phone></span> within 15 minutes during business hours (8 AM to 8 PM, Monday to Saturday). Outside
-              business hours, we'll call the next business day. A copy of your request goes to <strong data-email>your
-                email</strong>. (Demo: nothing was sent.)</span></div>
+              business hours, we'll reach out the next business day. A copy of your request goes to <strong
+                data-email>your email</strong>. (Demo: nothing was sent.)</span></div>
         </div>
       </form>
 
@@ -242,7 +252,8 @@
             <li>Answer a few questions.</li>
             <li>If it looks good, verify, sign and place the hold. Your locker code comes right away, any hour.
               Otherwise we call you first, during business hours.</li>
-            <li>Pick up the phone, take a photo of it, and follow your <a href="guides.html">setup guide</a>.</li>
+            <li>Scan your photo ID at the locker (or show it at your hotel's desk), pick up the phone, and follow your
+              <a href="guides.html">setup guide</a>.</li>
             <li>We check in the next business day.</li>
           </ol>
         </div>
@@ -275,6 +286,9 @@
     (function () {
       var $ = function (s) { return document.querySelector(s); };
       var form = $('#request-form'), holdPlaced = false, verified = false, mode = 'pending';
+      var PARTNER_HOTELS = ['Maui Seaside Hotel', 'Maui Coast Hotel', 'Paia Inn', 'Lahaina Shores Beach Resort'];
+      function isPartner() { return PARTNER_HOTELS.indexOf($('#stay').value) > -1; }
+      function validEmail() { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(($('#email').value || '').trim()); }
       function val(n) { var e = document.querySelector('input[name="' + n + '"]:checked'); return e ? e.value : ''; }
 
       function calc() {
@@ -311,12 +325,13 @@
         mail: { no: "Carriers often email the eSIM QR code, so we'll find another way to get it to you." },
         ptype: { other: "No problem. Tell us the model so we can give you the right steps." },
         pick: {
-          desk: "Front-desk pickup depends on your hotel taking part. We'll confirm with them first.",
+          desk: "Front-desk pickup is for guests of that hotel only. Show your photo ID at the desk and staff will match it to your name. Desks keep their own hours, so the locker is the better choice after hours.",
+          deskno: "Front-desk pickup is only for guests of our partner hotels. Choose the locker, or pick your hotel above if it is on the list.",
           unsure: "Lockers are open 24/7 and are the fastest option."
         }
       };
       function showNotes() {
-        var pairs = [["use", val("use")], ["carrier", $("#carrier").value], ["what", val("what")], ["acct", val("acct")], ["pin", val("pin")], ["mail", val("mail")], ["ptype", val("ptype")], ["pick", val("pick")]];
+        var pairs = [["use", val("use")], ["carrier", $("#carrier").value], ["what", val("what")], ["acct", val("acct")], ["pin", val("pin")], ["mail", val("mail")], ["ptype", val("ptype")], ["pick", (val("pick") === "desk" && !isPartner()) ? "deskno" : val("pick")]];
         pairs.forEach(function (p) {
           var el = $("#n-" + p[0]), txt = (NOTES[p[0]] || {})[p[1]] || "";
           if (txt) { el.hidden = false; el.innerHTML = "<strong>Heads up:</strong> " + txt; }
@@ -335,7 +350,7 @@
         if (val('pin') !== 'yes') why.push("No worries if you don't have your PIN. We'll walk you through your options.");
         if (val('mail') !== 'yes') why.push("Many carriers send activation codes by email, so we'll look at other options with you.");
         if (val('ptype') === 'other') why.push("We'll confirm the right setup for your phone type.");
-        if (val('pick') === 'desk') why.push("Front-desk pickup needs a quick check with your hotel.");
+        if (val('pick') === 'desk' && !isPartner()) why.push("Front-desk pickup is for guests of our partner hotels.");
         if (val('pick') === 'unsure') why.push("We'll help you choose a pickup option.");
         mode = why.length ? 'call' : 'green';
         return why;
@@ -358,7 +373,7 @@
         $('#pay-panel').hidden = (mode !== 'green');
         $('#send-btn').textContent = (mode === 'green') ? 'Get my locker code' : 'Request a call';
         // ready list
-        var okContact = !!($('#name').value.trim() && $('#phone-num').value.trim());
+        var okContact = !!($('#name').value.trim() && validEmail());
         var okAck = !!($('#ack').checked && $('#sig').value.trim());
         var st = { contact: okContact, verify: verified, ack: okAck, hold: holdPlaced };
         document.querySelectorAll('#ready-list li').forEach(function (li) {
@@ -374,8 +389,13 @@
       }
 
       $('#send-code').addEventListener('click', function () {
-        if (!$('#phone-num').value.trim()) { $('#v-status').textContent = 'Add your phone number above first.'; return; }
-        $('#v-status').textContent = 'Demo: your code is 123456.';
+        if (val('vm') === 'text') {
+          if (!$('#phone-num').value.trim()) { $('#v-status').textContent = 'Add your phone number above first, or choose email.'; return; }
+          $('#v-status').textContent = 'Demo: we texted ' + $('#phone-num').value.trim() + '. Your code is 123456.';
+        } else {
+          if (!validEmail()) { $('#v-status').textContent = 'Add your email above first.'; return; }
+          $('#v-status').textContent = 'Demo: we emailed ' + $('#email').value.trim() + '. Your code is 123456.';
+        }
       });
       $('#vcode').addEventListener('input', function () {
         var ok = $('#vcode').value.trim() === '123456';
@@ -383,7 +403,7 @@
         verified = ok; render();
       });
       $('#hold-btn').addEventListener('click', function () {
-        if (!verified) { $('#hold-status').textContent = 'Please verify your phone number first.'; return; }
+        if (!verified) { $('#hold-status').textContent = 'Please verify first.'; return; }
         if (!($('#ack').checked && $('#sig').value.trim())) { $('#hold-status').textContent = 'Please sign the agreement first.'; return; }
         holdPlaced = true;
         $('#hold-status').textContent = 'Demo: hold placed. Nothing was charged.';
@@ -401,7 +421,10 @@
         if ($('#send-btn').disabled) return;
         var b = $('#form-confirm'), g = mode === 'green';
         b.querySelectorAll('[data-name]').forEach(function (x) { x.textContent = $('#name').value.trim() || 'there'; });
-        b.querySelectorAll('[data-phone]').forEach(function (x) { x.textContent = $('#phone-num').value.trim(); });
+        b.querySelectorAll('[data-phone]').forEach(function (x) { x.textContent = $('#phone-num').value.trim() || $('#email').value.trim(); });
+        var desk = val('pick') === 'desk';
+        b.querySelectorAll('[data-where]').forEach(function (x) { x.textContent = desk ? ('the front desk at ' + $('#stay').value) : 'Maui Mall, Kahului, Locker 12'; });
+        b.querySelectorAll('[data-id]').forEach(function (x) { x.textContent = desk ? 'Show your photo ID at the desk and they will hand it over.' : 'At the locker, scan your photo ID, then enter the code.'; });
         b.querySelectorAll('[data-email]').forEach(function (x) { x.textContent = $('#email').value.trim() || 'your email'; });
         $('#confirm-green').hidden = !g; $('#confirm-call').hidden = g;
         b.hidden = false;
