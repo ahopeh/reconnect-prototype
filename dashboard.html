@@ -420,14 +420,14 @@
             if (!req) {
                 demo = true;
                 req = {
-                    mode: 'green', name: 'Sample Traveler', email: 'sample@example.com', reach: 'email', reachLabel: 'Email', reachDetail: '', when: 'As soon as possible', ptype: 'iphone', modelText: 'iPhone 15', carrier: 'att', help: 'video', helpLabel: 'Live video call (30 min)', helpFee: 40, stay: 'Maui Seaside Hotel', pick: 'locker', days: 3,
+                    mode: 'green', name: 'Sample Traveler', first: 'Sample', email: 'sample@example.com', reach: 'email', reachLabel: 'Email', reachDetail: '', when: 'As soon as possible', ptype: 'iphone', modelText: 'iPhone 15', carrier: 'att', help: 'video', helpLabel: 'Live video call (30 min)', helpFee: 40, stay: 'Maui Seaside Hotel', pick: 'locker', days: 3,
                     phone: { make: 'Apple', model: 'iPhone 15', storage: '128 GB', color: 'Black', serial: 'F2LXK0Q7N9', imei: '35 391234 567890 1', price: 799, esim: true, newest: 'iPhone 18 Pro', family: 'iPhone', os: 'iOS', kind: 'iPhone', gens: 3 },
                     startText: fmtDT(new Date()), returnText: fmtDT(new Date(Date.now() + 3 * 86400000)).replace(/,\s*\d+:\d\d\s*[AP]M$/, ', 11:00 AM'), rate: 50, dayTotal: 150, setup: 150, total: 340, hold: 799, partnerDesk: false
                 };
                 sg = { signed: true, holdPlaced: true, verified: true, name: 'Sample Traveler', signedAt: fmtDT(new Date()) + ' HST', sigId: 'SIG-DEMO0001' };
             }
             function save() { try { sessionStorage.setItem('rc_ui', JSON.stringify(ui)); sessionStorage.setItem('rc_sign', JSON.stringify(sg)); } catch (e) { } }
-            var green = req.mode === 'green', ph = req.phone, first = (req.name || 'there').split(' ')[0];
+            var green = req.mode === 'green', ph = req.phone, first = req.first || (req.name || 'there').split(' ')[0];
             var signed = !!sg.signed, hold = !!sg.holdPlaced, called = !!sg.callDone;
             var unlocked = signed && (green ? hold : called);
             function toast(msg) { var t = $('#toast'); t.textContent = msg; t.hidden = false; clearTimeout(toast.h); toast.h = setTimeout(function () { t.hidden = true; }, 3800); }

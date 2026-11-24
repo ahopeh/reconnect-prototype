@@ -58,11 +58,33 @@
 
       <form id="request-form" novalidate style="flex:2 1 560px;min-width:0;display:flex;flex-direction:column;gap:20px">
 
+        <div id="demo-bar" class="callout"
+          style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:14px;color:var(--soft)">
+          <strong style="color:var(--ink)">Demo shortcuts:</strong>
+          <button type="button" class="btn btn2" id="fill-tom" style="min-height:36px;padding:0 14px">Fill in: Tom Hardy
+            (solo traveler)</button>
+          <button type="button" class="btn btn2" id="fill-megan" style="min-height:36px;padding:0 14px">Fill in: Megan
+            Wolfe</button>
+          <button type="button" class="btn btn2" id="fill-clear" style="min-height:36px;padding:0 14px">Clear the
+            form</button>
+        </div>
+
         <!-- 1 -->
         <fieldset class="panel">
           <legend>1. How to reach you</legend>
-          <div class="field"><label for="name">Your name</label><input id="name" type="text" autocomplete="name"
-              placeholder="Full name"></div>
+          <div class="field"><span class="q">Your legal name</span><span
+              style="font-size:14px;color:var(--mute);line-height:1.5">Enter it exactly as it appears on your
+              government-issued photo ID. You'll show that ID at pickup, and it has to match the name you sign and the
+              card you use.</span>
+            <div style="display:flex;flex-wrap:wrap;gap:12px">
+              <div class="field" style="flex:2 1 180px"><label for="fname">Legal first name</label><input id="fname"
+                  type="text" autocomplete="given-name" placeholder="First name"></div>
+              <div class="field" style="flex:0 1 130px"><label for="minit">Middle initial (optional)</label><input
+                  id="minit" type="text" maxlength="1" autocomplete="additional-name" placeholder="M"></div>
+              <div class="field" style="flex:2 1 180px"><label for="lname">Legal last name</label><input id="lname"
+                  type="text" autocomplete="family-name" placeholder="Last name"></div>
+            </div>
+          </div>
           <div class="field"><label for="email">Email (we send copies of everything you fill out or sign
               here)</label><input id="email" type="email" autocomplete="email" placeholder="name@example.com"
               aria-describedby="email-note"><span id="email-note"
@@ -231,7 +253,7 @@
         <div style="display:flex;flex-direction:column;gap:10px">
           <ul id="ready-list"
             style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;color:var(--soft)">
-            <li data-k="contact"><span class="tick">○</span> Your name and email</li>
+            <li data-k="contact"><span class="tick">○</span> Your legal first and last name, and email</li>
             <li data-k="reach"><span class="tick">○</span> How to reach you</li>
           </ul>
           <div id="form-err" role="alert" style="color:var(--pink);font-weight:600" hidden></div>
@@ -361,6 +383,24 @@
       function luhn(d) { var sum = 0, alt = true; for (var i = d.length - 1; i >= 0; i--) { var n = +d[i]; if (alt) { n *= 2; if (n > 9) n -= 9; } sum += n; alt = !alt; } return String((10 - sum % 10) % 10); }
       function fmtDT(d) { return d.toLocaleString('en-US', { timeZone: 'Pacific/Honolulu', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }); }
 
+      function fullName() { var f = $('#fname').value.trim(), m = $('#minit').value.trim().toUpperCase(), l = $('#lname').value.trim(); return [f, m ? m + '.' : '', l].filter(Boolean).join(' '); }
+      function nameOK() { return !!($('#fname').value.trim() && $('#lname').value.trim()); }
+      var DEMO = {
+        tom: { fname: 'Tom', minit: '', lname: 'Hardy', email: 'tomhardy@email.com', reach: 'email', detail: '', when: 'As soon as possible', use: 'personal', ptype: 'android', model: 'Google Pixel 11', carrier: 'att', what: 'lost', acct: 'mine', pin: 'yes', mail: 'yes', help: 'own', stay: '', pick: 'locker', days: '3' },
+        megan: { fname: 'Megan', minit: '', lname: 'Wolfe', email: 'mwolfe@email.com', reach: 'cell', detail: '(808) 555-0134', when: 'As soon as possible', use: 'personal', ptype: 'iphone', model: 'iPhone Duo', carrier: 'verizon', what: 'broken', acct: 'mine', pin: 'yes', mail: 'yes', help: 'video', stay: 'Maui Coast Hotel', pick: 'desk', days: '5' }
+      };
+      function fillDemo(k) {
+        var d = DEMO[k]; $('#prefer-call').checked = false;
+        $('#fname').value = d.fname; $('#minit').value = d.minit; $('#lname').value = d.lname; $('#email').value = d.email;
+        $('#reach').value = d.reach; reachUI(); $('#reach-detail').value = d.detail; $('#when').value = d.when;
+        ['use', 'ptype', 'what', 'acct', 'pin', 'mail', 'help', 'pick'].forEach(function (n) { var el = document.querySelector('input[name="' + n + '"][value="' + d[n] + '"]'); if (el) el.checked = true; });
+        $('#model').value = d.model; $('#carrier').value = d.carrier; $('#stay').value = d.stay; $('#days').value = d.days; $('#msg').value = '';
+        $('#form-err').hidden = true; render();
+        $('#path-banner').scrollIntoView({ block: 'center', behavior: 'smooth' });
+      }
+      $('#fill-tom').addEventListener('click', function () { fillDemo('tom'); });
+      $('#fill-megan').addEventListener('click', function () { fillDemo('megan'); });
+      $('#fill-clear').addEventListener('click', function () { form.reset(); $('#form-err').hidden = true; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
       function days() { return Math.max(1, Math.min(60, parseInt($('#days').value, 10) || 1)); }
       function calc() {
         var d = days(), h = HELP[val('help')] || HELP.own, ph = assignPhone(val('ptype'), $('#model').value);
@@ -416,7 +456,7 @@
           t.textContent = 'Let\'s talk first.';
           b.textContent = why.join(' ') + ' We\'ll reach you within 15 minutes during business hours (8 AM to 8 PM, Monday to Saturday), or the next business day. You can read and sign the agreement now to save time. Your locker code unlocks on your dashboard after we talk.';
         }
-        var okContact = !!($('#name').value.trim() && validEmail()), okReach = reachOK();
+        var okContact = !!(nameOK() && validEmail()), okReach = reachOK();
         var st = { contact: okContact, reach: okReach };
         document.querySelectorAll('#ready-list li').forEach(function (li) {
           var on = st[li.getAttribute('data-k')];
@@ -431,11 +471,12 @@
         e.preventDefault();
         var err = $('#form-err'); err.hidden = true;
         if ($('#send-btn').disabled) {
-          err.textContent = (mode === 'pending') ? 'Please choose your carrier so we can show your fastest option.' : 'Please add your name, a valid email, and how to reach you.';
+          var miss = []; if (!$('#fname').value.trim()) miss.push('your legal first name'); if (!$('#lname').value.trim()) miss.push('your legal last name'); if (!validEmail()) miss.push('a valid email'); if (!reachOK()) miss.push('how to reach you');
+          err.textContent = miss.length ? ('Please add ' + miss.join(', ').replace(/, ([^,]*)$/, ' and $1') + '.') : 'Please choose your carrier so we can show your fastest option.';
           err.hidden = false; return;
         }
         var d = days(), h = HELP[val('help')] || HELP.own, ph = assignPhone(val('ptype'), $('#model').value);
-        var rnd = seeded(($('#name').value.trim() + $('#email').value.trim() + Date.now()));
+        var rnd = seeded((fullName() + $('#email').value.trim() + Date.now()));
         var A = 'ABCDEFGHJKLMNPQRSTUVWXYZ0123456789', ser = '';
         for (var i = 0; i < 10; i++) ser += A.charAt(Math.floor(rnd() * A.length));
         ph.serial = (ph.make === 'Apple' ? 'F' : (ph.make === 'Samsung' ? 'R' : '3')) + ser;
@@ -445,7 +486,7 @@
         var rd = new Date(start.getTime() + d * 86400000);
         var reach = $('#reach').value;
         var req = {
-          mode: mode, name: $('#name').value.trim(), email: $('#email').value.trim(),
+          mode: mode, name: fullName(), first: $('#fname').value.trim(), middle: $('#minit').value.trim().toUpperCase(), last: $('#lname').value.trim(), email: $('#email').value.trim(),
           reach: reach, reachLabel: REACH[reach].label, reachMethod: REACH[reach].m, reachDetail: $('#reach-detail').value.trim(), when: $('#when').value,
           use: val('use'), ptype: val('ptype'), modelText: $('#model').value.trim(), carrier: $('#carrier').value, what: val('what'), acct: val('acct'), pin: val('pin'), mail: val('mail'),
           help: val('help'), helpLabel: h.label, helpFee: h.fee,
