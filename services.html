@@ -4,7 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Reconnect Services and Pricing</title>
+    <title>Reconnect Security</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="stylesheet" href="site.css">
     <script src="site.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +24,13 @@
     <header style="border-bottom:1.5px solid var(--line);background:var(--surface)">
         <div
             style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
-            <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph"
-                    style="width:40px;height:40px"><span style="padding:0;background:none">&#9679;</span></span><span
+            <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><img
+                    src="img/logo-tile.png" alt="" width="44" height="44" style="display:block;border-radius:10px"><span
                     style="font-size:22px;font-weight:700">Reconnect</span></a>
             <nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
-                <a href="index.html">Home</a><a href="services.html"
-                    style="border-bottom:3px solid var(--accent);font-weight:600" aria-current="page">Services &amp;
-                    Pricing</a><a href="security.html">Security</a><a href="guides.html">Setup guides</a><a
-                    href="about.html">About Us</a>
+                <a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a href="security.html"
+                    style="border-bottom:3px solid var(--accent);font-weight:600" aria-current="page">Security</a><a
+                    href="guides.html">Setup guides</a><a href="about.html">About Us</a>
                 <a href="contact.html" class="btn" style="min-height:44px;padding:0 20px">Request a phone</a>
             </nav>
         </div>
@@ -36,231 +38,183 @@
     <main>
 
         <section
-            style="max-width:1120px;margin:0 auto;padding:48px 24px 16px;display:flex;flex-direction:column;gap:12px">
-            <span class="tag">Services &amp; pricing</span>
-            <h1 style="margin:0;font-size:42px;line-height:1.15">Simple pricing, shown before you commit</h1>
-            <p style="margin:0;font-size:18px;line-height:1.5;color:var(--soft);max-width:700px">Your exact total
-                appears at the end of the <a href="contact.html">request form</a>.</p>
+            style="max-width:1120px;margin:0 auto;padding:56px 24px 24px;display:flex;flex-direction:column;gap:14px">
+            <span class="tag">Security and privacy</span>
+            <h1 style="margin:0;font-size:38px;line-height:1.15">Your phone, your accounts, your control</h1>
+            <p style="margin:0;font-size:18px;line-height:1.55;color:var(--soft);max-width:720px">You are handing your
+                digital life to a loaner phone, so here is exactly how we protect it. The short version: we never need
+                your passwords, and we keep very little.</p>
         </section>
 
-        <!-- PRICE CARDS -->
         <section
-            style="max-width:1120px;margin:0 auto;padding:16px 24px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:24px">
-            <div class="card"><span class="lbl">Daily rate</span>
-                <div style="font-size:40px;font-weight:700;line-height:1.1">$50<span
-                        style="font-size:18px;font-weight:400"> / day</span></div>
-                <p style="margin:0;line-height:1.5;color:var(--soft)">A working phone for every day you keep it.</p>
+            style="max-width:1120px;margin:0 auto;padding:16px 24px 24px;display:flex;flex-direction:column;gap:20px">
+            <h2 style="margin:0;font-size:30px">What happens to every loaner</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+                <div class="card"><span class="lbl">Before you get it</span>
+                    <h3 style="margin:0;font-size:20px">Enrolled and checked</h3>
+                    <p style="margin:0;line-height:1.5;color:var(--soft)">The phone is registered to us, reset, and
+                        verified clean: no accounts, no activation lock, and an ID (IMEI) that has never been reported
+                        lost or stolen.</p>
+                </div>
+                <div class="card"><span class="lbl">While you use it</span>
+                    <h3 style="margin:0;font-size:20px">Protected in the background</h3>
+                    <p style="margin:0;line-height:1.5;color:var(--soft)">Threat protection watches for malware, harmful
+                        apps and phishing links. If the phone goes missing, we can locate and lock it.</p>
+                </div>
+                <div class="card"><span class="lbl">After you return it</span>
+                    <h3 style="margin:0;font-size:20px">Erased and logged</h3>
+                    <p style="margin:0;line-height:1.5;color:var(--soft)">We erase it remotely, confirm nothing of yours
+                        is left, and record the wipe before the next traveler gets it.</p>
+                </div>
             </div>
-            <div class="card"><span class="lbl">Setup fee</span>
-                <div style="font-size:40px;font-weight:700;line-height:1.1">$150<span
-                        style="font-size:18px;font-weight:400"> one time</span></div>
-                <p style="margin:0;line-height:1.5;color:var(--soft)">Preparing your phone, activating your number, and
-                    guiding you through it.</p>
-            </div>
-            <div class="card"><span class="lbl">Refundable hold</span>
-                <div style="font-size:40px;font-weight:700;line-height:1.1">$600–$800</div>
-                <p style="margin:0;line-height:1.5;color:var(--soft)">Equal to the phone's replacement price, set by
-                    model. Placed on a <strong>credit card</strong> and released when you return the phone.</p>
-            </div>
-        </section>
-        <section style="max-width:1120px;margin:0 auto;padding:0 24px 40px">
-            <p style="margin:0;color:var(--soft);line-height:1.55">Example: a 3-day rental is 3 × $50 + $150 setup =
-                <strong>$300</strong>, plus the refundable hold.</p>
         </section>
 
-        <!-- WHAT YOU GET -->
         <section
-            style="background:var(--surface);border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line)">
-            <div style="max-width:1120px;margin:0 auto;padding:48px 24px;display:flex;flex-direction:column;gap:24px">
-                <div style="display:flex;flex-direction:column;gap:8px"><span class="tag">Included</span>
-                    <h2 style="margin:0;font-size:28px">What you get</h2>
-                </div>
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
-                    <div style="border:1.5px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:6px">
-                        <strong>24/7 locker pickup</strong><span style="color:var(--soft);line-height:1.5">A code on
-                            your screen and in your email. No store hours.</span></div>
-                    <div style="border:1.5px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:6px">
-                        <strong>Step-by-step guides</strong><span style="color:var(--soft);line-height:1.5">Activation,
-                            restore and return, matched to your phone and carrier. <a href="guides.html">See
-                                them</a></span></div>
-                    <div style="border:1.5px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:6px">
-                        <strong>Connected right away</strong><span style="color:var(--soft);line-height:1.5">Every phone
-                            comes with a temporary eSIM, so you can call, text and use data while your own number is
-                            restored.</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- WHERE TO PICK UP -->
-        <section id="locations"
-            style="max-width:1120px;margin:0 auto;padding:56px 24px 24px;display:flex;flex-direction:column;gap:12px">
-            <span class="tag">Where to pick up and return</span>
-            <h2 style="margin:0;font-size:30px">Lockers and partner front desks around Maui</h2>
-            <p style="margin:0;font-size:17px;line-height:1.55;color:var(--soft);max-width:720px">Lockers are open 24/7.
-                Partner front desks keep their own hours and hand phones only to guests of that hotel. You can return
-                your phone to any location. Prototype only: these are example sites, not confirmed partners.</p>
-        </section>
-        <!-- MAP -->
-        <section id="map-section" style="max-width:1120px;margin:0 auto;padding:0 24px 64px">
-            <form id="find"
-                style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;border:1.5px solid var(--accent);background:var(--surface);padding:18px 20px"
-                onsubmit="return false">
-                <label for="where" style="font-weight:600">Find the closest pickup spot</label>
-                <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:stretch">
-                    <input id="where" type="text" autocomplete="off"
-                        placeholder="Where are you staying? Hotel, address, or town" style="flex:1 1 280px;min-width:0">
-                    <button type="submit" id="find-btn" class="btn" style="min-height:44px">Find nearest</button>
-                    <button type="button" id="here-btn" class="btn btn2" style="min-height:44px">Use my
-                        location</button>
-                </div>
-                <div id="find-result" aria-live="polite" style="line-height:1.5;color:var(--soft)"></div>
-            </form>
-            <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:stretch">
-                <div id="map" style="flex:2 1 460px;min-width:0;height:460px;border:1.5px solid var(--line)" role="img"
-                    aria-label="Map of example Reconnect locker and partner locations on Maui"></div>
-                <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:10px">
-                    <div style="display:flex;gap:16px;font-size:14px;color:var(--soft)"><span><span
-                                style="display:inline-block;width:12px;height:12px;background:var(--accent);margin-right:6px"></span>Locker
-                            (24/7)</span><span><span
-                                style="display:inline-block;width:12px;height:12px;border:2px solid var(--pink);border-radius:50%;background:#0b1519;margin-right:6px"></span>Partner
-                            front desk</span></div>
-                    <ul id="loc-list"
-                        style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px"></ul>
-                </div>
-            </div>
-        </section>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-        <script>
-            (function () {
-                var LOCS = [
-                    { n: "Maui Mall, Kahului", t: "locker", d: "Central Maui shopping center, minutes from the airport.", c: [20.8873, -156.4690] },
-                    { n: "Whalers Village, Kāʻanapali", t: "locker", d: "Open-air shopping center on West Maui's resort coast.", c: [20.9264, -156.6944] },
-                    { n: "The Shops at Wailea", t: "locker", d: "South Maui resort shopping center.", c: [20.6905, -156.4400] },
-                    { n: "Maui Seaside Hotel, Kahului", t: "partner", d: "Front desk. Close to the airport.", c: [20.8935, -156.4685] },
-                    { n: "Maui Coast Hotel, Kīhei", t: "partner", d: "Front desk. South Maui.", c: [20.7490, -156.4460] },
-                    { n: "Paia Inn, Pāʻia", t: "partner", d: "Front desk. North Shore.", c: [20.9036, -156.3697] },
-                    { n: "Lahaina Shores Beach Resort, Lahaina", t: "partner", d: "Front desk, south end of Front Street.", c: [20.8670, -156.6735] }
-                ];
-                var map, marks;
-                function miles(a, b) { var R = 3958.8, r = Math.PI / 180, dLa = (b[0] - a[0]) * r, dLo = (b[1] - a[1]) * r; var h = Math.sin(dLa / 2) * Math.sin(dLa / 2) + Math.cos(a[0] * r) * Math.cos(b[0] * r) * Math.sin(dLo / 2) * Math.sin(dLo / 2); return 2 * R * Math.asin(Math.sqrt(h)); }
-                function showNearest(pt, label) {
-                    var out = document.getElementById('find-result');
-                    var ranked = LOCS.map(function (x, i) { return { x: x, i: i, d: miles(pt, x.c) }; }).sort(function (a, b) { return a.d - b.d; });
-                    var best = ranked[0], lockerFirst = ranked.filter(function (r) { return r.x.t === 'locker'; })[0];
-                    out.textContent = '';
-                    var strong = document.createElement('strong'); strong.textContent = best.x.n;
-                    out.appendChild(document.createTextNode('Closest to ' + label + ': ')); out.appendChild(strong);
-                    out.appendChild(document.createTextNode(' (' + (best.x.t === 'locker' ? 'locker, open 24/7' : 'partner front desk') + '), about ' + best.d.toFixed(1) + ' miles away in a straight line.'));
-                    if (best.x.t !== 'locker') {
-                        out.appendChild(document.createElement('br'));
-                        out.appendChild(document.createTextNode('Nearest 24/7 locker: ' + lockerFirst.x.n + ', about ' + lockerFirst.d.toFixed(1) + ' miles.'));
-                    }
-                    if (map && marks) { map.flyTo(best.x.c, 12); marks[best.i].openPopup(); }
-                    document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-                document.getElementById('find').addEventListener('submit', function () {
-                    var q = document.getElementById('where').value.trim(), out = document.getElementById('find-result');
-                    if (!q) { out.textContent = 'Type a hotel, address, or town on Maui.'; return; }
-                    out.textContent = 'Looking...';
-                    var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&bounded=1&viewbox=-156.75,21.06,-156.28,20.54&q=' + encodeURIComponent(/maui|hawai/i.test(q) ? q : q + ', Maui, Hawaii');
-                    fetch(url, { headers: { 'Accept': 'application/json' } }).then(function (r) { return r.json(); }).then(function (j) {
-                        if (!j.length) { out.textContent = 'We could not find that on Maui. Try a hotel name, a street and town, or just the town.'; return; }
-                        showNearest([parseFloat(j[0].lat), parseFloat(j[0].lon)], q);
-                    }).catch(function () { out.textContent = 'The search is not available right now. The list below shows every location.'; });
-                });
-                document.getElementById('here-btn').addEventListener('click', function () {
-                    var out = document.getElementById('find-result');
-                    if (!navigator.geolocation) { out.textContent = 'Your browser cannot share its location. Type where you are staying instead.'; return; }
-                    out.textContent = 'Finding you...';
-                    navigator.geolocation.getCurrentPosition(function (p) { showNearest([p.coords.latitude, p.coords.longitude], 'you'); }, function () { out.textContent = 'We could not get your location. Type where you are staying instead.'; }, { timeout: 10000 });
-                });
-                var list = document.getElementById("loc-list");
-                if (typeof L === "undefined") {
-                    LOCS.forEach(function (x) { var li = document.createElement("li"); li.innerHTML = "<strong>" + x.n + "</strong> (" + (x.t === "locker" ? "Locker" : "Partner") + ")<br><span style=\"color:var(--soft)\">" + x.d + "</span>"; list.appendChild(li); });
-                    document.getElementById("map").style.display = "none"; return;
-                }
-                map = L.map("map", { scrollWheelZoom: false }).setView([20.82, -156.5], 10);
-                L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 17, attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
-                marks = [];
-                LOCS.forEach(function (x, i) {
-                    var html = x.t === "locker"
-                        ? "<div style=\"width:18px;height:18px;background:#6bb5bd;border:2px solid #fff;box-shadow:0 0 0 2px #0b1519\"></div>"
-                        : "<div style=\"width:18px;height:18px;background:#0b1519;border:3px solid var(--pink);border-radius:50%\"></div>";
-                    var m = L.marker(x.c, { icon: L.divIcon({ html: html, className: "", iconSize: [18, 18], iconAnchor: [9, 9] }), title: x.n, keyboard: true }).addTo(map);
-                    m.bindPopup("<strong>" + x.n + "</strong><br>" + (x.t === "locker" ? "Locker, 24/7" : "Partner front desk") + "<br>" + x.d);
-                    marks.push(m);
-                    var li = document.createElement("li");
-                    li.innerHTML = "<button type=\"button\" style=\"all:unset;cursor:pointer;display:block;width:100%;box-sizing:border-box;border:1.5px solid var(--line);background:var(--surface);padding:10px 12px;line-height:1.4\"><strong>" + x.n + "</strong> <span style=\"color:var(--mute)\">(" + (x.t === "locker" ? "Locker" : "Partner") + ")</span><br><span style=\"color:var(--soft);font-size:14px\">" + x.d + "</span></button>";
-                    li.firstChild.addEventListener("click", function () { map.flyTo(x.c, 13); m.openPopup(); });
-                    list.appendChild(li);
-                });
-                map.fitBounds(L.latLngBounds(LOCS.map(function (x) { return x.c; })).pad(0.15));
-            })();
-        </script>
-
-
-        <!-- OPTIONAL HELP -->
-        <section style="max-width:1120px;margin:0 auto;padding:48px 24px;display:flex;flex-direction:column;gap:24px">
-            <div style="display:flex;flex-direction:column;gap:8px"><span class="tag">Optional extra help</span>
-                <h2 style="margin:0;font-size:28px">Want someone to walk you through it?</h2>
-                <p style="margin:0;color:var(--soft);line-height:1.5;max-width:680px">The guides are included. If you'd
-                    rather have a person, pick a level. Each costs more than the last.</p>
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:24px">
-                <div class="card"><span class="lbl">Level 1</span>
-                    <h3 style="margin:0;font-size:20px">Video library</h3>
-                    <p style="margin:0;line-height:1.5;color:var(--soft)">Pre-recorded walk-throughs you can watch any
-                        time.</p><strong>$10 per trip</strong>
-                </div>
-                <div class="card"><span class="lbl">Level 2</span>
-                    <h3 style="margin:0;font-size:20px">Video call</h3>
-                    <p style="margin:0;line-height:1.5;color:var(--soft)">A live Zoom call with our team, in 30-minute
-                        blocks.</p><strong>$40 per 30 minutes</strong>
-                </div>
-                <div class="card"><span class="lbl">Level 3</span>
-                    <h3 style="margin:0;font-size:20px">In person</h3>
-                    <p style="margin:0;line-height:1.5;color:var(--soft)">We meet you and set it up together. Our
-                        highest-touch option.</p><strong>$120 per visit</strong>
-                </div>
-            </div>
-        </section>
-
-        <!-- GOOD TO KNOW -->
-        <section style="max-width:1120px;margin:0 auto;padding:0 24px 48px">
-            <div
-                style="border:1.5px solid var(--line2);background:var(--surface);padding:28px;display:flex;flex-wrap:wrap;gap:32px">
-                <div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:10px">
-                    <span class="tag">Good to know</span>
-                    <h2 style="margin:0;font-size:24px">How the hold and card on file work</h2>
-                    <p style="margin:0;line-height:1.55;color:var(--soft)">Think of it like a rental car. Bring the
-                        phone back the way you got it, and your hold is released. We keep a credit card on file. The
-                        hold equals the phone's replacement price because that's what it would cost us to replace it
-                        quickly.</p>
-                </div>
-                <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:10px">
-                    <h3 style="margin:0;font-size:18px">We charge the full price of the phone if:</h3>
+            style="max-width:1120px;margin:0 auto;padding:24px 24px 24px;display:flex;flex-direction:column;gap:20px">
+            <h2 style="margin:0;font-size:30px">The software behind it</h2>
+            <p style="margin:0;line-height:1.55;color:var(--soft);max-width:720px">The same kind of tools IT teams use
+                to manage company phones. Our team works with them every day.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+                <div class="card">
+                    <h3 style="margin:0;font-size:22px">Mosyle</h3><strong style="color:var(--accent)">Deeper control
+                        for our iPhone loaners</strong>
                     <ul style="margin:0;padding-left:20px;line-height:1.7;color:var(--soft)">
-                        <li>the phone isn't returned</li>
-                        <li>it comes back locked because it was reported lost or stolen</li>
-                        <li>it comes back too damaged to use</li>
+                        <li>Locate, lock or erase a phone remotely</li>
+                        <li>Stops anyone else from resetting or taking over the phone</li>
+                        <li>Confirms each phone is clean before it goes out</li>
                     </ul>
-                    <p style="margin:0;line-height:1.55;color:var(--soft)">If anything goes wrong, call us right away.
-                        The sooner we know, the more we can help. Full terms are in the <a href="agreement.html">loaner
-                            agreement</a>.</p>
+                </div>
+                <div class="card">
+                    <h3 style="margin:0;font-size:22px">NinjaOne</h3><strong style="color:var(--accent)">Manages our
+                        whole fleet, iPhone and Android</strong>
+                    <ul style="margin:0;padding-left:20px;line-height:1.7;color:var(--soft)">
+                        <li>Remote locate, lock and erase on both platforms</li>
+                        <li>Keeps every phone updated with security patches</li>
+                        <li>One inventory of every loaner and where it is</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 style="margin:0;font-size:22px">SentinelOne</h3><strong style="color:var(--accent)">Protects
+                        every phone while you use it</strong>
+                    <ul style="margin:0;padding-left:20px;line-height:1.7;color:var(--soft)">
+                        <li>Catches malware and harmful apps</li>
+                        <li>Flags phishing links and unsafe Wi-Fi</li>
+                        <li>Alerts us to a threat before it reaches your accounts</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section
+            style="max-width:1120px;margin:0 auto;padding:24px 24px 40px;display:flex;flex-direction:column;gap:20px">
+            <h2 style="margin:0;font-size:30px">Our promises</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+                <div class="card"><span class="lbl">Passwords</span>
+                    <h3 style="margin:0;font-size:20px">Your passwords stay yours</h3>
+                    <p style="margin:0;line-height:1.5;color:var(--soft)">You type your own passwords, PINs and login
+                        codes. We never see them, store them, or ask for them by phone, text or email. Anyone who does
+                        is not us.</p>
+                </div>
+                <div class="card"><span class="lbl">Carrier</span>
+                    <h3 style="margin:0;font-size:20px">We never see your carrier account</h3>
+                    <p style="margin:0;line-height:1.5;color:var(--soft)">You move your own number with your own
+                        carrier. Our guides show you the steps. Your carrier decides how to verify you, and we do not
+                        bypass it.</p>
+                </div>
+                <div class="card"><span class="lbl">Your data</span>
+                    <h3 style="margin:0;font-size:20px">Nothing of yours is kept</h3>
+                    <p style="margin:0;line-height:1.5;color:var(--soft)">We do not copy or back up your photos,
+                        messages or files. Every phone is erased and verified after every rental.</p>
                 </div>
             </div>
         </section>
 
         <section
             style="background:var(--surface);border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line)">
-            <div
-                style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
-                <div style="flex:1 1 400px;display:flex;flex-direction:column;gap:8px">
-                    <h2 style="margin:0;font-size:26px">Ready for a working phone?</h2>
-                    <p style="margin:0;color:var(--soft);line-height:1.5">Request one now and we'll call you back.</p>
+            <div style="max-width:1120px;margin:0 auto;padding:56px 24px;display:flex;flex-direction:column;gap:20px">
+                <span class="tag">How we check it is really you</span>
+                <h2 style="margin:0;font-size:30px">Built for one person, alone, at any hour</h2>
+                <p style="margin:0;line-height:1.55;color:var(--soft);max-width:720px">Nothing here needs a second
+                    phone, a text message, or another person. Everything works from whatever screen you have, and the
+                    check that matters happens in person at pickup.</p>
+                <ol class="steps">
+                    <li><span><strong>Instant check.</strong> The request form confirms your phone, carrier and account
+                            are something we can help with before you pay.</span></li>
+                    <li><span><strong>Verify by email or text.</strong> We send a code to your email, or to a phone if
+                            you have one. You choose, so a broken phone is not a problem.</span></li>
+                    <li><span><strong>Signed agreement and card hold.</strong> You sign the <a
+                                href="agreement.html">loaner agreement</a> and place a refundable hold on a credit card
+                            in the same name. Debit cards are not accepted for the hold.</span></li>
+                    <li><span><strong>Photo ID at pickup.</strong> At a locker, you scan your photo ID and we match it
+                            to your name. At a hotel front desk, you show your ID to staff. Front desks are for guests
+                            of that hotel only. We use your ID only to confirm your name.</span></li>
+                    <li><span><strong>A code you cannot lose.</strong> Your single-use pickup code shows on screen and
+                            goes to your email, so you can screenshot it or write it down. The locker photographs the
+                            handoff, so you do not need another phone to document its condition.</span></li>
+                </ol>
+            </div>
+        </section>
+
+        <section
+            style="max-width:1120px;margin:0 auto;padding:56px 24px 24px;display:flex;flex-direction:column;gap:20px">
+            <span class="tag">Payments</span>
+            <h2 style="margin:0;font-size:30px">How your card is handled</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+                <div class="card">
+                    <h3 style="margin:0;font-size:18px">Card numbers stay with the processor</h3>
+                    <p style="margin:0;line-height:1.5;color:var(--soft)">Your card goes through a secure payment page
+                        run by Stripe. We never see or store your full card number. The hold is released when you return
+                        the phone. See <a href="services.html">Services &amp; Pricing</a> for exactly when we would
+                        charge it.</p>
                 </div>
-                <a href="contact.html" class="btn">Request a phone</a>
+            </div>
+        </section>
+
+        <section
+            style="max-width:1120px;margin:0 auto;padding:40px 24px 24px;display:flex;flex-direction:column;gap:20px">
+            <span class="tag">Your privacy</span>
+            <h2 style="margin:0;font-size:30px">What we keep, and what you get a copy of</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+                <div class="card">
+                    <h3 style="margin:0;font-size:18px">What we collect</h3>
+                    <ul style="margin:0;padding-left:20px;line-height:1.7;color:var(--soft)">
+                        <li>Your name and contact details</li>
+                        <li>Where you are staying</li>
+                        <li>Your payment details, held by the payment processor</li>
+                        <li>The request answers and signed agreement</li>
+                    </ul>
+                    <p style="margin:0;line-height:1.5;color:var(--soft)">We do not sell your information.</p>
+                </div>
+                <div class="card">
+                    <h3 style="margin:0;font-size:18px">Copies go to your email</h3>
+                    <p style="margin:0;line-height:1.5;color:var(--soft)">Everything you fill out or sign is emailed to
+                        the address you list on the request form: your request, the signed agreement, your hold receipt
+                        and your locker code. Please double-check the spelling when you enter it.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section style="max-width:1120px;margin:0 auto;padding:40px 24px 64px">
+            <div class="card">
+                <h3 style="margin:0;font-size:20px">If something goes wrong</h3>
+                <p style="margin:0;line-height:1.55;color:var(--soft)">If the loaner is lost, stolen or damaged, or you
+                    think someone has your locker code, call us right away at (808) 555-0142. The sooner we know, the
+                    more we can do. Full terms are in the <a href="agreement.html">loaner agreement</a>.</p>
+                <div><a href="contact.html" class="btn">Request a phone</a></div>
+            </div>
+        </section>
+
+        <section style="max-width:1120px;margin:0 auto;padding:0 24px 64px">
+            <div class="card"
+                style="flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px">
+                <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:8px"><span class="lbl">The fine print,
+                        in plain language</span>
+                    <h3 style="margin:0;font-size:22px">Our loaner agreement</h3>
+                    <p style="margin:0;line-height:1.55;color:var(--soft)">Every renter signs it before a phone is
+                        released. It covers the fees, the refundable hold, and exactly what we do and don't do with your
+                        data. A copy is emailed to you when you sign.</p>
+                </div><a href="agreement.html" class="btn">Read the loaner agreement</a>
             </div>
         </section>
 
@@ -276,7 +230,8 @@
                     style="color:#c9d6d8">Security</a><a href="partners.html" style="color:#c9d6d8">For partners</a><a
                     href="guides.html" style="color:#c9d6d8">Setup guides</a><a href="about.html"
                     style="color:#c9d6d8">About Us</a><a href="contact.html" style="color:#c9d6d8">Request a phone</a><a
-                    href="agreement.html" style="color:#c9d6d8">Loaner agreement</a></div>
+                    href="agreement.html" style="color:#c9d6d8">Loaner agreement</a><a href="dashboard.html"
+                    style="color:#c9d6d8">My dashboard</a></div>
             <div style="font-size:14px">(808) 555-0142 · hello@reconnectmaui.com · Instagram @reconnectmaui</div>
         </div>
     </footer>

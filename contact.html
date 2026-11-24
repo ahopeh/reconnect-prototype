@@ -5,6 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reconnect Request a Phone</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="stylesheet" href="site.css">
   <script src="site.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +15,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
     rel="stylesheet">
+  <style>
+    [hidden] {
+      display: none !important
+    }
+  </style>
 </head>
 
 <body>
@@ -21,8 +29,8 @@
   <header style="border-bottom:1.5px solid var(--line);background:var(--surface)">
     <div
       style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
-      <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph"
-          style="width:40px;height:40px"><span style="padding:0;background:none">&#9679;</span></span><span
+      <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><img
+          src="img/logo-tile.png" alt="" width="44" height="44" style="display:block;border-radius:10px"><span
           style="font-size:22px;font-weight:700">Reconnect</span></a>
       <nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
         <a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a
@@ -38,9 +46,9 @@
       <span class="tag">Request a phone</span>
       <h1 style="margin:0;font-size:42px;line-height:1.15">Tell us what happened. We'll call you back.</h1>
       <p style="margin:0;font-size:18px;line-height:1.5;color:var(--soft);max-width:700px">This takes a couple of
-        minutes. Answer a few questions and we'll show your fastest option. If everything looks good, you can get your
-        locker code right away, any hour. If we need to talk first, we call during business hours. Traveling alone with
-        no second phone? That's fine. Nothing here needs another person or another phone.</p>
+        minutes. Answer a few questions and we'll show your fastest option. If everything looks good, you can sign and
+        get your locker code right away, any hour. If we need to talk first, we call during business hours. Traveling
+        alone with no second phone? That's fine. Nothing here needs another person or another phone.</p>
       <div class="callout" style="font-size:14px;color:var(--soft);max-width:700px">Demo: nothing is sent, saved, or
         charged on this page.</div>
     </section>
@@ -59,9 +67,20 @@
               here)</label><input id="email" type="email" autocomplete="email" placeholder="name@example.com"
               aria-describedby="email-note"><span id="email-note"
               style="font-size:14px;color:var(--mute);line-height:1.5">Your request, signed agreement, receipt and
-              locker code are all emailed to this address. Please check the spelling.</span></div>
-          <div class="field"><label for="phone-num">Phone number (optional)</label><input id="phone-num" type="tel"
-              autocomplete="tel" inputmode="tel" placeholder="Any phone is fine, even a borrowed one"></div>
+              locker code are all emailed to this address, whatever contact method you pick below. Please check the
+              spelling.</span></div>
+          <div class="field"><label for="reach">What's the best way for us to reach you?</label>
+            <select id="reach">
+              <option value="email">Email</option>
+              <option value="cell">Call or text my cell phone</option>
+              <option value="room">My hotel or rental room phone</option>
+              <option value="friend">A friend's or travel companion's phone</option>
+              <option value="other">Another number</option>
+            </select>
+          </div>
+          <div class="field" id="reach-wrap" hidden><label for="reach-detail" id="reach-label">Number</label><input
+              id="reach-detail" type="text" placeholder="" autocomplete="off"><span id="reach-hint"
+              style="font-size:14px;color:var(--mute);line-height:1.5"></span></div>
           <div class="field"><label for="when">If we reach out, when is best? (business hours: 8 AM to 8 PM, Monday to
               Saturday)</label>
             <select id="when">
@@ -91,7 +110,9 @@
             <div class="notice" id="n-ptype" hidden></div>
           </div>
           <div class="field"><label for="model">Model, if you know it</label><input id="model" type="text"
-              placeholder="For example, iPhone 15 or Galaxy S23"></div>
+              placeholder="For example, iPhone 15 Pro or Galaxy S23" aria-describedby="model-note"><span id="model-note"
+              style="font-size:14px;color:var(--mute);line-height:1.5">We match your loaner to the kind of phone you
+              use: iPhone for iPhone, Android for Android. Every loaner supports eSIM.</span></div>
           <div class="field"><label for="carrier">Who is your carrier?</label>
             <select id="carrier">
               <option value="">Choose one</option>
@@ -139,7 +160,27 @@
 
         <!-- 3 -->
         <fieldset class="panel">
-          <legend>3. Where you are and how long</legend>
+          <legend>3. Setting up your new phone</legend>
+          <div class="field"><span class="q">How would you like to handle setup?</span>
+            <div class="choice-row" style="flex-direction:column;align-items:stretch">
+              <label class="choice"><input type="radio" name="help" value="own" checked><span>I'm comfortable doing it
+                  myself, with your guides (no extra cost)</span></label>
+              <label class="choice"><input type="radio" name="help" value="library"><span>I'll do it myself, with the
+                  video library to follow along (+$10)</span></label>
+              <label class="choice"><input type="radio" name="help" value="video"><span>I'd like a live video call to
+                  walk me through it (+$40 per 30 minutes)</span></label>
+              <label class="choice"><input type="radio" name="help" value="inperson"><span>I'd like someone to help me
+                  in person (+$120)</span></label>
+              <label class="choice"><input type="radio" name="help" value="unsure"><span>Not sure yet. I'll decide after
+                  I pick up the phone</span></label>
+            </div>
+            <div class="notice" id="n-help" hidden></div>
+          </div>
+        </fieldset>
+
+        <!-- 4 -->
+        <fieldset class="panel">
+          <legend>4. Where you are and how long</legend>
           <div class="field"><label for="stay">Where are you staying?</label><select id="stay">
               <option value="">A different hotel, condo or rental</option>
               <option>Maui Seaside Hotel</option>
@@ -162,15 +203,18 @@
 
         <!-- 4 -->
         <fieldset class="panel" aria-describedby="est-note">
-          <legend>4. Your estimate</legend>
+          <legend>5. Your estimate</legend>
           <div role="status" aria-live="polite"
             style="border:1.5px solid var(--line2);background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:10px">
             <div class="row"><span>Daily rate (<span id="d-days">3</span> <span id="d-word">days</span> ×
                 $50)</span><strong id="d-rate">$150</strong></div>
             <div class="row"><span>Setup fee</span><strong>$150</strong></div>
+            <div class="row" id="d-help-row" hidden><span id="d-help-label">Optional setup help</span><strong
+                id="d-help">$0</strong></div>
             <div class="row total"><span>Your total</span><strong id="d-total">$300</strong></div>
             <div class="row sub"><span>Plus a refundable credit-card hold, equal to the phone's replacement
-                price</span><span>$600–$800</span></div>
+                price</span><span id="d-hold">$600–$800</span></div>
+            <div class="row sub"><span>Your loaner phone</span><span id="d-phone">iPhone 15</span></div>
           </div>
           <p id="est-note" style="margin:0;color:var(--mute);font-size:14px">The hold is released when you return the
             phone as you got it. Credit card required for the hold. <a href="services.html">How pricing works</a></p>
@@ -184,64 +228,16 @@
               first.</span></label>
         </div>
 
-        <!-- 5 -->
-        <fieldset class="panel" id="pay-panel" hidden>
-          <legend>5. Verify, sign, and place your hold</legend>
-          <p style="margin:0;line-height:1.55;color:var(--soft)">Three quick things. Nothing here needs a second phone
-            or another person.</p>
-          <div class="field"><span class="q">Verify it is you</span>
-            <div class="choice-row"><label class="choice"><input type="radio" name="vm" value="email"
-                  checked><span>Email me a code</span></label><label class="choice"><input type="radio" name="vm"
-                  value="text"><span>Text my phone</span></label></div>
-            <div style="display:flex;flex-wrap:wrap;gap:10px"><input id="vcode" type="text" inputmode="numeric"
-                autocomplete="one-time-code" placeholder="6-digit code" style="flex:1 1 160px;width:auto"><button
-                type="button" id="send-code" class="btn btn2">Send me a code (demo)</button></div>
-            <span id="v-status" role="status" aria-live="polite" style="color:var(--soft);font-size:14px"></span>
-          </div>
-          <div class="field"><label class="inline"><input type="checkbox" id="ack"><span>I have read and agree to the <a
-                  href="agreement.html" target="_blank" rel="noopener">loaner agreement</a>, including the charges and
-                the refundable hold.</span></label></div>
-          <div class="field"><label for="sig">Type your full name to sign</label><input id="sig" type="text"
-              placeholder="Full name" autocomplete="name"></div>
-          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
-            <button type="button" id="hold-btn" class="btn btn2">Place refundable hold (demo)</button>
-            <span id="hold-status" role="status" aria-live="polite" style="color:var(--soft)"></span>
-          </div>
-          <p style="margin:0;color:var(--mute);font-size:14px">A signed copy of your agreement and your hold receipt are
-            emailed to the address you listed above. At pickup, you show a photo ID that matches the name you sign: it
-            is scanned at the locker, or shown at your hotel's front desk. A credit card is required, and the name on
-            the card must match the name you sign with. In the live version, a secure payment page (like Stripe) opens
-            here. Never type a card number into this demo page.</p>
-        </fieldset>
-
         <div style="display:flex;flex-direction:column;gap:10px">
           <ul id="ready-list"
             style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;color:var(--soft)">
             <li data-k="contact"><span class="tick">○</span> Your name and email</li>
-            <li data-k="verify"><span class="tick">○</span> You are verified</li>
-            <li data-k="ack"><span class="tick">○</span> Agreement signed</li>
-            <li data-k="hold"><span class="tick">○</span> Refundable hold placed</li>
+            <li data-k="reach"><span class="tick">○</span> How to reach you</li>
           </ul>
-          <div><button type="submit" id="send-btn" class="btn" disabled>Request a call</button></div>
-          <p style="margin:0;color:var(--mute);font-size:14px">When you submit, we email a copy of your request and
-            anything you signed to <strong data-email-live>the email you listed</strong>.</p>
-        </div>
-
-        <div id="form-confirm" hidden role="status"
-          style="border:2px solid var(--accent);background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:8px">
-          <div id="confirm-green" hidden style="display:flex;flex-direction:column;gap:8px"><strong>You're set, <span
-                data-name></span>.</strong><span style="color:var(--soft);line-height:1.5">Your pickup code is
-              <strong>4821</strong> at <span data-where></span>. It is also on its way to <strong data-email>your
-                email</strong>, so screenshot it or write it down. <span data-id></span> The phone already works on a
-              temporary eSIM, and the locker photographs the handoff, so you don't need another phone or another person.
-              Then follow your <a href="guides.html">setup guide</a>, or call us from the loaner at (808) 555-0142.
-              We'll message the loaner and email you tonight to see how it went, and reach out the next business day if
-              we don't hear back. (Demo: nothing was sent or charged.)</span></div>
-          <div id="confirm-call" hidden style="display:flex;flex-direction:column;gap:8px"><strong>Thanks, <span
-                data-name></span>.</strong><span style="color:var(--soft);line-height:1.5">We'll reach out to <span
-                data-phone></span> within 15 minutes during business hours (8 AM to 8 PM, Monday to Saturday). Outside
-              business hours, we'll reach out the next business day. A copy of your request goes to <strong
-                data-email>your email</strong>. (Demo: nothing was sent.)</span></div>
+          <div id="form-err" role="alert" style="color:var(--pink);font-weight:600" hidden></div>
+          <div><button type="submit" id="send-btn" class="btn" disabled>Continue to the agreement</button></div>
+          <p style="margin:0;color:var(--mute);font-size:14px">Next you'll read and sign the loaner agreement. We email
+            a copy of your request and everything you sign to <strong data-email-live>the email you listed</strong>.</p>
         </div>
       </form>
 
@@ -250,8 +246,9 @@
           <h2 style="margin:0;font-size:20px">What happens next</h2>
           <ol style="margin:0;padding-left:20px;line-height:1.8;color:var(--soft)">
             <li>Answer a few questions.</li>
-            <li>If it looks good, verify, sign and place the hold. Your locker code comes right away, any hour.
-              Otherwise we call you first, during business hours.</li>
+            <li>Read and sign the loaner agreement, then place your refundable hold.</li>
+            <li>Your dashboard shows your locker code, your phone's details and your setup steps. Your code comes right
+              away, any hour. If we need to talk first, it unlocks after our call.</li>
             <li>Scan your photo ID at the locker (or show it at your hotel's desk), pick up the phone, and follow your
               <a href="guides.html">setup guide</a>.</li>
             <li>We check in the next business day.</li>
@@ -277,28 +274,27 @@
           style="color:#c9d6d8">Services &amp; Pricing</a><a href="security.html" style="color:#c9d6d8">Security</a><a
           href="partners.html" style="color:#c9d6d8">For partners</a><a href="guides.html" style="color:#c9d6d8">Setup
           guides</a><a href="about.html" style="color:#c9d6d8">About Us</a><a href="contact.html"
-          style="color:#c9d6d8">Request a phone</a><a href="agreement.html" style="color:#c9d6d8">Loaner agreement</a>
-      </div>
+          style="color:#c9d6d8">Request a phone</a><a href="agreement.html" style="color:#c9d6d8">Loaner agreement</a><a
+          href="dashboard.html" style="color:#c9d6d8">My dashboard</a></div>
       <div style="font-size:14px">(808) 555-0142 · hello@reconnectmaui.com · Instagram @reconnectmaui</div>
     </div>
   </footer>
   <script>
     (function () {
-      var $ = function (s) { return document.querySelector(s); };
-      var form = $('#request-form'), holdPlaced = false, verified = false, mode = 'pending';
+      var $ = function (x) { return document.querySelector(x); };
+      var form = $('#request-form'), mode = 'pending';
       var PARTNER_HOTELS = ['Maui Seaside Hotel', 'Maui Coast Hotel', 'Paia Inn', 'Lahaina Shores Beach Resort'];
       function isPartner() { return PARTNER_HOTELS.indexOf($('#stay').value) > -1; }
       function validEmail() { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(($('#email').value || '').trim()); }
       function val(n) { var e = document.querySelector('input[name="' + n + '"]:checked'); return e ? e.value : ''; }
-
-      function calc() {
-        var d = Math.max(1, Math.min(60, parseInt($('#days').value, 10) || 1));
-        $('#d-days').textContent = d;
-        $('#d-word').textContent = d === 1 ? 'day' : 'days';
-        $('#d-rate').textContent = '$' + (d * 50);
-        $('#d-total').textContent = '$' + (d * 50 + 150);
-      }
-
+      var HELP = { own: { label: 'Guides only', fee: 0 }, library: { label: 'Video library', fee: 10 }, video: { label: 'Live video call (30 min)', fee: 40 }, inperson: { label: 'In-person help', fee: 120 }, unsure: { label: 'Decide later', fee: 0 } };
+      var REACH = {
+        email: { label: 'Email', m: 'email', wrap: false },
+        cell: { label: 'Cell number', m: 'your cell phone', hint: 'We will call or text this number.', ph: '(808) 555-0100', wrap: true },
+        room: { label: 'Hotel name and room number or extension', m: 'your room phone', hint: 'We will ask the front desk to connect us. Please tell us if you are out during the day.', ph: 'Maui Seaside Hotel, room 214', wrap: true },
+        friend: { label: 'Their name and number', m: "your friend's or companion's phone", hint: 'We only use this to reach you. We will not share your request details with them.', ph: 'Kai, (808) 555-0111', wrap: true },
+        other: { label: 'Number or other details', m: 'the number or details you gave us', hint: 'Tell us how and when to reach you.', ph: 'Number, app, or anything that works', wrap: true }
+      };
       var NOTES = {
         use: { business: "If your employer provides or manages this phone, they may need to approve moving the number, and someone from your company's IT may need to be involved. If it's your own business account, you're all set." },
         carrier: {
@@ -323,23 +319,73 @@
           unsure: "Carriers usually ask for your account PIN or passcode. If you're not sure, they can often reset it or use another check, like a photo ID, but some send a code to your old phone, which you don't have. We'll go over your options."
         },
         mail: { no: "Carriers often email the eSIM QR code, so we'll find another way to get it to you." },
-        ptype: { other: "No problem. Tell us the model so we can give you the right steps." },
+        ptype: { other: "No problem. Tell us the model so we can give you the right steps. Until then we'll plan on an iPhone loaner, and we can swap it on our call." },
+        help: {
+          own: "Our step-by-step guides are always included. You can still book help later from your dashboard.",
+          library: "Short videos for each step of your phone and carrier. You can watch them from your dashboard.",
+          video: "Pick a time from your dashboard after you sign. A video call link is emailed to you. Billed per 30 minutes.",
+          inperson: "A team member meets you at your pickup spot or hotel. Subject to availability. We'll confirm a time with you.",
+          unsure: "No problem. You can add help any time from your dashboard."
+        },
         pick: {
           desk: "Front-desk pickup is for guests of that hotel only. Show your photo ID at the desk and staff will match it to your name. Desks keep their own hours, so the locker is the better choice after hours.",
           deskno: "Front-desk pickup is only for guests of our partner hotels. Choose the locker, or pick your hotel above if it is on the list.",
           unsure: "Lockers are open 24/7 and are the fastest option."
         }
       };
+
+      // ---- match the loaner to the customer's phone type (three generations behind the newest) ----
+      // Newest as of Nov 2026: iPhone 18 Pro, Galaxy S26, Pixel 11. Three generations back: iPhone 15, Galaxy S23, Pixel 8 (all eSIM).
+      function assignPhone(ptype, modelText) {
+        var m = (modelText || '').toLowerCase(), p;
+        if (ptype === 'android') {
+          var pixel = /pixel|google/.test(m), sam = /samsung|galaxy|\bs\d{2}\b|fold|flip|ultra|\ba\d{2}\b/.test(m);
+          if (pixel && !sam) {
+            p = /pro/.test(m) ? { make: 'Google', model: 'Pixel 8 Pro', storage: '128 GB', color: 'Obsidian', price: 749 } : { make: 'Google', model: 'Pixel 8', storage: '128 GB', color: 'Obsidian', price: 649 };
+            p.newest = 'Pixel 11'; p.family = 'Pixel';
+          } else {
+            p = /ultra/.test(m) ? { make: 'Samsung', model: 'Galaxy S23 Ultra', storage: '256 GB', color: 'Phantom Black', price: 799 } : (/\+|plus/.test(m) ? { make: 'Samsung', model: 'Galaxy S23+', storage: '256 GB', color: 'Phantom Black', price: 749 } : { make: 'Samsung', model: 'Galaxy S23', storage: '128 GB', color: 'Phantom Black', price: 699 });
+            p.newest = 'Galaxy S26'; p.family = 'Galaxy S';
+          }
+          p.os = 'Android'; p.kind = 'Android';
+        } else {
+          if (/pro\s*max/.test(m)) p = { make: 'Apple', model: 'iPhone 15 Pro Max', storage: '256 GB', color: 'Natural Titanium', price: 799 };
+          else if (/pro/.test(m)) p = { make: 'Apple', model: 'iPhone 15 Pro', storage: '128 GB', color: 'Black Titanium', price: 799 };
+          else if (/plus|\bair\b|max/.test(m)) p = { make: 'Apple', model: 'iPhone 15 Plus', storage: '128 GB', color: 'Blue', price: 799 };
+          else p = { make: 'Apple', model: 'iPhone 15', storage: '128 GB', color: 'Black', price: 799 };
+          p.newest = 'iPhone 18 Pro'; p.family = 'iPhone'; p.os = 'iOS'; p.kind = (ptype === 'other') ? 'iPhone (to confirm on our call)' : 'iPhone';
+        }
+        p.esim = true; p.gens = 3; return p;
+      }
+      function seeded(str) { var h = 2166136261; for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return function () { h ^= h << 13; h ^= h >>> 17; h ^= h << 5; return (h >>> 0) / 4294967296; }; }
+      function luhn(d) { var sum = 0, alt = true; for (var i = d.length - 1; i >= 0; i--) { var n = +d[i]; if (alt) { n *= 2; if (n > 9) n -= 9; } sum += n; alt = !alt; } return String((10 - sum % 10) % 10); }
+      function fmtDT(d) { return d.toLocaleString('en-US', { timeZone: 'Pacific/Honolulu', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }); }
+
+      function days() { return Math.max(1, Math.min(60, parseInt($('#days').value, 10) || 1)); }
+      function calc() {
+        var d = days(), h = HELP[val('help')] || HELP.own, ph = assignPhone(val('ptype'), $('#model').value);
+        $('#d-days').textContent = d; $('#d-word').textContent = d === 1 ? 'day' : 'days';
+        $('#d-rate').textContent = '$' + (d * 50);
+        $('#d-help-row').hidden = !h.fee; $('#d-help-label').textContent = 'Optional setup help: ' + h.label; $('#d-help').textContent = '$' + h.fee;
+        $('#d-total').textContent = '$' + (d * 50 + 150 + h.fee);
+        $('#d-hold').textContent = '$' + ph.price;
+        $('#d-phone').textContent = ph.model;
+      }
       function showNotes() {
-        var pairs = [["use", val("use")], ["carrier", $("#carrier").value], ["what", val("what")], ["acct", val("acct")], ["pin", val("pin")], ["mail", val("mail")], ["ptype", val("ptype")], ["pick", (val("pick") === "desk" && !isPartner()) ? "deskno" : val("pick")]];
-        pairs.forEach(function (p) {
-          var el = $("#n-" + p[0]), txt = (NOTES[p[0]] || {})[p[1]] || "";
+        var pairs = [["use", val("use")], ["carrier", $("#carrier").value], ["what", val("what")], ["acct", val("acct")], ["pin", val("pin")], ["mail", val("mail")], ["ptype", val("ptype")], ["help", val("help")], ["pick", (val("pick") === "desk" && !isPartner()) ? "deskno" : val("pick")]];
+        pairs.forEach(function (q) {
+          var el = $("#n-" + q[0]), txt = (NOTES[q[0]] || {})[q[1]] || "";
+          if (!el) return;
           if (txt) { el.hidden = false; el.innerHTML = "<strong>Heads up:</strong> " + txt; }
           else { el.hidden = true; el.textContent = ""; }
         });
+        $('#n-help').innerHTML = $('#n-help').hidden ? '' : $('#n-help').innerHTML.replace('Heads up:', 'Good to know:');
       }
-
-      // decide: green = skip the wait, call = we talk first
+      function reachUI() {
+        var r = REACH[$('#reach').value];
+        $('#reach-wrap').hidden = !r.wrap;
+        if (r.wrap) { $('#reach-label').textContent = r.label; $('#reach-detail').placeholder = r.ph; $('#reach-hint').textContent = r.hint; }
+      }
       function decide() {
         var c = $('#carrier').value, why = [];
         if (!c) { mode = 'pending'; return why; }
@@ -355,9 +401,9 @@
         mode = why.length ? 'call' : 'green';
         return why;
       }
-
+      function reachOK() { return $('#reach').value === 'email' || !!$('#reach-detail').value.trim(); }
       function render() {
-        showNotes();
+        showNotes(); reachUI(); calc();
         var em = ($('#email').value || '').trim(); document.querySelectorAll('[data-email-live]').forEach(function (x) { x.textContent = em || 'the email you listed'; });
         var why = decide(), t = $('#path-title'), b = $('#path-body');
         if (mode === 'pending') {
@@ -365,72 +411,53 @@
           b.textContent = 'Pick your carrier above to continue.';
         } else if (mode === 'green') {
           t.textContent = 'Good news: you can skip the wait.';
-          b.textContent = 'Based on your answers, you can verify, sign and place a refundable hold now. Your locker code comes right away, any hour. We\'ll check in the next business day to make sure everything went well.';
+          b.textContent = 'Next you\'ll read and sign the agreement and place a refundable hold. Your locker code is then waiting on your dashboard, any hour. We\'ll check in the next business day to make sure everything went well.';
         } else {
           t.textContent = 'Let\'s talk first.';
-          b.textContent = why.join(' ') + ' We\'ll call you within 15 minutes during business hours (8 AM to 8 PM, Monday to Saturday). Outside business hours, we\'ll call the next business day.';
+          b.textContent = why.join(' ') + ' We\'ll reach you within 15 minutes during business hours (8 AM to 8 PM, Monday to Saturday), or the next business day. You can read and sign the agreement now to save time. Your locker code unlocks on your dashboard after we talk.';
         }
-        $('#pay-panel').hidden = (mode !== 'green');
-        $('#send-btn').textContent = (mode === 'green') ? 'Get my locker code' : 'Request a call';
-        // ready list
-        var okContact = !!($('#name').value.trim() && validEmail());
-        var okAck = !!($('#ack').checked && $('#sig').value.trim());
-        var st = { contact: okContact, verify: verified, ack: okAck, hold: holdPlaced };
+        var okContact = !!($('#name').value.trim() && validEmail()), okReach = reachOK();
+        var st = { contact: okContact, reach: okReach };
         document.querySelectorAll('#ready-list li').forEach(function (li) {
-          var k = li.getAttribute('data-k');
-          li.hidden = (k !== 'contact' && mode !== 'green');
-          var on = st[k];
-          li.querySelector('.tick').textContent = on ? '\u2713' : '\u25CB';
-          li.style.color = on ? 'var(--ink)' : 'var(--soft)';
-          li.style.fontWeight = on ? '600' : '400';
+          var on = st[li.getAttribute('data-k')];
+          li.querySelector('.tick').textContent = on ? '✓' : '○';
+          li.style.color = on ? 'var(--ink)' : 'var(--soft)'; li.style.fontWeight = on ? '600' : '400';
         });
-        var ok = okContact && (mode !== 'green' || (verified && okAck && holdPlaced));
-        $('#send-btn').disabled = !ok;
+        $('#send-btn').disabled = !(okContact && okReach && mode !== 'pending');
       }
-
-      $('#send-code').addEventListener('click', function () {
-        if (val('vm') === 'text') {
-          if (!$('#phone-num').value.trim()) { $('#v-status').textContent = 'Add your phone number above first, or choose email.'; return; }
-          $('#v-status').textContent = 'Demo: we texted ' + $('#phone-num').value.trim() + '. Your code is 123456.';
-        } else {
-          if (!validEmail()) { $('#v-status').textContent = 'Add your email above first.'; return; }
-          $('#v-status').textContent = 'Demo: we emailed ' + $('#email').value.trim() + '. Your code is 123456.';
-        }
-      });
-      $('#vcode').addEventListener('input', function () {
-        var ok = $('#vcode').value.trim() === '123456';
-        if (ok && !verified) { $('#v-status').textContent = 'Verified.'; }
-        verified = ok; render();
-      });
-      $('#hold-btn').addEventListener('click', function () {
-        if (!verified) { $('#hold-status').textContent = 'Please verify first.'; return; }
-        if (!($('#ack').checked && $('#sig').value.trim())) { $('#hold-status').textContent = 'Please sign the agreement first.'; return; }
-        holdPlaced = true;
-        $('#hold-status').textContent = 'Demo: hold placed. Nothing was charged.';
-        $('#hold-btn').disabled = true;
-        render();
-      });
-      form.addEventListener('input', function (e) {
-        if (e.target.id === 'days') calc();
-        if ((e.target.id === 'ack' || e.target.id === 'sig') && holdPlaced) { holdPlaced = false; $('#hold-btn').disabled = false; $('#hold-status').textContent = ''; }
-        render();
-      });
+      form.addEventListener('input', render);
       form.addEventListener('change', render);
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        if ($('#send-btn').disabled) return;
-        var b = $('#form-confirm'), g = mode === 'green';
-        b.querySelectorAll('[data-name]').forEach(function (x) { x.textContent = $('#name').value.trim() || 'there'; });
-        b.querySelectorAll('[data-phone]').forEach(function (x) { x.textContent = $('#phone-num').value.trim() || $('#email').value.trim(); });
-        var desk = val('pick') === 'desk';
-        b.querySelectorAll('[data-where]').forEach(function (x) { x.textContent = desk ? ('the front desk at ' + $('#stay').value) : 'Maui Mall, Kahului, Locker 12'; });
-        b.querySelectorAll('[data-id]').forEach(function (x) { x.textContent = desk ? 'Show your photo ID at the desk and they will hand it over.' : 'At the locker, scan your photo ID, then enter the code.'; });
-        b.querySelectorAll('[data-email]').forEach(function (x) { x.textContent = $('#email').value.trim() || 'your email'; });
-        $('#confirm-green').hidden = !g; $('#confirm-call').hidden = g;
-        b.hidden = false;
-        b.scrollIntoView({ block: 'nearest' });
+        var err = $('#form-err'); err.hidden = true;
+        if ($('#send-btn').disabled) {
+          err.textContent = (mode === 'pending') ? 'Please choose your carrier so we can show your fastest option.' : 'Please add your name, a valid email, and how to reach you.';
+          err.hidden = false; return;
+        }
+        var d = days(), h = HELP[val('help')] || HELP.own, ph = assignPhone(val('ptype'), $('#model').value);
+        var rnd = seeded(($('#name').value.trim() + $('#email').value.trim() + Date.now()));
+        var A = 'ABCDEFGHJKLMNPQRSTUVWXYZ0123456789', ser = '';
+        for (var i = 0; i < 10; i++) ser += A.charAt(Math.floor(rnd() * A.length));
+        ph.serial = (ph.make === 'Apple' ? 'F' : (ph.make === 'Samsung' ? 'R' : '3')) + ser;
+        var im = '35'; for (i = 0; i < 12; i++) im += Math.floor(rnd() * 10); im += luhn(im);
+        ph.imei = im.slice(0, 2) + ' ' + im.slice(2, 8) + ' ' + im.slice(8, 14) + ' ' + im.slice(14);
+        var start = new Date();
+        var rd = new Date(start.getTime() + d * 86400000);
+        var reach = $('#reach').value;
+        var req = {
+          mode: mode, name: $('#name').value.trim(), email: $('#email').value.trim(),
+          reach: reach, reachLabel: REACH[reach].label, reachMethod: REACH[reach].m, reachDetail: $('#reach-detail').value.trim(), when: $('#when').value,
+          use: val('use'), ptype: val('ptype'), modelText: $('#model').value.trim(), carrier: $('#carrier').value, what: val('what'), acct: val('acct'), pin: val('pin'), mail: val('mail'),
+          help: val('help'), helpLabel: h.label, helpFee: h.fee,
+          stay: $('#stay').value, pick: val('pick'), msg: $('#msg').value.trim(), days: d,
+          phone: ph, startText: fmtDT(start), returnText: fmtDT(rd).replace(/,\s*\d+:\d\d\s*[AP]M$/, ', 11:00 AM'),
+          rate: 50, dayTotal: d * 50, setup: 150, total: d * 50 + 150 + h.fee, hold: ph.price, partnerDesk: (val('pick') === 'desk' && isPartner()),
+          createdAt: start.toISOString()
+        };
+        try { sessionStorage.setItem('rc_req', JSON.stringify(req)); sessionStorage.removeItem('rc_sign'); } catch (x) { }
+        window.location.href = 'agreement.html?flow=1';
       });
-      calc(); render();
+      render();
     })();
   </script>
 </body>

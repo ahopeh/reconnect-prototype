@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reconnect Your Dashboard</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="stylesheet" href="site.css">
+    <script src="site.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
+        rel="stylesheet">
+    <style>
+        [hidden] {
+            display: none !important
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        .dwrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        .dgrid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            align-items: flex-start
+        }
+
+        .dmain {
+            flex: 2 1 560px;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 24px
+        }
+
+        .dside {
+            flex: 1 1 300px;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 24px
+        }
+
+        .dc {
+            background: var(--surface);
+            border: 1.5px solid var(--line);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            border-radius: 14px
+        }
+
+        .dc h2 {
+            margin: 0;
+            font-size: 22px
+        }
+
+        .dc h3 {
+            margin: 0;
+            font-size: 17px
+        }
+
+        .dc p {
+            margin: 0;
+            line-height: 1.6;
+            color: var(--soft)
+        }
+
+        .dc.hl {
+            border: 2px solid var(--pink)
+        }
+
+        .soft {
+            color: var(--soft)
+        }
+
+        .mute {
+            color: var(--mute);
+            font-size: 14px
+        }
+
+        .code {
+            font-family: ui-monospace, Menlo, Consolas, monospace;
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: 10px;
+            color: var(--ink);
+            background: var(--ground);
+            border: 2px dashed var(--accent);
+            padding: 14px 22px;
+            border-radius: 12px;
+            display: inline-block
+        }
+
+        .kv {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 12px
+        }
+
+        .kv div span {
+            display: block;
+            font-size: 13px;
+            color: var(--mute);
+            text-transform: uppercase;
+            letter-spacing: .06em
+        }
+
+        .kv div strong {
+            display: block;
+            font-size: 16px;
+            margin-top: 2px;
+            word-break: break-word
+        }
+
+        .prog {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .prog li {
+            border: 1.5px solid var(--line);
+            border-radius: 999px;
+            padding: 7px 14px;
+            font-size: 14px;
+            color: var(--soft)
+        }
+
+        .prog li.done {
+            border-color: var(--accent);
+            color: var(--ink)
+        }
+
+        .prog li.now {
+            border-color: var(--pink);
+            color: var(--ink);
+            font-weight: 700
+        }
+
+        .chk {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .chk li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            line-height: 1.55;
+            color: var(--soft)
+        }
+
+        .chk input {
+            width: 24px;
+            height: 24px;
+            min-height: 0;
+            flex: none;
+            margin: 2px 0 0
+        }
+
+        .chk li.on span {
+            text-decoration: line-through;
+            opacity: .7
+        }
+
+        .hub {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px
+        }
+
+        .hub .opt {
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: var(--ground)
+        }
+
+        .hub .opt.pick {
+            border: 2px solid var(--pink)
+        }
+
+        .pill {
+            display: inline-block;
+            background: var(--pink);
+            color: #0f1b1f;
+            font-weight: 800;
+            font-size: 12px;
+            border-radius: 999px;
+            padding: 2px 10px;
+            align-self: flex-start
+        }
+
+        .vid {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+            border-top: 1px solid var(--line);
+            padding: 8px 0;
+            font-size: 15px
+        }
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translateX(-50%);
+            background: var(--surface);
+            border: 2px solid var(--accent);
+            padding: 12px 18px;
+            border-radius: 12px;
+            max-width: 90vw;
+            z-index: 50;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .4)
+        }
+
+        .dc select {
+            min-height: 44px
+        }
+
+        .warn {
+            border: 2px solid var(--pink);
+            background: var(--surface);
+            padding: 14px 18px;
+            line-height: 1.55;
+            color: var(--soft);
+            border-radius: 12px
+        }
+
+        @media(max-width:560px) {
+            .code {
+                font-size: 40px;
+                letter-spacing: 6px
+            }
+        }
+
+        @media print {
+
+            .util,
+            header,
+            footer,
+            .noprint,
+            .toast {
+                display: none !important
+            }
+
+            body {
+                background: #fff !important;
+                color: #000 !important
+            }
+
+            * {
+                color: #000 !important;
+                background: transparent !important;
+                border-color: #999 !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="util">
+        <div><span>Lost your phone? Call or text <strong>(808) 555-0142</strong></span></div>
+    </div>
+    <header style="border-bottom:1.5px solid var(--line);background:var(--surface)">
+        <div
+            style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+            <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><img
+                    src="img/logo-tile.png" alt="" width="44" height="44" style="display:block;border-radius:10px"><span
+                    style="font-size:22px;font-weight:700">Reconnect</span></a>
+            <nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
+                <a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a
+                    href="security.html">Security</a><a href="guides.html">Setup guides</a><a href="about.html">About
+                    Us</a>
+                <a href="contact.html" class="btn" style="min-height:44px;padding:0 20px">Request a phone</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="dwrap" style="padding-top:40px;padding-bottom:8px;display:flex;flex-direction:column;gap:12px">
+            <span class="tag">Your dashboard</span>
+            <h1 id="h1" style="margin:0;font-size:40px;line-height:1.15">You're all set.</h1>
+            <p id="sub" style="margin:0;font-size:18px;line-height:1.55;color:var(--soft);max-width:760px"></p>
+            <div id="demo-note" class="warn" hidden></div>
+            <div class="warn" id="copy-note"></div>
+            <ol class="prog" id="prog" aria-label="Progress"></ol>
+        </section>
+
+        <section class="dwrap" style="padding-top:20px;padding-bottom:64px">
+            <div id="alerts" style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px"></div>
+            <div class="dgrid">
+                <div class="dmain">
+
+                    <div class="dc hl" id="code-card" aria-live="polite"></div>
+
+                    <div class="dc" id="phone-card">
+                        <h2>Your loaner phone</h2>
+                        <div class="kv" id="phone-kv"></div>
+                        <p id="phone-why"></p>
+                        <div class="kv" id="phone-inc"></div>
+                    </div>
+
+                    <div class="dc" id="steps-card">
+                        <h2>Your steps</h2>
+                        <p>Tick each one off as you go. We save your progress on this device.</p>
+                        <ul class="chk" id="chk"></ul>
+                    </div>
+
+                    <div class="dc" id="help-card">
+                        <h2>Help and support</h2>
+                        <p id="help-sub"></p>
+                        <div class="hub" id="hub"></div>
+                    </div>
+
+                </div>
+                <aside class="dside">
+
+                    <div class="dc">
+                        <h3>Your rental</h3>
+                        <div class="kv" id="rent" style="grid-template-columns:1fr 1fr"></div>
+                        <div style="display:flex;flex-wrap:wrap;gap:10px" class="noprint"><button class="btn btn2"
+                                type="button" id="extend">Need more time?</button></div>
+                        <div id="extend-msg" class="mute" role="status" aria-live="polite"></div>
+                    </div>
+
+                    <div class="dc">
+                        <h3>How we'll reach you</h3>
+                        <p id="reach-txt"></p>
+                        <p class="mute">Copies of your request, signed agreement, receipt and this summary always go to
+                            your email, whichever way you pick.</p>
+                        <div class="noprint"><a class="btn btn2" href="contact.html">Change my contact details</a></div>
+                    </div>
+
+                    <div class="dc">
+                        <h3>Documents</h3>
+                        <p>Copies of these were emailed to <strong data-email>your email</strong>.</p>
+                        <ul style="margin:0;padding-left:20px;line-height:2">
+                            <li><a href="agreement.html">Loaner agreement</a> (print or save as PDF)</li>
+                            <li><a href="#receipt" id="rcpt-link">Receipt and charges</a></li>
+                            <li><a href="security.html">How we protect your data</a></li>
+                        </ul>
+                        <div class="noprint" style="display:flex;flex-wrap:wrap;gap:10px"><button class="btn btn2"
+                                type="button" id="resend">Email me copies again</button><button class="btn btn2"
+                                type="button" id="print">Print this page</button></div>
+                        <div id="resend-msg" class="mute" role="status" aria-live="polite"></div>
+                    </div>
+
+                    <div class="dc" id="receipt">
+                        <h3>Receipt and charges</h3>
+                        <div id="rcpt"></div>
+                    </div>
+
+                    <div class="dc">
+                        <h3>Returning the phone</h3>
+                        <p>Drop it at any partner locker or location, or ask us to schedule a pickup. Before you do:
+                            sign out of your accounts, move your number back, and remove any account locks.</p>
+                        <div class="noprint"><a class="btn btn2" id="ret-guide" href="guides.html">Open the return
+                                guide</a></div>
+                    </div>
+
+                    <div class="dc">
+                        <h3>Need us now?</h3>
+                        <p>Call or text <strong>(808) 555-0142</strong><br>hello@reconnectmaui.com<br>8 AM to 8 PM,
+                            Monday to Saturday</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <footer style="background:var(--foot);color:#c9d6d8">
+        <div
+            style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
+            <div style="display:flex;flex-direction:column;gap:6px"><strong
+                    style="font-size:20px;color:var(--hi)">Reconnect</strong><span style="font-size:14px">Same-day phone
+                    rentals for travelers in Hawaiʻi</span><span style="font-size:14px">reconnectmaui.com</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;font-size:15px"><a
+                    href="services.html" style="color:#c9d6d8">Services &amp; Pricing</a><a href="security.html"
+                    style="color:#c9d6d8">Security</a><a href="partners.html" style="color:#c9d6d8">For partners</a><a
+                    href="guides.html" style="color:#c9d6d8">Setup guides</a><a href="about.html"
+                    style="color:#c9d6d8">About Us</a><a href="contact.html" style="color:#c9d6d8">Request a phone</a><a
+                    href="agreement.html" style="color:#c9d6d8">Loaner agreement</a><a href="dashboard.html"
+                    style="color:#c9d6d8">My dashboard</a></div>
+            <div style="font-size:14px">(808) 555-0142 · hello@reconnectmaui.com · Instagram @reconnectmaui</div>
+        </div>
+    </footer>
+    <script>
+        (function () {
+            var $ = function (x) { return document.querySelector(x); };
+            function T(id, txt) { var e = $(id); if (e) e.textContent = txt; }
+            function fmtDT(d) { return d.toLocaleString('en-US', { timeZone: 'Pacific/Honolulu', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }); }
+            var req = null, sg = {}, ui = {}, demo = false;
+            try { req = JSON.parse(sessionStorage.getItem('rc_req') || 'null'); sg = JSON.parse(sessionStorage.getItem('rc_sign') || '{}') || {}; ui = JSON.parse(sessionStorage.getItem('rc_ui') || '{}') || {}; } catch (e) { }
+            if (!req) {
+                demo = true;
+                req = {
+                    mode: 'green', name: 'Sample Traveler', email: 'sample@example.com', reach: 'email', reachLabel: 'Email', reachDetail: '', when: 'As soon as possible', ptype: 'iphone', modelText: 'iPhone 15', carrier: 'att', help: 'video', helpLabel: 'Live video call (30 min)', helpFee: 40, stay: 'Maui Seaside Hotel', pick: 'locker', days: 3,
+                    phone: { make: 'Apple', model: 'iPhone 15', storage: '128 GB', color: 'Black', serial: 'F2LXK0Q7N9', imei: '35 391234 567890 1', price: 799, esim: true, newest: 'iPhone 18 Pro', family: 'iPhone', os: 'iOS', kind: 'iPhone', gens: 3 },
+                    startText: fmtDT(new Date()), returnText: fmtDT(new Date(Date.now() + 3 * 86400000)).replace(/,\s*\d+:\d\d\s*[AP]M$/, ', 11:00 AM'), rate: 50, dayTotal: 150, setup: 150, total: 340, hold: 799, partnerDesk: false
+                };
+                sg = { signed: true, holdPlaced: true, verified: true, name: 'Sample Traveler', signedAt: fmtDT(new Date()) + ' HST', sigId: 'SIG-DEMO0001' };
+            }
+            function save() { try { sessionStorage.setItem('rc_ui', JSON.stringify(ui)); sessionStorage.setItem('rc_sign', JSON.stringify(sg)); } catch (e) { } }
+            var green = req.mode === 'green', ph = req.phone, first = (req.name || 'there').split(' ')[0];
+            var signed = !!sg.signed, hold = !!sg.holdPlaced, called = !!sg.callDone;
+            var unlocked = signed && (green ? hold : called);
+            function toast(msg) { var t = $('#toast'); t.textContent = msg; t.hidden = false; clearTimeout(toast.h); toast.h = setTimeout(function () { t.hidden = true; }, 3800); }
+            function mk(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+            function kv(box, pairs) { box.innerHTML = ''; pairs.forEach(function (p) { var d = mk('div'); d.appendChild(mk('span', '', p[0])); d.appendChild(mk('strong', '', p[1])); box.appendChild(d); }); }
+            function demoLink(a, label) { a.addEventListener('click', function (e) { e.preventDefault(); toast('Demo: this would open ' + label + '.'); }); }
+
+            // ---- header ----
+            document.querySelectorAll('[data-email]').forEach(function (x) { x.textContent = req.email; });
+            if (unlocked) { T('#h1', "You're all set, " + first + "."); T('#sub', 'Your locker code, your phone and your next steps are below. Everything here was also emailed to you.'); }
+            else if (!signed) { T('#h1', 'Almost there, ' + first + '.'); T('#sub', 'Sign your loaner agreement and your locker code appears here.'); }
+            else if (green) { T('#h1', 'One step left, ' + first + '.'); T('#sub', 'Place your refundable hold and your locker code appears here.'); }
+            else { T('#h1', 'Thanks, ' + first + '. We\'ll call you first.'); T('#sub', 'Your agreement is signed. After we talk, your locker code unlocks on this page.'); }
+            if (demo) { var dn = $('#demo-note'); dn.hidden = false; dn.innerHTML = '<strong>Demo data.</strong> This is a sample dashboard. <a href="contact.html">Fill out a request</a> to see yours.'; }
+            var meth = req.reachMethod || (req.reach === 'email' ? 'email' : 'the number you gave us'), det = req.reachDetail ? ' (' + req.reachDetail + ')' : '';
+            var cn = $('#copy-note'); cn.innerHTML = '<strong>Copies go to your email.</strong> We sent a copy of your request, your signed agreement, your receipt and this summary to <strong></strong>, and we will send anything else you sign or receive there too. If we need to reach you, we will use <strong></strong>.';
+            var sb = cn.querySelectorAll('strong'); sb[1].textContent = req.email; sb[2].textContent = meth + (req.reach === 'email' ? '' : det) + ' (best time: ' + (req.when || 'as soon as possible').toLowerCase() + ')';
+            // progress
+            var steps = [['Request sent', true], ['Agreement signed', signed], ['Hold placed', green ? hold : null], ['Pick up', !!ui.pickedUp], ['Set up', !!ui.setupDone], ['Return', false]].filter(function (s) { return s[1] !== null; });
+            var pg = $('#prog'), nowSet = false;
+            steps.forEach(function (s) { var li = mk('li', '', (s[1] ? '✓ ' : '') + s[0]); if (s[1]) li.className = 'done'; else if (!nowSet) { li.className = 'now'; nowSet = true; } pg.appendChild(li); });
+
+            // ---- alerts ----
+            var al = $('#alerts');
+            if (!signed) { var w = mk('div', 'warn'); w.innerHTML = '<strong>Your agreement isn\'t signed yet.</strong> Your locker code unlocks once you sign. <a href="agreement.html?flow=1">Read and sign now</a>.'; al.appendChild(w); }
+            else if (green && !hold) { var w2 = mk('div', 'warn'); w2.innerHTML = '<strong>Your refundable hold isn\'t placed yet.</strong> <a href="agreement.html?flow=1">Place it now</a> and your code unlocks.'; al.appendChild(w2); }
+
+            // ---- locker code ----
+            var cc = $('#code-card'), desk = req.pick === 'desk' && req.partnerDesk, where = desk ? ('the front desk at ' + req.stay) : 'Maui Mall, Kahului, Locker 12';
+            cc.innerHTML = '';
+            if (unlocked) {
+                cc.appendChild(mk('span', 'tag', 'Your pickup code'));
+                var cd = mk('div', 'code', '4821'); cd.setAttribute('aria-label', 'Pickup code 4 8 2 1'); cc.appendChild(cd);
+                cc.appendChild(mk('p', '', 'Pick up at ' + where + '. ' + (desk ? 'Show your photo ID at the desk. Desks keep their own hours, and the desk is for guests of this hotel only.' : 'The locker is open 24/7, so go any time, day or night.')));
+                var ol = mk('ol'); ol.style.cssText = 'margin:0;padding-left:20px;line-height:1.8;color:var(--soft)';
+                (desk ? ['Show your photo ID at the front desk. It must match the name ' + (req.name || 'on your agreement') + '.', 'Give them this code.', 'Staff hand you the phone. You\'re done.'] : ['At the locker, scan your photo ID.', 'Enter this code.', 'Take the phone. The locker photographs the handoff, so you don\'t need another phone or another person.']).forEach(function (t) { ol.appendChild(mk('li', '', t)); });
+                cc.appendChild(ol);
+                var row = mk('div', 'noprint'); row.style.cssText = 'display:flex;flex-wrap:wrap;gap:10px;align-items:center';
+                var cp = mk('button', 'btn btn2', 'Copy code'); cp.type = 'button'; cp.addEventListener('click', function () { try { navigator.clipboard.writeText('4821'); } catch (e) { } toast('Code copied. Also screenshot it or write it down.'); }); row.appendChild(cp);
+                var pu = mk('label', 'inline'); var pb = mk('input'); pb.type = 'checkbox'; pb.checked = !!ui.pickedUp; pb.addEventListener('change', function () { ui.pickedUp = pb.checked; save(); toast(pb.checked ? 'Nice. Next, turn it on and follow your steps.' : 'Okay, unmarked.'); }); pu.appendChild(pb); pu.appendChild(mk('span', '', 'I picked up my phone')); row.appendChild(pu);
+                cc.appendChild(row);
+                cc.appendChild(mk('p', 'mute', 'Your code was also emailed to ' + req.email + '. It works until you return the phone.'));
+            } else {
+                cc.appendChild(mk('span', 'tag', 'Your pickup code'));
+                var lk = mk('div', 'code', '• • • •'); lk.setAttribute('aria-label', 'Code locked'); cc.appendChild(lk);
+                if (!signed) cc.appendChild(mk('p', '', 'Locked until you sign your agreement.'));
+                else if (green) cc.appendChild(mk('p', '', 'Locked until your refundable hold is placed.'));
+                else {
+                    cc.appendChild(mk('p', '', 'Locked until we talk. We\'ll reach you by ' + meth + (req.reach === 'email' ? '' : det) + ' within 15 minutes during business hours (8 AM to 8 PM, Monday to Saturday), or the next business day.'));
+                    var sim = mk('button', 'btn btn2', 'Demo: pretend our call just finished'); sim.type = 'button'; sim.className += ' noprint'; sim.style.alignSelf = 'flex-start';
+                    sim.addEventListener('click', function () { sg.callDone = true; save(); location.reload(); }); cc.appendChild(sim);
+                }
+            }
+
+            // ---- phone ----
+            var pk = $('#phone-kv');
+            kv(pk, [['Make and model', (ph.make ? ph.make + ' ' : '') + ph.model], ['Storage', ph.storage || '128 GB'], ['Color', ph.color || 'Black'], ['Serial number', ph.serial], ['IMEI', ph.imei], ['Service', 'Temporary eSIM, ready to use']]);
+            var kindTxt = (ph.family === 'iPhone') ? 'an iPhone' : (ph.make === 'Google' ? 'a Google Pixel' : 'a Samsung Galaxy');
+            T('#phone-why', 'You use ' + (req.ptype === 'android' ? 'an Android phone' : (req.ptype === 'other' ? 'a phone we\'ll confirm with you' : 'an iPhone')) + ', so we matched you with ' + kindTxt + '. The ' + ph.model + ' is ' + (ph.gens || 3) + ' generations behind the newest ' + (ph.newest || 'model') + ', which is plenty for calls, banking, maps and two-factor codes, and it supports eSIM, so it works the moment you turn it on. Your refundable hold is $' + ph.price + '.');
+            kv($('#phone-inc'), [['Included', 'Case, charger and cable'], ['Condition', 'Tested, wiped, battery checked'], ['Temporary number', '(808) 555-0187'], ['Your number', 'Moves over when your carrier approves it']]);
+
+            // ---- steps ----
+            var cq = '?phone=' + encodeURIComponent(req.ptype || 'iphone') + '&carrier=' + encodeURIComponent(req.carrier === 'unsure' ? 'other' : (req.carrier || 'att'));
+            var CH = [
+                { k: 's1', t: 'Pick up the phone with your code and photo ID.', l: null },
+                { k: 's2', t: 'Turn it on. It already works on the temporary eSIM, so you can call, text and get online right away.', l: null },
+                { k: 's3', t: 'Move your number to the loaner with your carrier.', l: 'guides.html' + cq + '&stage=activate', lt: 'Open the activation guide for your phone and carrier' },
+                { k: 's4', t: 'Sign in to your accounts and restore your apps and codes.', l: 'guides.html' + cq + '&stage=restore', lt: 'Open the restore guide' },
+                { k: 's5', t: 'Before you return it: sign out, move your number back, and remove account locks.', l: 'guides.html' + cq + '&stage=return', lt: 'Open the return guide' }
+            ];
+            ui.chk = ui.chk || {}; var cl = $('#chk');
+            CH.forEach(function (c) {
+                var li = mk('li', ui.chk[c.k] ? 'on' : ''); var cb = mk('input'); cb.type = 'checkbox'; cb.id = 'c-' + c.k; cb.checked = !!ui.chk[c.k];
+                var sp = mk('span'); sp.appendChild(document.createTextNode(c.t));
+                if (c.l) { sp.appendChild(document.createElement('br')); var a = mk('a', '', c.lt + ' →'); a.href = c.l; sp.appendChild(a); }
+                var lab = mk('label'); lab.htmlFor = cb.id; lab.style.cssText = 'display:flex;gap:12px;align-items:flex-start;font-weight:400;cursor:pointer'; lab.appendChild(cb); lab.appendChild(sp); li.appendChild(lab);
+                cb.addEventListener('change', function () { ui.chk[c.k] = cb.checked; li.className = cb.checked ? 'on' : ''; ui.setupDone = !!(ui.chk.s3 && ui.chk.s4); save(); });
+                cl.appendChild(li);
+            });
+            $('#ret-guide').href = 'guides.html' + cq + '&stage=return';
+
+            // ---- help hub ----
+            var pref = req.help || 'own', hub = $('#hub');
+            T('#help-sub', pref === 'own' ? 'You chose to set up on your own. Our guides are always included, and help is one tap away if you change your mind.' : (pref === 'unsure' ? 'You weren\'t sure about help, so everything is here whenever you decide.' : 'You asked for help. Your choice is highlighted below.'));
+            function opt(key, title, desc, fee, builder) {
+                var o = mk('div', 'opt' + (pref === key ? ' pick' : '')); if (pref === key) o.appendChild(mk('span', 'pill', 'Your choice'));
+                o.appendChild(mk('h3', '', title)); o.appendChild(mk('p', '', desc)); if (fee) o.appendChild(mk('span', 'mute', fee)); builder(o); hub.appendChild(o);
+            }
+            opt('own', 'Step-by-step guides', 'Pick your phone and carrier and follow along. Included with every rental.', 'Included', function (o) { var a = mk('a', 'btn btn2', 'Open setup guides'); a.href = 'guides.html' + cq + '&stage=activate'; o.appendChild(a); });
+            opt('library', 'Video library', 'Short videos for each step: moving your number, restoring accounts, returning the phone.', '$10 to unlock', function (o) {
+                var unl = (pref === 'library' || pref === 'video') || ui.lib; var list = mk('div');
+                [['Turn on and connect (2 min)'], ['Move your number: AT&T, Verizon, T-Mobile (5 min)'], ['Restore messages and photos (4 min)'], ['Get your two-factor codes back (3 min)'], ['Return checklist (2 min)']].forEach(function (v) { var r = mk('div', 'vid'); r.appendChild(mk('span', '', v[0])); var b = mk('button', 'btn btn2', unl ? 'Watch (demo)' : 'Locked'); b.type = 'button'; b.style.minHeight = '36px'; b.addEventListener('click', function () { if (unl) toast('Demo: this would play "' + v[0] + '".'); else toast('Add the video library for $10 to watch.'); }); r.appendChild(b); list.appendChild(r); }); o.appendChild(list);
+                if (!unl) { var add = mk('button', 'btn', 'Add video library, $10'); add.type = 'button'; add.addEventListener('click', function () { ui.lib = true; save(); toast('Demo: added. $10 would go on your card. Reloading.'); setTimeout(function () { location.reload(); }, 900); }); o.appendChild(add); }
+            });
+            opt('video', 'Live video call', 'A team member walks you through setup on a video call. Pick a time that works.', '$40 per 30 minutes', function (o) {
+                var wrap = mk('div'); wrap.style.cssText = 'display:flex;flex-direction:column;gap:8px';
+                var ds = mk('select'); ds.setAttribute('aria-label', 'Day'); var now = new Date();
+                for (var i = 0; i < 4; i++) { var d = new Date(now.getTime() + i * 86400000); var op = mk('option', '', (i === 0 ? 'Today, ' : (i === 1 ? 'Tomorrow, ' : '')) + d.toLocaleDateString('en-US', { timeZone: 'Pacific/Honolulu', weekday: 'short', month: 'short', day: 'numeric' })); op.value = op.textContent; ds.appendChild(op); }
+                var ts = mk('select'); ts.setAttribute('aria-label', 'Time');['9:00 AM', '11:30 AM', '2:00 PM', '4:30 PM', '6:00 PM'].forEach(function (t) { var op = mk('option', '', t + ' HST'); op.value = t + ' HST'; ts.appendChild(op); });
+                var bk = mk('button', 'btn', 'Book my call (demo)'); bk.type = 'button'; var msg = mk('div', 'mute'); msg.setAttribute('role', 'status');
+                if (ui.zoom) { msg.textContent = 'Booked: ' + ui.zoom + '. A calendar invite with the video link was emailed to ' + req.email + '.'; }
+                bk.addEventListener('click', function () { ui.zoom = ds.value + ' at ' + ts.value; save(); msg.textContent = 'Booked: ' + ui.zoom + '. A calendar invite with the video link was emailed to ' + req.email + '. (Demo: nothing was booked.)'; });
+                wrap.appendChild(ds); wrap.appendChild(ts); wrap.appendChild(bk); wrap.appendChild(msg); o.appendChild(wrap);
+            });
+            opt('inperson', 'In-person help', 'A team member meets you at your pickup spot or hotel and sets it up with you. Subject to availability.', '$120', function (o) {
+                var b = mk('button', 'btn', 'Request a visit (demo)'); b.type = 'button'; var m = mk('div', 'mute'); m.setAttribute('role', 'status');
+                if (ui.visit) m.textContent = 'Requested. We\'ll confirm a time by ' + meth + '.';
+                b.addEventListener('click', function () { ui.visit = true; save(); m.textContent = 'Requested. We\'ll confirm a time by ' + meth + (req.reach === 'email' ? '' : det) + '. (Demo: nothing was requested.)'; }); o.appendChild(b); o.appendChild(m);
+            });
+            opt('chat', 'Talk to us', 'Stuck on a step? Call or text (808) 555-0142 from the loaner, or send us a message.', 'Free', function (o) { var a = mk('a', 'btn btn2', 'Message the team'); a.href = '#'; demoLink(a, 'our message form'); o.appendChild(a); });
+            // put chosen option first
+            var picked = hub.querySelector('.pick'); if (picked) hub.insertBefore(picked, hub.firstChild);
+
+            // ---- side cards ----
+            kv($('#rent'), [['Start', req.startText], ['Return by', req.returnText], ['Days', String(req.days)], ['Pickup', desk ? req.stay + ' desk' : 'Locker, Maui Mall'], ['Total charges', '$' + req.total], ['Refundable hold', '$' + req.hold]]);
+            $('#reach-txt').textContent = (req.reach === 'email' ? 'By email at ' + req.email : 'By ' + meth + (req.reachDetail ? ': ' + req.reachDetail : '')) + '. Best time: ' + (req.when || 'as soon as possible').toLowerCase() + '.';
+            $('#extend').addEventListener('click', function () { T('#extend-msg', 'Demo: we\'d ask for the extra days now, and if we can say yes, your Return By date moves and the daily rate applies.'); });
+            $('#resend').addEventListener('click', function () { T('#resend-msg', 'Demo: copies sent again to ' + req.email + '.'); });
+            $('#print').addEventListener('click', function () { window.print(); });
+            var r = $('#rcpt'); r.innerHTML = '';
+            [['Daily rate, ' + req.days + (req.days === 1 ? ' day' : ' days') + ' × $' + req.rate, '$' + req.dayTotal], ['Setup fee', '$' + req.setup]].concat(req.helpFee ? [['Setup help: ' + req.helpLabel, '$' + req.helpFee]] : []).concat([['Total charges', '$' + req.total], [hold ? 'Refundable hold (released after return)' : 'Refundable hold (not placed yet)', '$' + req.hold]]).forEach(function (x, i, arr) { var d = mk('div'); d.style.cssText = 'display:flex;justify-content:space-between;gap:10px;padding:6px 0;' + (i === arr.length - 2 ? 'border-top:1px solid var(--line);font-weight:700;margin-top:4px' : ''); d.appendChild(mk('span', 'soft', x[0])); d.appendChild(mk('span', '', x[1])); r.appendChild(d); });
+            if (sg.signedAt) { r.appendChild(mk('p', 'mute', 'Agreement signed ' + sg.signedAt + ' (ID ' + (sg.sigId || '') + ').')); }
+        })();
+    </script>
+</body>
+
+</html>

@@ -4,7 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Reconnect Setup Guides</title>
+  <title>Reconnect Loaner Agreement</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="stylesheet" href="site.css">
   <script src="site.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +15,135 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
     rel="stylesheet">
+  <style>
+    [hidden] {
+      display: none !important
+    }
+
+    .noprint-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center
+    }
+
+    .stepbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .stepbar li {
+      border: 1.5px solid var(--line);
+      padding: 6px 12px;
+      color: var(--soft);
+      font-size: 14px;
+      border-radius: 999px
+    }
+
+    .stepbar li.on {
+      border-color: var(--pink);
+      color: var(--ink);
+      font-weight: 700
+    }
+
+    .stepbar li.done {
+      border-color: var(--accent);
+      color: var(--ink)
+    }
+
+    .sgn {
+      background: var(--surface);
+      border: 1.5px solid var(--line);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px
+    }
+
+    .sgn h3 {
+      margin: 0;
+      font-size: 18px
+    }
+
+    .sgn .step-no {
+      display: inline-block;
+      min-width: 28px;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      border-radius: 50%;
+      background: var(--pink);
+      color: #0f1b1f;
+      font-weight: 800;
+      margin-right: 8px
+    }
+
+    .dis {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.7;
+      color: var(--soft)
+    }
+
+    .okline {
+      color: var(--accent);
+      font-weight: 700
+    }
+
+    .sgn input[type=checkbox] {
+      width: 24px;
+      height: 24px;
+      min-height: 0;
+      flex: none;
+      margin: 0
+    }
+
+    .cbrow {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start
+    }
+
+    .cbrow label {
+      font-weight: 400;
+      line-height: 1.5
+    }
+
+    @media print {
+
+      .util,
+      header,
+      footer,
+      .noprint,
+      .toc,
+      .sgn-flow {
+        display: none !important
+      }
+
+      body {
+        background: #fff !important;
+        color: #000 !important
+      }
+
+      * {
+        color: #000 !important;
+        background: transparent !important;
+        border-color: #999 !important
+      }
+
+      a {
+        text-decoration: none
+      }
+
+      .sec {
+        break-inside: avoid
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -21,91 +153,414 @@
   <header style="border-bottom:1.5px solid var(--line);background:var(--surface)">
     <div
       style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
-      <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph"
-          style="width:40px;height:40px"><span style="padding:0;background:none">&#9679;</span></span><span
+      <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><img
+          src="img/logo-tile.png" alt="" width="44" height="44" style="display:block;border-radius:10px"><span
           style="font-size:22px;font-weight:700">Reconnect</span></a>
       <nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
         <a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a
-          href="security.html">Security</a><a href="guides.html"
-          style="border-bottom:3px solid var(--accent);font-weight:600" aria-current="page">Setup guides</a><a
-          href="about.html">About Us</a>
+          href="security.html">Security</a><a href="guides.html">Setup guides</a><a href="about.html">About Us</a>
         <a href="contact.html" class="btn" style="min-height:44px;padding:0 20px">Request a phone</a>
       </nav>
     </div>
   </header>
   <main>
-
-    <section style="max-width:1120px;margin:0 auto;padding:48px 24px 16px;display:flex;flex-direction:column;gap:12px">
-      <span class="tag">Setup guides</span>
-      <h1 style="margin:0;font-size:42px;line-height:1.15">Step-by-step help for your phone and carrier</h1>
-      <p style="margin:0;font-size:18px;line-height:1.5;color:var(--soft);max-width:720px">Pick your phone and your
-        carrier. We'll show only the steps that apply to you.</p>
-      <div class="callout" style="font-size:14px;color:var(--soft);line-height:1.5;max-width:720px">Built from each
-        carrier's and Apple's own help pages (linked at the bottom).</div>
-    </section>
-
-    <section
-      style="max-width:1120px;margin:0 auto;padding:16px 24px 8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px">
-      <fieldset style="border:0;padding:0;margin:0;min-width:0;display:flex;flex-direction:column;gap:10px">
-        <legend style="font-weight:700;font-size:16px;padding:0 0 10px">1. Your phone type</legend>
-        <div class="choice-row" id="phone-row">
-          <label class="choice"><input type="radio" name="phone" value="iphone" checked><span>iPhone</span></label>
-          <label class="choice"><input type="radio" name="phone" value="android"><span>Android</span></label>
-          <label class="choice"><input type="radio" name="phone" value="other"><span>Other / not sure</span></label>
-        </div>
-      </fieldset>
-      <fieldset style="border:0;padding:0;margin:0;min-width:0;display:flex;flex-direction:column;gap:10px">
-        <legend style="font-weight:700;font-size:16px;padding:0 0 10px">2. Your carrier</legend>
-        <div class="choice-row" id="carrier-row">
-          <label class="choice"><input type="radio" name="carrier" value="att" checked><span>AT&amp;T</span></label>
-          <label class="choice"><input type="radio" name="carrier" value="verizon"><span>Verizon</span></label>
-          <label class="choice"><input type="radio" name="carrier" value="tmobile"><span>T-Mobile</span></label>
-          <label class="choice"><input type="radio" name="carrier" value="other"><span>Other / prepaid</span></label>
-        </div>
-      </fieldset>
-    </section>
-
-    <section style="max-width:1120px;margin:0 auto;padding:16px 24px 8px;display:flex;flex-direction:column;gap:10px">
-      <span style="font-weight:700;font-size:16px">3. What do you need?</span>
-      <div class="choice-row" id="stage-row" role="radiogroup" aria-label="What do you need">
-        <label class="choice"><input type="radio" name="stage" value="activate" checked><span>Get my number
-            working</span></label>
-        <label class="choice"><input type="radio" name="stage" value="restore"><span>Restore my accounts</span></label>
-        <label class="choice"><input type="radio" name="stage" value="return"><span>Return the phone</span></label>
+    <!-- TITLE -->
+    <div style="max-width:1000px;margin:0 auto;padding:48px 24px 16px;display:flex;flex-direction:column;gap:12px">
+      <span class="tag">Supporting page · Loaner agreement</span>
+      <h1 style="margin:0;font-size:38px;line-height:1.15">Reconnect Loaner Phone Agreement</h1>
+      <p style="margin:0;font-size:18px;line-height:1.55;color:var(--soft)">Please read this before you borrow a phone.
+        We wrote it to be plain and fair, with no surprises.</p>
+      <div class="noprint-bar noprint"><button type="button" class="btn btn2" id="print-btn">Print or save as
+          PDF</button><span style="color:var(--mute);font-size:14px">Version 1.0 · Updated Nov 2026 · <span
+            id="doc-ref">Reference RC-AGR-1</span></span></div>
+      <ol class="stepbar noprint sgn-flow-bar" id="stepbar" hidden>
+        <li class="done">1. Your request</li>
+        <li class="on" id="sb2">2. Read and sign</li>
+        <li id="sb3">3. Your dashboard</li>
+      </ol>
+      <div id="flow-note" class="noprint" hidden
+        style="border:2px solid var(--pink);background:var(--surface);padding:14px 18px;line-height:1.55;color:var(--soft)">
       </div>
-    </section>
+    </div>
 
-    <section style="max-width:1120px;margin:0 auto;padding:24px 24px 24px;display:flex;flex-direction:column;gap:20px"
-      aria-live="polite">
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <h2 id="g-title" style="margin:0;font-size:28px"></h2><span id="g-sub" style="color:var(--mute)"></span>
-      </div>
-      <div id="g-ready" class="card" style="gap:8px"></div>
-      <ol id="g-steps" class="steps"></ol>
-      <div id="g-note" class="callout" style="line-height:1.55;color:var(--soft)"></div>
-    </section>
-
-    <section style="max-width:1120px;margin:0 auto;padding:8px 24px 24px;display:flex;flex-direction:column;gap:12px">
+    <!-- SHORT VERSION -->
+    <div style="max-width:1000px;margin:0 auto;padding:8px 24px">
       <div
-        style="background:var(--surface);border:1.5px solid var(--line);padding:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
-        <div style="flex:1 1 360px"><strong>Stuck? Want a person?</strong>
-          <div style="color:var(--soft);line-height:1.5;margin-top:4px">Call or text (808) 555-0142, or choose a video
-            library, Zoom call, or in-person visit on the <a href="services.html">Services &amp; Pricing</a> page.</div>
-        </div>
-        <a href="contact.html" class="btn">Request a phone</a>
+        style="background:var(--surface);border:2px solid var(--pink);padding:24px;display:flex;flex-direction:column;gap:10px">
+        <span class="tag">The short version</span>
+        <ul style="margin:0;padding-left:20px;line-height:1.7;color:var(--soft)">
+          <li>You borrow a phone from us for the dates on your Rental Summary.</li>
+          <li>You pay a daily rate and a one-time setup fee. We also place a refundable hold on your credit card, equal
+            to the phone's replacement price.</li>
+          <li>Return it on time and as you got it, and your deposit is released.</li>
+          <li>If it's not returned, comes back locked because it was reported lost or stolen, or is too damaged to use,
+            we charge your card on file the phone's full price.</li>
+          <li>We never ask for your passwords. Sign out of your accounts before you return it.</li>
+        </ul>
       </div>
-    </section>
+    </div>
 
-    <section style="max-width:1120px;margin:0 auto;padding:8px 24px 56px;display:flex;flex-direction:column;gap:8px">
-      <span class="tag">Sources</span>
-      <ul style="margin:0;padding-left:20px;line-height:1.8;color:var(--soft);font-size:15px">
-        <li><a href="https://www.att.com/support/article/wireless/KM1455633/">AT&amp;T: Get a replacement SIM</a></li>
-        <li><a href="https://www.verizon.com/support/my-verizon-app-esim-faqs/">Verizon: Move your line to an eSIM
-            device</a></li>
-        <li><a href="https://www.t-mobile.com/support/devices/sim-esim">T-Mobile: SIM card &amp; eSIM</a></li>
-        <li><a href="https://support.apple.com/en-asia/HT212780">Apple: Set up eSIM on iPhone</a></li>
-      </ul>
-    </section>
+    <style>
+      html {
+        scroll-behavior: smooth
+      }
+
+      .sec {
+        scroll-margin-top: 90px
+      }
+
+      .toc ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        columns: 2 260px;
+        column-gap: 32px;
+        line-height: 2
+      }
+
+      .toc a {
+        color: var(--ink)
+      }
+    </style>
+    <div class="toc" style="max-width:1000px;margin:0 auto;padding:8px 24px">
+      <div style="background:var(--surface);border:1.5px solid var(--line);padding:20px 24px">
+        <h2 style="margin:0 0 6px;font-size:20px">Jump to a section</h2>
+        <ul>
+          <li><a href="#s1">1. The loaner phone and who owns it</a></li>
+          <li><a href="#s2">2. Rental period and returning the phone</a></li>
+          <li><a href="#s3">3. Fees and payment</a></li>
+          <li><a href="#s4">4. Refundable hold</a></li>
+          <li><a href="#s5">5. Taking care of the phone</a></li>
+          <li><a href="#s6">6. Condition on return and replacement charge</a></li>
+          <li><a href="#s7">7. Who can use it, and how</a></li>
+          <li><a href="#s8">8. Your phone number and carrier</a></li>
+          <li><a href="#s9">9. Your accounts and data</a></li>
+          <li><a href="#s10">10. Software</a></li>
+          <li><a href="#s11">11. Support services</a></li>
+          <li><a href="#s12">12. Privacy</a></li>
+          <li><a href="#s13">13. Limits on our responsibility</a></li>
+          <li><a href="#s14">14. Ending early</a></li>
+          <li><a href="#s15">15. General terms</a></li>
+          <li><a href="#s16">16. Electronic records and signature consent</a></li>
+          <li><a href="#sign">Acknowledgment and signature</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- DEVICE DETAILS -->
+    <div style="max-width:1000px;margin:0 auto;padding:16px 24px 8px">
+      <div
+        style="background:var(--surface);border:1.5px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:14px">
+        <h2 style="margin:0;font-size:20px"><span id="rs-title">Rental Summary (sample)</span></h2>
+        <p id="rs-for" style="margin:0;color:var(--soft)" hidden></p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+          <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Make and model</span>
+            <div class="box" id="rs-model">iPhone 15</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Serial number</span>
+            <div class="box" id="rs-serial">F2LXK0Q7N9</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">IMEI</span>
+            <div class="box" id="rs-imei">35 391234 567890 1</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Loan start</span>
+            <div class="box" id="rs-start">Nov 2, 2026, 3:00 PM</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Return by</span>
+            <div class="box" id="rs-return">Nov 5, 2026, 11:00 AM</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Daily rate</span>
+            <div class="box" id="rs-rate">$50</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Days</span>
+            <div class="box" id="rs-days">3</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Setup fee</span>
+            <div class="box" id="rs-setup">$150</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Setup help</span>
+            <div class="box" id="rs-help">Guides only</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Total charges</span>
+            <div class="box" id="rs-total">$300</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Refundable hold</span>
+            <div class="box" id="rs-hold">$799</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Replacement price</span>
+            <div class="box" id="rs-repl">$799</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Card on file (last 4)</span>
+            <div class="box" id="rs-card">4242</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TERMS -->
+    <div style="max-width:1000px;margin:0 auto;padding:8px 24px 24px">
+      <div style="background:var(--surface);border:1.5px solid var(--line);padding:8px 28px 20px">
+        <div class="sec" id="s1">
+          <h3>1. The loaner phone and who owns it</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)">Reconnect Maui LLC (&ldquo;Reconnect,&rdquo;
+            &ldquo;we&rdquo;) is lending you the phone and accessories listed on your Rental Summary above (the
+            &ldquo;Loaner Phone&rdquo;). You are the person named in the Rental Summary (&ldquo;you&rdquo;).</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)">We own the Loaner Phone the whole time. Borrowing it
+            doesn't transfer ownership, and you may not sell, lend, rent, or pledge it. It may be new or refurbished.
+            Its serial number and IMEI are on your Rental Summary.</p>
+        </div>
+        <div class="sec" id="s2">
+          <h3>2. Rental period and returning the phone</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>2.1 Return date.</strong> Please return the
+            Loaner Phone and everything that came with it by the Return By date on your Rental Summary.</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>2.2 How to return it.</strong> You can return it
+            to any partner locker or location, or schedule a pickup. A return counts once we confirm we have it.</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>2.3 Extending.</strong> Need more time? Contact
+            us before the Return By date. If we can say yes, the new date becomes your Return By date and these terms
+            still apply. Days beyond the Return By date are billed at the daily rate.</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>2.4 If it isn't returned.</strong> If we haven't
+            heard from you and the phone hasn't come back 3 days after the Return By date, we'll treat it as not
+            returned and Section 6.2 applies. We'd much rather talk first, so please call us.</p>
+        </div>
+        <div class="sec" id="s3">
+          <h3>3. Fees and payment</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>3.1 What you pay.</strong> The daily rate for
+            each day you keep the phone, a one-time setup fee, and any optional support you choose (Section 11). Your
+            Rental Summary and our <a href="services.html">Services &amp; Pricing page</a> list the amounts. Each
+            calendar day, or part of a day, counts as one day.</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>3.2 Card on file.</strong> You authorize us to
+            charge your card on file for the fees above, any late days, and any charges described in Section 6. We'll
+            send a receipt by email.</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>3.3 Missed payments.</strong> If a payment
+            doesn't go through, we'll let you know and ask you to update your card. We may apply your deposit to the
+            unpaid amount (Section 4).</p>
+        </div>
+        <div class="sec" id="s4">
+          <h3>4. Refundable hold</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>4.1 What it is.</strong> We place a refundable
+            deposit hold on your card for the amount on your Rental Summary. It depends on the phone model. It works
+            like a rental car deposit: it protects against damage while the phone is with you, a missed payment, and
+            similar costs that insurance would normally cover.</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>4.2 Getting it back.</strong> If the phone comes
+            back as we gave it to you and you're paid up, we'll release the hold within 3 business days of inspecting
+            it. Your bank may take extra time to show it. If we use part of the deposit, we'll tell you what for and
+            release the rest.</p>
+        </div>
+        <div class="sec" id="s5">
+          <h3>5. Taking care of the phone</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>5.1 Care.</strong> You're responsible for the
+            Loaner Phone from the moment we hand it over until we confirm it's back. Please take reasonable care of it:
+            protect it from drops, water, sand, and heat, and don't leave it unattended or in a parked car.</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>5.2 Lost or stolen.</strong> If it's lost,
+            stolen, or damaged, tell us right away at (808) 555-0142. The sooner we know, the more we can help. We may
+            lock the phone, mark it as lost, or locate it using device-management tools. We use location only if the
+            phone is reported lost or stolen, or hasn't been returned. If you find it again, let us know.</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>5.3 No repairs.</strong> Please don't try to
+            repair the phone or have anyone else repair it. Contact us instead.</p>
+        </div>
+        <div class="sec" id="s6">
+          <h3>6. Condition on return and replacement charge</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>6.1 Return it as you got it.</strong> Please
+            return the Loaner Phone and its accessories in the same condition we handed them over, apart from normal
+            wear from ordinary use. We inspect each phone when it comes back.</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>6.2 Full replacement charge.</strong> We'll
+            charge your card on file the full Replacement Price on your Rental Summary if: (a) the phone isn't returned;
+            (b) it comes back locked because it was reported lost or stolen; or (c) it comes back too damaged to use. We
+            apply your deposit first.</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>6.3 Repairable damage.</strong> If it comes back
+            damaged but still repairable, we'll charge the reasonable cost to fix it, up to the Replacement Price.
+            Missing accessories are charged at their listed price. We'll send you our inspection notes and photos.</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>6.4 If you disagree.</strong> Contact us within
+            14 days of a charge. We'll go over the inspection notes with you and correct any mistake.</p>
+        </div>
+        <div class="sec" id="s7">
+          <h3>7. Who can use it, and how</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)">Only you may use the Loaner Phone. When you pick it up,
+            you will show a government-issued photo ID that matches the name on your Rental Summary and the card used
+            for the hold. We use it only to confirm who you are. Please use it lawfully and keep it in Hawaiʻi unless we
+            agree otherwise. Don't jailbreak or root it, remove device-management settings, alter the hardware, or
+            remove serial or IMEI labels.</p>
+        </div>
+        <div class="sec" id="s8">
+          <h3>8. Your phone number and carrier</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)">Your carrier controls your phone number and your
+            service. If you move your number to the Loaner Phone, you do that with your carrier, who will verify you. We
+            never contact your carrier for you and never see your carrier account. Any carrier fees are yours. Every
+            Loaner Phone comes with a temporary eSIM so it works as soon as you pick it up. The temporary line has its
+            own number, and your own number takes over once your carrier moves it. It includes calls, texts and data for
+            the length of your rental.</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)">Before you return the phone, please move your number
+            back to your own phone or to a new one. We remove any SIM or eSIM from the Loaner Phone at return.</p>
+        </div>
+        <div class="sec" id="s9">
+          <h3>9. Your accounts and data</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>9.1 Your passwords stay yours.</strong> You sign
+            in to your own accounts. We never ask for your passwords and we don't copy or back up your photos, messages,
+            or accounts.</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>9.2 Before you return the phone.</strong> Sign
+            out of all accounts and remove any account locks (for example, Activation Lock on iPhone or Factory Reset
+            Protection on Android). Back up anything you want to keep first. After you return it, we erase and verify
+            the phone. If it still can't be erased because it's tied to your account, we'll ask you to remove it. If
+            that isn't done within 3 days, it counts as returned locked under Section 6.2(b).</p>
+          <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>9.3 Data left behind.</strong> We aren't
+            responsible for personal data left on the phone or erased from it.</p>
+        </div>
+        <div class="sec" id="s10">
+          <h3>10. Software</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)">Software on the Loaner Phone is licensed to that device
+            only. Please install apps only from the official app store, with valid licenses. Don't copy, reverse
+            engineer, disassemble, or decompile any software, equipment, or components.</p>
+        </div>
+        <div class="sec" id="s11">
+          <h3>11. Support services</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)">Your setup and the step-by-step activation and return
+            guides for your phone and carrier are included. Optional extra help is available at the rates on our <a
+              href="services.html">Services &amp; Pricing page</a>: a pre-recorded video library (a small fee), a video
+            call billed per 30 minutes, or an in-person visit, which costs the most. You only pay for what you choose.
+          </p>
+        </div>
+        <div class="sec" id="s12">
+          <h3>12. Privacy</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)">We collect your name, contact details, where you're
+            staying, and payment details so we can deliver the phone, support you, and process charges. We don't sell
+            your information.</p>
+        </div>
+        <div class="sec" id="s13">
+          <h3>13. Limits on our responsibility</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)">Reconnect isn't an emergency service. Please don't rely
+            on the Loaner Phone as your only way to reach emergency help, and service depends on your carrier and local
+            coverage. To the extent the law allows, we aren't liable for indirect or consequential losses, or for loss
+            of data, arising from this agreement or your use of the Loaner Phone. Nothing here limits any right you have
+            under law that can't be limited.</p>
+        </div>
+        <div class="sec" id="s14">
+          <h3>14. Ending early</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)">We may ask you to return the Loaner Phone sooner than
+            planned if it's being misused or there's a safety or legal concern. If so, we'll tell you why and give you a
+            reasonable time to return it, usually 24 hours.</p>
+        </div>
+        <div class="sec" id="s15">
+          <h3>15. General terms</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)">This agreement and your Rental Summary are our whole
+            agreement. Changes must be in writing and agreed by both of us. If any part isn't enforceable, the rest
+            still applies. Electronic signatures and records are valid and have the same effect as paper and ink, as the
+            federal E-SIGN Act and Hawaiʻi's Uniform Electronic Transactions Act (Hawaiʻi Revised Statutes chapter 489E)
+            provide. See Section 16. Hawaiʻi law governs this agreement, and any dispute will be handled in the courts
+            of Maui County, Hawaiʻi.</p>
+        </div>
+        <div class="sec" id="s16">
+          <h3>16. Electronic records and signature consent</h3>
+          <p style="margin:0;line-height:1.6;color:var(--soft)">To sign online and receive your documents by email, we
+            need your consent. When you sign, you confirm you have read this section.</p>
+          <ul class="dis" style="margin:0">
+            <li><strong>What it covers.</strong> This rental and the records that go with it: this agreement, your
+              Rental Summary, receipts, hold and charge notices, inspection notes and support messages. It doesn't cover
+              other transactions.</li>
+            <li><strong>You can get paper.</strong> You may ask for any record on paper, at no charge, by emailing
+              hello@reconnectmaui.com or calling (808) 555-0142. You can also print or save this agreement now with the
+              button at the top of this page.</li>
+            <li><strong>You can withdraw consent.</strong> You can withdraw at any time, with no fee, by emailing or
+              calling us. If you withdraw before pickup, we'll finish your rental by phone and paper instead, and it may
+              take longer. Withdrawing doesn't affect anything you've already signed.</li>
+            <li><strong>Keeping your email current.</strong> Tell us if your email address changes. We send everything
+              to the email on your request.</li>
+            <li><strong>What you need.</strong> A device with internet access, a current web browser, an email account
+              you can open, and a way to open or print PDFs. Your phone, tablet or a computer all work.</li>
+            <li><strong>Your signature.</strong> When you type your name and select Sign, you intend it as your legal
+              signature, with the same effect as a handwritten one. We keep a record of who signed, when, and the exact
+              version signed. You can get a copy of that record any time.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div id="read-only-cta" class="noprint" style="max-width:1000px;margin:0 auto;padding:0 24px 56px">
+      <div
+        style="background:var(--surface);border:1.5px solid var(--line);padding:24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">
+        <div>
+          <h2 id="econsent-ro" style="margin:0 0 6px;font-size:20px">Ready to sign?</h2><span
+            style="color:var(--soft);line-height:1.5">You sign this agreement as part of a request, so we can fill in
+            your phone, dates and charges. A copy goes to your email.</span>
+        </div><a href="contact.html" class="btn">Start a request</a>
+      </div>
+    </div>
+
+    <div id="sign-flow" class="sgn-flow" hidden
+      style="max-width:1000px;margin:0 auto;padding:0 24px 56px;display:flex;flex-direction:column;gap:20px">
+
+      <div class="sgn" id="step-verify" hidden>
+        <h3><span class="step-no">1</span>Confirm it's you</h3>
+        <div class="choice-row"><label class="choice"><input type="radio" name="vm" value="email" checked><span>Email me
+              a code</span></label><label class="choice"><input type="radio" name="vm" value="text"><span>Text my
+              phone</span></label></div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px"><input id="vcode" type="text" inputmode="numeric"
+            autocomplete="one-time-code" placeholder="6-digit code" style="flex:1 1 160px;width:auto"><button
+            type="button" id="send-code" class="btn btn2">Send me a code (demo)</button></div>
+        <span id="v-status" role="status" aria-live="polite" style="color:var(--soft);font-size:14px"></span>
+      </div>
+
+      <div class="sgn" id="econsent">
+        <h3 id="econsent-h"><span class="step-no" id="no-consent">1</span>Consent to electronic records and signature
+        </h3>
+        <p style="margin:0;color:var(--soft);line-height:1.6">To sign online and get your documents by email, we need
+          your consent. Please read <a href="#s16">Section 16</a> above, which explains what you are agreeing to,
+          including your right to paper copies and to withdraw.</p>
+
+        <div class="field" style="max-width:420px"><label for="doc-code">To confirm you can open and read this document
+            on your device, type the document code: <strong id="doc-code-show"
+              style="color:var(--pink);letter-spacing:2px">RC-7342</strong></label><input id="doc-code" type="text"
+            autocomplete="off" placeholder="Document code"></div>
+        <div class="cbrow"><input type="checkbox" id="ec"><label for="ec">I consent to use electronic records and
+            signatures for this rental. I have read Section 16, and I can open, read and print this document on the
+            device I'm using now.</label></div>
+      </div>
+
+      <div class="sgn" id="step-sign">
+        <h3 id="sign"><span class="step-no" id="no-sign">2</span>Acknowledgment and signature</h3>
+        <div class="cbrow"><input type="checkbox" id="ack"><label for="ack">I have read and agree to this Loaner Phone
+            Agreement, including the charges in Sections 3, 4 and 6, and I authorize them to my card on file.</label>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:16px">
+          <div class="field"><label for="n">Printed name</label><input id="n" type="text" placeholder="Full name"
+              autocomplete="name"></div>
+          <div class="field"><label for="s">Signature (type your full name)</label><input id="s" type="text"
+              placeholder="Type your full name to sign" autocomplete="off" style="font-style:italic"></div>
+          <div class="field"><label for="d">Date</label><input id="d" type="text" readonly></div>
+        </div>
+        <p style="margin:0;color:var(--mute);font-size:14px;line-height:1.5">By typing my name and selecting Sign, I
+          intend this to be my legal signature and I agree to be bound by this agreement. A copy of the signed agreement
+          goes to <strong data-email>the email you listed</strong>.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center"><button type="button" class="btn"
+            id="sign-btn" disabled>Sign agreement</button><span id="sign-status" role="status" aria-live="polite"
+            style="color:var(--soft)"></span></div>
+        <div id="sign-confirm" hidden role="status"
+          style="border:2px solid var(--accent);padding:16px;display:flex;flex-direction:column;gap:6px"><strong>Signed
+            by <span data-name></span>.</strong><span style="color:var(--soft);line-height:1.6">Signature record: <span
+              id="sig-rec"></span><br>A copy of your signed agreement and Rental Summary was sent to <strong
+              data-email>your email</strong>. You can also print or save it from the top of this page. (Demo: nothing
+            was actually sent.)</span></div>
+      </div>
+
+      <div class="sgn" id="step-hold" hidden>
+        <h3><span class="step-no" id="no-hold">3</span>Place your refundable hold</h3>
+        <p style="margin:0;color:var(--soft);line-height:1.6">We place a refundable hold on your credit card for <strong
+            id="hold-amt">$799</strong>, the phone's replacement price. It's released within 3 business days of
+          returning the phone as you got it. Credit card required (debit cards aren't accepted), and the name on the
+          card must match the name you signed. In the live version a secure payment page (like Stripe) opens here. Never
+          type a card number into this demo page.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center"><button type="button" id="hold-btn"
+            class="btn btn2" disabled>Place refundable hold (demo)</button><span id="hold-status" role="status"
+            aria-live="polite" style="color:var(--soft)"></span></div>
+      </div>
+
+      <div class="sgn" style="gap:10px">
+        <ul id="ready-list"
+          style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;color:var(--soft)"></ul>
+        <div style="display:flex;flex-wrap:wrap;gap:14px"><button type="button" class="btn" id="go-dash"
+            disabled>Continue to my dashboard</button><a href="contact.html" class="btn btn2">Back to your request</a>
+        </div>
+      </div>
+    </div>
 
   </main>
   <footer style="background:var(--foot);color:#c9d6d8">
@@ -118,195 +573,116 @@
           style="color:#c9d6d8">Services &amp; Pricing</a><a href="security.html" style="color:#c9d6d8">Security</a><a
           href="partners.html" style="color:#c9d6d8">For partners</a><a href="guides.html" style="color:#c9d6d8">Setup
           guides</a><a href="about.html" style="color:#c9d6d8">About Us</a><a href="contact.html"
-          style="color:#c9d6d8">Request a phone</a><a href="agreement.html" style="color:#c9d6d8">Loaner agreement</a>
-      </div>
+          style="color:#c9d6d8">Request a phone</a><a href="agreement.html" style="color:#c9d6d8">Loaner agreement</a><a
+          href="dashboard.html" style="color:#c9d6d8">My dashboard</a></div>
       <div style="font-size:14px">(808) 555-0142 · hello@reconnectmaui.com · Instagram @reconnectmaui</div>
     </div>
   </footer>
+
   <script>
     (function () {
-      var CARRIERS = {
-        att: {
-          name: "AT&T",
-          contact: "800-331-0500",
-          ready: [
-            "Your AT&T account sign-in (or the account owner on hand). Only the account owner or an authorized user can activate a new SIM.",
-            "The IMEI and eSIM ID (EID) of your Reconnect phone, printed on the card in the locker.",
-            "Access to your email, in case AT&T sends a QR code there."
-          ],
-          get: [
-            "Go to att.com and sign in to your wireless account.",
-            "Choose the line with your number, then pick Device options and Manage your SIM.",
-            "Choose Get a new eSIM, then Get started, and follow the prompts. This option only shows if your line already used an eSIM.",
-            "If you don't see it, call AT&T at 800-331-0500 from a borrowed phone. Say: \"I need to move my number to a new device.\" Give them the IMEI and EID, and ask for a QR code by email."
-          ]
-        },
-        verizon: {
-          name: "Verizon",
-          contact: "800-922-0204",
-          ready: [
-            "Your My Verizon sign-in. You need to be the Account Owner or an Account Manager.",
-            "A way to verify it's you. If your account has one line, Verizon may want your old phone. With more than one line, another phone on the account can do it.",
-            "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker."
-          ],
-          get: [
-            "Connect your Reconnect phone to Wi-Fi.",
-            "Download the My Verizon app and sign in.",
-            "Open the Mobile tab, select your line, scroll down, and choose \"Change or replace device on this line\" or \"Activate or get SIM.\"",
-            "Follow the prompts to move your number to the new eSIM. There's no fee for this.",
-            "If it won't work because your old phone is lost, call Verizon at 800-922-0204 from a borrowed phone and ask for an eSIM QR code."
-          ]
-        },
-        tmobile: {
-          name: "T-Mobile",
-          contact: "611 from a T-Mobile phone, or the T-Mobile help page",
-          ready: [
-            "Your T-Mobile account sign-in.",
-            "SIM Protection turned off first. If it's on, you'll get an error.",
-            "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker."
-          ],
-          get: [
-            "Turn off SIM Protection in your T-Mobile account.",
-            "Open the T-Life app while connected to the T-Mobile network or Wi-Fi.",
-            "Go to the Account tab, select your line, then choose SIM transfer or activation and tap Get Started.",
-            "Enter the IMEI of your Reconnect phone, choose eSIM, and enter the EID when asked.",
-            "Review the change and tap Activate. If you get a text message, reply to confirm.",
-            "Connect the Reconnect phone to Wi-Fi and scan the QR code that appears. If you can't get one, contact T-Mobile and ask them to email you a QR code."
-          ]
-        },
-        other: {
-          name: "your carrier",
-          contact: "your carrier's customer service",
-          ready: [
-            "Your account number or the phone number, and your account PIN or passcode if you have one.",
-            "Photo ID. Some carriers ask for it.",
-            "The IMEI and eSIM ID (EID) of your Reconnect phone, on the card in the locker.",
-            "Access to your email, so the carrier can send you a QR code."
-          ],
-          get: [
-            "From a borrowed phone, call your carrier's customer service or visit its website or app.",
-            "Say: \"I lost my phone and need to move my number to a new device with an eSIM.\"",
-            "Give them the IMEI and EID of your Reconnect phone.",
-            "Ask for an eSIM QR code by email, or for the carrier to activate it on the phone for you.",
-            "Prepaid or smaller carrier? Not every one supports eSIM. Tell us on your call and we'll check it before you pick up the phone."
-          ]
-        }
-      };
-
-      var DEVICE_INSTALL = {
-        iphone: [
-          "On the Reconnect iPhone, open Settings, then Cellular, then Add eSIM (or Set Up Cellular).",
-          "Tap Use QR Code, and scan the code your carrier gave you. If it came by email, you can also touch and hold the code and choose Add eSIM.",
-          "Tap Continue, then Add Cellular Plan, and enter a confirmation code if asked.",
-          "Make a test call and send a test text to check that it works."
-        ],
-        android: [
-          "On the Reconnect Android phone, open Settings, then Network & internet, then SIMs (on Samsung: Connections, then SIM manager).",
-          "Tap Add SIM or Add eSIM, then choose to scan a QR code, and scan the code your carrier gave you.",
-          "Follow the prompts and turn the new line on.",
-          "Make a test call and send a test text to check that it works."
-        ],
-        other: [
-          "Open Settings on the Reconnect phone and look for SIMs, Cellular, or Mobile Data, then Add eSIM.",
-          "Scan the QR code your carrier gave you and follow the prompts.",
-          "Make a test call and send a test text to check that it works."
-        ]
-      };
-
-      var RESTORE_ACCOUNT = {
-        iphone: [
-          "With the phone at the first setup screen, choose Restore from iCloud Backup, and sign in with your Apple Account. Your verification code goes to your number, which is now working on this phone.",
-          "If your backup is old or missing, sign in to your Apple Account in Settings and turn on iCloud Photos, Contacts, and Messages to get those back.",
-          "Install the apps you need from the App Store, and sign in to each one."
-        ],
-        android: [
-          "At the first setup screen, choose to copy apps and data, pick the most recent cloud backup, and sign in with your Google account. Your verification code goes to your number, which is now working on this phone.",
-          "Open Google Photos to get your photos back, and the Play Store to reinstall the apps you need.",
-          "Sign in to each app. You type your own passwords."
-        ],
-        other: [
-          "Sign in to your phone maker's account or your Google account when asked, and restore your most recent backup if one exists.",
-          "Reinstall the apps you need and sign in to each one. Tell us your phone model on the call and we'll point you to the right menu."
-        ]
-      };
-
-      var COMMON_RESTORE = [
-        "Text login codes now come to the Reconnect phone, because your number is on it.",
-        "Authenticator app? If you had cloud backup turned on, sign in to the app and your codes come back. If not, use the backup codes you saved, or on each site choose \"try another way\" to get a code by text or email.",
-        "Boarding passes and tickets: open your airline or ticket app, or search your email, and add them to Wallet again.",
-        "Payments: you can add a card to Apple Pay or Google Wallet if you need to, and your bank may ask you to verify it. Remove it before you return the phone."
-      ];
-
-      var RETURN_SIGNOUT = {
-        iphone: [
-          "Remove any cards from Wallet, and sign out of apps like email, banking, and airline apps.",
-          "Go to Settings, tap your name, scroll down, and tap Sign Out. Enter your Apple Account password to turn off Find My. This is important: a phone still tied to your account comes back locked.",
-          "Go to Settings, Cellular, tap your plan, and choose Delete eSIM."
-        ],
-        android: [
-          "Remove any cards from Google Wallet, and sign out of apps like email, banking, and airline apps.",
-          "Go to Settings, Passwords & accounts (or Accounts), and remove each account, including your Google account. This turns off the lock that ties the phone to you.",
-          "Go to Settings, Network & internet, SIMs, select your line, and delete the eSIM."
-        ],
-        other: [
-          "Remove any cards from your wallet app, and sign out of apps like email, banking, and airline apps.",
-          "Remove every account from Settings, including your Google or maker account, so the phone isn't tied to you.",
-          "Delete the eSIM from the SIM or Cellular settings."
-        ]
-      };
-
-      var PHONE_NAME = { iphone: "iPhone", android: "Android phone", other: "phone" };
-
-      function val(name) {
-        var el = document.querySelector('input[name="' + name + '"]:checked');
-        return el ? el.value : "";
+      var $ = function (x) { return document.querySelector(x); };
+      function fmtDT(d) { return d.toLocaleString('en-US', { timeZone: 'Pacific/Honolulu', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }); }
+      $('#print-btn').addEventListener('click', function () { window.print(); });
+      var flow = /[?&]flow=1/.test(location.search), req = null, sg = {};
+      try { req = JSON.parse(sessionStorage.getItem('rc_req') || 'null'); sg = JSON.parse(sessionStorage.getItem('rc_sign') || '{}') || {}; } catch (e) { }
+      if (!flow) return;                                   // plain reading view
+      var demo = false;
+      if (!req) {
+        demo = true; req = {
+          mode: 'green', name: '', email: '', reachLabel: 'Email', reachDetail: '', helpLabel: 'Guides only', days: 3, startText: fmtDT(new Date()), returnText: 'in 3 days, 11:00 AM', rate: 50, dayTotal: 150, setup: 150, helpFee: 0, total: 300, hold: 799, pick: 'locker',
+          phone: { model: 'iPhone 15', serial: 'F2LXK0Q7N9', imei: '35 391234 567890 1', price: 799 }
+        };
       }
-      function li(items) {
-        return items.map(function (t) { return "<li>" + t + "</li>"; }).join("");
-      }
-      function render() {
-        var phone = val("phone"), carrier = val("carrier"), stage = val("stage");
-        var c = CARRIERS[carrier];
-        var title = document.getElementById("g-title");
-        var sub = document.getElementById("g-sub");
-        var ready = document.getElementById("g-ready");
-        var steps = document.getElementById("g-steps");
-        var note = document.getElementById("g-note");
-        var list = [], readyHtml = "", noteText = "";
-
-        sub.textContent = PHONE_NAME[phone].charAt(0).toUpperCase() + PHONE_NAME[phone].slice(1) + " · " + (carrier === "other" ? "Other / prepaid carrier" : c.name);
-
-        if (stage === "activate") {
-          title.textContent = "Get your number working on the Reconnect phone";
-          readyHtml = "<p style=\"margin:0;line-height:1.55;color:var(--soft)\"><strong>Your phone already works.</strong> It comes with a temporary eSIM, so you can call, text and use data right now while you move your number. The temporary line has its own number. Your own calls and texts, including login codes, come to this phone once your number moves. It includes calls, texts and data for the length of your rental.</p><h3 style=\"margin:8px 0 0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:var(--soft)\">" + li(c.ready) + "</ul>";
-          list = c.get.concat(DEVICE_INSTALL[phone]);
-          noteText = "<strong>Heads up:</strong> we never contact your carrier for you and never see your account. If " + c.name + " asks for something that's not listed here, tell us on your call and we'll help you work it out.";
-        } else if (stage === "restore") {
-          title.textContent = "Restore your accounts, codes, and apps";
-          readyHtml = "<h3 style=\"margin:0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:var(--soft)\"><li>Your " + (phone === "android" ? "Google account" : phone === "iphone" ? "Apple Account" : "phone maker or Google account") + " sign-in and password.</li><li>Your backup codes for any authenticator apps, if you saved them.</li><li>Your number working on the phone. Do the number guide first.</li></ul>";
-          list = RESTORE_ACCOUNT[phone].concat(COMMON_RESTORE);
-          noteText = "<strong>You type your own passwords.</strong> We never ask for them, and we never see your photos, messages, or accounts.";
-        } else {
-          title.textContent = "Return the phone";
-          readyHtml = "<h3 style=\"margin:0;font-size:18px\">Have these ready</h3><ul style=\"margin:0;padding-left:20px;line-height:1.7;color:var(--soft)\"><li>Your own phone, or a new one, ready to take your number back.</li><li>Your " + c.name + " sign-in, to move your number off the Reconnect phone.</li><li>The charger and cable that came with the phone.</li></ul>";
-          var back = ["Move your number back to your own phone. Use the same " + (carrier === "other" ? "carrier" : c.name) + " steps from the number guide, this time for your own phone. Do this first, so you don't lose service."];
-          list = back.concat(RETURN_SIGNOUT[phone], [
-            "You don't need to erase the phone. We do that, and we verify it.",
-            "Put the phone, charger, and cable in any partner locker or return it at a partner location.",
-            "You'll get a text when we've checked it in. Your refundable hold is released within 3 business days of check-in."
-          ]);
-          noteText = "<strong>Why sign-out matters:</strong> a phone still tied to your account comes back locked, and a locked phone can be charged at its full replacement price. Take two minutes to sign out and you're done.";
-        }
-        ready.innerHTML = readyHtml;
-        steps.innerHTML = list.map(function (t) { return "<li><span>" + t + "</span></li>"; }).join("");
-        note.innerHTML = noteText;
-      }
-      document.addEventListener("change", function (e) {
-        if (e.target && e.target.matches('input[name="phone"],input[name="carrier"],input[name="stage"]')) render();
+      var green = req.mode === 'green';
+      $('#read-only-cta').hidden = true; $('#sign-flow').hidden = false; $('#stepbar').hidden = false;
+      var em = req.email || 'the email you listed';
+      document.querySelectorAll('[data-email]').forEach(function (x) { x.textContent = em; });
+      document.querySelectorAll('[data-name]').forEach(function (x) { x.textContent = req.name || 'you'; });
+      $('#flow-note').hidden = false;
+      $('#flow-note').innerHTML = (demo ? '<strong>Demo data.</strong> <a href="contact.html">Fill out a request</a> to see your own details here. ' : '') + '<strong>Review and sign.</strong> Your Rental Summary below is filled in from your request. A copy of everything you sign goes to <strong>' + em + '</strong>, and you can print it any time.' + (green ? '' : ' Because we\'ll talk first, you don\'t place the hold until after our call.');
+      // rental summary
+      $('#rs-title').textContent = 'Rental Summary';
+      var f = $('#rs-for'); f.hidden = false; f.textContent = 'Prepared for ' + (req.name || 'you') + ' · ' + (req.pick === 'desk' ? 'Front-desk pickup' : 'Locker pickup');
+      var ph = req.phone;
+      function set(id, v) { $(id).textContent = v; }
+      set('#rs-model', (ph.make ? ph.make + ' ' : '') + ph.model); set('#rs-serial', ph.serial); set('#rs-imei', ph.imei);
+      set('#rs-start', req.startText); set('#rs-return', req.returnText); set('#rs-rate', '$' + req.rate); set('#rs-days', String(req.days));
+      set('#rs-setup', '$' + req.setup); set('#rs-help', req.helpLabel + (req.helpFee ? ' ($' + req.helpFee + ')' : '')); set('#rs-total', '$' + req.total);
+      set('#rs-hold', '$' + req.hold); set('#rs-repl', '$' + req.hold); set('#rs-card', sg.holdPlaced ? '4242' : 'Added when you place the hold');
+      set('#hold-amt', '$' + req.hold);
+      var ref = 'RC-' + (req.createdAt ? req.createdAt.slice(2, 10).replace(/-/g, '') : 'DEMO') + '-' + (ph.serial || '').slice(-4);
+      set('#doc-ref', 'Reference ' + ref);
+      // steps: number them depending on path
+      var n = 1;
+      if (green) { $('#step-verify').hidden = false; n = 2; }
+      $('#no-consent').textContent = n; $('#no-sign').textContent = n + 1;
+      if (green) { $('#step-hold').hidden = false; $('#no-hold').textContent = n + 2; }
+      $('#n').value = req.name || ''; $('#d').value = fmtDT(new Date());
+      var st = { verified: !green || !!sg.verified, consent: !!sg.consent, signed: !!sg.signed, hold: !green || !!sg.holdPlaced };
+      function save() { try { sessionStorage.setItem('rc_sign', JSON.stringify({ verified: st.verified, consent: st.consent, signed: st.signed, holdPlaced: green ? st.hold : false, name: sg.name, signedAt: sg.signedAt, sigId: sg.sigId, consentAt: sg.consentAt, ref: ref })); } catch (e) { } }
+      function norm(v) { return (v || '').trim().toLowerCase().replace(/\s+/g, ' '); }
+      // verification
+      $('#send-code').addEventListener('click', function () {
+        var vm = document.querySelector('input[name="vm"]:checked').value;
+        if (vm === 'text') {
+          var num = (req.reach === 'cell' || req.reach === 'friend' || req.reach === 'other') ? req.reachDetail : '';
+          if (!num) { $('#v-status').textContent = 'Demo: we texted the number you gave us. Your code is 123456. (Choose email if you did not give a cell number.)'; return; }
+          $('#v-status').textContent = 'Demo: we texted ' + num + '. Your code is 123456.';
+        } else $('#v-status').textContent = 'Demo: we emailed ' + em + '. Your code is 123456.';
       });
-      render();
+      $('#vcode').addEventListener('input', function () {
+        var ok = $('#vcode').value.trim() === '123456'; if (ok && !st.verified) $('#v-status').textContent = 'Verified.'; st.verified = ok || !green; refresh();
+      });
+      // consent
+      function consentOK() { return $('#ec').checked && $('#doc-code').value.trim().toUpperCase() === 'RC-7342'; }
+      function signOK() { return st.consent && $('#ack').checked && norm($('#s').value) && norm($('#s').value) === norm($('#n').value); }
+      var rl = [['verify', 'You are verified'], ['consent', 'Electronic-records consent given'], ['signed', 'Agreement signed'], ['hold', 'Refundable hold placed']];
+      function refresh() {
+        st.consent = consentOK();
+        $('#sign-btn').disabled = st.signed || !signOK();
+        $('#hold-btn').disabled = !st.signed || st.hold && sg.holdPlaced;
+        var li = '';
+        rl.forEach(function (r) {
+          if (r[0] === 'verify' && !green) return; if (r[0] === 'hold' && !green) return;
+          var on = (r[0] === 'verify' ? st.verified : (r[0] === 'consent' ? st.consent : (r[0] === 'signed' ? st.signed : (sg.holdPlaced && st.hold))));
+          li += '<li style="color:' + (on ? 'var(--ink)' : 'var(--soft)') + ';font-weight:' + (on ? '600' : '400') + '"><span>' + (on ? '✓' : '○') + '</span> ' + r[1] + '</li>';
+        });
+        $('#ready-list').innerHTML = li;
+        $('#go-dash').disabled = !(st.signed && (!green || (st.verified && sg.holdPlaced)));
+        $('#sb3').className = $('#go-dash').disabled ? '' : 'on';
+      }
+      document.querySelectorAll('#ec,#doc-code,#ack,#s,#n').forEach(function (el) { el.addEventListener('input', refresh); el.addEventListener('change', refresh); });
+      $('#sign-btn').addEventListener('click', function () {
+        if (!signOK()) { $('#sign-status').textContent = 'Please check the consent and agreement boxes, and type your full name exactly as printed.'; return; }
+        var now = new Date(); sg.name = $('#s').value.trim(); sg.signedAt = fmtDT(now) + ' HST'; sg.consentAt = sg.signedAt; sg.sigId = 'SIG-' + now.getTime().toString(36).toUpperCase().slice(-8);
+        st.signed = true; $('#sign-btn').disabled = true; $('#s').readOnly = true; $('#n').readOnly = true; $('#ack').disabled = true; $('#ec').disabled = true; $('#doc-code').readOnly = true;
+        $('#sig-rec').textContent = sg.name + ' · ' + sg.signedAt + ' · ID ' + sg.sigId + ' · Agreement v1.0 · ' + ref + ' · device and IP address recorded in the live version';
+        $('#sign-confirm').hidden = false; $('#sign-status').textContent = '';
+        save(); refresh();
+        if (green) $('#hold-btn').focus();
+      });
+      $('#hold-btn').addEventListener('click', function () {
+        if (!st.signed) return;
+        sg.holdPlaced = true; st.hold = true; $('#hold-btn').disabled = true;
+        $('#hold-status').textContent = 'Demo: hold placed on card ending 4242. Nothing was charged. A receipt goes to ' + em + '.';
+        set('#rs-card', '4242'); save(); refresh();
+      });
+      $('#go-dash').addEventListener('click', function () { save(); location.href = 'dashboard.html'; });
+      // restore already-signed state (e.g. Back button)
+      if (sg.signed && sg.name) {
+        $('#ec').checked = true; $('#ack').checked = true; $('#doc-code').value = 'RC-7342'; $('#s').value = sg.name; st.consent = true; st.signed = true;
+        $('#s').readOnly = $('#n').readOnly = true; $('#ack').disabled = $('#ec').disabled = true; $('#doc-code').readOnly = true;
+        $('#sig-rec').textContent = sg.name + ' · ' + sg.signedAt + ' · ID ' + sg.sigId + ' · Agreement v1.0 · ' + ref;
+        $('#sign-confirm').hidden = false;
+        if (green && sg.verified) { $('#vcode').value = '123456'; $('#v-status').textContent = 'Verified.'; }
+        if (sg.holdPlaced) { $('#hold-status').textContent = 'Hold placed on card ending 4242.'; }
+      }
+      // keep verified flag in sync with stored state for non-green
+      if (!green) st.verified = true;
+      refresh();
+      setTimeout(function () { var t = $('#econsent'); if (t && location.hash !== '#top') { } }, 0);
     })();
-
   </script>
 </body>
 

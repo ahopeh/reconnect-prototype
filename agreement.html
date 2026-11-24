@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Reconnect Loaner Agreement</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="stylesheet" href="site.css">
     <script src="site.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +15,135 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
         rel="stylesheet">
+    <style>
+        [hidden] {
+            display: none !important
+        }
+
+        .noprint-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center
+        }
+
+        .stepbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .stepbar li {
+            border: 1.5px solid var(--line);
+            padding: 6px 12px;
+            color: var(--soft);
+            font-size: 14px;
+            border-radius: 999px
+        }
+
+        .stepbar li.on {
+            border-color: var(--pink);
+            color: var(--ink);
+            font-weight: 700
+        }
+
+        .stepbar li.done {
+            border-color: var(--accent);
+            color: var(--ink)
+        }
+
+        .sgn {
+            background: var(--surface);
+            border: 1.5px solid var(--line);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px
+        }
+
+        .sgn h3 {
+            margin: 0;
+            font-size: 18px
+        }
+
+        .sgn .step-no {
+            display: inline-block;
+            min-width: 28px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 50%;
+            background: var(--pink);
+            color: #0f1b1f;
+            font-weight: 800;
+            margin-right: 8px
+        }
+
+        .dis {
+            margin: 0;
+            padding-left: 20px;
+            line-height: 1.7;
+            color: var(--soft)
+        }
+
+        .okline {
+            color: var(--accent);
+            font-weight: 700
+        }
+
+        .sgn input[type=checkbox] {
+            width: 24px;
+            height: 24px;
+            min-height: 0;
+            flex: none;
+            margin: 0
+        }
+
+        .cbrow {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start
+        }
+
+        .cbrow label {
+            font-weight: 400;
+            line-height: 1.5
+        }
+
+        @media print {
+
+            .util,
+            header,
+            footer,
+            .noprint,
+            .toc,
+            .sgn-flow {
+                display: none !important
+            }
+
+            body {
+                background: #fff !important;
+                color: #000 !important
+            }
+
+            * {
+                color: #000 !important;
+                background: transparent !important;
+                border-color: #999 !important
+            }
+
+            a {
+                text-decoration: none
+            }
+
+            .sec {
+                break-inside: avoid
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -21,8 +153,8 @@
     <header style="border-bottom:1.5px solid var(--line);background:var(--surface)">
         <div
             style="max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
-            <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><span class="ph"
-                    style="width:40px;height:40px"><span style="padding:0;background:none">&#9679;</span></span><span
+            <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px"><img
+                    src="img/logo-tile.png" alt="" width="44" height="44" style="display:block;border-radius:10px"><span
                     style="font-size:22px;font-weight:700">Reconnect</span></a>
             <nav class="nav" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px" aria-label="Main">
                 <a href="index.html">Home</a><a href="services.html">Services &amp; Pricing</a><a
@@ -39,6 +171,17 @@
             <h1 style="margin:0;font-size:38px;line-height:1.15">Reconnect Loaner Phone Agreement</h1>
             <p style="margin:0;font-size:18px;line-height:1.55;color:var(--soft)">Please read this before you borrow a
                 phone. We wrote it to be plain and fair, with no surprises.</p>
+            <div class="noprint-bar noprint"><button type="button" class="btn btn2" id="print-btn">Print or save as
+                    PDF</button><span style="color:var(--mute);font-size:14px">Version 1.0 · Updated Nov 2026 · <span
+                        id="doc-ref">Reference RC-AGR-1</span></span></div>
+            <ol class="stepbar noprint sgn-flow-bar" id="stepbar" hidden>
+                <li class="done">1. Your request</li>
+                <li class="on" id="sb2">2. Read and sign</li>
+                <li id="sb3">3. Your dashboard</li>
+            </ol>
+            <div id="flow-note" class="noprint" hidden
+                style="border:2px solid var(--pink);background:var(--surface);padding:14px 18px;line-height:1.55;color:var(--soft)">
+            </div>
         </div>
 
         <!-- SHORT VERSION -->
@@ -99,6 +242,7 @@
                     <li><a href="#s13">13. Limits on our responsibility</a></li>
                     <li><a href="#s14">14. Ending early</a></li>
                     <li><a href="#s15">15. General terms</a></li>
+                    <li><a href="#s16">16. Electronic records and signature consent</a></li>
                     <li><a href="#sign">Acknowledgment and signature</a></li>
                 </ul>
             </div>
@@ -107,38 +251,48 @@
         <div style="max-width:1000px;margin:0 auto;padding:16px 24px 8px">
             <div
                 style="background:var(--surface);border:1.5px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:14px">
-                <h2 style="margin:0;font-size:20px">Rental Summary (sample)</h2>
+                <h2 style="margin:0;font-size:20px"><span id="rs-title">Rental Summary (sample)</span></h2>
+                <p id="rs-for" style="margin:0;color:var(--soft)" hidden></p>
                 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Make and model</span>
-                        <div class="box">iPhone 15</div>
+                        <div class="box" id="rs-model">iPhone 15</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Serial number</span>
-                        <div class="box">F2LXK0Q7N9</div>
+                        <div class="box" id="rs-serial">F2LXK0Q7N9</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">IMEI</span>
-                        <div class="box">35 391234 567890 1</div>
+                        <div class="box" id="rs-imei">35 391234 567890 1</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Loan start</span>
-                        <div class="box">Nov 2, 2026, 3:00 PM</div>
+                        <div class="box" id="rs-start">Nov 2, 2026, 3:00 PM</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Return by</span>
-                        <div class="box">Nov 5, 2026, 11:00 AM</div>
+                        <div class="box" id="rs-return">Nov 5, 2026, 11:00 AM</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Daily rate</span>
-                        <div class="box">$50</div>
+                        <div class="box" id="rs-rate">$50</div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Days</span>
+                        <div class="box" id="rs-days">3</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Setup fee</span>
-                        <div class="box">$150</div>
+                        <div class="box" id="rs-setup">$150</div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Setup help</span>
+                        <div class="box" id="rs-help">Guides only</div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Total charges</span>
+                        <div class="box" id="rs-total">$300</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Refundable hold</span>
-                        <div class="box">$799</div>
+                        <div class="box" id="rs-hold">$799</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Replacement price</span>
-                        <div class="box">$799</div>
+                        <div class="box" id="rs-repl">$799</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Card on file (last
                             4)</span>
-                        <div class="box">4242</div>
+                        <div class="box" id="rs-card">4242</div>
                     </div>
                 </div>
             </div>
@@ -302,44 +456,132 @@
                     <h3>15. General terms</h3>
                     <p style="margin:0;line-height:1.6;color:var(--soft)">This agreement and your Rental Summary are our
                         whole agreement. Changes must be in writing and agreed by both of us. If any part isn't
-                        enforceable, the rest still applies. Electronic signatures and records are valid. Hawaiʻi law
+                        enforceable, the rest still applies. Electronic signatures and records are valid and have the
+                        same effect as paper and ink, as the federal E-SIGN Act and Hawaiʻi's Uniform Electronic
+                        Transactions Act (Hawaiʻi Revised Statutes chapter 489E) provide. See Section 16. Hawaiʻi law
                         governs this agreement, and any dispute will be handled in the courts of Maui County, Hawaiʻi.
                     </p>
+                </div>
+                <div class="sec" id="s16">
+                    <h3>16. Electronic records and signature consent</h3>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)">To sign online and receive your documents by
+                        email, we need your consent. When you sign, you confirm you have read this section.</p>
+                    <ul class="dis" style="margin:0">
+                        <li><strong>What it covers.</strong> This rental and the records that go with it: this
+                            agreement, your Rental Summary, receipts, hold and charge notices, inspection notes and
+                            support messages. It doesn't cover other transactions.</li>
+                        <li><strong>You can get paper.</strong> You may ask for any record on paper, at no charge, by
+                            emailing hello@reconnectmaui.com or calling (808) 555-0142. You can also print or save this
+                            agreement now with the button at the top of this page.</li>
+                        <li><strong>You can withdraw consent.</strong> You can withdraw at any time, with no fee, by
+                            emailing or calling us. If you withdraw before pickup, we'll finish your rental by phone and
+                            paper instead, and it may take longer. Withdrawing doesn't affect anything you've already
+                            signed.</li>
+                        <li><strong>Keeping your email current.</strong> Tell us if your email address changes. We send
+                            everything to the email on your request.</li>
+                        <li><strong>What you need.</strong> A device with internet access, a current web browser, an
+                            email account you can open, and a way to open or print PDFs. Your phone, tablet or a
+                            computer all work.</li>
+                        <li><strong>Your signature.</strong> When you type your name and select Sign, you intend it as
+                            your legal signature, with the same effect as a handwritten one. We keep a record of who
+                            signed, when, and the exact version signed. You can get a copy of that record any time.</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
         <!-- SIGNATURE -->
-        <div style="max-width:1000px;margin:0 auto;padding:0 24px 56px">
+        <div id="read-only-cta" class="noprint" style="max-width:1000px;margin:0 auto;padding:0 24px 56px">
             <div
-                style="background:var(--surface);border:1.5px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:18px">
-                <h2 id="sign" style="margin:0;font-size:20px;scroll-margin-top:90px">Acknowledgment and signature</h2>
-                <div style="display:flex;gap:12px;align-items:center"><input type="checkbox" id="ack"
-                        style="width:24px;height:24px;min-height:0;flex:none;margin:0"><label for="ack"
-                        style="font-weight:400">I have read and agree to these terms, including the charges in Sections
-                        3, 4 and 6, and I authorize them to my card on file.</label></div>
-                <div style="display:flex;flex-wrap:wrap;gap:16px">
-                    <div class="field"><label for="n">Printed name</label><input id="n" type="text"
-                            placeholder="Full name"></div>
-                    <p style="margin:0;color:var(--mute);font-size:14px;flex-basis:100%">When you sign, a copy of this
-                        agreement goes to the email you listed on your request.</p>
-                    <div class="field"><label for="s">Signature</label><input id="s" type="text"
-                            placeholder="Sign here"></div>
-                    <div class="field"><label for="d">Date</label><input id="d" type="text" placeholder="MM/DD/YYYY">
-                    </div>
-                </div>
-                <div style="display:flex;flex-wrap:wrap;gap:14px"><button type="button" class="btn" id="sign-btn"
-                        disabled>Sign and continue</button><a href="contact.html" class="btn btn2">Back to your
-                        request</a></div>
-                <div id="sign-confirm" hidden role="status"
-                    style="border:2px solid var(--accent);padding:16px;display:flex;flex-direction:column;gap:6px">
-                    <strong>Signed by <span data-name></span>.</strong><span style="color:var(--soft)">A copy of your
-                        signed agreement goes to the email you listed on your request. This is a demo, so nothing was
-                        signed, saved or sent. In the live service, the next step is the handoff and your carrier
-                        call.</span></div>
+                style="background:var(--surface);border:1.5px solid var(--line);padding:24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">
+                <div>
+                    <h2 id="econsent-ro" style="margin:0 0 6px;font-size:20px">Ready to sign?</h2><span
+                        style="color:var(--soft);line-height:1.5">You sign this agreement as part of a request, so we
+                        can fill in your phone, dates and charges. A copy goes to your email.</span>
+                </div><a href="contact.html" class="btn">Start a request</a>
             </div>
         </div>
 
+        <div id="sign-flow" class="sgn-flow" hidden
+            style="max-width:1000px;margin:0 auto;padding:0 24px 56px;display:flex;flex-direction:column;gap:20px">
+
+            <div class="sgn" id="step-verify" hidden>
+                <h3><span class="step-no">1</span>Confirm it's you</h3>
+                <div class="choice-row"><label class="choice"><input type="radio" name="vm" value="email"
+                            checked><span>Email me a code</span></label><label class="choice"><input type="radio"
+                            name="vm" value="text"><span>Text my phone</span></label></div>
+                <div style="display:flex;flex-wrap:wrap;gap:10px"><input id="vcode" type="text" inputmode="numeric"
+                        autocomplete="one-time-code" placeholder="6-digit code"
+                        style="flex:1 1 160px;width:auto"><button type="button" id="send-code" class="btn btn2">Send me
+                        a code (demo)</button></div>
+                <span id="v-status" role="status" aria-live="polite" style="color:var(--soft);font-size:14px"></span>
+            </div>
+
+            <div class="sgn" id="econsent">
+                <h3 id="econsent-h"><span class="step-no" id="no-consent">1</span>Consent to electronic records and
+                    signature</h3>
+                <p style="margin:0;color:var(--soft);line-height:1.6">To sign online and get your documents by email, we
+                    need your consent. Please read <a href="#s16">Section 16</a> above, which explains what you are
+                    agreeing to, including your right to paper copies and to withdraw.</p>
+
+                <div class="field" style="max-width:420px"><label for="doc-code">To confirm you can open and read this
+                        document on your device, type the document code: <strong id="doc-code-show"
+                            style="color:var(--pink);letter-spacing:2px">RC-7342</strong></label><input id="doc-code"
+                        type="text" autocomplete="off" placeholder="Document code"></div>
+                <div class="cbrow"><input type="checkbox" id="ec"><label for="ec">I consent to use electronic records
+                        and signatures for this rental. I have read Section 16, and I can open, read and print this
+                        document on the device I'm using now.</label></div>
+            </div>
+
+            <div class="sgn" id="step-sign">
+                <h3 id="sign"><span class="step-no" id="no-sign">2</span>Acknowledgment and signature</h3>
+                <div class="cbrow"><input type="checkbox" id="ack"><label for="ack">I have read and agree to this Loaner
+                        Phone Agreement, including the charges in Sections 3, 4 and 6, and I authorize them to my card
+                        on file.</label></div>
+                <div style="display:flex;flex-wrap:wrap;gap:16px">
+                    <div class="field"><label for="n">Printed name</label><input id="n" type="text"
+                            placeholder="Full name" autocomplete="name"></div>
+                    <div class="field"><label for="s">Signature (type your full name)</label><input id="s" type="text"
+                            placeholder="Type your full name to sign" autocomplete="off" style="font-style:italic">
+                    </div>
+                    <div class="field"><label for="d">Date</label><input id="d" type="text" readonly></div>
+                </div>
+                <p style="margin:0;color:var(--mute);font-size:14px;line-height:1.5">By typing my name and selecting
+                    Sign, I intend this to be my legal signature and I agree to be bound by this agreement. A copy of
+                    the signed agreement goes to <strong data-email>the email you listed</strong>.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center"><button type="button" class="btn"
+                        id="sign-btn" disabled>Sign agreement</button><span id="sign-status" role="status"
+                        aria-live="polite" style="color:var(--soft)"></span></div>
+                <div id="sign-confirm" hidden role="status"
+                    style="border:2px solid var(--accent);padding:16px;display:flex;flex-direction:column;gap:6px">
+                    <strong>Signed by <span data-name></span>.</strong><span
+                        style="color:var(--soft);line-height:1.6">Signature record: <span id="sig-rec"></span><br>A copy
+                        of your signed agreement and Rental Summary was sent to <strong data-email>your email</strong>.
+                        You can also print or save it from the top of this page. (Demo: nothing was actually
+                        sent.)</span></div>
+            </div>
+
+            <div class="sgn" id="step-hold" hidden>
+                <h3><span class="step-no" id="no-hold">3</span>Place your refundable hold</h3>
+                <p style="margin:0;color:var(--soft);line-height:1.6">We place a refundable hold on your credit card for
+                    <strong id="hold-amt">$799</strong>, the phone's replacement price. It's released within 3 business
+                    days of returning the phone as you got it. Credit card required (debit cards aren't accepted), and
+                    the name on the card must match the name you signed. In the live version a secure payment page (like
+                    Stripe) opens here. Never type a card number into this demo page.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center"><button type="button" id="hold-btn"
+                        class="btn btn2" disabled>Place refundable hold (demo)</button><span id="hold-status"
+                        role="status" aria-live="polite" style="color:var(--soft)"></span></div>
+            </div>
+
+            <div class="sgn" style="gap:10px">
+                <ul id="ready-list"
+                    style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;color:var(--soft)">
+                </ul>
+                <div style="display:flex;flex-wrap:wrap;gap:14px"><button type="button" class="btn" id="go-dash"
+                        disabled>Continue to my dashboard</button><a href="contact.html" class="btn btn2">Back to your
+                        request</a></div>
+            </div>
+        </div>
 
     </main>
     <footer style="background:var(--foot);color:#c9d6d8">
@@ -353,11 +595,117 @@
                     style="color:#c9d6d8">Security</a><a href="partners.html" style="color:#c9d6d8">For partners</a><a
                     href="guides.html" style="color:#c9d6d8">Setup guides</a><a href="about.html"
                     style="color:#c9d6d8">About Us</a><a href="contact.html" style="color:#c9d6d8">Request a phone</a><a
-                    href="agreement.html" style="color:#c9d6d8">Loaner agreement</a></div>
+                    href="agreement.html" style="color:#c9d6d8">Loaner agreement</a><a href="dashboard.html"
+                    style="color:#c9d6d8">My dashboard</a></div>
             <div style="font-size:14px">(808) 555-0142 · hello@reconnectmaui.com · Instagram @reconnectmaui</div>
         </div>
     </footer>
 
+    <script>
+        (function () {
+            var $ = function (x) { return document.querySelector(x); };
+            function fmtDT(d) { return d.toLocaleString('en-US', { timeZone: 'Pacific/Honolulu', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }); }
+            $('#print-btn').addEventListener('click', function () { window.print(); });
+            var flow = /[?&]flow=1/.test(location.search), req = null, sg = {};
+            try { req = JSON.parse(sessionStorage.getItem('rc_req') || 'null'); sg = JSON.parse(sessionStorage.getItem('rc_sign') || '{}') || {}; } catch (e) { }
+            if (!flow) return;                                   // plain reading view
+            var demo = false;
+            if (!req) {
+                demo = true; req = {
+                    mode: 'green', name: '', email: '', reachLabel: 'Email', reachDetail: '', helpLabel: 'Guides only', days: 3, startText: fmtDT(new Date()), returnText: 'in 3 days, 11:00 AM', rate: 50, dayTotal: 150, setup: 150, helpFee: 0, total: 300, hold: 799, pick: 'locker',
+                    phone: { model: 'iPhone 15', serial: 'F2LXK0Q7N9', imei: '35 391234 567890 1', price: 799 }
+                };
+            }
+            var green = req.mode === 'green';
+            $('#read-only-cta').hidden = true; $('#sign-flow').hidden = false; $('#stepbar').hidden = false;
+            var em = req.email || 'the email you listed';
+            document.querySelectorAll('[data-email]').forEach(function (x) { x.textContent = em; });
+            document.querySelectorAll('[data-name]').forEach(function (x) { x.textContent = req.name || 'you'; });
+            $('#flow-note').hidden = false;
+            $('#flow-note').innerHTML = (demo ? '<strong>Demo data.</strong> <a href="contact.html">Fill out a request</a> to see your own details here. ' : '') + '<strong>Review and sign.</strong> Your Rental Summary below is filled in from your request. A copy of everything you sign goes to <strong>' + em + '</strong>, and you can print it any time.' + (green ? '' : ' Because we\'ll talk first, you don\'t place the hold until after our call.');
+            // rental summary
+            $('#rs-title').textContent = 'Rental Summary';
+            var f = $('#rs-for'); f.hidden = false; f.textContent = 'Prepared for ' + (req.name || 'you') + ' · ' + (req.pick === 'desk' ? 'Front-desk pickup' : 'Locker pickup');
+            var ph = req.phone;
+            function set(id, v) { $(id).textContent = v; }
+            set('#rs-model', (ph.make ? ph.make + ' ' : '') + ph.model); set('#rs-serial', ph.serial); set('#rs-imei', ph.imei);
+            set('#rs-start', req.startText); set('#rs-return', req.returnText); set('#rs-rate', '$' + req.rate); set('#rs-days', String(req.days));
+            set('#rs-setup', '$' + req.setup); set('#rs-help', req.helpLabel + (req.helpFee ? ' ($' + req.helpFee + ')' : '')); set('#rs-total', '$' + req.total);
+            set('#rs-hold', '$' + req.hold); set('#rs-repl', '$' + req.hold); set('#rs-card', sg.holdPlaced ? '4242' : 'Added when you place the hold');
+            set('#hold-amt', '$' + req.hold);
+            var ref = 'RC-' + (req.createdAt ? req.createdAt.slice(2, 10).replace(/-/g, '') : 'DEMO') + '-' + (ph.serial || '').slice(-4);
+            set('#doc-ref', 'Reference ' + ref);
+            // steps: number them depending on path
+            var n = 1;
+            if (green) { $('#step-verify').hidden = false; n = 2; }
+            $('#no-consent').textContent = n; $('#no-sign').textContent = n + 1;
+            if (green) { $('#step-hold').hidden = false; $('#no-hold').textContent = n + 2; }
+            $('#n').value = req.name || ''; $('#d').value = fmtDT(new Date());
+            var st = { verified: !green || !!sg.verified, consent: !!sg.consent, signed: !!sg.signed, hold: !green || !!sg.holdPlaced };
+            function save() { try { sessionStorage.setItem('rc_sign', JSON.stringify({ verified: st.verified, consent: st.consent, signed: st.signed, holdPlaced: green ? st.hold : false, name: sg.name, signedAt: sg.signedAt, sigId: sg.sigId, consentAt: sg.consentAt, ref: ref })); } catch (e) { } }
+            function norm(v) { return (v || '').trim().toLowerCase().replace(/\s+/g, ' '); }
+            // verification
+            $('#send-code').addEventListener('click', function () {
+                var vm = document.querySelector('input[name="vm"]:checked').value;
+                if (vm === 'text') {
+                    var num = (req.reach === 'cell' || req.reach === 'friend' || req.reach === 'other') ? req.reachDetail : '';
+                    if (!num) { $('#v-status').textContent = 'Demo: we texted the number you gave us. Your code is 123456. (Choose email if you did not give a cell number.)'; return; }
+                    $('#v-status').textContent = 'Demo: we texted ' + num + '. Your code is 123456.';
+                } else $('#v-status').textContent = 'Demo: we emailed ' + em + '. Your code is 123456.';
+            });
+            $('#vcode').addEventListener('input', function () {
+                var ok = $('#vcode').value.trim() === '123456'; if (ok && !st.verified) $('#v-status').textContent = 'Verified.'; st.verified = ok || !green; refresh();
+            });
+            // consent
+            function consentOK() { return $('#ec').checked && $('#doc-code').value.trim().toUpperCase() === 'RC-7342'; }
+            function signOK() { return st.consent && $('#ack').checked && norm($('#s').value) && norm($('#s').value) === norm($('#n').value); }
+            var rl = [['verify', 'You are verified'], ['consent', 'Electronic-records consent given'], ['signed', 'Agreement signed'], ['hold', 'Refundable hold placed']];
+            function refresh() {
+                st.consent = consentOK();
+                $('#sign-btn').disabled = st.signed || !signOK();
+                $('#hold-btn').disabled = !st.signed || st.hold && sg.holdPlaced;
+                var li = '';
+                rl.forEach(function (r) {
+                    if (r[0] === 'verify' && !green) return; if (r[0] === 'hold' && !green) return;
+                    var on = (r[0] === 'verify' ? st.verified : (r[0] === 'consent' ? st.consent : (r[0] === 'signed' ? st.signed : (sg.holdPlaced && st.hold))));
+                    li += '<li style="color:' + (on ? 'var(--ink)' : 'var(--soft)') + ';font-weight:' + (on ? '600' : '400') + '"><span>' + (on ? '✓' : '○') + '</span> ' + r[1] + '</li>';
+                });
+                $('#ready-list').innerHTML = li;
+                $('#go-dash').disabled = !(st.signed && (!green || (st.verified && sg.holdPlaced)));
+                $('#sb3').className = $('#go-dash').disabled ? '' : 'on';
+            }
+            document.querySelectorAll('#ec,#doc-code,#ack,#s,#n').forEach(function (el) { el.addEventListener('input', refresh); el.addEventListener('change', refresh); });
+            $('#sign-btn').addEventListener('click', function () {
+                if (!signOK()) { $('#sign-status').textContent = 'Please check the consent and agreement boxes, and type your full name exactly as printed.'; return; }
+                var now = new Date(); sg.name = $('#s').value.trim(); sg.signedAt = fmtDT(now) + ' HST'; sg.consentAt = sg.signedAt; sg.sigId = 'SIG-' + now.getTime().toString(36).toUpperCase().slice(-8);
+                st.signed = true; $('#sign-btn').disabled = true; $('#s').readOnly = true; $('#n').readOnly = true; $('#ack').disabled = true; $('#ec').disabled = true; $('#doc-code').readOnly = true;
+                $('#sig-rec').textContent = sg.name + ' · ' + sg.signedAt + ' · ID ' + sg.sigId + ' · Agreement v1.0 · ' + ref + ' · device and IP address recorded in the live version';
+                $('#sign-confirm').hidden = false; $('#sign-status').textContent = '';
+                save(); refresh();
+                if (green) $('#hold-btn').focus();
+            });
+            $('#hold-btn').addEventListener('click', function () {
+                if (!st.signed) return;
+                sg.holdPlaced = true; st.hold = true; $('#hold-btn').disabled = true;
+                $('#hold-status').textContent = 'Demo: hold placed on card ending 4242. Nothing was charged. A receipt goes to ' + em + '.';
+                set('#rs-card', '4242'); save(); refresh();
+            });
+            $('#go-dash').addEventListener('click', function () { save(); location.href = 'dashboard.html'; });
+            // restore already-signed state (e.g. Back button)
+            if (sg.signed && sg.name) {
+                $('#ec').checked = true; $('#ack').checked = true; $('#doc-code').value = 'RC-7342'; $('#s').value = sg.name; st.consent = true; st.signed = true;
+                $('#s').readOnly = $('#n').readOnly = true; $('#ack').disabled = $('#ec').disabled = true; $('#doc-code').readOnly = true;
+                $('#sig-rec').textContent = sg.name + ' · ' + sg.signedAt + ' · ID ' + sg.sigId + ' · Agreement v1.0 · ' + ref;
+                $('#sign-confirm').hidden = false;
+                if (green && sg.verified) { $('#vcode').value = '123456'; $('#v-status').textContent = 'Verified.'; }
+                if (sg.holdPlaced) { $('#hold-status').textContent = 'Hold placed on card ending 4242.'; }
+            }
+            // keep verified flag in sync with stored state for non-green
+            if (!green) st.verified = true;
+            refresh();
+            setTimeout(function () { var t = $('#econsent'); if (t && location.hash !== '#top') { } }, 0);
+        })();
+    </script>
 </body>
 
 </html>
