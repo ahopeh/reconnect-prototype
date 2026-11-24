@@ -58,20 +58,12 @@
 
       <form id="request-form" novalidate style="flex:2 1 560px;min-width:0;display:flex;flex-direction:column;gap:20px">
 
-        <div id="demo-bar" class="callout"
-          style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:14px;color:var(--soft)">
-          <strong style="color:var(--ink)">Demo shortcuts:</strong>
-          <button type="button" class="btn btn2" id="fill-tom" style="min-height:36px;padding:0 14px">Fill in: Tom Hardy
-            (solo traveler)</button>
-          <button type="button" class="btn btn2" id="fill-megan" style="min-height:36px;padding:0 14px">Fill in: Megan
-            Wolfe</button>
-          <button type="button" class="btn btn2" id="fill-clear" style="min-height:36px;padding:0 14px">Clear the
-            form</button>
-        </div>
-
         <!-- 1 -->
-        <fieldset class="panel">
+        <fieldset class="panel" id="panel1" style="position:relative">
           <legend>1. How to reach you</legend>
+          <div id="suggest" role="listbox" aria-label="Demo customers" hidden
+            style="position:absolute;z-index:30;min-width:300px;max-width:calc(100% - 24px);background:var(--surface);border:2px solid var(--accent);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.45);padding:6px;display:flex;flex-direction:column;gap:2px">
+          </div>
           <div class="field"><span class="q">Your legal name</span><span
               style="font-size:14px;color:var(--mute);line-height:1.5">Enter it exactly as it appears on your
               government-issued photo ID. You'll show that ID at pickup, and it has to match the name you sign and the
@@ -396,11 +388,55 @@
         ['use', 'ptype', 'what', 'acct', 'pin', 'mail', 'help', 'pick'].forEach(function (n) { var el = document.querySelector('input[name="' + n + '"][value="' + d[n] + '"]'); if (el) el.checked = true; });
         $('#model').value = d.model; $('#carrier').value = d.carrier; $('#stay').value = d.stay; $('#days').value = d.days; $('#msg').value = '';
         $('#form-err').hidden = true; render();
-        $('#path-banner').scrollIntoView({ block: 'center', behavior: 'smooth' });
       }
-      $('#fill-tom').addEventListener('click', function () { fillDemo('tom'); });
-      $('#fill-megan').addEventListener('click', function () { fillDemo('megan'); });
-      $('#fill-clear').addEventListener('click', function () { form.reset(); $('#form-err').hidden = true; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      // ---- demo suggestions: appear under the name and email fields, like browser autofill ----
+      var SUG = [
+        { k: 'tom', t: 'Tom Hardy', d: 'tomhardy@email.com · Google Pixel 11 · solo traveler' },
+        { k: 'megan', t: 'Megan Wolfe', d: 'mwolfe@email.com · iPhone Duo' }
+      ];
+      var pop = $('#suggest'), popFor = null, hi = -1;
+      function popItems() { return pop.querySelectorAll('[role=option]'); }
+      function setHi(i) { var it = popItems(); if (!it.length) return; hi = (i + it.length) % it.length; it.forEach(function (e, j) { e.style.background = (j === hi) ? 'var(--ground)' : 'transparent'; e.setAttribute('aria-selected', j === hi ? 'true' : 'false'); }); }
+      function closePop() { pop.hidden = true; popFor = null; hi = -1; }
+      function pick(k) {
+        if (k === 'clear') { form.reset(); $('#form-err').hidden = true; render(); }
+        else fillDemo(k);
+        closePop();
+        var f = document.activeElement; if (f && f.blur) f.blur();
+      }
+      function showPop(inp) {
+        var vals = [$('#fname').value, $('#lname').value, $('#email').value].map(function (v) { return v.trim(); });
+        var empty = !vals[0] && !vals[1] && !vals[2], demoFilled = SUG.some(function (x) { return $('#fname').value.trim() === DEMO[x.k].fname && $('#email').value.trim() === DEMO[x.k].email; });
+        if (!empty && !demoFilled) { closePop(); return; }
+        pop.innerHTML = '';
+        var h = document.createElement('div'); h.textContent = 'Demo customers'; h.style.cssText = 'font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);padding:6px 10px 2px'; pop.appendChild(h);
+        SUG.concat(demoFilled ? [{ k: 'clear', t: 'Clear the form', d: '' }] : []).forEach(function (x) {
+          var o = document.createElement('div'); o.setAttribute('role', 'option'); o.setAttribute('aria-selected', 'false'); o.tabIndex = -1; o.dataset.k = x.k;
+          o.style.cssText = 'padding:8px 10px;border-radius:8px;cursor:pointer;display:flex;flex-direction:column;gap:2px';
+          var a = document.createElement('strong'); a.textContent = x.t; o.appendChild(a);
+          if (x.d) { var b = document.createElement('span'); b.textContent = x.d; b.style.cssText = 'font-size:13px;color:var(--soft)'; o.appendChild(b); }
+          o.addEventListener('mousedown', function (e) { e.preventDefault(); pick(x.k); });
+          o.addEventListener('mouseenter', function () { setHi(Array.prototype.indexOf.call(popItems(), o)); });
+          pop.appendChild(o);
+        });
+        var pr = $('#panel1').getBoundingClientRect(), ir = inp.getBoundingClientRect();
+        pop.style.top = (ir.bottom - pr.top + 4) + 'px'; pop.style.left = Math.max(8, Math.min(ir.left - pr.left, pr.width - 320)) + 'px';
+        pop.hidden = false; popFor = inp; hi = -1;
+      }
+      ['#fname', '#lname', '#email'].forEach(function (id) {
+        var el = $(id);
+        el.addEventListener('focus', function () { showPop(el); });
+        el.addEventListener('click', function () { showPop(el); });
+        el.addEventListener('input', function () { if (el.value.trim()) closePop(); });
+        el.addEventListener('blur', function () { setTimeout(function () { if (document.activeElement !== pop) closePop(); }, 120); });
+        el.addEventListener('keydown', function (e) {
+          if (pop.hidden) return;
+          if (e.key === 'ArrowDown') { e.preventDefault(); setHi(hi + 1); }
+          else if (e.key === 'ArrowUp') { e.preventDefault(); setHi(hi < 0 ? -1 : hi - 1); }
+          else if (e.key === 'Enter' && hi >= 0) { e.preventDefault(); pick(popItems()[hi].dataset.k); }
+          else if (e.key === 'Escape') { closePop(); }
+        });
+      });
       function days() { return Math.max(1, Math.min(60, parseInt($('#days').value, 10) || 1)); }
       function calc() {
         var d = days(), h = HELP[val('help')] || HELP.own, ph = assignPhone(val('ptype'), $('#model').value);
