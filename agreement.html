@@ -193,7 +193,7 @@
                 <ul style="margin:0;padding-left:20px;line-height:1.7;color:var(--soft)">
                     <li>You borrow a phone from us for the dates on your Rental Summary.</li>
                     <li>You pay a daily rate and a one-time setup fee. We also place a refundable hold on your credit
-                        card, equal to the phone's replacement price.</li>
+                        card, based on the market price to replace the phone you receive.</li>
                     <li>Return it on time and as you got it, and your deposit is released.</li>
                     <li>If it's not returned, comes back locked because it was reported lost or stolen, or is too
                         damaged to use, we charge your card on file the phone's full price.</li>
@@ -271,7 +271,7 @@
                         <div class="box" id="rs-return">Nov 5, 2026, 11:00 AM</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Daily rate</span>
-                        <div class="box" id="rs-rate">$50</div>
+                        <div class="box" id="rs-rate">$50 first day, $35 after</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Days</span>
                         <div class="box" id="rs-days">3</div>
@@ -283,10 +283,10 @@
                         <div class="box" id="rs-help">Guides only</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Total charges</span>
-                        <div class="box" id="rs-total">$300</div>
+                        <div class="box" id="rs-total">$270</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Refundable hold</span>
-                        <div class="box" id="rs-hold">$799</div>
+                        <div class="box" id="rs-hold">$700</div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:6px"><span class="lbl">Replacement price</span>
                         <div class="box" id="rs-repl">$799</div>
@@ -322,8 +322,8 @@
                         confirm we have it.</p>
                     <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>2.3 Extending.</strong> Need more
                         time? Contact us before the Return By date. If we can say yes, the new date becomes your Return
-                        By date and these terms still apply. Days beyond the Return By date are billed at the daily
-                        rate.</p>
+                        By date and these terms still apply. Days beyond the Return By date are billed at the $35
+                        additional-day rate.</p>
                     <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>2.4 If it isn't returned.</strong> If
                         we haven't heard from you and the phone hasn't come back 3 days after the Return By date, we'll
                         treat it as not returned and Section 6.2 applies. We'd much rather talk first, so please call
@@ -331,10 +331,11 @@
                 </div>
                 <div class="sec" id="s3">
                     <h3>3. Fees and payment</h3>
-                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>3.1 What you pay.</strong> The daily
-                        rate for each day you keep the phone, a one-time setup fee, and any optional support you choose
-                        (Section 11). Your Rental Summary and our <a href="services.html">Services &amp; Pricing
-                            page</a> list the amounts. Each calendar day, or part of a day, counts as one day.</p>
+                    <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>3.1 What you pay.</strong> The rental
+                        rate ($50 for the first day, $35 for each day after that), a one-time setup fee, and any
+                        optional support you choose (Section 11). Your Rental Summary and our <a
+                            href="services.html">Services &amp; Pricing page</a> list the amounts. Each calendar day, or
+                        part of a day, counts as one day.</p>
                     <p style="margin:0;line-height:1.6;color:var(--soft)"><strong>3.2 Card on file.</strong> You
                         authorize us to charge your card on file for the fees above, any late days, and any charges
                         described in Section 6. We'll send a receipt by email.</p>
@@ -565,7 +566,7 @@
             <div class="sgn" id="step-hold" hidden>
                 <h3><span class="step-no" id="no-hold">3</span>Place your refundable hold</h3>
                 <p style="margin:0;color:var(--soft);line-height:1.6">We place a refundable hold on your credit card for
-                    <strong id="hold-amt">$799</strong>, the phone's replacement price. It's released within 3 business
+                    <strong id="hold-amt">$700</strong>, the phone's replacement price. It's released within 3 business
                     days of returning the phone as you got it. Credit card required (debit cards aren't accepted), and
                     the name on the card must match the name you signed. In the live version a secure payment page (like
                     Stripe) opens here. Never type a card number into this demo page.</p>
@@ -630,7 +631,7 @@
             var ph = req.phone;
             function set(id, v) { $(id).textContent = v; }
             set('#rs-model', (ph.make ? ph.make + ' ' : '') + ph.model); set('#rs-serial', ph.serial); set('#rs-imei', ph.imei);
-            set('#rs-start', req.startText); set('#rs-return', req.returnText); set('#rs-rate', '$' + req.rate); set('#rs-days', String(req.days));
+            set('#rs-start', req.startText); set('#rs-return', req.returnText); set('#rs-rate', '$' + req.rate + ' first day, $' + (req.rateAfter || 35) + ' after'); set('#rs-days', String(req.days));
             set('#rs-setup', '$' + req.setup); set('#rs-help', req.helpLabel + (req.helpFee ? ' ($' + req.helpFee + ')' : '')); set('#rs-total', '$' + req.total);
             set('#rs-hold', '$' + req.hold); set('#rs-repl', '$' + req.hold); set('#rs-card', sg.holdPlaced ? '4242' : 'Added when you place the hold');
             set('#hold-amt', '$' + req.hold);

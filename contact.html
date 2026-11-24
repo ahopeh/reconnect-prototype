@@ -221,14 +221,14 @@
           <legend>5. Your estimate</legend>
           <div role="status" aria-live="polite"
             style="border:1.5px solid var(--line2);background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:10px">
-            <div class="row"><span>Daily rate (<span id="d-days">3</span> <span id="d-word">days</span> ×
-                $50)</span><strong id="d-rate">$150</strong></div>
+            <div class="row"><span>Rental (<span id="d-days">3</span> <span id="d-word">days</span>: $50 first day, $35
+                each day after)</span><strong id="d-rate">$120</strong></div>
             <div class="row"><span>Setup fee</span><strong>$150</strong></div>
             <div class="row" id="d-help-row" hidden><span id="d-help-label">Optional setup help</span><strong
                 id="d-help">$0</strong></div>
-            <div class="row total"><span>Your total</span><strong id="d-total">$300</strong></div>
-            <div class="row sub"><span>Plus a refundable credit-card hold, equal to the phone's replacement
-                price</span><span id="d-hold">$600–$800</span></div>
+            <div class="row total"><span>Your total</span><strong id="d-total">$270</strong></div>
+            <div class="row sub"><span>Plus a refundable credit-card hold, based on the replacement price of your phone
+                model</span><span id="d-hold">$600–$800</span></div>
             <div class="row sub"><span>Your loaner phone</span><span id="d-phone">iPhone 15</span></div>
           </div>
           <p id="est-note" style="margin:0;color:var(--mute);font-size:14px">The hold is released when you return the
@@ -356,18 +356,18 @@
         if (ptype === 'android') {
           var pixel = /pixel|google/.test(m), sam = /samsung|galaxy|\bs\d{2}\b|fold|flip|ultra|\ba\d{2}\b/.test(m);
           if (pixel && !sam) {
-            p = /pro/.test(m) ? { make: 'Google', model: 'Pixel 8 Pro', storage: '128 GB', color: 'Obsidian', price: 749 } : { make: 'Google', model: 'Pixel 8', storage: '128 GB', color: 'Obsidian', price: 649 };
+            p = /pro/.test(m) ? { make: 'Google', model: 'Pixel 8 Pro', storage: '128 GB', color: 'Obsidian', price: 650 } : { make: 'Google', model: 'Pixel 8', storage: '128 GB', color: 'Obsidian', price: 600 };
             p.newest = 'Pixel 11'; p.family = 'Pixel';
           } else {
-            p = /ultra/.test(m) ? { make: 'Samsung', model: 'Galaxy S23 Ultra', storage: '256 GB', color: 'Phantom Black', price: 799 } : (/\+|plus/.test(m) ? { make: 'Samsung', model: 'Galaxy S23+', storage: '256 GB', color: 'Phantom Black', price: 749 } : { make: 'Samsung', model: 'Galaxy S23', storage: '128 GB', color: 'Phantom Black', price: 699 });
+            p = /ultra/.test(m) ? { make: 'Samsung', model: 'Galaxy S23 Ultra', storage: '256 GB', color: 'Phantom Black', price: 750 } : (/\+|plus/.test(m) ? { make: 'Samsung', model: 'Galaxy S23+', storage: '256 GB', color: 'Phantom Black', price: 650 } : { make: 'Samsung', model: 'Galaxy S23', storage: '128 GB', color: 'Phantom Black', price: 600 });
             p.newest = 'Galaxy S26'; p.family = 'Galaxy S';
           }
           p.os = 'Android'; p.kind = 'Android';
         } else {
-          if (/pro\s*max/.test(m)) p = { make: 'Apple', model: 'iPhone 15 Pro Max', storage: '256 GB', color: 'Natural Titanium', price: 799 };
-          else if (/pro/.test(m)) p = { make: 'Apple', model: 'iPhone 15 Pro', storage: '128 GB', color: 'Black Titanium', price: 799 };
-          else if (/plus|\bair\b|max/.test(m)) p = { make: 'Apple', model: 'iPhone 15 Plus', storage: '128 GB', color: 'Blue', price: 799 };
-          else p = { make: 'Apple', model: 'iPhone 15', storage: '128 GB', color: 'Black', price: 799 };
+          if (/pro\s*max/.test(m)) p = { make: 'Apple', model: 'iPhone 15 Pro Max', storage: '256 GB', color: 'Natural Titanium', price: 800 };
+          else if (/pro/.test(m)) p = { make: 'Apple', model: 'iPhone 15 Pro', storage: '128 GB', color: 'Black Titanium', price: 750 };
+          else if (/plus|\bair\b|max/.test(m)) p = { make: 'Apple', model: 'iPhone 15 Plus', storage: '128 GB', color: 'Blue', price: 750 };
+          else p = { make: 'Apple', model: 'iPhone 15', storage: '128 GB', color: 'Black', price: 700 };
           p.newest = 'iPhone 18 Pro'; p.family = 'iPhone'; p.os = 'iOS'; p.kind = (ptype === 'other') ? 'iPhone (to confirm on our call)' : 'iPhone';
         }
         p.esim = true; p.gens = 3; return p;
@@ -442,9 +442,9 @@
       function calc() {
         var d = days(), h = HELP[val('help')] || HELP.own, ph = assignPhone(val('ptype'), $('#model').value);
         $('#d-days').textContent = d; $('#d-word').textContent = d === 1 ? 'day' : 'days';
-        $('#d-rate').textContent = '$' + (d * 50);
+        $('#d-rate').textContent = '$' + (50 + 35 * (d - 1));
         $('#d-help-row').hidden = !h.fee; $('#d-help-label').textContent = 'Optional setup help: ' + h.label; $('#d-help').textContent = '$' + h.fee;
-        $('#d-total').textContent = '$' + (d * 50 + 150 + h.fee);
+        $('#d-total').textContent = '$' + (50 + 35 * (d - 1) + 150 + h.fee);
         $('#d-hold').textContent = '$' + ph.price;
         $('#d-phone').textContent = ph.model;
       }
@@ -529,7 +529,7 @@
           help: val('help'), helpLabel: h.label, helpFee: h.fee,
           stay: $('#stay').value, pick: val('pick'), msg: $('#msg').value.trim(), days: d,
           phone: ph, startText: fmtDT(start), returnText: fmtDT(rd).replace(/,\s*\d+:\d\d\s*[AP]M$/, ', 11:00 AM'),
-          rate: 50, dayTotal: d * 50, setup: 150, total: d * 50 + 150 + h.fee, hold: ph.price, partnerDesk: (val('pick') === 'desk' && isPartner()),
+          rate: 50, rateAfter: 35, dayTotal: 50 + 35 * (d - 1), setup: 150, total: 50 + 35 * (d - 1) + 150 + h.fee, hold: ph.price, partnerDesk: (val('pick') === 'desk' && isPartner()),
           createdAt: start.toISOString()
         };
         try { sessionStorage.setItem('rc_req', JSON.stringify(req)); sessionStorage.removeItem('rc_sign'); } catch (x) { }
